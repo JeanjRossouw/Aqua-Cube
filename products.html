@@ -1,0 +1,66 @@
+<html>
+<head>
+    <title>Product Listing</title>
+    <style>
+        /* Simple CSS for layout */
+        body { font-family: Arial, sans-serif; }
+        .product { border: 1px solid #ccc; padding: 10px; margin: 10px; }
+        .filter { margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>Product Listing</h1>
+    <div class="filter">
+        <label for="sort">Sort by:</label>
+        <select id="sort" onchange="sortProducts()">
+            <option value="name">Name</option>
+            <option value="price">Price</option>
+        </select>
+        <label for="filter">Filter:</label>
+        <input type="text" id="filter" onkeyup="filterProducts()" placeholder="Search products...">
+    </div>
+    <div id="product-list">
+        <div class="product" data-name="Product A" data-price="10">
+            <h2>Product A</h2>
+            <p>Price: $10</p>
+        </div>
+        <div class="product" data-name="Product B" data-price="20">
+            <h2>Product B</h2>
+            <p>Price: $20</p>
+        </div>
+        <div class="product" data-name="Product C" data-price="15">
+            <h2>Product C</h2>
+            <p>Price: $15</p>
+        </div>
+    </div>
+    <script>
+        function sortProducts() {
+            var select = document.getElementById('sort');
+            var products = document.getElementsByClassName('product');
+            var productsArray = Array.from(products);
+            var sortCriteria = select.value;
+            productsArray.sort((a, b) => {
+                var aValue = sortCriteria === 'name' ? a.getAttribute('data-name') : parseFloat(a.getAttribute('data-price'));
+                var bValue = sortCriteria === 'name' ? b.getAttribute('data-name') : parseFloat(b.getAttribute('data-price'));
+                return aValue > bValue ? 1 : -1;
+            });
+            var productList = document.getElementById('product-list');
+            productList.innerHTML = '';
+            productsArray.forEach(product => productList.appendChild(product));
+        }
+
+        function filterProducts() {
+            var input = document.getElementById('filter').value.toLowerCase();
+            var products = document.getElementsByClassName('product');
+            Array.from(products).forEach(product => {
+                var productName = product.getAttribute('data-name').toLowerCase();
+                if (productName.includes(input)) {
+                    product.style.display = '';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
