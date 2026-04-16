@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180">
+  <defs>
+    <linearGradient id="bg5" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e0f2fe"/>
+      <stop offset="100%" stop-color="#bae6fd"/>
+    </linearGradient>
+  </defs>
+  <rect width="240" height="180" fill="url(#bg5)"/>
+  <!-- Clip base -->
+  <path d="M60,90 L60,130 Q60,135 65,135 L100,135 Q105,135 105,130 L105,95 Z" fill="#1a202c"/>
+  <!-- Flexible neck -->
+  <path d="M82,90 Q85,60 110,50 Q135,40 150,50" stroke="#2d3748" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <!-- Spot light head (round) -->
+  <circle cx="155" cy="55" r="22" fill="#1a202c"/>
+  <circle cx="155" cy="55" r="18" fill="#2d3748"/>
+  <circle cx="155" cy="55" r="13" fill="#fde047"/>
+  <circle cx="155" cy="55" r="9" fill="#fef08a"/>
+  <!-- Inner LEDs -->
+  <circle cx="152" cy="52" r="2" fill="white"/>
+  <circle cx="158" cy="53" r="2" fill="white"/>
+  <circle cx="155" cy="58" r="2" fill="white"/>
+  <!-- Light beam -->
+  <path d="M140,72 L90,170 L220,170 L175,72 Z" fill="#fde047" opacity="0.2"/>
+  <path d="M148,72 L118,168 L195,168 L170,72 Z" fill="#fde047" opacity="0.15"/>
+  <ellipse cx="155" cy="170" rx="75" ry="8" fill="#fde047" opacity="0.35"/>
+</svg>

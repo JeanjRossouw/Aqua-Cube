@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180">
+  <defs>
+    <linearGradient id="bg8" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e0f2fe"/>
+      <stop offset="100%" stop-color="#bae6fd"/>
+    </linearGradient>
+  </defs>
+  <rect width="240" height="180" fill="url(#bg8)"/>
+  <!-- Coiled hose (multiple loops) -->
+  <ellipse cx="120" cy="95" rx="70" ry="18" fill="none" stroke="#cbd5e1" stroke-width="10"/>
+  <ellipse cx="120" cy="95" rx="70" ry="18" fill="none" stroke="#94a3b8" stroke-width="1"/>
+  <ellipse cx="120" cy="82" rx="70" ry="18" fill="none" stroke="#cbd5e1" stroke-width="10"/>
+  <ellipse cx="120" cy="82" rx="70" ry="18" fill="none" stroke="#94a3b8" stroke-width="1"/>
+  <ellipse cx="120" cy="69" rx="68" ry="17" fill="none" stroke="#e2e8f0" stroke-width="10"/>
+  <ellipse cx="120" cy="69" rx="68" ry="17" fill="none" stroke="#94a3b8" stroke-width="1"/>
+  <ellipse cx="120" cy="108" rx="72" ry="18" fill="none" stroke="#cbd5e1" stroke-width="10"/>
+  <ellipse cx="120" cy="108" rx="72" ry="18" fill="none" stroke="#94a3b8" stroke-width="1"/>
+  <ellipse cx="120" cy="121" rx="74" ry="18" fill="none" stroke="#e2e8f0" stroke-width="10"/>
+  <ellipse cx="120" cy="121" rx="74" ry="18" fill="none" stroke="#94a3b8" stroke-width="1"/>
+  <!-- Hose ends -->
+  <rect x="42" y="130" width="16" height="22" rx="2" fill="#1e293b"/>
+  <rect x="40" y="128" width="20" height="5" rx="1" fill="#334155"/>
+  <rect x="182" y="130" width="16" height="22" rx="2" fill="#1e293b"/>
+  <rect x="180" y="128" width="20" height="5" rx="1" fill="#334155"/>
+  <!-- Highlight -->
+  <ellipse cx="120" cy="65" rx="40" ry="4" fill="white" opacity="0.4"/>
+</svg>
