@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- Isometric cube with water theme -->
+
+  <!-- Top face -->
+  <polygon points="40,6 74,24 40,42 6,24" fill="#48cae4"/>
+  <!-- Left face -->
+  <polygon points="6,24 40,42 40,74 6,56" fill="#0096c7"/>
+  <!-- Right face -->
+  <polygon points="74,24 40,42 40,74 74,56" fill="#023e8a"/>
+
+  <!-- Water wave on left face (clipped manually using polygon approximation) -->
+  <polygon points="6,38 23,33 40,38 40,44 23,39 6,44" fill="#90e0ef" opacity="0.55"/>
+  <polygon points="6,50 23,45 40,50 40,56 23,51 6,56" fill="#90e0ef" opacity="0.38"/>
+
+  <!-- Small fish silhouette on left face -->
+  <ellipse cx="22" cy="60" rx="6" ry="3.5" fill="white" opacity="0.35" transform="rotate(-20,22,60)"/>
+  <polygon points="16,60 12,56 12,64" fill="white" opacity="0.35" transform="rotate(-20,16,60)"/>
+
+  <!-- Bubbles on right face -->
+  <circle cx="60" cy="34" r="2.8" fill="white" opacity="0.38"/>
+  <circle cx="68" cy="46" r="1.8" fill="white" opacity="0.28"/>
+  <circle cx="54" cy="52" r="2.2" fill="white" opacity="0.32"/>
+
+  <!-- Highlight on top face -->
+  <polygon points="40,6 74,24 40,42 6,24" fill="white" opacity="0.14"/>
+
+  <!-- Cube edge lines for definition -->
+  <polygon points="40,6 74,24 74,56 40,74 6,56 6,24" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="0.8"/>
+  <line x1="40" y1="42" x2="40" y2="74" stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+  <line x1="6" y1="24" x2="40" y2="42" stroke="rgba(255,255,255,0.2)" stroke-width="0.8"/>
+  <line x1="74" y1="24" x2="40" y2="42" stroke="rgba(255,255,255,0.2)" stroke-width="0.8"/>
+</svg>
