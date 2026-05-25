@@ -1,0 +1,61 @@
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1>{{ section.settings.heading }}</h1>
+      <p>{{ section.settings.subheading }}</p>
+      {%- if section.settings.button_label != blank -%}
+        <a href="{{ section.settings.button_link }}" class="btn btn-primary">{{ section.settings.button_label }}</a>
+      {%- endif -%}
+    </div>
+    <div class="hero-image">
+      {%- if section.settings.image != blank -%}
+        <img src="{{ section.settings.image | image_url: width: 1000 }}"
+             alt="{{ section.settings.image.alt | escape }}"
+             width="500" height="500" loading="eager">
+      {%- else -%}
+        <img src="{{ 'hero-aquarium.svg' | asset_url }}"
+             alt="Aquarium hero image"
+             width="500" height="500" loading="eager">
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Welcome to Aqua Cube"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Premium Aquarium & Paludarium products for enthusiasts who love aquatic life. Curated quality, delivered to your door."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Hero image (falls back to bundled SVG)"
+    }
+  ],
+  "presets": [
+    { "name": "Hero", "category": "Aqua Cube" }
+  ]
+}
+{% endschema %}

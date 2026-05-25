@@ -1,0 +1,62 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Aqua Cube",
+    "theme_version": "1.0.0",
+    "theme_author": "Aqua Cube",
+    "theme_documentation_url": "https://aquacubesa.co.za",
+    "theme_support_url": "https://aquacubesa.co.za/pages/contact"
+  },
+  {
+    "name": "Colours",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_navbar",
+        "label": "Navbar background",
+        "default": "#2c3e50"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent",
+        "default": "#008cba"
+      },
+      {
+        "type": "color",
+        "id": "color_brand_light",
+        "label": "Brand light",
+        "default": "#48cae4"
+      },
+      {
+        "type": "color",
+        "id": "color_brand_dark",
+        "label": "Brand dark",
+        "default": "#023e8a"
+      }
+    ]
+  },
+  {
+    "name": "Branding",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo (SVG or PNG)"
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon"
+      }
+    ]
+  },
+  {
+    "name": "Social",
+    "settings": [
+      { "type": "url", "id": "social_facebook", "label": "Facebook URL" },
+      { "type": "url", "id": "social_twitter", "label": "Twitter URL" },
+      { "type": "url", "id": "social_instagram", "label": "Instagram URL" }
+    ]
+  }
+]

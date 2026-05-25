@@ -1,0 +1,27 @@
+<section class="categories">
+  <div class="container">
+    <div class="section-header">
+      <h2>{{ page_title }}</h2>
+      <p>Browse all of our collections.</p>
+    </div>
+    <div class="categories-grid">
+      {%- for collection in collections -%}
+        <a href="{{ collection.url }}" class="category-card">
+          {%- if collection.image -%}
+            <img src="{{ collection.image | image_url: width: 200 }}" alt="{{ collection.title | escape }}" width="80" height="80" loading="lazy">
+          {%- elsif collection.products.first.featured_image -%}
+            <img src="{{ collection.products.first.featured_image | image_url: width: 200 }}" alt="{{ collection.title | escape }}" width="80" height="80" loading="lazy">
+          {%- endif -%}
+          <h3>{{ collection.title }}</h3>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection list",
+  "settings": []
+}
+{% endschema %}

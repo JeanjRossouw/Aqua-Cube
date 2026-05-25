@@ -1,0 +1,59 @@
+<section class="about" id="about">
+  <div class="container">
+    <h2>{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.body }}</p>
+    {%- if section.blocks.size > 0 -%}
+      <div class="about-stats">
+        {%- for block in section.blocks -%}
+          <div class="stat-item" {{ block.shopify_attributes }}>
+            <h3>{{ block.settings.value }}</h3>
+            <p>{{ block.settings.label }}</p>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "About Aqua Cube"
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body text",
+      "default": "We are dedicated to providing the highest quality aquarium and paludarium products for enthusiasts and professionals alike. With over a decade of experience, we ensure every product meets our strict quality standards."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        { "type": "text", "id": "value", "label": "Big number" },
+        { "type": "text", "id": "label", "label": "Caption" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "About",
+      "category": "Aqua Cube",
+      "blocks": [
+        { "type": "stat", "settings": { "value": "500+",  "label": "Products Available" } },
+        { "type": "stat", "settings": { "value": "10K+",  "label": "Happy Customers" } },
+        { "type": "stat", "settings": { "value": "10+",   "label": "Years Experience" } },
+        { "type": "stat", "settings": { "value": "4.9★", "label": "Average Rating" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

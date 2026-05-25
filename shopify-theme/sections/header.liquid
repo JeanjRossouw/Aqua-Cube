@@ -1,0 +1,55 @@
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="{{ routes.root_url }}" class="logo">
+      {%- if settings.logo != blank -%}
+        <img src="{{ settings.logo | image_url: width: 88 }}" alt="{{ shop.name }} Logo" class="logo-img" width="44" height="44">
+      {%- else -%}
+        <img src="{{ 'logo.svg' | asset_url }}" alt="{{ shop.name }} Logo" class="logo-img" width="44" height="44">
+      {%- endif -%}
+      <span>{{ section.settings.brand_name | default: shop.name | upcase }}</span>
+    </a>
+
+    <ul class="nav-menu" id="NavMenu">
+      {%- for link in linklists[section.settings.menu].links -%}
+        <li>
+          <a href="{{ link.url }}"
+             class="nav-link{% if link.active %} active{% endif %}">
+            {{ link.title }}
+          </a>
+        </li>
+      {%- endfor -%}
+      <li>
+        <a href="{{ routes.cart_url }}" class="nav-link cart-link">
+          <i class="fas fa-shopping-cart"></i>&nbsp;<span id="cart-count">{{ cart.item_count }}</span>
+        </a>
+      </li>
+    </ul>
+
+    <button class="hamburger" id="Hamburger" aria-label="Toggle menu" aria-controls="NavMenu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand name (shown next to logo)",
+      "default": "AQUA CUBE"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Main menu",
+      "default": "main-menu"
+    }
+  ],
+  "presets": [
+    { "name": "Header" }
+  ]
+}
+{% endschema %}
