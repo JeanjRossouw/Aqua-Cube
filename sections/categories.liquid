@@ -14,8 +14,8 @@
             <img src="{{ block.settings.image | image_url: width: 200 }}"
                  alt="{{ block.settings.label | escape }}"
                  width="80" height="80" loading="lazy">
-          {%- else -%}
-            {{ block.settings.icon_svg }}
+          {%- elsif block.settings.icon != 'none' -%}
+            {%- render 'category-icon', icon: block.settings.icon -%}
           {%- endif -%}
           <h3>{{ block.settings.label | default: target.title }}</h3>
         </a>
@@ -46,10 +46,22 @@
       "type": "category",
       "name": "Category card",
       "settings": [
-        { "type": "text",         "id": "label",      "label": "Label" },
-        { "type": "collection",   "id": "collection", "label": "Collection" },
-        { "type": "image_picker", "id": "image",      "label": "Icon image (overrides SVG below)" },
-        { "type": "html",         "id": "icon_svg",   "label": "Inline SVG icon" }
+        { "type": "text",       "id": "label",      "label": "Label" },
+        { "type": "collection", "id": "collection", "label": "Collection" },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Built-in icon",
+          "default": "aquariums",
+          "options": [
+            { "value": "none",        "label": "None (use image below)" },
+            { "value": "aquariums",   "label": "Aquariums" },
+            { "value": "filters",     "label": "Filters" },
+            { "value": "lighting",    "label": "Lighting" },
+            { "value": "decorations", "label": "Decorations" }
+          ]
+        },
+        { "type": "image_picker", "id": "image", "label": "Custom icon image (overrides built-in)" }
       ]
     }
   ],
@@ -59,10 +71,10 @@
       "name": "Categories",
       "category": "Aqua Cube",
       "blocks": [
-        { "type": "category", "settings": { "label": "Aquariums",  "collection": "tanks" } },
-        { "type": "category", "settings": { "label": "Filters",    "collection": "filtration" } },
-        { "type": "category", "settings": { "label": "Lighting",   "collection": "lighting" } },
-        { "type": "category", "settings": { "label": "Decorations","collection": "decorations" } }
+        { "type": "category", "settings": { "label": "Aquariums",   "collection": "tanks",       "icon": "aquariums" } },
+        { "type": "category", "settings": { "label": "Filters",     "collection": "filtration",  "icon": "filters" } },
+        { "type": "category", "settings": { "label": "Lighting",    "collection": "lighting",    "icon": "lighting" } },
+        { "type": "category", "settings": { "label": "Decorations", "collection": "decorations", "icon": "decorations" } }
       ]
     }
   ]

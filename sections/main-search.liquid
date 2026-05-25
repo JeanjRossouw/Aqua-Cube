@@ -1,0 +1,56 @@
+<section class="search-page featured-products">
+  <div class="container">
+    <div class="section-header">
+      <h2>
+        {%- if search.performed -%}
+          Search results for &ldquo;{{ search.terms | escape }}&rdquo;
+        {%- else -%}
+          {{ 'general.search.submit' | t }}
+        {%- endif -%}
+      </h2>
+      {%- if search.performed -%}
+        <p>{{ search.results_count }} result{% if search.results_count != 1 %}s{% endif %}</p>
+      {%- endif -%}
+    </div>
+
+    <form action="{{ routes.search_url }}" method="get" role="search" class="search-form">
+      <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" required>
+      <input type="hidden" name="type" value="product">
+      <button type="submit" class="btn btn-primary">{{ 'general.search.submit' | t }}</button>
+    </form>
+
+    {%- if search.performed -%}
+      {%- if search.results_count > 0 -%}
+        {%- paginate search.results by 24 -%}
+          <div class="products-grid">
+            {%- for item in search.results -%}
+              {%- if item.object_type == 'product' -%}
+                {%- render 'product-card', product: item, show_vendor: true -%}
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+
+          {%- if paginate.pages > 1 -%}
+            <nav class="pagination" role="navigation" aria-label="Pagination">
+              {%- if paginate.previous -%}<a href="{{ paginate.previous.url }}">&laquo; {{ 'general.pagination.previous' | t }}</a>{%- endif -%}
+              {%- for part in paginate.parts -%}
+                {%- if part.is_link -%}<a href="{{ part.url }}">{{ part.title }}</a>
+                {%- else -%}<span aria-current="page">{{ part.title }}</span>{%- endif -%}
+              {%- endfor -%}
+              {%- if paginate.next -%}<a href="{{ paginate.next.url }}">{{ 'general.pagination.next' | t }} &raquo;</a>{%- endif -%}
+            </nav>
+          {%- endif -%}
+        {%- endpaginate -%}
+      {%- else -%}
+        <p class="empty-state">{{ 'general.search.no_results' | t }}</p>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Search results",
+  "settings": []
+}
+{% endschema %}

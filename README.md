@@ -10,28 +10,39 @@ Liquid theme converted from the static `index.html` / `products.html` / `cart.ht
 shopify-theme/
 ├── layout/theme.liquid              # main HTML shell (one place for <head>, header/footer groups)
 ├── templates/
-│   ├── index.json                   # homepage  (Hero + Featured + Categories + About + Contact)
+│   ├── index.json                   # homepage (Hero + Trust bar + Featured + Categories + About + Newsletter + Contact)
 │   ├── product.json                 # PDP
 │   ├── collection.json              # collection listing
 │   ├── list-collections.json        # /collections index
 │   ├── cart.json                    # cart page
+│   ├── search.json                  # search results
 │   ├── page.json                    # generic CMS pages (About, Contact, etc.)
 │   └── 404.liquid
 ├── sections/
-│   ├── header.liquid + header-group.json
+│   ├── header.liquid + header-group.json   # inline search + cart + linklist menu
 │   ├── footer.liquid + footer-group.json
-│   ├── hero.liquid
+│   ├── hero.liquid                          # heading + subheading + CTA (route picker) + image
+│   ├── trust-bar.liquid                     # 4-up icon row (shipping/secure/expertise/returns)
 │   ├── featured-collection.liquid
-│   ├── categories.liquid            # 4-up category grid with image OR inline-SVG icons
-│   ├── about.liquid                 # heading + stats
-│   ├── contact.liquid               # Shopify {% form 'contact' %}
-│   ├── main-product.liquid          # PDP body (form 'product' add-to-cart)
-│   ├── main-collection.liquid       # paginated product grid + sort dropdown
+│   ├── categories.liquid                    # 4-up category grid with built-in SVG icons or custom images
+│   ├── about.liquid                         # heading + stats blocks
+│   ├── newsletter.liquid                    # email signup (Shopify customer form, tagged "newsletter")
+│   ├── contact.liquid                       # Shopify {% form 'contact' %}
+│   ├── main-product.liquid                  # PDP body + breadcrumbs + JSON-LD
+│   ├── main-collection.liquid               # paginated product grid + sort + breadcrumbs
 │   ├── main-list-collections.liquid
-│   ├── main-cart.liquid             # cart line items + Shopify checkout
-│   └── main-page.liquid
+│   ├── main-cart.liquid                     # cart line items + Shopify checkout
+│   ├── main-page.liquid
+│   └── main-search.liquid
 ├── snippets/
-│   └── product-card.liquid
+│   ├── product-card.liquid
+│   ├── breadcrumbs.liquid                   # auto-detects template context
+│   ├── product-schema.liquid                # JSON-LD for SEO / rich results
+│   ├── category-icon.liquid                 # dispatcher for built-in SVGs
+│   ├── icon-aquariums.liquid                # original SVGs from static site
+│   ├── icon-filters.liquid
+│   ├── icon-lighting.liquid
+│   └── icon-decorations.liquid
 ├── assets/
 │   ├── style.css                    # original site CSS + Shopify-specific additions
 │   ├── global.js                    # mobile menu + gallery thumb swap

@@ -16,16 +16,35 @@
     <meta name="description" content="{{ page_description | escape }}">
   {%- endif -%}
 
+  {%- comment -%} Open Graph + Twitter cards {%- endcomment -%}
+  <meta property="og:site_name" content="{{ shop.name }}">
+  <meta property="og:url" content="{{ canonical_url }}">
+  <meta property="og:title" content="{{ page_title | escape }}">
+  <meta property="og:type" content="{% if template contains 'product' %}product{% else %}website{% endif %}">
+  {%- if page_description -%}
+    <meta property="og:description" content="{{ page_description | escape }}">
+  {%- endif -%}
+  {%- if template contains 'product' and product.featured_image -%}
+    <meta property="og:image" content="https:{{ product.featured_image | image_url: width: 1200 }}">
+  {%- elsif settings.logo != blank -%}
+    <meta property="og:image" content="https:{{ settings.logo | image_url: width: 1200 }}">
+  {%- endif -%}
+  <meta name="twitter:card" content="summary_large_image">
+
   {{ content_for_header }}
 
+  <link rel="preload" as="style" href="{{ 'style.css' | asset_url }}">
   <link rel="stylesheet" href="{{ 'style.css' | asset_url }}">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="template-{{ template | replace: '.', '-' | handle }}">
 
+  <a class="skip-to-content" href="#MainContent">Skip to content</a>
+
   {% sections 'header-group' %}
 
-  <main id="MainContent" role="main">
+  <main id="MainContent" role="main" tabindex="-1">
     {{ content_for_layout }}
   </main>
 
