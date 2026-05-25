@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180">
+  <defs>
+    <linearGradient id="bg10" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e0f2fe"/>
+      <stop offset="100%" stop-color="#bae6fd"/>
+    </linearGradient>
+  </defs>
+  <rect width="240" height="180" fill="url(#bg10)"/>
+  <!-- Controller/Display unit -->
+  <rect x="50" y="55" width="140" height="40" rx="6" fill="#1a202c"/>
+  <rect x="58" y="63" width="50" height="24" rx="2" fill="#10b981"/>
+  <text x="83" y="80" font-family="Arial" font-size="14" font-weight="bold" fill="#0f172a" text-anchor="middle">26°</text>
+  <!-- Status LED -->
+  <circle cx="170" cy="75" r="4" fill="#ef4444"/>
+  <!-- Buttons -->
+  <rect x="120" y="66" width="14" height="8" rx="2" fill="#4a5568"/>
+  <rect x="140" y="66" width="14" height="8" rx="2" fill="#4a5568"/>
+  <rect x="120" y="80" width="14" height="8" rx="2" fill="#4a5568"/>
+  <rect x="140" y="80" width="14" height="8" rx="2" fill="#4a5568"/>
+  <!-- Cable -->
+  <path d="M190,75 Q210,80 210,110 Q210,140 185,150" stroke="#1a202c" stroke-width="3" fill="none"/>
+  <!-- Heater rod (cylinder) -->
+  <rect x="50" y="105" width="140" height="14" rx="7" fill="#e2e8f0" stroke="#64748b" stroke-width="1"/>
+  <rect x="50" y="105" width="15" height="14" rx="7" fill="#64748b"/>
+  <!-- Heating coils visible -->
+  <path d="M75,112 L80,108 L85,116 L90,108 L95,116 L100,108 L105,116 L110,108 L115,116 L120,108 L125,116 L130,108 L135,116 L140,108 L145,116 L150,108 L155,116 L160,108 L165,116 L170,108 L175,116 L180,112" stroke="#f97316" stroke-width="1.5" fill="none" opacity="0.7"/>
+  <!-- Heat waves -->
+  <path d="M80,130 Q85,135 90,130 Q95,125 100,130" stroke="#f97316" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <path d="M110,135 Q115,140 120,135 Q125,130 130,135" stroke="#f97316" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <path d="M140,130 Q145,135 150,130 Q155,125 160,130" stroke="#f97316" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <!-- Suction cups -->
+  <circle cx="75" cy="140" r="4" fill="#cbd5e1" opacity="0.8"/>
+  <circle cx="165" cy="140" r="4" fill="#cbd5e1" opacity="0.8"/>
+</svg>

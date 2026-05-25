@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aqua Cube - Premium Aquarium & Paludarium Products</title>
+    <title>Aqua Cube - Premium Aquarium &amp; Paludarium Products</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <i class="fas fa-water"></i>
+                <img src="images/logo.svg" alt="Aqua Cube Logo" class="logo-img">
                 <span>AQUA CUBE</span>
             </div>
             <ul class="nav-menu">
@@ -20,9 +21,13 @@
                 <li><a href="products.html" class="nav-link">Products</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
-                <li><a href="cart.html" class="nav-link cart-link"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a></li>
+                <li>
+                    <a href="cart.html" class="nav-link cart-link">
+                        <i class="fas fa-shopping-cart"></i>&nbsp;<span id="cart-count">0</span>
+                    </a>
+                </li>
             </ul>
-            <div class="hamburger">
+            <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -32,22 +37,27 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>Welcome to Aqua Cube</h1>
-            <p>Premium Aquarium & Paludarium Products for Your Aquatic Pets</p>
-            <a href="products.html" class="btn btn-primary">Shop Now</a>
-        </div>
-        <div class="hero-image">
-            <img src="https://via.placeholder.com/500x400?text=Aquarium" alt="Aquarium">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Welcome to Aqua Cube</h1>
+                <p>Premium Aquarium &amp; Paludarium products for enthusiasts who love aquatic life. Curated quality, delivered to your door.</p>
+                <a href="products.html" class="btn btn-primary">Shop Now</a>
+            </div>
+            <div class="hero-image">
+                <img src="images/hero-aquarium.svg" alt="Beautiful freshwater aquarium with fish and plants">
+            </div>
         </div>
     </section>
 
     <!-- Featured Products -->
     <section class="featured-products">
         <div class="container">
-            <h2>Featured Products</h2>
+            <div class="section-header">
+                <h2>Featured Products</h2>
+                <p>Handpicked essentials for your aquarium setup</p>
+            </div>
             <div class="products-grid" id="featured-products">
-                <!-- Products will be loaded here by JavaScript -->
+                <!-- Products loaded by app.js -->
             </div>
         </div>
     </section>
@@ -55,24 +65,130 @@
     <!-- Categories Section -->
     <section class="categories">
         <div class="container">
-            <h2>Shop by Category</h2>
+            <div class="section-header">
+                <h2>Shop by Category</h2>
+                <p>Everything you need, organised for easy browsing</p>
+            </div>
             <div class="categories-grid">
-                <div class="category-card">
-                    <img src="https://via.placeholder.com/200x200?text=Aquariums" alt="Aquariums">
+
+                <!-- Aquariums -->
+                <a href="products.html" class="category-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+                        <!-- Tank body -->
+                        <rect x="6" y="18" width="68" height="50" rx="4" fill="#bae6fd" stroke="#0077b6" stroke-width="2.5"/>
+                        <!-- Top bar -->
+                        <rect x="6" y="18" width="68" height="9" rx="4" fill="#0077b6"/>
+                        <!-- Water -->
+                        <rect x="8.5" y="27" width="63" height="39" fill="#7dd3fc" opacity="0.55"/>
+                        <!-- Substrate -->
+                        <ellipse cx="40" cy="67" rx="30" ry="5" fill="#c9a84c" opacity="0.7"/>
+                        <!-- Plant -->
+                        <path d="M20,67 Q16,52 20,40" stroke="#2d6a4f" stroke-width="2.5" fill="none"/>
+                        <ellipse cx="20" cy="40" rx="9" ry="5" fill="#52b788" transform="rotate(-25,20,40)"/>
+                        <ellipse cx="17" cy="52" rx="8" ry="4" fill="#40916c" transform="rotate(20,17,52)"/>
+                        <!-- Main fish -->
+                        <ellipse cx="44" cy="46" rx="14" ry="8" fill="#f97316"/>
+                        <polygon points="30,46 22,40 22,52" fill="#ea6a10"/>
+                        <rect x="38" y="38" width="5" height="16" rx="2.5" fill="white" opacity="0.85"/>
+                        <circle cx="52" cy="43" r="4" fill="white"/>
+                        <circle cx="53" cy="43" r="2.5" fill="#111"/>
+                        <!-- Small fish -->
+                        <ellipse cx="56" cy="35" rx="8" ry="4.5" fill="#38bdf8"/>
+                        <polygon points="48,35 43,31 43,39" fill="#0ea5e9"/>
+                        <!-- Bubbles -->
+                        <circle cx="28" cy="34" r="2.5" fill="none" stroke="#7dd3fc" stroke-width="1.2"/>
+                        <circle cx="62" cy="30" r="2" fill="none" stroke="#7dd3fc" stroke-width="1.2"/>
+                    </svg>
                     <h3>Aquariums</h3>
-                </div>
-                <div class="category-card">
-                    <img src="https://via.placeholder.com/200x200?text=Filters" alt="Filters">
+                </a>
+
+                <!-- Filters -->
+                <a href="products.html" class="category-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+                        <!-- Canister body -->
+                        <rect x="22" y="18" width="36" height="46" rx="10" fill="#0096c7"/>
+                        <rect x="22" y="18" width="36" height="10" rx="10" fill="#023e8a"/>
+                        <!-- Internal grid lines -->
+                        <line x1="32" y1="28" x2="32" y2="64" stroke="white" stroke-width="1" opacity="0.25"/>
+                        <line x1="40" y1="28" x2="40" y2="64" stroke="white" stroke-width="1" opacity="0.25"/>
+                        <line x1="48" y1="28" x2="48" y2="64" stroke="white" stroke-width="1" opacity="0.25"/>
+                        <line x1="22" y1="36" x2="58" y2="36" stroke="white" stroke-width="1" opacity="0.25"/>
+                        <line x1="22" y1="44" x2="58" y2="44" stroke="white" stroke-width="1" opacity="0.25"/>
+                        <line x1="22" y1="52" x2="58" y2="52" stroke="white" stroke-width="1" opacity="0.25"/>
+                        <!-- Inlet tube left -->
+                        <rect x="10" y="24" width="12" height="5" rx="2.5" fill="#023e8a"/>
+                        <!-- Outlet tube left -->
+                        <rect x="10" y="51" width="12" height="5" rx="2.5" fill="#023e8a"/>
+                        <!-- Outlet tube right -->
+                        <rect x="58" y="24" width="12" height="5" rx="2.5" fill="#023e8a"/>
+                        <rect x="58" y="51" width="12" height="5" rx="2.5" fill="#023e8a"/>
+                        <!-- Badge label -->
+                        <rect x="28" y="40" width="24" height="10" rx="3" fill="white" opacity="0.9"/>
+                        <line x1="31" y1="44" x2="49" y2="44" stroke="#0096c7" stroke-width="1.5"/>
+                        <line x1="31" y1="47" x2="45" y2="47" stroke="#0096c7" stroke-width="1"/>
+                        <!-- Flow arrows on tubes -->
+                        <polygon points="10,26.5 7,28 10,29.5" fill="#48cae4"/>
+                        <polygon points="10,53.5 7,55 10,56.5" fill="#48cae4"/>
+                    </svg>
                     <h3>Filters</h3>
-                </div>
-                <div class="category-card">
-                    <img src="https://via.placeholder.com/200x200?text=Lighting" alt="Lighting">
+                </a>
+
+                <!-- Lighting -->
+                <a href="products.html" class="category-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+                        <!-- Fixture bar -->
+                        <rect x="8" y="14" width="64" height="14" rx="6" fill="#023e8a"/>
+                        <!-- LED dots -->
+                        <circle cx="18" cy="21" r="3.5" fill="#fde047"/>
+                        <circle cx="28" cy="21" r="3.5" fill="#fde047"/>
+                        <circle cx="38" cy="21" r="3.5" fill="#fde047"/>
+                        <circle cx="48" cy="21" r="3.5" fill="#fde047"/>
+                        <circle cx="58" cy="21" r="3.5" fill="#fde047"/>
+                        <circle cx="68" cy="21" r="2.5" fill="#fde047"/>
+                        <!-- Light beam cone -->
+                        <path d="M12,28 L4,70 L76,70 L68,28 Z" fill="#fde047" opacity="0.08"/>
+                        <path d="M18,28 L12,66 L68,66 L62,28 Z" fill="#fde047" opacity="0.07"/>
+                        <!-- Glow pool at bottom -->
+                        <ellipse cx="40" cy="66" rx="32" ry="8" fill="#fde047" opacity="0.18"/>
+                        <!-- Mounting bracket -->
+                        <rect x="36" y="6" width="8" height="8" rx="2" fill="#2c3e50"/>
+                        <!-- Shimmer lines -->
+                        <line x1="22" y1="34" x2="18" y2="60" stroke="#fde047" stroke-width="1" opacity="0.2"/>
+                        <line x1="38" y1="34" x2="38" y2="62" stroke="#fde047" stroke-width="1" opacity="0.2"/>
+                        <line x1="54" y1="34" x2="58" y2="60" stroke="#fde047" stroke-width="1" opacity="0.2"/>
+                    </svg>
                     <h3>Lighting</h3>
-                </div>
-                <div class="category-card">
-                    <img src="https://via.placeholder.com/200x200?text=Decorations" alt="Decorations">
+                </a>
+
+                <!-- Decorations -->
+                <a href="products.html" class="category-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+                        <!-- Sandy base -->
+                        <ellipse cx="40" cy="72" rx="36" ry="7" fill="#c9a84c" opacity="0.55"/>
+                        <!-- Branch coral left -->
+                        <path d="M24,70 L22,48 L16,28 L12,16" stroke="#e63946" stroke-width="5" stroke-linecap="round" fill="none"/>
+                        <path d="M22,48 L30,38 L34,28" stroke="#e63946" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+                        <path d="M16,28 L8,20" stroke="#e63946" stroke-width="3" stroke-linecap="round" fill="none"/>
+                        <circle cx="12" cy="16" r="5.5" fill="#ff6b6b"/>
+                        <circle cx="34" cy="28" r="4.5" fill="#ff8585"/>
+                        <circle cx="8" cy="20" r="4" fill="#ff6b6b"/>
+                        <!-- Green plant right -->
+                        <path d="M52,70 Q47,52 51,36" stroke="#2d6a4f" stroke-width="3" fill="none" stroke-linecap="round"/>
+                        <ellipse cx="51" cy="36" rx="13" ry="6" fill="#52b788" transform="rotate(-22,51,36)"/>
+                        <ellipse cx="48" cy="50" rx="11" ry="5" fill="#40916c" transform="rotate(18,48,50)"/>
+                        <!-- Round coral center -->
+                        <circle cx="42" cy="60" r="10" fill="#f4a261"/>
+                        <circle cx="38" cy="52" r="3.5" fill="#e76f51"/>
+                        <circle cx="46" cy="53" r="3" fill="#e76f51"/>
+                        <circle cx="42" cy="50" r="2.5" fill="#ff9f6a"/>
+                        <!-- Rocks -->
+                        <ellipse cx="62" cy="70" rx="11" ry="6" fill="#868e96"/>
+                        <ellipse cx="60" cy="67" rx="7" ry="4.5" fill="#adb5bd"/>
+                        <ellipse cx="16" cy="71" rx="9" ry="5" fill="#6c757d"/>
+                    </svg>
                     <h3>Decorations</h3>
-                </div>
+                </a>
+
             </div>
         </div>
     </section>
@@ -82,13 +198,34 @@
         <div class="container">
             <h2>About Aqua Cube</h2>
             <p>We are dedicated to providing the highest quality aquarium and paludarium products for enthusiasts and professionals alike. With over a decade of experience, we ensure every product meets our strict quality standards.</p>
+            <div class="about-stats">
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>Products Available</p>
+                </div>
+                <div class="stat-item">
+                    <h3>10K+</h3>
+                    <p>Happy Customers</p>
+                </div>
+                <div class="stat-item">
+                    <h3>10+</h3>
+                    <p>Years Experience</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4.9★</h3>
+                    <p>Average Rating</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <h2>Get In Touch</h2>
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Have a question about our products? We'd love to hear from you.</p>
+            </div>
             <div class="contact-form">
                 <form>
                     <input type="text" placeholder="Your Name" required>
@@ -105,23 +242,27 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>About Us</h4>
-                    <p>Leading provider of premium aquarium and paludarium products.</p>
+                    <div class="footer-logo">
+                        <img src="images/logo.svg" alt="Aqua Cube Logo">
+                        <span>AQUA CUBE</span>
+                    </div>
+                    <p>Leading provider of premium aquarium and paludarium products since 2015.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="products.html">Products</a></li>
-                        <li><a href="#about">About</a></li>
+                        <li><a href="#about">About Us</a></li>
                         <li><a href="#contact">Contact</a></li>
+                        <li><a href="cart.html">Cart</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Follow Us</h4>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
@@ -132,5 +273,11 @@
     </footer>
 
     <script src="js/app.js"></script>
+    <script>
+        // Mobile hamburger menu toggle
+        document.getElementById('hamburger').addEventListener('click', function () {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>

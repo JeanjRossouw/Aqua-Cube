@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180">
+  <defs>
+    <linearGradient id="bg4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e0f2fe"/>
+      <stop offset="100%" stop-color="#bae6fd"/>
+    </linearGradient>
+  </defs>
+  <rect width="240" height="180" fill="url(#bg4)"/>
+  <!-- Base plate -->
+  <rect x="80" y="140" width="80" height="14" rx="3" fill="#2d3748"/>
+  <ellipse cx="120" cy="140" rx="40" ry="4" fill="#4a5568"/>
+  <!-- Arm/stem -->
+  <path d="M120,140 Q118,100 135,70" stroke="#2d3748" stroke-width="4" fill="none"/>
+  <!-- Cylinder lamp head -->
+  <rect x="115" y="40" width="60" height="35" rx="17" fill="#1a202c"/>
+  <rect x="118" y="43" width="54" height="29" rx="14" fill="#4a5568"/>
+  <!-- LED strip inside -->
+  <rect x="125" y="52" width="40" height="11" rx="5" fill="#ec4899"/>
+  <!-- Pink/purple glow (algae lamp) -->
+  <ellipse cx="145" cy="58" rx="25" ry="7" fill="#f9a8d4" opacity="0.6"/>
+  <path d="M115,75 L95,170 L195,170 L175,75 Z" fill="#ec4899" opacity="0.12"/>
+  <ellipse cx="145" cy="170" rx="70" ry="8" fill="#ec4899" opacity="0.25"/>
+  <!-- Control button on base -->
+  <circle cx="100" cy="147" r="3" fill="#fde047"/>
+</svg>

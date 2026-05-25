@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e0f2fe"/>
+      <stop offset="100%" stop-color="#bae6fd"/>
+    </linearGradient>
+  </defs>
+  <rect width="240" height="180" fill="url(#bg2)"/>
+  <!-- Hanging cable -->
+  <line x1="120" y1="10" x2="120" y2="55" stroke="#2d3748" stroke-width="2"/>
+  <!-- Pendant body (dome) -->
+  <path d="M80,55 Q80,100 120,110 Q160,100 160,55 Z" fill="#2d3748"/>
+  <path d="M85,55 Q85,95 120,103 Q155,95 155,55 Z" fill="#4a5568"/>
+  <!-- Light diffuser at bottom -->
+  <ellipse cx="120" cy="110" rx="40" ry="6" fill="#fef08a"/>
+  <!-- LEDs -->
+  <circle cx="100" cy="108" r="2.5" fill="#fde047"/>
+  <circle cx="115" cy="110" r="2.5" fill="#fde047"/>
+  <circle cx="130" cy="110" r="2.5" fill="#fde047"/>
+  <circle cx="140" cy="108" r="2.5" fill="#fde047"/>
+  <!-- Light beam (wide cone) -->
+  <path d="M85,113 L30,170 L210,170 L155,113 Z" fill="#fde047" opacity="0.18"/>
+  <path d="M95,113 L65,165 L175,165 L145,113 Z" fill="#fde047" opacity="0.12"/>
+  <!-- Glow at bottom -->
+  <ellipse cx="120" cy="170" rx="95" ry="8" fill="#fde047" opacity="0.3"/>
+  <!-- Cable attachment -->
+  <circle cx="120" cy="55" r="4" fill="#1a202c"/>
+</svg>
