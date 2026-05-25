@@ -1,0 +1,16 @@
+{
+  "current": {
+    "color_navbar": "#2c3e50",
+    "color_accent": "#008cba",
+    "color_brand_light": "#48cae4",
+    "color_brand_dark": "#023e8a"
+  },
+  "presets": {
+    "Default": {
+      "color_navbar": "#2c3e50",
+      "color_accent": "#008cba",
+      "color_brand_light": "#48cae4",
+      "color_brand_dark": "#023e8a"
+    }
+  }
+}

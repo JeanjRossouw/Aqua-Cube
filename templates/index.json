@@ -1,0 +1,49 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "heading": "Welcome to Aqua Cube",
+        "subheading": "Premium Aquarium & Paludarium products for enthusiasts who love aquatic life. Curated quality, delivered to your door.",
+        "button_label": "Shop Now",
+        "button_link": "shopify://collections/all"
+      }
+    },
+    "featured": {
+      "type": "featured-collection",
+      "settings": {
+        "heading": "Featured Products",
+        "subheading": "Handpicked essentials for your aquarium setup",
+        "products_to_show": 6
+      }
+    },
+    "categories": {
+      "type": "categories",
+      "blocks": {
+        "tanks":       { "type": "category", "settings": { "label": "Aquariums",   "collection": "tanks" } },
+        "filters":     { "type": "category", "settings": { "label": "Filters",     "collection": "filtration" } },
+        "lighting":    { "type": "category", "settings": { "label": "Lighting",    "collection": "lighting" } },
+        "decorations": { "type": "category", "settings": { "label": "Decorations", "collection": "decorations" } }
+      },
+      "block_order": ["tanks", "filters", "lighting", "decorations"],
+      "settings": {
+        "heading": "Shop by Category",
+        "subheading": "Everything you need, organised for easy browsing"
+      }
+    },
+    "about": {
+      "type": "about",
+      "blocks": {
+        "s1": { "type": "stat", "settings": { "value": "500+",  "label": "Products Available" } },
+        "s2": { "type": "stat", "settings": { "value": "10K+",  "label": "Happy Customers" } },
+        "s3": { "type": "stat", "settings": { "value": "10+",   "label": "Years Experience" } },
+        "s4": { "type": "stat", "settings": { "value": "4.9★", "label": "Average Rating" } }
+      },
+      "block_order": ["s1", "s2", "s3", "s4"]
+    },
+    "contact": {
+      "type": "contact"
+    }
+  },
+  "order": ["hero", "featured", "categories", "about", "contact"]
+}

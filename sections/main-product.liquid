@@ -1,0 +1,95 @@
+<section class="product-page">
+  <div class="container product-grid">
+    <div class="product-gallery">
+      {%- if product.featured_image -%}
+        <img id="ProductImage"
+             src="{{ product.featured_image | image_url: width: 1200 }}"
+             alt="{{ product.featured_image.alt | default: product.title | escape }}"
+             width="1200" height="1200" loading="eager">
+      {%- else -%}
+        {{ 'product-1' | placeholder_svg_tag }}
+      {%- endif -%}
+
+      {%- if product.images.size > 1 -%}
+        <div class="product-thumbs">
+          {%- for image in product.images -%}
+            <button type="button"
+                    class="product-thumb"
+                    data-src="{{ image | image_url: width: 1200 }}"
+                    aria-label="Show image {{ forloop.index }}">
+              <img src="{{ image | image_url: width: 160 }}"
+                   alt="{{ image.alt | default: product.title | escape }}"
+                   width="80" height="80" loading="lazy">
+            </button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="product-info">
+      {%- if product.vendor != blank -%}
+        <p class="product-vendor">{{ product.vendor }}</p>
+      {%- endif -%}
+      <h1>{{ product.title }}</h1>
+
+      <div class="product-price">
+        {%- if product.compare_at_price > product.price -%}
+          <span class="price__current">{{ product.price | money }}</span>
+          <s class="price__compare">{{ product.compare_at_price | money }}</s>
+          <span class="price__badge">{{ 'products.product.sale' | t }}</span>
+        {%- else -%}
+          <span class="price__current">{{ product.price | money }}</span>
+        {%- endif -%}
+      </div>
+
+      {%- form 'product', product, id: 'AddToCartForm' -%}
+        {%- if product.has_only_default_variant == false -%}
+          {%- for option in product.options_with_values -%}
+            <div class="product-option">
+              <label for="Option-{{ option.position }}">{{ option.name }}</label>
+              <select id="Option-{{ option.position }}" name="options[{{ option.name }}]">
+                {%- for value in option.values -%}
+                  <option value="{{ value | escape }}">{{ value }}</option>
+                {%- endfor -%}
+              </select>
+            </div>
+          {%- endfor -%}
+        {%- endif -%}
+
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+        <div class="product-quantity">
+          <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
+          <input id="Quantity" type="number" name="quantity" value="1" min="1" inputmode="numeric">
+        </div>
+
+        <button type="submit"
+                class="btn btn-primary product-atc"
+                {% unless product.available %}disabled{% endunless %}>
+          {%- if product.available -%}
+            {{ 'products.product.add_to_cart' | t }}
+          {%- else -%}
+            {{ 'products.product.sold_out' | t }}
+          {%- endif -%}
+        </button>
+      {%- endform -%}
+
+      {%- if product.description != blank -%}
+        <div class="product-description rte">
+          {{ product.description }}
+        </div>
+      {%- endif -%}
+
+      {%- if product.sku != blank -%}
+        <p class="product-sku"><small>SKU: {{ product.sku }}</small></p>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product info",
+  "settings": []
+}
+{% endschema %}

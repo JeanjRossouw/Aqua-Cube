@@ -1,0 +1,81 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+
+      <div class="footer-section">
+        <div class="footer-logo">
+          {%- if settings.logo != blank -%}
+            <img src="{{ settings.logo | image_url: width: 72 }}" alt="{{ shop.name }}" width="36" height="36">
+          {%- else -%}
+            <img src="{{ 'logo.svg' | asset_url }}" alt="{{ shop.name }}" width="36" height="36">
+          {%- endif -%}
+          <span>{{ section.settings.brand_name | default: shop.name | upcase }}</span>
+        </div>
+        <p>{{ section.settings.tagline }}</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>{{ section.settings.links_heading }}</h4>
+        <ul>
+          {%- for link in linklists[section.settings.menu].links -%}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          {%- if settings.social_facebook != blank -%}
+            <a href="{{ settings.social_facebook }}" aria-label="Facebook" rel="noopener" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          {%- endif -%}
+          {%- if settings.social_twitter != blank -%}
+            <a href="{{ settings.social_twitter }}" aria-label="Twitter" rel="noopener" target="_blank"><i class="fab fa-twitter"></i></a>
+          {%- endif -%}
+          {%- if settings.social_instagram != blank -%}
+            <a href="{{ settings.social_instagram }}" aria-label="Instagram" rel="noopener" target="_blank"><i class="fab fa-instagram"></i></a>
+          {%- endif -%}
+        </div>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand name",
+      "default": "AQUA CUBE"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "Leading provider of premium aquarium and paludarium products since 2015."
+    },
+    {
+      "type": "text",
+      "id": "links_heading",
+      "label": "Links heading",
+      "default": "Quick Links"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Footer menu",
+      "default": "footer"
+    }
+  ],
+  "presets": [
+    { "name": "Footer" }
+  ]
+}
+{% endschema %}
