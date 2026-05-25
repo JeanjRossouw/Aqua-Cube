@@ -1,0 +1,45 @@
+<section class="newsletter">
+  <div class="container">
+    <div class="newsletter__inner">
+      <div class="newsletter__copy">
+        <h2>{{ section.settings.heading }}</h2>
+        {%- if section.settings.subheading != blank -%}
+          <p>{{ section.settings.subheading }}</p>
+        {%- endif -%}
+      </div>
+      <div class="newsletter__form">
+        {%- form 'customer', class: 'newsletter-form' -%}
+          {%- if form.posted_successfully? -%}
+            <p class="form__success">{{ section.settings.thanks_message }}</p>
+          {%- endif -%}
+          {%- if form.errors -%}
+            <p class="form__error">{{ form.errors | default_errors }}</p>
+          {%- endif -%}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <input type="email"
+                 name="contact[email]"
+                 placeholder="{{ section.settings.placeholder }}"
+                 aria-label="{{ section.settings.placeholder }}"
+                 required>
+          <button type="submit" class="btn btn-primary">{{ section.settings.button_label }}</button>
+        {%- endform -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "settings": [
+    { "type": "text",     "id": "heading",         "label": "Heading",         "default": "Stay in the loop" },
+    { "type": "textarea", "id": "subheading",      "label": "Subheading",      "default": "Get aquarium tips, new product alerts and member-only specials in your inbox." },
+    { "type": "text",     "id": "placeholder",     "label": "Email placeholder", "default": "Your email address" },
+    { "type": "text",     "id": "button_label",    "label": "Button label",    "default": "Subscribe" },
+    { "type": "text",     "id": "thanks_message",  "label": "Success message", "default": "Thanks! Check your inbox to confirm." }
+  ],
+  "presets": [
+    { "name": "Newsletter", "category": "Aqua Cube" }
+  ]
+}
+{% endschema %}

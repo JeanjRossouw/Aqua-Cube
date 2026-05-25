@@ -1,4 +1,4 @@
-<nav class="navbar">
+<nav class="navbar" aria-label="Main navigation">
   <div class="nav-container">
     <a href="{{ routes.root_url }}" class="logo">
       {%- if settings.logo != blank -%}
@@ -13,14 +13,22 @@
       {%- for link in linklists[section.settings.menu].links -%}
         <li>
           <a href="{{ link.url }}"
-             class="nav-link{% if link.active %} active{% endif %}">
+             class="nav-link{% if link.active %} active{% endif %}"
+             {% if link.active %}aria-current="page"{% endif %}>
             {{ link.title }}
           </a>
         </li>
       {%- endfor -%}
       <li>
-        <a href="{{ routes.cart_url }}" class="nav-link cart-link">
-          <i class="fas fa-shopping-cart"></i>&nbsp;<span id="cart-count">{{ cart.item_count }}</span>
+        <form action="{{ routes.search_url }}" method="get" role="search" class="header-search">
+          <label for="HeaderSearch" class="visually-hidden">{{ 'general.search.placeholder' | t }}</label>
+          <input id="HeaderSearch" type="search" name="q" placeholder="{{ 'general.search.placeholder' | t }}" autocomplete="off">
+          <button type="submit" aria-label="{{ 'general.search.submit' | t }}"><i class="fas fa-search"></i></button>
+        </form>
+      </li>
+      <li>
+        <a href="{{ routes.cart_url }}" class="nav-link cart-link" aria-label="Cart ({{ cart.item_count }})">
+          <i class="fas fa-shopping-cart" aria-hidden="true"></i>&nbsp;<span id="cart-count">{{ cart.item_count }}</span>
         </a>
       </li>
     </ul>

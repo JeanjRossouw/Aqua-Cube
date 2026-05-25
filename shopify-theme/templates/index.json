@@ -6,24 +6,35 @@
         "heading": "Welcome to Aqua Cube",
         "subheading": "Premium Aquarium & Paludarium products for enthusiasts who love aquatic life. Curated quality, delivered to your door.",
         "button_label": "Shop Now",
-        "button_link": "shopify://collections/all"
+        "button_link_type": "all_products"
       }
+    },
+    "trust-bar": {
+      "type": "trust-bar",
+      "blocks": {
+        "shipping":  { "type": "item", "settings": { "icon": "truck",      "label": "Free SA delivery over R1500" } },
+        "secure":    { "type": "item", "settings": { "icon": "lock",       "label": "Secure PayFast checkout" } },
+        "expertise": { "type": "item", "settings": { "icon": "fish",       "label": "10+ years of aquarium expertise" } },
+        "returns":   { "type": "item", "settings": { "icon": "rotate",     "label": "30-day returns" } }
+      },
+      "block_order": ["shipping", "secure", "expertise", "returns"]
     },
     "featured": {
       "type": "featured-collection",
       "settings": {
         "heading": "Featured Products",
         "subheading": "Handpicked essentials for your aquarium setup",
+        "collection": "lighting",
         "products_to_show": 6
       }
     },
     "categories": {
       "type": "categories",
       "blocks": {
-        "tanks":       { "type": "category", "settings": { "label": "Aquariums",   "collection": "tanks" } },
-        "filters":     { "type": "category", "settings": { "label": "Filters",     "collection": "filtration" } },
-        "lighting":    { "type": "category", "settings": { "label": "Lighting",    "collection": "lighting" } },
-        "decorations": { "type": "category", "settings": { "label": "Decorations", "collection": "decorations" } }
+        "tanks":       { "type": "category", "settings": { "label": "Aquariums",   "collection": "tanks",       "icon": "aquariums" } },
+        "filters":     { "type": "category", "settings": { "label": "Filters",     "collection": "filtration",  "icon": "filters" } },
+        "lighting":    { "type": "category", "settings": { "label": "Lighting",    "collection": "lighting",    "icon": "lighting" } },
+        "decorations": { "type": "category", "settings": { "label": "Decorations", "collection": "decorations", "icon": "decorations" } }
       },
       "block_order": ["tanks", "filters", "lighting", "decorations"],
       "settings": {
@@ -41,9 +52,12 @@
       },
       "block_order": ["s1", "s2", "s3", "s4"]
     },
+    "newsletter": {
+      "type": "newsletter"
+    },
     "contact": {
       "type": "contact"
     }
   },
-  "order": ["hero", "featured", "categories", "about", "contact"]
+  "order": ["hero", "trust-bar", "featured", "categories", "about", "newsletter", "contact"]
 }

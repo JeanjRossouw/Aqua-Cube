@@ -1,0 +1,29 @@
+{%- comment -%}Product JSON-LD for SEO / rich results.{%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": {{ product.title | json }},
+  "url": {{ shop.url | append: product.url | json }},
+  {%- if product.featured_image -%}
+    "image": [{{ product.featured_image | image_url: width: 1200 | prepend: 'https:' | json }}],
+  {%- endif -%}
+  "description": {{ product.description | strip_html | truncatewords: 60 | json }},
+  {%- if product.vendor != blank -%}
+    "brand": { "@type": "Brand", "name": {{ product.vendor | json }} },
+  {%- endif -%}
+  "sku": {{ product.selected_or_first_available_variant.sku | json }},
+  "offers": {
+    "@type": "Offer",
+    "url": {{ shop.url | append: product.url | json }},
+    "priceCurrency": {{ cart.currency.iso_code | json }},
+    "price": "{{ product.selected_or_first_available_variant.price | money_without_currency | replace: ',', '' }}",
+    {%- if product.selected_or_first_available_variant.available -%}
+      "availability": "https://schema.org/InStock",
+    {%- else -%}
+      "availability": "https://schema.org/OutOfStock",
+    {%- endif -%}
+    "itemCondition": "https://schema.org/NewCondition"
+  }
+}
+</script>
