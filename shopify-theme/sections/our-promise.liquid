@@ -1,0 +1,69 @@
+{%- liquid
+  assign has_line_2 = false
+  if section.settings.heading_line_2_prefix != blank or section.settings.heading_line_2_accent != blank
+    assign has_line_2 = true
+  endif
+-%}
+
+<section class="ac-jumbo" aria-labelledby="op-heading-{{ section.id }}">
+  <div class="ac-jumbo__inner">
+    {%- if section.settings.eyebrow != blank -%}
+      <span class="ac-mono">{{ section.settings.eyebrow }}</span>
+    {%- endif -%}
+
+    <h2 class="ac-jumbo__heading" id="op-heading-{{ section.id }}">
+      {%- if section.settings.heading_line_1 != blank -%}
+        {{ section.settings.heading_line_1 }}
+      {%- endif -%}
+      {%- if section.settings.heading_line_1 != blank and has_line_2 -%}
+        <br>
+      {%- endif -%}
+      {%- if section.settings.heading_line_2_prefix != blank -%}
+        {{ section.settings.heading_line_2_prefix }}{% if section.settings.heading_line_2_accent != blank %} {% endif %}
+      {%- endif -%}
+      {%- if section.settings.heading_line_2_accent != blank -%}
+        <em>{{ section.settings.heading_line_2_accent }}</em>
+      {%- endif -%}
+    </h2>
+
+    {%- if section.settings.body != blank -%}
+      <div class="ac-jumbo__body">{{ section.settings.body }}</div>
+    {%- endif -%}
+
+    {%- if section.settings.cta_label != blank -%}
+      <a class="ac-btn ac-btn--primary" href="{{ section.settings.cta_link | default: '#' }}">
+        {{ section.settings.cta_label }}
+        {% render 'icon-arrow-right' %}
+      </a>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Our Promise",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "/ our promise" },
+
+    { "type": "header", "content": "Heading" },
+    { "type": "text", "id": "heading_line_1",        "label": "Line 1",                          "default": "Engineered for the reef," },
+    { "type": "text", "id": "heading_line_2_prefix", "label": "Line 2 prefix (white)",           "default": "tuned for" },
+    { "type": "text", "id": "heading_line_2_accent", "label": "Line 2 accent (italic aqua)",     "default": "South Africa." },
+
+    { "type": "header", "content": "Body" },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body paragraph",
+      "default": "<p>Every fixture we sell is tested in our Cape Town showroom on real tanks under real load — for months — before it makes it into the catalog. If it can't keep coral growing here, it doesn't ship.</p>"
+    },
+
+    { "type": "header", "content": "Call to action" },
+    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Read the story" },
+    { "type": "url",  "id": "cta_link",  "label": "CTA URL" }
+  ],
+  "presets": [
+    { "name": "Our Promise", "category": "Aqua Cube" }
+  ]
+}
+{% endschema %}

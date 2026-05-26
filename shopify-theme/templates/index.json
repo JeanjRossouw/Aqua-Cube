@@ -52,6 +52,17 @@
       },
       "block_order": ["p1", "p2", "p3", "p4"]
     },
+    "our-promise": {
+      "type": "our-promise",
+      "settings": {
+        "eyebrow": "/ our promise",
+        "heading_line_1": "Engineered for the reef,",
+        "heading_line_2_prefix": "tuned for",
+        "heading_line_2_accent": "South Africa.",
+        "body": "<p>Every fixture we sell is tested in our Cape Town showroom on real tanks under real load — for months — before it makes it into the catalog. If it can't keep coral growing here, it doesn't ship.</p>",
+        "cta_label": "Read the story"
+      }
+    },
     "trust-bar": {
       "type": "trust-bar",
       "blocks": {
@@ -102,5 +113,5 @@
       "type": "contact"
     }
   },
-  "order": ["hero", "featured-collections", "best-sellers", "trust-bar", "featured", "categories", "about", "newsletter", "contact"]
+  "order": ["hero", "featured-collections", "best-sellers", "our-promise", "trust-bar", "featured", "categories", "about", "newsletter", "contact"]
 }
