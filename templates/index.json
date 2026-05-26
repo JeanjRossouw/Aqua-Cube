@@ -4,7 +4,8 @@
       "type": "hero",
       "settings": {
         "eyebrow": "Aquariums & Reef · South Africa",
-        "heading": "Lighting<br><em>redefined.</em>",
+        "heading_line_1": "Lighting",
+        "heading_line_2": "redefined.",
         "lede": "Our lighting systems blend precision and innovation for unparalleled aquatic plant and coral vitality.",
         "primary_label": "Shop now",
         "primary_link_type": "all_products",
