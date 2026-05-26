@@ -96,7 +96,8 @@
         "heading_line_2_prefix": "tuned for",
         "heading_line_2_accent": "South Africa.",
         "body": "<p>Every fixture we sell is tested in our Cape Town showroom on real tanks under real load — for months — before it makes it into the catalog. If it can't keep coral growing here, it doesn't ship.</p>",
-        "cta_label": "Read the story"
+        "cta_label": "Read the story",
+        "background_placeholder_url": "https://images.unsplash.com/photo-1779436853049-c19542e3c81c?w=2000&q=80"
       }
     },
     "trust-bar": {
