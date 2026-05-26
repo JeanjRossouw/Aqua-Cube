@@ -5,9 +5,24 @@
     "header": {
       "type": "header",
       "settings": {
-        "brand_name": "AQUA CUBE",
-        "menu": "main-menu"
-      }
+        "home_label": "Home",
+        "products_label": "Products",
+        "about_label": "Aquacube",
+        "contact_label": "Contact",
+        "dropdown_footer_text": "FREE DELIVERY OVER R1,500",
+        "dropdown_cta_label": "Shop all products",
+        "show_search": true,
+        "show_account": true
+      },
+      "blocks": {
+        "lighting":   { "type": "category", "settings": { "title": "Lighting & CO₂",        "description": "Reef & planted LEDs, regulators, diffusers", "icon": "lighting",   "link_type": "custom", "custom_url": "/collections/lighting" } },
+        "pumps":      { "type": "category", "settings": { "title": "Pumps & Flow",          "description": "DC wave-makers, return pumps, controllers",  "icon": "pumps",      "link_type": "custom", "custom_url": "/collections/pumps-flow" } },
+        "aquariums":  { "type": "category", "settings": { "title": "Aquariums",             "description": "Starfire cubes, rimless & paludariums",      "icon": "aquariums",  "link_type": "custom", "custom_url": "/collections/aquariums" } },
+        "filtration": { "type": "category", "settings": { "title": "Filtration",            "description": "Canisters, sumps, media & spares",           "icon": "filtration", "link_type": "custom", "custom_url": "/collections/filtration" } },
+        "livestock":  { "type": "category", "settings": { "title": "Coral & Livestock",     "description": "Frags, nano fish, shrimp — quarantined",     "icon": "livestock",  "link_type": "custom", "custom_url": "/collections/livestock" } },
+        "hardscape":  { "type": "category", "settings": { "title": "Hardscape & Substrate", "description": "Seiryu, dragon stone, wood, ADA soil",       "icon": "hardscape",  "link_type": "custom", "custom_url": "/collections/hardscape" } }
+      },
+      "block_order": ["lighting", "pumps", "aquariums", "filtration", "livestock", "hardscape"]
     }
   },
   "order": ["header"]
