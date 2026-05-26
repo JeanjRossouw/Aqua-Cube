@@ -2265,6 +2265,82 @@ a { color: inherit; text-decoration: none; }
   .pbt-cta-row { margin-top: 32px; }
 }
 
+/* ---------- why aqua cube (trust signals) ---------- */
+.wac-head {
+  text-align: center;
+  max-width: 740px;
+  margin: 0 auto 64px;
+}
+.wac-head .ac-mono {
+  display: inline-block;
+  color: var(--aqua-1);
+  margin-bottom: 14px;
+}
+.wac-head h2 {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.0;
+  color: #fff;
+}
+.wac-head h2 em {
+  color: var(--aqua-1);
+  font-style: italic;
+  font-weight: 600;
+}
+.wac-head__lede {
+  margin: 20px auto 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.6;
+  max-width: 620px;
+}
+.wac-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+.wac-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.wac-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--r-btn);
+  border: 1.5px solid var(--aqua-1);
+  color: var(--aqua-1);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.wac-card__title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: #fff;
+}
+.wac-card__desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+@media (max-width: 920px) {
+  .wac-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .wac-head { margin-bottom: 48px; }
+}
+@media (max-width: 560px) {
+  .wac-grid { grid-template-columns: 1fr; gap: 24px; }
+  .wac-head { margin-bottom: 32px; }
+}
+
 /* ---------- shop by style ---------- */
 .sbs-grid {
   display: grid;
