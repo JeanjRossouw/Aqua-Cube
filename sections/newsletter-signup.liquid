@@ -1,0 +1,115 @@
+{%- liquid
+  assign has_bg = false
+  if section.settings.background_image != blank or section.settings.background_placeholder_url != blank
+    assign has_bg = true
+  endif
+-%}
+
+<section class="ns-section{% if has_bg %} ns-section--with-bg{% endif %}" aria-labelledby="ns-heading-{{ section.id }}">
+  {%- if has_bg -%}
+    <div class="ns-section__bg" aria-hidden="true">
+      {%- if section.settings.background_image != blank -%}
+        <img class="ns-section__bg-img"
+             src="{{ section.settings.background_image | image_url: width: 2000 }}"
+             srcset="{{ section.settings.background_image | image_url: width: 800 }} 800w, {{ section.settings.background_image | image_url: width: 1600 }} 1600w, {{ section.settings.background_image | image_url: width: 2000 }} 2000w"
+             sizes="100vw"
+             alt=""
+             loading="lazy">
+      {%- elsif section.settings.background_placeholder_url != blank -%}
+        <img class="ns-section__bg-img"
+             src="{{ section.settings.background_placeholder_url }}"
+             alt=""
+             loading="lazy">
+      {%- endif -%}
+      <div class="ns-section__bg-overlay"></div>
+    </div>
+  {%- endif -%}
+
+  <div class="ns-section__inner">
+    {%- if section.settings.eyebrow != blank -%}
+      <span class="ac-mono">{{ section.settings.eyebrow }}</span>
+    {%- endif -%}
+
+    <h2 id="ns-heading-{{ section.id }}">
+      {%- if section.settings.heading_line_1 != blank -%}
+        {{ section.settings.heading_line_1 }}
+      {%- endif -%}
+      {%- if section.settings.heading_line_1 != blank and section.settings.heading_line_2_accent != blank -%}
+        <br>
+      {%- endif -%}
+      {%- if section.settings.heading_line_2_accent != blank -%}
+        <em>{{ section.settings.heading_line_2_accent }}</em>
+      {%- endif -%}
+    </h2>
+
+    {%- if section.settings.lede != blank -%}
+      <p class="ns-section__lede">{{ section.settings.lede }}</p>
+    {%- endif -%}
+
+    {%- form 'customer', class: 'ns-form', id: 'NewsletterForm-' | append: section.id -%}
+      <input type="hidden" name="contact[tags]" value="{{ section.settings.customer_tag | default: 'newsletter' }}">
+      <label for="NewsletterEmail-{{ section.id }}" class="visually-hidden">
+        {{ section.settings.placeholder | default: 'Email' }}
+      </label>
+      <input
+        type="email"
+        id="NewsletterEmail-{{ section.id }}"
+        name="contact[email]"
+        class="ns-form__input"
+        placeholder="{{ section.settings.placeholder | default: 'your@email.com' }}"
+        autocorrect="off"
+        autocapitalize="off"
+        autocomplete="email"
+        spellcheck="false"
+        required>
+      <button type="submit" class="ac-btn ac-btn--primary ns-form__submit" aria-label="{{ section.settings.submit_label | default: 'Subscribe' }}">
+        {{ section.settings.submit_label | default: 'Subscribe' }}
+        {% render 'icon-arrow-right' %}
+      </button>
+
+      {%- if form.posted_successfully? -%}
+        <p class="ns-form__success" role="status">{{ section.settings.success_message | default: "You're in. We'll be in touch." }}</p>
+      {%- elsif form.errors -%}
+        <p class="ns-form__error" role="alert">{{ form.errors | default_errors }}</p>
+      {%- endif -%}
+    {%- endform -%}
+
+    {%- if section.settings.disclaimer != blank -%}
+      <p class="ns-disclaimer">{{ section.settings.disclaimer }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter Signup",
+  "settings": [
+    { "type": "text",     "id": "eyebrow",               "label": "Eyebrow",                          "default": "/ stay in the loop" },
+    { "type": "text",     "id": "heading_line_1",        "label": "Heading — line 1 (white)",         "default": "New tanks, new stock," },
+    { "type": "text",     "id": "heading_line_2_accent", "label": "Heading — line 2 (italic aqua)",   "default": "straight to your inbox." },
+    { "type": "textarea", "id": "lede",                  "label": "Lede paragraph",                   "default": "Be first to hear about new pre-built tank releases, restocks, and aquascape inspiration. No spam, just the good stuff." },
+
+    { "type": "header", "content": "Form" },
+    { "type": "text", "id": "placeholder",     "label": "Input placeholder", "default": "your@email.com" },
+    { "type": "text", "id": "submit_label",    "label": "Submit button label", "default": "SUBSCRIBE" },
+    { "type": "text", "id": "success_message", "label": "Success message",
+      "info": "Shown after a valid email is submitted.",
+      "default": "You're in. We'll be in touch." },
+    { "type": "text", "id": "customer_tag",    "label": "Customer tag",
+      "info": "Tag added to the captured customer in Shopify Admin. Default 'newsletter' lets you filter for these subscribers in Customers.",
+      "default": "newsletter" },
+    { "type": "text", "id": "disclaimer",      "label": "Disclaimer (below form)",
+      "default": "We respect your inbox. Unsubscribe anytime." },
+
+    { "type": "header", "content": "Background image (optional)" },
+    { "type": "image_picker", "id": "background_image",         "label": "Background image (uploaded)",
+      "info": "Optional. Sits behind the form with a heavy dark overlay for legibility. Uploaded image wins over the placeholder URL below." },
+    { "type": "text",         "id": "background_placeholder_url", "label": "Placeholder image URL",
+      "info": "External URL used when no image is uploaded. Demo default is a free Unsplash photo.",
+      "default": "https://images.unsplash.com/photo-1568605447135-30c22eac61cb?w=2000&q=80" }
+  ],
+  "presets": [
+    { "name": "Newsletter Signup", "category": "Aqua Cube" }
+  ]
+}
+{% endschema %}

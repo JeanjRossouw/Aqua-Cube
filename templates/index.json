@@ -123,6 +123,21 @@
       },
       "block_order": ["v1", "v2", "v3", "v4"]
     },
+    "newsletter-signup": {
+      "type": "newsletter-signup",
+      "settings": {
+        "eyebrow": "/ stay in the loop",
+        "heading_line_1": "New tanks, new stock,",
+        "heading_line_2_accent": "straight to your inbox.",
+        "lede": "Be first to hear about new pre-built tank releases, restocks, and aquascape inspiration. No spam, just the good stuff.",
+        "placeholder": "your@email.com",
+        "submit_label": "SUBSCRIBE",
+        "success_message": "You're in. We'll be in touch.",
+        "customer_tag": "newsletter",
+        "disclaimer": "We respect your inbox. Unsubscribe anytime.",
+        "background_placeholder_url": "https://images.unsplash.com/photo-1568605447135-30c22eac61cb?w=2000&q=80"
+      }
+    },
     "trust-bar": {
       "type": "trust-bar",
       "blocks": {
@@ -173,5 +188,5 @@
       "type": "contact"
     }
   },
-  "order": ["hero", "pre-built-tanks", "shop-by-style", "aquascapes-gallery", "featured-collections", "best-sellers", "why-aqua-cube", "trust-bar", "featured", "categories", "about", "newsletter", "contact"]
+  "order": ["hero", "pre-built-tanks", "shop-by-style", "aquascapes-gallery", "featured-collections", "best-sellers", "why-aqua-cube", "newsletter-signup", "trust-bar", "featured", "categories", "about", "newsletter", "contact"]
 }

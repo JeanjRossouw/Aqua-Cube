@@ -2341,6 +2341,154 @@ a { color: inherit; text-decoration: none; }
   .wac-head { margin-bottom: 32px; }
 }
 
+/* ---------- newsletter signup ---------- */
+.ns-section {
+  padding: 120px 0;
+  border-top: 1px solid var(--rule);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.ns-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(60% 50% at 50% 50%, rgba(43, 182, 199, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.ns-section__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+.ns-section__bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.ns-section__bg-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(70% 60% at 50% 50%, rgba(3, 25, 42, 0.75) 0%, rgba(6, 42, 61, 0.95) 100%),
+    linear-gradient(180deg, rgba(3, 25, 42, 0.85) 0%, rgba(6, 42, 61, 0.95) 100%);
+}
+.ns-section--with-bg::before {
+  /* Dial the aqua glow down when there's a photo behind so it reads
+     as a tint rather than competing with the photo. */
+  background: radial-gradient(60% 50% at 50% 50%, rgba(43, 182, 199, 0.08) 0%, transparent 75%);
+}
+.ns-section__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+.ns-section .ac-mono {
+  display: inline-block;
+  color: var(--aqua-1);
+  margin-bottom: 14px;
+}
+.ns-section h2 {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  color: #fff;
+}
+.ns-section h2 em {
+  color: var(--aqua-1);
+  font-style: italic;
+  font-weight: 600;
+}
+.ns-section__lede {
+  margin: 18px auto 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 560px;
+}
+.ns-form {
+  display: flex;
+  gap: 8px;
+  max-width: 540px;
+  margin: 40px auto 14px;
+}
+.ns-form__input {
+  flex: 1;
+  min-width: 0;
+  padding: 14px 18px;
+  background: rgba(3, 25, 42, 0.7);
+  border: 1.5px solid var(--rule);
+  border-radius: var(--r-btn);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  letter-spacing: -0.005em;
+  transition: border-color 0.15s ease, background 0.15s ease;
+  -webkit-appearance: none;
+          appearance: none;
+}
+.ns-form__input:focus {
+  outline: none;
+  border-color: var(--aqua-1);
+  background: rgba(3, 25, 42, 0.85);
+}
+.ns-form__input::placeholder {
+  color: var(--muted);
+}
+.ns-form__submit {
+  flex-shrink: 0;
+  justify-content: center;
+  padding: 11px 22px;
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.ns-disclaimer {
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+.ns-form__success,
+.ns-form__error {
+  margin: 16px auto 0;
+  max-width: 540px;
+  padding: 12px 16px;
+  border-radius: var(--r-btn);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.ns-form__success {
+  color: var(--aqua-1);
+  background: rgba(127, 231, 224, 0.08);
+  border: 1px solid rgba(127, 231, 224, 0.3);
+}
+.ns-form__error {
+  color: #ffb39a;
+  background: rgba(255, 138, 91, 0.08);
+  border: 1px solid rgba(255, 138, 91, 0.35);
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-family: var(--font-sans);
+  font-size: 13px;
+}
+
+@media (max-width: 560px) {
+  .ns-section { padding: 80px 0; }
+  .ns-form { flex-direction: column; max-width: 420px; }
+  .ns-form__submit { width: 100%; }
+}
+
 /* ---------- shop by style ---------- */
 .sbs-grid {
   display: grid;
