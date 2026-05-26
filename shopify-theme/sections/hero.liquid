@@ -42,7 +42,17 @@
         </span>
       {%- endif -%}
 
-      <h1 id="hero-heading-{{ section.id }}">{{ section.settings.heading }}</h1>
+      <h1 id="hero-heading-{{ section.id }}">
+        {%- if section.settings.heading_line_1 != blank -%}
+          {{ section.settings.heading_line_1 }}
+        {%- endif -%}
+        {%- if section.settings.heading_line_1 != blank and section.settings.heading_line_2 != blank -%}
+          <br>
+        {%- endif -%}
+        {%- if section.settings.heading_line_2 != blank -%}
+          <em>{{ section.settings.heading_line_2 }}</em>
+        {%- endif -%}
+      </h1>
 
       {%- if section.settings.lede != blank -%}
         <p class="ac-hero__lede">{{ section.settings.lede }}</p>
@@ -84,15 +94,10 @@
 {
   "name": "Hero",
   "settings": [
-    { "type": "text",     "id": "eyebrow", "label": "Eyebrow text", "default": "Aquariums & Reef · South Africa" },
-    {
-      "type": "inline_richtext",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Lighting<br><em>redefined.</em>",
-      "info": "Wrap accent words in <em> — they render in italic aqua. Use <br> for a line break."
-    },
-    { "type": "textarea", "id": "lede", "label": "Lede paragraph", "default": "Our lighting systems blend precision and innovation for unparalleled aquatic plant and coral vitality." },
+    { "type": "text",     "id": "eyebrow",        "label": "Eyebrow text",     "default": "Aquariums & Reef · South Africa" },
+    { "type": "text",     "id": "heading_line_1", "label": "Heading — line 1", "default": "Lighting" },
+    { "type": "text",     "id": "heading_line_2", "label": "Heading — line 2 (italic aqua accent)", "default": "redefined." },
+    { "type": "textarea", "id": "lede",           "label": "Lede paragraph",   "default": "Our lighting systems blend precision and innovation for unparalleled aquatic plant and coral vitality." },
 
     { "type": "header", "content": "Primary button" },
     { "type": "text", "id": "primary_label", "label": "Label", "default": "Shop now" },
