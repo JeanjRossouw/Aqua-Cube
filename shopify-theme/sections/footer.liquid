@@ -1,46 +1,127 @@
-<footer class="footer">
-  <div class="container">
-    <div class="footer-content">
+{%- liquid
+  assign current_year = 'now' | date: '%Y'
 
-      <div class="footer-section">
-        <div class="footer-logo">
-          {%- if settings.logo != blank -%}
-            <img src="{{ settings.logo | image_url: width: 72 }}" alt="{{ shop.name }}" width="36" height="36">
-          {%- else -%}
-            <img src="{{ 'logo.svg' | asset_url }}" alt="{{ shop.name }}" width="36" height="36">
+  assign shop_blocks    = ''
+  assign learn_blocks   = ''
+  assign support_blocks = ''
+-%}
+
+<footer class="ftr" role="contentinfo">
+  <div class="ac-page">
+    <div class="ftr__grid">
+
+      <div class="ftr__brand">
+        {% render 'logo-stamp', href: routes.root_url, label: shop.name %}
+        {%- if section.settings.tagline != blank -%}
+          <p class="ftr__tagline">{{ section.settings.tagline }}</p>
+        {%- endif -%}
+        <div class="ftr__social">
+          {%- if section.settings.social_instagram != blank -%}
+            <a href="{{ section.settings.social_instagram }}" rel="noopener" target="_blank" aria-label="Instagram">
+              {% render 'icon-instagram' %}
+            </a>
           {%- endif -%}
-          <span>{{ section.settings.brand_name | default: shop.name | upcase }}</span>
+          {%- if section.settings.social_facebook != blank -%}
+            <a href="{{ section.settings.social_facebook }}" rel="noopener" target="_blank" aria-label="Facebook">
+              {% render 'icon-facebook' %}
+            </a>
+          {%- endif -%}
+          {%- if section.settings.social_youtube != blank -%}
+            <a href="{{ section.settings.social_youtube }}" rel="noopener" target="_blank" aria-label="YouTube">
+              {% render 'icon-youtube' %}
+            </a>
+          {%- endif -%}
+          {%- if section.settings.social_whatsapp != blank -%}
+            <a href="{{ section.settings.social_whatsapp }}" rel="noopener" target="_blank" aria-label="WhatsApp">
+              {% render 'icon-whatsapp' %}
+            </a>
+          {%- endif -%}
         </div>
-        <p>{{ section.settings.tagline }}</p>
       </div>
 
-      <div class="footer-section">
-        <h4>{{ section.settings.links_heading }}</h4>
-        <ul>
-          {%- for link in linklists[section.settings.menu].links -%}
-            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+      {%- comment -%} SHOP column {%- endcomment -%}
+      <div class="ftr__col">
+        <h3 class="ftr__col-heading">{{ section.settings.shop_heading | default: 'Shop' }}</h3>
+        <ul class="ftr__col-list">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'link' and block.settings.column == 'shop' -%}
+              <li {{ block.shopify_attributes }}>
+                <a href="{{ block.settings.url | default: '#' }}">{{ block.settings.label }}</a>
+              </li>
+            {%- endif -%}
           {%- endfor -%}
         </ul>
       </div>
 
-      <div class="footer-section">
-        <h4>Follow Us</h4>
-        <div class="social-links">
-          {%- if settings.social_facebook != blank -%}
-            <a href="{{ settings.social_facebook }}" aria-label="Facebook" rel="noopener" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      {%- comment -%} LEARN column {%- endcomment -%}
+      <div class="ftr__col">
+        <h3 class="ftr__col-heading">{{ section.settings.learn_heading | default: 'Learn' }}</h3>
+        <ul class="ftr__col-list">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'link' and block.settings.column == 'learn' -%}
+              <li {{ block.shopify_attributes }}>
+                <a href="{{ block.settings.url | default: '#' }}">{{ block.settings.label }}</a>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      {%- comment -%} SUPPORT column {%- endcomment -%}
+      <div class="ftr__col">
+        <h3 class="ftr__col-heading">{{ section.settings.support_heading | default: 'Support' }}</h3>
+        <ul class="ftr__col-list">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'link' and block.settings.column == 'support' -%}
+              <li {{ block.shopify_attributes }}>
+                <a href="{{ block.settings.url | default: '#' }}">{{ block.settings.label }}</a>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      {%- comment -%} CONTACT column {%- endcomment -%}
+      <div class="ftr__col">
+        <h3 class="ftr__col-heading">{{ section.settings.contact_heading | default: 'Contact' }}</h3>
+        <ul class="ftr__contact-list">
+          {%- if section.settings.contact_email != blank -%}
+            <li>
+              <span class="ftr__contact-label">Email</span>
+              <a href="mailto:{{ section.settings.contact_email }}">{{ section.settings.contact_email }}</a>
+            </li>
           {%- endif -%}
-          {%- if settings.social_twitter != blank -%}
-            <a href="{{ settings.social_twitter }}" aria-label="Twitter" rel="noopener" target="_blank"><i class="fab fa-twitter"></i></a>
+          {%- if section.settings.contact_whatsapp_display != blank -%}
+            <li>
+              <span class="ftr__contact-label">WhatsApp</span>
+              {%- if section.settings.contact_whatsapp_url != blank -%}
+                <a href="{{ section.settings.contact_whatsapp_url }}" rel="noopener" target="_blank">{{ section.settings.contact_whatsapp_display }}</a>
+              {%- else -%}
+                <span>{{ section.settings.contact_whatsapp_display }}</span>
+              {%- endif -%}
+            </li>
           {%- endif -%}
-          {%- if settings.social_instagram != blank -%}
-            <a href="{{ settings.social_instagram }}" aria-label="Instagram" rel="noopener" target="_blank"><i class="fab fa-instagram"></i></a>
+          {%- if section.settings.contact_hours != blank -%}
+            <li>
+              <span class="ftr__contact-label">Hours</span>
+              <span>{{ section.settings.contact_hours }}</span>
+            </li>
           {%- endif -%}
-        </div>
+        </ul>
       </div>
 
     </div>
-    <div class="footer-bottom">
-      <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
+
+    <div class="ftr__bottom">
+      {%- assign copyright = section.settings.copyright | replace: '{year}', current_year | replace: '{shop}', shop.name -%}
+      <span>{{ copyright }}</span>
+      {%- if section.settings.domain_text != blank -%}
+        {%- if section.settings.domain_url != blank -%}
+          <a href="{{ section.settings.domain_url }}" rel="noopener">{{ section.settings.domain_text }}</a>
+        {%- else -%}
+          <span>{{ section.settings.domain_text }}</span>
+        {%- endif -%}
+      {%- endif -%}
     </div>
   </div>
 </footer>
@@ -49,33 +130,82 @@
 {
   "name": "Footer",
   "settings": [
+    { "type": "header", "content": "Brand" },
+    { "type": "textarea", "id": "tagline", "label": "Tagline",
+      "default": "South African aquarium store. Pre-built tanks, paludariums, lighting, pumps, filtration, livestock — everything for your aquarium, shipped fast across SA." },
+
+    { "type": "header", "content": "Social links" },
+    { "type": "url", "id": "social_instagram", "label": "Instagram URL" },
+    { "type": "url", "id": "social_facebook",  "label": "Facebook URL" },
+    { "type": "url", "id": "social_youtube",   "label": "YouTube URL" },
+    { "type": "url", "id": "social_whatsapp",  "label": "WhatsApp URL",
+      "info": "Use a https://wa.me/27... link." },
+
+    { "type": "header", "content": "Column headings" },
+    { "type": "text", "id": "shop_heading",    "label": "Column 2 heading", "default": "SHOP" },
+    { "type": "text", "id": "learn_heading",   "label": "Column 3 heading", "default": "LEARN" },
+    { "type": "text", "id": "support_heading", "label": "Column 4 heading", "default": "SUPPORT" },
+    { "type": "text", "id": "contact_heading", "label": "Column 5 heading", "default": "CONTACT" },
+
+    { "type": "header", "content": "Contact column" },
+    { "type": "text", "id": "contact_email",             "label": "Email",                "default": "hello@aquacubesa.co.za" },
+    { "type": "text", "id": "contact_whatsapp_display",  "label": "WhatsApp display text", "default": "+27 82 555 0142" },
+    { "type": "url",  "id": "contact_whatsapp_url",      "label": "WhatsApp URL",
+      "info": "Use https://wa.me/27825550142 format." },
+    { "type": "text", "id": "contact_hours",             "label": "Hours",                "default": "Mon–Fri 9am–5pm SAST" },
+
+    { "type": "header", "content": "Bottom bar" },
+    { "type": "text", "id": "copyright",   "label": "Copyright line",
+      "info": "Supports {year} and {shop} placeholders.",
+      "default": "© {year} AQUA CUBE · BRACKENFELL, CAPE TOWN · ALL RIGHTS RESERVED" },
+    { "type": "text", "id": "domain_text", "label": "Domain text (right)", "default": "WWW.AQUACUBESA.CO.ZA" },
+    { "type": "url",  "id": "domain_url",  "label": "Domain URL",          "default": "https://www.aquacubesa.co.za" }
+  ],
+  "blocks": [
     {
-      "type": "text",
-      "id": "brand_name",
-      "label": "Brand name",
-      "default": "AQUA CUBE"
-    },
-    {
-      "type": "text",
-      "id": "tagline",
-      "label": "Tagline",
-      "default": "Leading provider of premium aquarium and paludarium products since 2015."
-    },
-    {
-      "type": "text",
-      "id": "links_heading",
-      "label": "Links heading",
-      "default": "Quick Links"
-    },
-    {
-      "type": "link_list",
-      "id": "menu",
-      "label": "Footer menu",
-      "default": "footer"
+      "type": "link",
+      "name": "Footer link",
+      "limit": 30,
+      "settings": [
+        {
+          "type": "select",
+          "id": "column",
+          "label": "Column",
+          "default": "shop",
+          "options": [
+            { "value": "shop",    "label": "Shop" },
+            { "value": "learn",   "label": "Learn" },
+            { "value": "support", "label": "Support" }
+          ]
+        },
+        { "type": "text", "id": "label", "label": "Label", "default": "Link label" },
+        { "type": "url",  "id": "url",   "label": "URL" }
+      ]
     }
   ],
-  "presets": [
-    { "name": "Footer" }
-  ]
+  "default": {
+    "blocks": [
+      { "type": "link", "settings": { "column": "shop", "label": "Pre-Built Tanks",         "url": "/collections/pre-built-tanks" } },
+      { "type": "link", "settings": { "column": "shop", "label": "Paludariums",             "url": "/collections/paludariums" } },
+      { "type": "link", "settings": { "column": "shop", "label": "Lighting & CO₂",          "url": "/collections/lighting-co2" } },
+      { "type": "link", "settings": { "column": "shop", "label": "Pumps & Flow",            "url": "/collections/pumps-flow" } },
+      { "type": "link", "settings": { "column": "shop", "label": "Filtration",              "url": "/collections/filtration" } },
+      { "type": "link", "settings": { "column": "shop", "label": "Hardscape & Substrate",   "url": "/collections/hardscape" } },
+      { "type": "link", "settings": { "column": "shop", "label": "Livestock & Plants",      "url": "/collections/livestock" } },
+
+      { "type": "link", "settings": { "column": "learn", "label": "Setup Guides",           "url": "/blogs/guides" } },
+      { "type": "link", "settings": { "column": "learn", "label": "Care Sheets",            "url": "/blogs/care-sheets" } },
+      { "type": "link", "settings": { "column": "learn", "label": "Aquascape Inspiration",  "url": "/blogs/inspiration" } },
+      { "type": "link", "settings": { "column": "learn", "label": "PAR & Spectrum Guide",   "url": "/pages/par-guide" } },
+      { "type": "link", "settings": { "column": "learn", "label": "FAQ",                    "url": "/pages/faq" } },
+      { "type": "link", "settings": { "column": "learn", "label": "Blog",                   "url": "/blogs/news" } },
+
+      { "type": "link", "settings": { "column": "support", "label": "Shipping & Returns",   "url": "/pages/shipping-returns" } },
+      { "type": "link", "settings": { "column": "support", "label": "Warranty",             "url": "/pages/warranty" } },
+      { "type": "link", "settings": { "column": "support", "label": "Contact Us",           "url": "/pages/contact" } },
+      { "type": "link", "settings": { "column": "support", "label": "Order Tracking",       "url": "/account/orders" } },
+      { "type": "link", "settings": { "column": "support", "label": "WhatsApp Support",     "url": "https://wa.me/27825550142" } }
+    ]
+  }
 }
 {% endschema %}
