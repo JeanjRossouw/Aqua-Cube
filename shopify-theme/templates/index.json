@@ -20,6 +20,22 @@
       },
       "block_order": ["s1", "s2", "s3", "s4"]
     },
+    "shop-by-style": {
+      "type": "shop-by-style",
+      "settings": {
+        "eyebrow": "/ shop by style",
+        "heading_line_1": "Find your",
+        "heading_line_2_accent": "perfect build.",
+        "description": "Whether you're chasing a calm planted layout, a vibrant reef, or a lush land-and-water paludarium — start with the build that fits your space and goals. We'll handle the rest."
+      },
+      "blocks": {
+        "s1": { "type": "style", "settings": { "title": "Planted Aquariums", "description": "Nature, Iwagumi, Dutch — calm green layouts",   "cta_label": "Explore" } },
+        "s2": { "type": "style", "settings": { "title": "Reef & Saltwater",  "description": "Coral, livestock, marine equipment",            "cta_label": "Explore" } },
+        "s3": { "type": "style", "settings": { "title": "Paludariums",       "description": "Land meets water — our flagship build",         "cta_label": "Explore", "badge_text": "FLAGSHIP", "flagship": true } },
+        "s4": { "type": "style", "settings": { "title": "Cube & Nano",       "description": "Small footprint, big impact",                   "cta_label": "Explore" } }
+      },
+      "block_order": ["s1", "s2", "s3", "s4"]
+    },
     "featured-collections": {
       "type": "featured-collections",
       "settings": {
@@ -113,5 +129,5 @@
       "type": "contact"
     }
   },
-  "order": ["hero", "featured-collections", "best-sellers", "our-promise", "trust-bar", "featured", "categories", "about", "newsletter", "contact"]
+  "order": ["hero", "shop-by-style", "featured-collections", "best-sellers", "our-promise", "trust-bar", "featured", "categories", "about", "newsletter", "contact"]
 }
