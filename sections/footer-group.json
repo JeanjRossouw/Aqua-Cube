@@ -5,11 +5,50 @@
     "footer": {
       "type": "footer",
       "settings": {
-        "brand_name": "AQUA CUBE",
-        "tagline": "Leading provider of premium aquarium and paludarium products since 2015.",
-        "links_heading": "Quick Links",
-        "menu": "footer"
-      }
+        "tagline": "South African aquarium store. Pre-built tanks, paludariums, lighting, pumps, filtration, livestock — everything for your aquarium, shipped fast across SA.",
+        "social_instagram": "",
+        "social_facebook": "",
+        "social_youtube": "",
+        "social_whatsapp": "",
+        "shop_heading": "SHOP",
+        "learn_heading": "LEARN",
+        "support_heading": "SUPPORT",
+        "contact_heading": "CONTACT",
+        "contact_email": "hello@aquacubesa.co.za",
+        "contact_whatsapp_display": "+27 82 555 0142",
+        "contact_whatsapp_url": "https://wa.me/27825550142",
+        "contact_hours": "Mon–Fri 9am–5pm SAST",
+        "copyright": "© {year} AQUA CUBE · BRACKENFELL, CAPE TOWN · ALL RIGHTS RESERVED",
+        "domain_text": "WWW.AQUACUBESA.CO.ZA",
+        "domain_url": "https://www.aquacubesa.co.za"
+      },
+      "blocks": {
+        "shop1":    { "type": "link", "settings": { "column": "shop",    "label": "Pre-Built Tanks",         "url": "/collections/pre-built-tanks" } },
+        "shop2":    { "type": "link", "settings": { "column": "shop",    "label": "Paludariums",             "url": "/collections/paludariums" } },
+        "shop3":    { "type": "link", "settings": { "column": "shop",    "label": "Lighting & CO₂",          "url": "/collections/lighting-co2" } },
+        "shop4":    { "type": "link", "settings": { "column": "shop",    "label": "Pumps & Flow",            "url": "/collections/pumps-flow" } },
+        "shop5":    { "type": "link", "settings": { "column": "shop",    "label": "Filtration",              "url": "/collections/filtration" } },
+        "shop6":    { "type": "link", "settings": { "column": "shop",    "label": "Hardscape & Substrate",   "url": "/collections/hardscape" } },
+        "shop7":    { "type": "link", "settings": { "column": "shop",    "label": "Livestock & Plants",      "url": "/collections/livestock" } },
+
+        "learn1":   { "type": "link", "settings": { "column": "learn",   "label": "Setup Guides",            "url": "/blogs/guides" } },
+        "learn2":   { "type": "link", "settings": { "column": "learn",   "label": "Care Sheets",             "url": "/blogs/care-sheets" } },
+        "learn3":   { "type": "link", "settings": { "column": "learn",   "label": "Aquascape Inspiration",   "url": "/blogs/inspiration" } },
+        "learn4":   { "type": "link", "settings": { "column": "learn",   "label": "PAR & Spectrum Guide",    "url": "/pages/par-guide" } },
+        "learn5":   { "type": "link", "settings": { "column": "learn",   "label": "FAQ",                     "url": "/pages/faq" } },
+        "learn6":   { "type": "link", "settings": { "column": "learn",   "label": "Blog",                    "url": "/blogs/news" } },
+
+        "support1": { "type": "link", "settings": { "column": "support", "label": "Shipping & Returns",      "url": "/pages/shipping-returns" } },
+        "support2": { "type": "link", "settings": { "column": "support", "label": "Warranty",                "url": "/pages/warranty" } },
+        "support3": { "type": "link", "settings": { "column": "support", "label": "Contact Us",              "url": "/pages/contact" } },
+        "support4": { "type": "link", "settings": { "column": "support", "label": "Order Tracking",          "url": "/account/orders" } },
+        "support5": { "type": "link", "settings": { "column": "support", "label": "WhatsApp Support",        "url": "https://wa.me/27825550142" } }
+      },
+      "block_order": [
+        "shop1", "shop2", "shop3", "shop4", "shop5", "shop6", "shop7",
+        "learn1", "learn2", "learn3", "learn4", "learn5", "learn6",
+        "support1", "support2", "support3", "support4", "support5"
+      ]
     }
   },
   "order": ["footer"]
