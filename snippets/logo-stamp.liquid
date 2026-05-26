@@ -1,0 +1,41 @@
+{%- comment -%}
+  AquaCube stamp lockup.
+  Params (all optional):
+    size  - font-size in px (default 18)
+    href  - wrap in <a> with this URL; omit for plain span
+    label - aria-label for the link
+{%- endcomment -%}
+
+{%- assign stamp_size = size | default: 18 -%}
+{%- assign cube_id    = 'cube-' | append: 'gid:' | append: section.id | default: 'logo' -%}
+
+{%- capture stamp_inner -%}
+  <span class="ac-stamp" style="font-size: {{ stamp_size }}px;">
+    <svg width="22" height="22" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+      <defs>
+        <clipPath id="cubeClip-{{ stamp_size }}">
+          <polygon points="60,14 104,38 60,62 16,38"/>
+          <polygon points="16,38 60,62 60,110 16,86"/>
+          <polygon points="104,38 60,62 60,110 104,86"/>
+        </clipPath>
+      </defs>
+      <g clip-path="url(#cubeClip-{{ stamp_size }})">
+        <path d="M 0 78 Q 30 70 60 78 T 120 78 L 120 120 L 0 120 Z" fill="#2bb6c7" opacity="0.75"/>
+        <path d="M 0 78 Q 30 70 60 78 T 120 78" stroke="#7fe7e0" stroke-width="2.2" fill="none"/>
+      </g>
+      <g stroke="#7fe7e0" stroke-width="2.4" stroke-linejoin="round" fill="none">
+        <polygon points="60,14 104,38 60,62 16,38"/>
+        <polygon points="16,38 60,62 60,110 16,86"/>
+        <polygon points="104,38 60,62 60,110 104,86"/>
+      </g>
+    </svg>
+    <span class="sep"></span>
+    <span class="wm-aqua">Aqua</span><span class="wm-cube">Cube</span>
+  </span>
+{%- endcapture -%}
+
+{%- if href -%}
+  <a href="{{ href }}"{% if label %} aria-label="{{ label | escape }}"{% endif %}>{{ stamp_inner }}</a>
+{%- else -%}
+  {{ stamp_inner }}
+{%- endif -%}

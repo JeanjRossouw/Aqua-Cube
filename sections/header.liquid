@@ -1,39 +1,94 @@
-<nav class="navbar" aria-label="Main navigation">
-  <div class="nav-container">
-    <a href="{{ routes.root_url }}" class="logo">
-      {%- if settings.logo != blank -%}
-        <img src="{{ settings.logo | image_url: width: 88 }}" alt="{{ shop.name }} Logo" class="logo-img" width="44" height="44">
-      {%- else -%}
-        <img src="{{ 'logo.svg' | asset_url }}" alt="{{ shop.name }} Logo" class="logo-img" width="44" height="44">
-      {%- endif -%}
-      <span>{{ section.settings.brand_name | default: shop.name | upcase }}</span>
-    </a>
+{%- liquid
+  assign products_handle = section.settings.products_handle | downcase | strip
+  assign cart_count = cart.item_count
+-%}
 
-    <ul class="nav-menu" id="NavMenu">
+<nav class="ac-nav" aria-label="Main navigation">
+  <div class="ac-page ac-nav__row">
+
+    {% render 'logo-stamp', href: routes.root_url, label: shop.name %}
+
+    <ul class="ac-nav__links" id="NavMenu" role="menubar">
       {%- for link in linklists[section.settings.menu].links -%}
-        <li>
-          <a href="{{ link.url }}"
-             class="nav-link{% if link.active %} active{% endif %}"
-             {% if link.active %}aria-current="page"{% endif %}>
-            {{ link.title }}
-          </a>
-        </li>
+        {%- assign link_handle = link.handle | downcase -%}
+        {%- assign link_slug   = link.title | handleize -%}
+        {%- if section.blocks.size > 0 and link_handle == products_handle or link_slug == products_handle -%}
+          <li class="ac-nav__drop" role="none">
+            <button class="ac-nav__trigger" type="button" aria-haspopup="true" aria-expanded="false" role="menuitem">
+              {{ link.title }}
+              {% render 'icon-caret-down' %}
+            </button>
+            <div class="ac-nav__menu" role="menu">
+              {%- for block in section.blocks -%}
+                {%- liquid
+                  case block.settings.link_type
+                    when 'collection'
+                      assign item_url = block.settings.collection.url | default: '#'
+                    else
+                      assign item_url = block.settings.custom_url | default: '#'
+                  endcase
+
+                  assign icon_snippet = 'icon-cat-' | append: block.settings.icon
+                -%}
+                <a href="{{ item_url }}" class="ac-nav__item" role="menuitem" {{ block.shopify_attributes }}>
+                  <span class="ac-nav__item-ico">
+                    {% render icon_snippet %}
+                  </span>
+                  <span class="ac-nav__item-txt">
+                    <span class="ac-nav__item-title">{{ block.settings.title | escape }}</span>
+                    {%- if block.settings.description != blank -%}
+                      <span class="ac-nav__item-desc">{{ block.settings.description | escape }}</span>
+                    {%- endif -%}
+                  </span>
+                </a>
+              {%- endfor -%}
+
+              {%- if section.settings.dropdown_footer_text != blank or section.settings.dropdown_cta_label != blank -%}
+                <div class="ac-nav__foot">
+                  <span>{{ section.settings.dropdown_footer_text }}</span>
+                  {%- if section.settings.dropdown_cta_label != blank -%}
+                    <a href="{{ section.settings.dropdown_cta_link | default: routes.all_products_collection_url }}">
+                      {{ section.settings.dropdown_cta_label }} →
+                    </a>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            </div>
+          </li>
+        {%- else -%}
+          <li role="none">
+            <a href="{{ link.url }}"
+               class="ac-nav__link{% if link.active %} is-active{% endif %}"
+               role="menuitem"
+               {% if link.active %}aria-current="page"{% endif %}>
+              {{ link.title }}
+            </a>
+          </li>
+        {%- endif -%}
       {%- endfor -%}
-      <li>
-        <form action="{{ routes.search_url }}" method="get" role="search" class="header-search">
-          <label for="HeaderSearch" class="visually-hidden">{{ 'general.search.placeholder' | t }}</label>
-          <input id="HeaderSearch" type="search" name="q" placeholder="{{ 'general.search.placeholder' | t }}" autocomplete="off">
-          <button type="submit" aria-label="{{ 'general.search.submit' | t }}"><i class="fas fa-search"></i></button>
-        </form>
-      </li>
-      <li>
-        <a href="{{ routes.cart_url }}" class="nav-link cart-link" aria-label="Cart ({{ cart.item_count }})">
-          <i class="fas fa-shopping-cart" aria-hidden="true"></i>&nbsp;<span id="cart-count">{{ cart.item_count }}</span>
-        </a>
-      </li>
     </ul>
 
-    <button class="hamburger" id="Hamburger" aria-label="Toggle menu" aria-controls="NavMenu" aria-expanded="false">
+    <div class="ac-nav__icons">
+      {%- if section.settings.show_search -%}
+        <a href="{{ routes.search_url }}" aria-label="{{ 'general.search.submit' | t | default: 'Search' }}">
+          {% render 'icon-search' %}
+        </a>
+      {%- endif -%}
+      {%- if section.settings.show_account -%}
+        <a href="{{ routes.account_url }}" aria-label="Account">
+          {% render 'icon-account' %}
+        </a>
+      {%- endif -%}
+      <a href="{{ routes.cart_url }}" class="ac-nav__bag" aria-label="Cart ({{ cart_count }})">
+        {% render 'icon-cart' %}
+        {%- if cart_count > 0 -%}
+          <span class="ac-nav__bag-dot" id="cart-count">{{ cart_count }}</span>
+        {%- endif -%}
+      </a>
+    </div>
+
+    <button class="ac-nav__burger" id="Hamburger" type="button"
+            aria-label="Toggle menu" aria-controls="NavMenu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -47,15 +102,98 @@
       "type": "text",
       "id": "brand_name",
       "label": "Brand name (shown next to logo)",
-      "default": "AQUA CUBE"
+      "default": "AQUA CUBE",
+      "info": "Currently unused — the stamp lockup renders the AquaCube wordmark inline. Kept for backward compatibility."
     },
     {
       "type": "link_list",
       "id": "menu",
       "label": "Main menu",
-      "default": "main-menu"
+      "default": "main-menu",
+      "info": "Top-level nav. The link with the handle below renders as a rich Products dropdown using the category blocks."
+    },
+    {
+      "type": "text",
+      "id": "products_handle",
+      "label": "Products link handle",
+      "default": "products",
+      "info": "Handle of the menu link that should expand into the dropdown."
+    },
+    {
+      "type": "header",
+      "content": "Products dropdown footer"
+    },
+    {
+      "type": "text",
+      "id": "dropdown_footer_text",
+      "label": "Footer text (left)",
+      "default": "FREE DELIVERY OVER R1,500"
+    },
+    {
+      "type": "text",
+      "id": "dropdown_cta_label",
+      "label": "Footer CTA label (right)",
+      "default": "Shop all products"
+    },
+    {
+      "type": "url",
+      "id": "dropdown_cta_link",
+      "label": "Footer CTA URL"
+    },
+    {
+      "type": "header",
+      "content": "Right-hand icons"
+    },
+    { "type": "checkbox", "id": "show_search",  "label": "Show search icon",  "default": true },
+    { "type": "checkbox", "id": "show_account", "label": "Show account icon", "default": true }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Dropdown category",
+      "limit": 8,
+      "settings": [
+        { "type": "text",     "id": "title",       "label": "Title",       "default": "Lighting & CO₂" },
+        { "type": "text",     "id": "description", "label": "Description", "default": "Reef & planted LEDs, regulators, diffusers" },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "lighting",
+          "options": [
+            { "value": "lighting",   "label": "Lighting (sun)" },
+            { "value": "pumps",      "label": "Pumps (clock)" },
+            { "value": "aquariums",  "label": "Aquariums (tank)" },
+            { "value": "filtration", "label": "Filtration (cartridge)" },
+            { "value": "livestock",  "label": "Livestock (fish)" },
+            { "value": "hardscape",  "label": "Hardscape (rock)" }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "link_type",
+          "label": "Link to",
+          "default": "collection",
+          "options": [
+            { "value": "collection", "label": "Collection (below)" },
+            { "value": "custom",     "label": "Custom URL (below)" }
+          ]
+        },
+        { "type": "collection", "id": "collection", "label": "Collection" },
+        { "type": "url",        "id": "custom_url", "label": "Custom URL" }
+      ]
     }
   ],
+  "default": {
+    "blocks": [
+      { "type": "category", "settings": { "title": "Lighting & CO₂",        "description": "Reef & planted LEDs, regulators, diffusers", "icon": "lighting"   } },
+      { "type": "category", "settings": { "title": "Pumps & Flow",          "description": "DC wave-makers, return pumps, controllers",  "icon": "pumps"      } },
+      { "type": "category", "settings": { "title": "Aquariums",             "description": "Starfire cubes, rimless & paludariums",      "icon": "aquariums"  } },
+      { "type": "category", "settings": { "title": "Filtration",            "description": "Canisters, sumps, media & spares",           "icon": "filtration" } },
+      { "type": "category", "settings": { "title": "Coral & Livestock",     "description": "Frags, nano fish, shrimp — quarantined",     "icon": "livestock"  } },
+      { "type": "category", "settings": { "title": "Hardscape & Substrate", "description": "Seiryu, dragon stone, wood, ADA soil",       "icon": "hardscape"  } }
+    ]
+  },
   "presets": [
     { "name": "Header" }
   ]
