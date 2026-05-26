@@ -2058,6 +2058,58 @@ a { color: inherit; text-decoration: none; }
   .fq-quote__open { font-size: 80px; margin-bottom: -20px; }
 }
 
+/* ---------- we set it up (process steps) ---------- */
+.wsi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  overflow: hidden;
+}
+.wsi-step {
+  background: var(--aqua-deep);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.wsi-step__n {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--r-btn);
+  border: 1.5px solid var(--aqua-1);
+  color: var(--aqua-1);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.wsi-step__title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: #fff;
+}
+.wsi-step__body {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+@media (max-width: 920px) {
+  .wsi-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .wsi-grid { grid-template-columns: 1fr; }
+}
+
 /* ---------- shop by style ---------- */
 .sbs-grid {
   display: grid;
