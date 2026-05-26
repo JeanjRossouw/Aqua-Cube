@@ -100,6 +100,16 @@
         "background_placeholder_url": "https://images.unsplash.com/photo-1779436853049-c19542e3c81c?w=2000&q=80"
       }
     },
+    "founder-quote": {
+      "type": "founder-quote",
+      "settings": {
+        "portrait_placeholder_url": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=1200&q=80",
+        "quote_text": "We started Aqua Cube because nobody in SA was building tanks that actually thrived long-term.",
+        "quote_accent": "So we built them ourselves.",
+        "author_name": "Jean",
+        "author_title": "FOUNDER, AQUA CUBE"
+      }
+    },
     "trust-bar": {
       "type": "trust-bar",
       "blocks": {
@@ -150,5 +160,5 @@
       "type": "contact"
     }
   },
-  "order": ["hero", "shop-by-style", "aquascapes-gallery", "featured-collections", "best-sellers", "our-promise", "trust-bar", "featured", "categories", "about", "newsletter", "contact"]
+  "order": ["hero", "shop-by-style", "aquascapes-gallery", "featured-collections", "best-sellers", "our-promise", "founder-quote", "trust-bar", "featured", "categories", "about", "newsletter", "contact"]
 }
