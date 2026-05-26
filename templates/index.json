@@ -29,10 +29,10 @@
         "description": "Whether you're chasing a calm planted layout, a vibrant reef, or a lush land-and-water paludarium — start with the build that fits your space and goals. We'll handle the rest."
       },
       "blocks": {
-        "s1": { "type": "style", "settings": { "title": "Planted Aquariums", "description": "Nature, Iwagumi, Dutch — calm green layouts",   "cta_label": "Explore" } },
-        "s2": { "type": "style", "settings": { "title": "Reef & Saltwater",  "description": "Coral, livestock, marine equipment",            "cta_label": "Explore" } },
-        "s3": { "type": "style", "settings": { "title": "Paludariums",       "description": "Land meets water — our flagship build",         "cta_label": "Explore", "badge_text": "FLAGSHIP", "flagship": true } },
-        "s4": { "type": "style", "settings": { "title": "Cube & Nano",       "description": "Small footprint, big impact",                   "cta_label": "Explore" } }
+        "s1": { "type": "style", "settings": { "title": "Planted Aquariums", "description": "Nature, Iwagumi, Dutch — calm green layouts",   "cta_label": "Explore",                                                "placeholder_url": "https://images.unsplash.com/photo-1691387896833-dba10ea7d614?w=1200&q=80" } },
+        "s2": { "type": "style", "settings": { "title": "Reef & Saltwater",  "description": "Coral, livestock, marine equipment",            "cta_label": "Explore",                                                "placeholder_url": "https://images.unsplash.com/photo-1748423392373-e2fd0ef41529?w=1200&q=80" } },
+        "s3": { "type": "style", "settings": { "title": "Paludariums",       "description": "Land meets water — our flagship build",         "cta_label": "Explore", "badge_text": "FLAGSHIP", "flagship": true, "placeholder_url": "https://images.unsplash.com/photo-1578313097818-dfe8d38aa758?w=1200&q=80" } },
+        "s4": { "type": "style", "settings": { "title": "Cube & Nano",       "description": "Small footprint, big impact",                   "cta_label": "Explore",                                                "placeholder_url": "https://images.unsplash.com/photo-1730530355839-80f863edd421?w=1200&q=80" } }
       },
       "block_order": ["s1", "s2", "s3", "s4"]
     },
@@ -46,13 +46,13 @@
         "cta_label": "See all builds"
       },
       "blocks": {
-        "g1": { "type": "tank", "settings": { "name": "300L Paludarium · Constantia home",  "tag_text": "PALUDARIUM", "tag_color": "#7fe7e0" } },
-        "g2": { "type": "tank", "settings": { "name": "120L Iwagumi · Sea Point",           "tag_text": "PLANTED",    "tag_color": "#8fcf6a" } },
-        "g3": { "type": "tank", "settings": { "name": "600L Mixed Reef · Stellenbosch",     "tag_text": "REEF",       "tag_color": "#ff8a5b" } },
-        "g4": { "type": "tank", "settings": { "name": "200L Community Tank · Durbanville",  "tag_text": "FRESHWATER", "tag_color": "#5db8e3" } },
-        "g5": { "type": "tank", "settings": { "name": "60L Cube · Office build",            "tag_text": "NANO",       "tag_color": "#ffffff" } },
-        "g6": { "type": "tank", "settings": { "name": "150L Dutch · Newlands",              "tag_text": "PLANTED",    "tag_color": "#8fcf6a" } },
-        "g7": { "type": "tank", "settings": { "name": "400L Discus Showcase · Bellville",   "tag_text": "FRESHWATER", "tag_color": "#5db8e3" } }
+        "g1": { "type": "tank", "settings": { "name": "300L Paludarium · Constantia home",  "tag_text": "PALUDARIUM", "tag_color": "#7fe7e0", "placeholder_url": "https://images.unsplash.com/photo-1779436853049-c19542e3c81c?w=1200&q=80" } },
+        "g2": { "type": "tank", "settings": { "name": "120L Iwagumi · Sea Point",           "tag_text": "PLANTED",    "tag_color": "#8fcf6a", "placeholder_url": "https://images.unsplash.com/photo-1691387747539-f681c5fa73d9?w=1200&q=80" } },
+        "g3": { "type": "tank", "settings": { "name": "600L Mixed Reef · Stellenbosch",     "tag_text": "REEF",       "tag_color": "#ff8a5b", "placeholder_url": "https://images.unsplash.com/photo-1568605447135-30c22eac61cb?w=1200&q=80" } },
+        "g4": { "type": "tank", "settings": { "name": "200L Community Tank · Durbanville",  "tag_text": "FRESHWATER", "tag_color": "#5db8e3", "placeholder_url": "https://images.unsplash.com/photo-1758854486633-95d4be711750?w=1200&q=80" } },
+        "g5": { "type": "tank", "settings": { "name": "60L Cube · Office build",            "tag_text": "NANO",       "tag_color": "#ffffff", "placeholder_url": "https://images.unsplash.com/photo-1730530355813-fdfb30480141?w=1200&q=80" } },
+        "g6": { "type": "tank", "settings": { "name": "150L Dutch · Newlands",              "tag_text": "PLANTED",    "tag_color": "#8fcf6a", "placeholder_url": "https://images.unsplash.com/photo-1691387824643-227cc84127cf?w=1200&q=80" } },
+        "g7": { "type": "tank", "settings": { "name": "400L Discus Showcase · Bellville",   "tag_text": "FRESHWATER", "tag_color": "#5db8e3", "placeholder_url": "https://images.unsplash.com/photo-1735476600186-23d3506052a1?w=1200&q=80" } }
       },
       "block_order": ["g1", "g2", "g3", "g4", "g5", "g6", "g7"]
     },
@@ -65,10 +65,10 @@
         "description": "Lighting, flow and CO₂ from the brands we actually trust — paired with the substrate, scape and livestock to finish the picture."
       },
       "blocks": {
-        "c1": { "type": "card", "settings": { "tag": "FEATURED · LIGHTING", "count": "38 PRODUCTS", "title": "Pumps & Flow",      "cta_label": "Browse" } },
-        "c2": { "type": "card", "settings": { "tag": "AQUARIUMS",           "count": "18",          "title": "Cube Aquariums",    "cta_label": "Browse" } },
-        "c3": { "type": "card", "settings": { "tag": "FILTRATION",          "count": "22",          "title": "Filters & Media",   "cta_label": "Browse" } },
-        "c4": { "type": "card", "settings": { "tag": "LIVE",                "count": "40+",         "title": "Coral & Livestock", "cta_label": "Browse" } }
+        "c1": { "type": "card", "settings": { "tag": "FEATURED · LIGHTING", "count": "38 PRODUCTS", "title": "Pumps & Flow",      "cta_label": "Browse", "placeholder_url": "https://images.unsplash.com/photo-1644810734090-ca39bfafe516?w=1200&q=80" } },
+        "c2": { "type": "card", "settings": { "tag": "AQUARIUMS",           "count": "18",          "title": "Cube Aquariums",    "cta_label": "Browse", "placeholder_url": "https://images.unsplash.com/photo-1583949184685-33fda190a216?w=1200&q=80" } },
+        "c3": { "type": "card", "settings": { "tag": "FILTRATION",          "count": "22",          "title": "Filters & Media",   "cta_label": "Browse", "placeholder_url": "https://images.unsplash.com/photo-1742294740087-116b5421341e?w=1200&q=80" } },
+        "c4": { "type": "card", "settings": { "tag": "LIVE",                "count": "40+",         "title": "Coral & Livestock", "cta_label": "Browse", "placeholder_url": "https://images.unsplash.com/photo-1682045324088-ddaf4da1df35?w=1200&q=80" } }
       },
       "block_order": ["c1", "c2", "c3", "c4"]
     },
@@ -81,10 +81,10 @@
         "description": "The four fixtures that move the most this season. Shipped countrywide, 2-year warranty, local support out of Cape Town."
       },
       "blocks": {
-        "p1": { "type": "product", "settings": { "badge_text": "NEW", "manual_title": "LED fixture · top-down" } },
-        "p2": { "type": "product", "settings": {                       "manual_title": "DC wave pump" } },
-        "p3": { "type": "product", "settings": {                       "manual_title": "CO₂ Pro · Dual-Stage Regulator" } },
-        "p4": { "type": "product", "settings": {                       "manual_title": "Pure 600 · Canister Filter" } }
+        "p1": { "type": "product", "settings": { "badge_text": "NEW", "manual_title": "LED fixture · top-down",      "placeholder_url": "https://images.unsplash.com/photo-1758854486625-2ef3d73853fc?w=1200&q=80" } },
+        "p2": { "type": "product", "settings": {                       "manual_title": "DC wave pump",                "placeholder_url": "https://images.unsplash.com/photo-1644810734090-ca39bfafe516?w=1200&q=80" } },
+        "p3": { "type": "product", "settings": {                       "manual_title": "CO₂ Pro · Dual-Stage Regulator", "placeholder_url": "https://images.unsplash.com/photo-1595306394931-b35768661692?w=1200&q=80" } },
+        "p4": { "type": "product", "settings": {                       "manual_title": "Pure 600 · Canister Filter", "placeholder_url": "https://images.unsplash.com/photo-1742294740087-116b5421341e?w=1200&q=80" } }
       },
       "block_order": ["p1", "p2", "p3", "p4"]
     },

@@ -53,6 +53,11 @@
                      sizes="(max-width: 720px) 100vw, 50vw"
                      alt="{{ card_alt | escape }}"
                      loading="lazy">
+              {%- elsif block.settings.placeholder_url != blank -%}
+                <img class="fc-card__img"
+                     src="{{ block.settings.placeholder_url }}"
+                     alt="{{ card_alt | escape }}"
+                     loading="lazy">
               {%- else -%}
                 <div class="fc-card__placeholder" aria-hidden="true"></div>
               {%- endif -%}
@@ -103,8 +108,10 @@
         { "type": "text",         "id": "title",      "label": "Title",                "default": "Pumps & Flow" },
         { "type": "text",         "id": "cta_label",  "label": "CTA label",            "default": "Browse",
           "info": "The arrow → is appended automatically." },
-        { "type": "image_picker", "id": "image",      "label": "Image",
-          "info": "Optional. Falls back to the linked collection's image, then to a gradient placeholder." },
+        { "type": "image_picker", "id": "image",      "label": "Image (uploaded)",
+          "info": "Picked image wins over the placeholder URL below. Falls back to the linked collection's image, then to the placeholder URL, then to a gradient." },
+        { "type": "text",         "id": "placeholder_url", "label": "Placeholder image URL",
+          "info": "External URL used when no image is uploaded. Demo defaults are free Unsplash photos." },
         { "type": "collection",   "id": "collection", "label": "Collection" },
         { "type": "url",          "id": "custom_url", "label": "Custom URL",
           "info": "Used when no collection is picked." }
@@ -116,10 +123,10 @@
       "name": "Featured Collections",
       "category": "Aqua Cube",
       "blocks": [
-        { "type": "card", "settings": { "tag": "FEATURED · LIGHTING", "count": "38 PRODUCTS", "title": "Pumps & Flow",      "cta_label": "Browse" } },
-        { "type": "card", "settings": { "tag": "AQUARIUMS",           "count": "18",          "title": "Cube Aquariums",    "cta_label": "Browse" } },
-        { "type": "card", "settings": { "tag": "FILTRATION",          "count": "22",          "title": "Filters & Media",   "cta_label": "Browse" } },
-        { "type": "card", "settings": { "tag": "LIVE",                "count": "40+",         "title": "Coral & Livestock", "cta_label": "Browse" } }
+        { "type": "card", "settings": { "tag": "FEATURED · LIGHTING", "count": "38 PRODUCTS", "title": "Pumps & Flow",      "cta_label": "Browse", "placeholder_url": "https://images.unsplash.com/photo-1644810734090-ca39bfafe516?w=1200&q=80" } },
+        { "type": "card", "settings": { "tag": "AQUARIUMS",           "count": "18",          "title": "Cube Aquariums",    "cta_label": "Browse", "placeholder_url": "https://images.unsplash.com/photo-1583949184685-33fda190a216?w=1200&q=80" } },
+        { "type": "card", "settings": { "tag": "FILTRATION",          "count": "22",          "title": "Filters & Media",   "cta_label": "Browse", "placeholder_url": "https://images.unsplash.com/photo-1742294740087-116b5421341e?w=1200&q=80" } },
+        { "type": "card", "settings": { "tag": "LIVE",                "count": "40+",         "title": "Coral & Livestock", "cta_label": "Browse", "placeholder_url": "https://images.unsplash.com/photo-1682045324088-ddaf4da1df35?w=1200&q=80" } }
       ]
     }
   ]
