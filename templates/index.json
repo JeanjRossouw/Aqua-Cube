@@ -20,6 +20,25 @@
       },
       "block_order": ["s1", "s2", "s3", "s4"]
     },
+    "pre-built-tanks": {
+      "type": "pre-built-tanks",
+      "settings": {
+        "eyebrow": "/ pre-built tanks",
+        "heading_line_1": "Ready to ship,",
+        "heading_line_2_accent": "ready to thrive.",
+        "description": "Complete tank setups — aquariums and paludariums — packed, tested and ready to deliver. Pick the size, plug it in, add water.",
+        "cta_label": "Browse all pre-built tanks"
+      },
+      "blocks": {
+        "t1": { "type": "tank", "settings": { "type_tag": "PLANTED TANK", "size": "30L",  "manual_title": "Aqua Cube Nano 30",        "includes": "Glass cube + LED + filter + heater",                "manual_price": "From R 3,499",  "placeholder_url": "https://images.unsplash.com/photo-1730530355839-80f863edd421?w=1200&q=80" } },
+        "t2": { "type": "tank", "settings": { "type_tag": "PLANTED TANK", "size": "60L",  "manual_title": "Aqua Cube Planted 60",     "includes": "Rimless glass + LED + canister filter + CO₂ ready", "manual_price": "From R 6,999",  "placeholder_url": "https://images.unsplash.com/photo-1691387747539-f681c5fa73d9?w=1200&q=80" } },
+        "t3": { "type": "tank", "settings": { "type_tag": "PALUDARIUM",   "size": "80L",  "manual_title": "Aqua Cube Paludarium 80",  "includes": "Glass tank + waterfall pump + mist system + LED",   "manual_price": "From R 8,499",  "flagship": true, "flagship_label": "FLAGSHIP", "placeholder_url": "https://images.unsplash.com/photo-1578313097818-dfe8d38aa758?w=1200&q=80" } },
+        "t4": { "type": "tank", "settings": { "type_tag": "FRESHWATER",   "size": "120L", "manual_title": "Aqua Cube Community 120",  "includes": "Tank + cabinet + filter + heater + LED",            "manual_price": "From R 9,999",  "placeholder_url": "https://images.unsplash.com/photo-1758854486633-95d4be711750?w=1200&q=80" } },
+        "t5": { "type": "tank", "settings": { "type_tag": "REEF READY",   "size": "200L", "manual_title": "Aqua Cube Reef 200",       "includes": "Tank + sump + return pump + skimmer ready",         "manual_price": "From R 18,999", "placeholder_url": "https://images.unsplash.com/photo-1583949184685-33fda190a216?w=1200&q=80" } },
+        "t6": { "type": "tank", "settings": { "type_tag": "PALUDARIUM",   "size": "150L", "manual_title": "Aqua Cube Paludarium 150", "includes": "Premium glass + integrated waterfall + RGB LED",    "manual_price": "From R 16,499", "placeholder_url": "https://images.unsplash.com/photo-1779436853049-c19542e3c81c?w=1200&q=80" } }
+      },
+      "block_order": ["t1", "t2", "t3", "t4", "t5", "t6"]
+    },
     "shop-by-style": {
       "type": "shop-by-style",
       "settings": {
@@ -138,5 +157,5 @@
       "type": "contact"
     }
   },
-  "order": ["hero", "shop-by-style", "aquascapes-gallery", "featured-collections", "best-sellers", "trust-bar", "featured", "categories", "about", "newsletter", "contact"]
+  "order": ["hero", "pre-built-tanks", "shop-by-style", "aquascapes-gallery", "featured-collections", "best-sellers", "trust-bar", "featured", "categories", "about", "newsletter", "contact"]
 }

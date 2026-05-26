@@ -2110,6 +2110,161 @@ a { color: inherit; text-decoration: none; }
   .wsi-grid { grid-template-columns: 1fr; }
 }
 
+/* ---------- pre-built tanks ---------- */
+.pbt-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.pbt-card {
+  background: var(--aqua-deeper);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.2s ease;
+}
+.pbt-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(127, 231, 224, 0.35);
+}
+.pbt-card--flagship {
+  border-color: rgba(127, 231, 224, 0.4);
+  box-shadow: 0 0 0 1px rgba(127, 231, 224, 0.18), 0 30px 60px -20px rgba(0, 0, 0, 0.55);
+}
+.pbt-card--flagship:hover {
+  border-color: rgba(127, 231, 224, 0.6);
+  box-shadow: 0 0 0 1px rgba(127, 231, 224, 0.3), 0 30px 60px -20px rgba(0, 0, 0, 0.65);
+}
+.pbt-card__flagship-ribbon {
+  background: var(--aqua-1);
+  color: var(--aqua-deep);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  padding: 7px 6px;
+}
+.pbt-card__imgwrap {
+  aspect-ratio: 4 / 3;
+  position: relative;
+  background: var(--aqua-deep);
+  border-bottom: 1px solid var(--rule);
+  overflow: hidden;
+}
+.pbt-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.pbt-card__placeholder {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 50% at 30% 30%, rgba(127, 231, 224, 0.12) 0%, transparent 70%),
+    linear-gradient(135deg, var(--aqua-deeper) 0%, var(--aqua-3) 100%);
+}
+.pbt-card__tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 3px;
+  background: var(--aqua-1);
+  color: var(--aqua-deep);
+}
+.pbt-card__size {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: #fff;
+  padding: 4px 10px;
+  border: 1px solid rgba(127, 231, 224, 0.3);
+  border-radius: 3px;
+  background: rgba(3, 25, 42, 0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.pbt-card__body {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+.pbt-card__title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: #fff;
+}
+.pbt-card__includes {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.pbt-card__price {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin-top: auto;
+  padding-top: 4px;
+}
+.pbt-card__actions {
+  display: flex;
+  gap: 8px;
+  padding: 14px 22px 22px;
+  border-top: 1px solid var(--rule);
+}
+.pbt-card__actions form { flex: 1; display: flex; }
+.pbt-card__actions .ac-btn {
+  flex: 1;
+  justify-content: center;
+  padding: 11px 12px;
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.pbt-card__actions .ac-btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.pbt-cta-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 56px;
+}
+
+@media (max-width: 920px) {
+  .pbt-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .pbt-grid { grid-template-columns: 1fr; gap: 16px; }
+  .pbt-cta-row { margin-top: 32px; }
+}
+
 /* ---------- shop by style ---------- */
 .sbs-grid {
   display: grid;
