@@ -22,16 +22,20 @@
   <div class="ac-hero__bg" aria-hidden="true"></div>
   <div class="ac-hero__grid" aria-hidden="true"></div>
 
-  {%- if section.settings.image != blank -%}
-    <div class="ac-hero__photo" aria-hidden="true">
+  <div class="ac-hero__photo" aria-hidden="true">
+    {%- if section.settings.image != blank -%}
       <img src="{{ section.settings.image | image_url: width: 1600 }}"
            srcset="{{ section.settings.image | image_url: width: 800 }} 800w, {{ section.settings.image | image_url: width: 1200 }} 1200w, {{ section.settings.image | image_url: width: 1600 }} 1600w"
            sizes="(max-width: 560px) 100vw, 58vw"
            alt="{{ section.settings.image.alt | escape }}"
            width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}"
            loading="eager" fetchpriority="high">
-    </div>
-  {%- endif -%}
+    {%- else -%}
+      <img src="{{ 'hero-tank.png' | asset_url }}"
+           alt="Lit reef aquarium"
+           loading="eager" fetchpriority="high">
+    {%- endif -%}
+  </div>
 
   <div class="ac-hero__inner">
     <div class="ac-hero__copy">
