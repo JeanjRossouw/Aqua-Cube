@@ -39,11 +39,11 @@
     "aquascapes-gallery": {
       "type": "aquascapes-gallery",
       "settings": {
-        "eyebrow": "/ aquascapes gallery",
-        "heading_line_1": "Tanks we've",
-        "heading_line_2_accent": "actually built.",
-        "description": "Every photo here is from a real Aqua Cube install — freshwater, planted, reef, or paludarium — running in homes, offices and showrooms across South Africa.",
-        "cta_label": "See all builds"
+        "eyebrow": "/ inspiration gallery",
+        "heading_line_1": "Inspiration",
+        "heading_line_2_accent": "gallery.",
+        "description": "Real customer setups and aquascape inspiration to spark your next build.",
+        "cta_label": "See more inspiration"
       },
       "blocks": {
         "g1": { "type": "tank", "settings": { "name": "300L Paludarium · Constantia home",  "tag_text": "PALUDARIUM", "tag_color": "#7fe7e0", "placeholder_url": "https://images.unsplash.com/photo-1779436853049-c19542e3c81c?w=1200&q=80" } },
@@ -87,44 +87,6 @@
         "p4": { "type": "product", "settings": {                       "manual_title": "Pure 600 · Canister Filter", "placeholder_url": "https://images.unsplash.com/photo-1742294740087-116b5421341e?w=1200&q=80" } }
       },
       "block_order": ["p1", "p2", "p3", "p4"]
-    },
-    "our-promise": {
-      "type": "our-promise",
-      "settings": {
-        "eyebrow": "/ our promise",
-        "heading_line_1": "Engineered for the reef,",
-        "heading_line_2_prefix": "tuned for",
-        "heading_line_2_accent": "South Africa.",
-        "body": "<p>Every fixture we sell is tested in our Cape Town showroom on real tanks under real load — for months — before it makes it into the catalog. If it can't keep coral growing here, it doesn't ship.</p>",
-        "cta_label": "Read the story",
-        "background_placeholder_url": "https://images.unsplash.com/photo-1779436853049-c19542e3c81c?w=2000&q=80"
-      }
-    },
-    "founder-quote": {
-      "type": "founder-quote",
-      "settings": {
-        "portrait_placeholder_url": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=1200&q=80",
-        "quote_text": "We started Aqua Cube because nobody in SA was building tanks that actually thrived long-term.",
-        "quote_accent": "So we built them ourselves.",
-        "author_name": "Jean",
-        "author_title": "FOUNDER, AQUA CUBE"
-      }
-    },
-    "we-set-it-up": {
-      "type": "we-set-it-up",
-      "settings": {
-        "eyebrow": "/ how it works",
-        "heading_line_1": "You don't just buy it.",
-        "heading_line_2_accent": "We set it up.",
-        "description": "From a 25L planted cube on your desk to a 600L reef in your lounge — same four steps, same one number to call."
-      },
-      "blocks": {
-        "w1": { "type": "step", "settings": { "title": "Consult",        "body": "Free 30-minute call or showroom visit. We measure the space, talk light, livestock, noise and budget." } },
-        "w2": { "type": "step", "settings": { "title": "Spec & quote",   "body": "Full equipment list and a single fixed quote, in Rand, with lead times. No surprises later." } },
-        "w3": { "type": "step", "settings": { "title": "Build & cycle",  "body": "We assemble in-studio, plant or scape, and cycle the tank for 3–4 weeks before livestock goes in." } },
-        "w4": { "type": "step", "settings": { "title": "Install & care", "body": "White-glove install at your home or office. Optional monthly maintenance plan from R650." } }
-      },
-      "block_order": ["w1", "w2", "w3", "w4"]
     },
     "trust-bar": {
       "type": "trust-bar",
@@ -176,5 +138,5 @@
       "type": "contact"
     }
   },
-  "order": ["hero", "shop-by-style", "aquascapes-gallery", "featured-collections", "best-sellers", "our-promise", "founder-quote", "we-set-it-up", "trust-bar", "featured", "categories", "about", "newsletter", "contact"]
+  "order": ["hero", "shop-by-style", "aquascapes-gallery", "featured-collections", "best-sellers", "trust-bar", "featured", "categories", "about", "newsletter", "contact"]
 }
