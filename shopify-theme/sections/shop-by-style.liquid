@@ -53,6 +53,11 @@
                      sizes="(max-width: 560px) 100vw, (max-width: 920px) 50vw, 25vw"
                      alt="{{ card_image.alt | default: block.settings.title | escape }}"
                      loading="lazy">
+              {%- elsif block.settings.placeholder_url != blank -%}
+                <img class="sbs-card__img"
+                     src="{{ block.settings.placeholder_url }}"
+                     alt="{{ block.settings.title | escape }}"
+                     loading="lazy">
               {%- else -%}
                 <div class="sbs-card__placeholder" aria-hidden="true"></div>
               {%- endif -%}
@@ -103,8 +108,10 @@
         { "type": "checkbox",     "id": "flagship",    "label": "Flagship treatment",
           "info": "Adds a subtle aqua glow and stronger border to make the card stand out.",
           "default": false },
-        { "type": "image_picker", "id": "image",       "label": "Background image",
-          "info": "Optional. Falls back to the linked collection's image, then to a gradient placeholder." },
+        { "type": "image_picker", "id": "image",       "label": "Background image (uploaded)",
+          "info": "Optional. Picked image wins over the placeholder URL below." },
+        { "type": "text",         "id": "placeholder_url", "label": "Placeholder image URL",
+          "info": "External URL used when no image is uploaded. Demo defaults are free Unsplash photos — replace with your own product/build photo for production." },
         { "type": "collection",   "id": "collection",  "label": "Link to collection" },
         { "type": "url",          "id": "custom_url",  "label": "Custom URL",
           "info": "Used when no collection is picked." }
@@ -116,10 +123,10 @@
       "name": "Shop by Style",
       "category": "Aqua Cube",
       "blocks": [
-        { "type": "style", "settings": { "title": "Planted Aquariums", "description": "Nature, Iwagumi, Dutch — calm green layouts",   "cta_label": "Explore" } },
-        { "type": "style", "settings": { "title": "Reef & Saltwater",  "description": "Coral, livestock, marine equipment",            "cta_label": "Explore" } },
-        { "type": "style", "settings": { "title": "Paludariums",       "description": "Land meets water — our flagship build",         "cta_label": "Explore", "badge_text": "FLAGSHIP", "flagship": true } },
-        { "type": "style", "settings": { "title": "Cube & Nano",       "description": "Small footprint, big impact",                   "cta_label": "Explore" } }
+        { "type": "style", "settings": { "title": "Planted Aquariums", "description": "Nature, Iwagumi, Dutch — calm green layouts",   "cta_label": "Explore",                                                "placeholder_url": "https://images.unsplash.com/photo-1691387896833-dba10ea7d614?w=1200&q=80" } },
+        { "type": "style", "settings": { "title": "Reef & Saltwater",  "description": "Coral, livestock, marine equipment",            "cta_label": "Explore",                                                "placeholder_url": "https://images.unsplash.com/photo-1748423392373-e2fd0ef41529?w=1200&q=80" } },
+        { "type": "style", "settings": { "title": "Paludariums",       "description": "Land meets water — our flagship build",         "cta_label": "Explore", "badge_text": "FLAGSHIP", "flagship": true, "placeholder_url": "https://images.unsplash.com/photo-1578313097818-dfe8d38aa758?w=1200&q=80" } },
+        { "type": "style", "settings": { "title": "Cube & Nano",       "description": "Small footprint, big impact",                   "cta_label": "Explore",                                                "placeholder_url": "https://images.unsplash.com/photo-1730530355839-80f863edd421?w=1200&q=80" } }
       ]
     }
   ]
