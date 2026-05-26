@@ -1,0 +1,139 @@
+<section class="ac-section" aria-labelledby="bs-heading-{{ section.id }}">
+  <div class="ac-page">
+    <div class="ac-section-head">
+      <div class="ac-section-head__left">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="ac-mono">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        <h2 id="bs-heading-{{ section.id }}">
+          {%- if section.settings.heading_line_1 != blank -%}
+            {{ section.settings.heading_line_1 }}
+          {%- endif -%}
+          {%- if section.settings.heading_line_1 != blank and section.settings.heading_line_2 != blank -%}
+            <br>
+          {%- endif -%}
+          {%- if section.settings.heading_line_2 != blank -%}
+            <em>{{ section.settings.heading_line_2 }}</em>
+          {%- endif -%}
+        </h2>
+      </div>
+      {%- if section.settings.description != blank -%}
+        <p class="ac-section-head__right">{{ section.settings.description }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="bs-grid">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'product' -%}
+            {%- liquid
+              assign p = block.settings.product
+              if p != blank
+                assign card_url        = p.url
+                assign card_title      = p.title
+                assign card_vendor     = p.vendor | default: 'AQUA CUBE'
+                assign card_image      = p.featured_image
+                assign card_price_html = p.price | money
+                assign card_compare    = p.compare_at_price
+                assign card_has_price  = true
+              else
+                assign card_url        = block.settings.manual_url | default: '#'
+                assign card_title      = block.settings.manual_title
+                assign card_vendor     = block.settings.manual_vendor | default: 'AQUA CUBE'
+                assign card_image      = block.settings.manual_image
+                assign card_price_html = block.settings.manual_price
+                assign card_compare    = nil
+                if card_price_html != blank
+                  assign card_has_price = true
+                else
+                  assign card_has_price = false
+                endif
+              endif
+            -%}
+            <a href="{{ card_url }}" class="bs-card" {{ block.shopify_attributes }}>
+              <div class="bs-card__imgwrap">
+                {%- if block.settings.badge_text != blank -%}
+                  <span class="bs-card__ribbon">{{ block.settings.badge_text }}</span>
+                {%- endif -%}
+                {%- if card_image != blank -%}
+                  <img class="bs-card__img"
+                       src="{{ card_image | image_url: width: 600 }}"
+                       srcset="{{ card_image | image_url: width: 300 }} 300w, {{ card_image | image_url: width: 600 }} 600w, {{ card_image | image_url: width: 900 }} 900w"
+                       sizes="(max-width: 560px) 100vw, (max-width: 920px) 50vw, 25vw"
+                       alt="{{ card_image.alt | default: card_title | escape }}"
+                       loading="lazy">
+                {%- else -%}
+                  <div class="bs-card__placeholder" aria-hidden="true"></div>
+                {%- endif -%}
+              </div>
+              <div class="bs-card__info">
+                {%- if card_vendor != blank -%}
+                  <span class="bs-card__vendor">{{ card_vendor }}</span>
+                {%- endif -%}
+                {%- if card_title != blank -%}
+                  <h3 class="bs-card__title">{{ card_title }}</h3>
+                {%- endif -%}
+              </div>
+              {%- if card_has_price -%}
+                <div class="bs-card__foot">
+                  <div class="bs-card__price">
+                    {%- if p != blank and card_compare != blank and card_compare > p.price -%}
+                      <span class="was">{{ card_compare | money }}</span>
+                    {%- endif -%}
+                    {{ card_price_html }}
+                  </div>
+                  <span class="bs-card__add">Add +</span>
+                </div>
+              {%- endif -%}
+            </a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Best Sellers",
+  "settings": [
+    { "type": "text",     "id": "eyebrow",        "label": "Eyebrow",                          "default": "/ best sellers" },
+    { "type": "text",     "id": "heading_line_1", "label": "Heading — line 1",                 "default": "Reef-ready," },
+    { "type": "text",     "id": "heading_line_2", "label": "Heading — line 2 (italic accent)", "default": "in stock." },
+    { "type": "textarea", "id": "description",    "label": "Description (right column)",       "default": "The four fixtures that move the most this season. Shipped countrywide, 2-year warranty, local support out of Cape Town." }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "limit": 8,
+      "settings": [
+        { "type": "product", "id": "product",    "label": "Product",
+          "info": "If picked, title / image / price / URL / vendor are pulled from Shopify automatically. Use the manual fields below only as a fallback." },
+        { "type": "text",    "id": "badge_text", "label": "Badge text",
+          "info": "Optional. Renders as a top-left ribbon, e.g. NEW or SALE." },
+
+        { "type": "header", "content": "Manual fallback (used when no product is picked)" },
+        { "type": "text",         "id": "manual_title",  "label": "Title" },
+        { "type": "text",         "id": "manual_vendor", "label": "Vendor", "default": "AQUA CUBE" },
+        { "type": "image_picker", "id": "manual_image",  "label": "Image" },
+        { "type": "text",         "id": "manual_price",  "label": "Price (display string)",
+          "info": "Plain text e.g. R6,499. Leave blank to hide the price/Add row entirely." },
+        { "type": "url",          "id": "manual_url",    "label": "Link URL" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Best Sellers",
+      "category": "Aqua Cube",
+      "blocks": [
+        { "type": "product", "settings": { "badge_text": "NEW", "manual_title": "LED fixture · top-down" } },
+        { "type": "product", "settings": {                       "manual_title": "DC wave pump" } },
+        { "type": "product", "settings": {                       "manual_title": "CO₂ Pro · Dual-Stage Regulator" } },
+        { "type": "product", "settings": {                       "manual_title": "Pure 600 · Canister Filter" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

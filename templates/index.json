@@ -36,6 +36,22 @@
       },
       "block_order": ["c1", "c2", "c3", "c4"]
     },
+    "best-sellers": {
+      "type": "best-sellers",
+      "settings": {
+        "eyebrow": "/ best sellers",
+        "heading_line_1": "Reef-ready,",
+        "heading_line_2": "in stock.",
+        "description": "The four fixtures that move the most this season. Shipped countrywide, 2-year warranty, local support out of Cape Town."
+      },
+      "blocks": {
+        "p1": { "type": "product", "settings": { "badge_text": "NEW", "manual_title": "LED fixture · top-down" } },
+        "p2": { "type": "product", "settings": {                       "manual_title": "DC wave pump" } },
+        "p3": { "type": "product", "settings": {                       "manual_title": "CO₂ Pro · Dual-Stage Regulator" } },
+        "p4": { "type": "product", "settings": {                       "manual_title": "Pure 600 · Canister Filter" } }
+      },
+      "block_order": ["p1", "p2", "p3", "p4"]
+    },
     "trust-bar": {
       "type": "trust-bar",
       "blocks": {
@@ -86,5 +102,5 @@
       "type": "contact"
     }
   },
-  "order": ["hero", "featured-collections", "trust-bar", "featured", "categories", "about", "newsletter", "contact"]
+  "order": ["hero", "featured-collections", "best-sellers", "trust-bar", "featured", "categories", "about", "newsletter", "contact"]
 }
