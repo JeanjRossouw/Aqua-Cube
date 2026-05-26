@@ -110,6 +110,22 @@
         "author_title": "FOUNDER, AQUA CUBE"
       }
     },
+    "we-set-it-up": {
+      "type": "we-set-it-up",
+      "settings": {
+        "eyebrow": "/ how it works",
+        "heading_line_1": "You don't just buy it.",
+        "heading_line_2_accent": "We set it up.",
+        "description": "From a 25L planted cube on your desk to a 600L reef in your lounge — same four steps, same one number to call."
+      },
+      "blocks": {
+        "w1": { "type": "step", "settings": { "title": "Consult",        "body": "Free 30-minute call or showroom visit. We measure the space, talk light, livestock, noise and budget." } },
+        "w2": { "type": "step", "settings": { "title": "Spec & quote",   "body": "Full equipment list and a single fixed quote, in Rand, with lead times. No surprises later." } },
+        "w3": { "type": "step", "settings": { "title": "Build & cycle",  "body": "We assemble in-studio, plant or scape, and cycle the tank for 3–4 weeks before livestock goes in." } },
+        "w4": { "type": "step", "settings": { "title": "Install & care", "body": "White-glove install at your home or office. Optional monthly maintenance plan from R650." } }
+      },
+      "block_order": ["w1", "w2", "w3", "w4"]
+    },
     "trust-bar": {
       "type": "trust-bar",
       "blocks": {
@@ -160,5 +176,5 @@
       "type": "contact"
     }
   },
-  "order": ["hero", "shop-by-style", "aquascapes-gallery", "featured-collections", "best-sellers", "our-promise", "founder-quote", "trust-bar", "featured", "categories", "about", "newsletter", "contact"]
+  "order": ["hero", "shop-by-style", "aquascapes-gallery", "featured-collections", "best-sellers", "our-promise", "founder-quote", "we-set-it-up", "trust-bar", "featured", "categories", "about", "newsletter", "contact"]
 }

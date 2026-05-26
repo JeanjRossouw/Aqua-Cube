@@ -1,0 +1,90 @@
+<section class="ac-section" aria-labelledby="wsi-heading-{{ section.id }}">
+  <div class="ac-page">
+    <div class="ac-section-head">
+      <div class="ac-section-head__left">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="ac-mono">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        <h2 id="wsi-heading-{{ section.id }}">
+          {%- if section.settings.heading_line_1 != blank -%}
+            {{ section.settings.heading_line_1 }}
+          {%- endif -%}
+          {%- if section.settings.heading_line_1 != blank and section.settings.heading_line_2_accent != blank -%}
+            <br>
+          {%- endif -%}
+          {%- if section.settings.heading_line_2_accent != blank -%}
+            <em>{{ section.settings.heading_line_2_accent }}</em>
+          {%- endif -%}
+        </h2>
+      </div>
+      {%- if section.settings.description != blank -%}
+        <p class="ac-section-head__right">{{ section.settings.description }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="wsi-grid">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'step' -%}
+            {%- liquid
+              assign step_num = forloop.index
+              if step_num < 10
+                assign step_num_padded = '0' | append: step_num
+              else
+                assign step_num_padded = step_num | append: ''
+              endif
+              assign label = block.settings.number_text | default: step_num_padded
+            -%}
+            <div class="wsi-step" {{ block.shopify_attributes }}>
+              <span class="wsi-step__n" aria-hidden="true">{{ label }}</span>
+              {%- if block.settings.title != blank -%}
+                <h3 class="wsi-step__title">{{ block.settings.title }}</h3>
+              {%- endif -%}
+              {%- if block.settings.body != blank -%}
+                <p class="wsi-step__body">{{ block.settings.body }}</p>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "We Set It Up",
+  "settings": [
+    { "type": "text",     "id": "eyebrow",                "label": "Eyebrow",                          "default": "/ how it works" },
+    { "type": "text",     "id": "heading_line_1",         "label": "Heading — line 1 (white)",         "default": "You don't just buy it." },
+    { "type": "text",     "id": "heading_line_2_accent",  "label": "Heading — line 2 (italic aqua)",   "default": "We set it up." },
+    { "type": "textarea", "id": "description",            "label": "Description (right column)",       "default": "From a 25L planted cube on your desk to a 600L reef in your lounge — same four steps, same one number to call." }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "limit": 8,
+      "settings": [
+        { "type": "text",     "id": "number_text", "label": "Number label",
+          "info": "Optional. Auto-derived from the block order (01, 02, …) when blank." },
+        { "type": "text",     "id": "title",       "label": "Step title", "default": "Consult" },
+        { "type": "textarea", "id": "body",        "label": "Description",
+          "default": "Free 30-minute call or showroom visit. We measure the space, talk light, livestock, noise and budget." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "We Set It Up",
+      "category": "Aqua Cube",
+      "blocks": [
+        { "type": "step", "settings": { "title": "Consult",        "body": "Free 30-minute call or showroom visit. We measure the space, talk light, livestock, noise and budget." } },
+        { "type": "step", "settings": { "title": "Spec & quote",   "body": "Full equipment list and a single fixed quote, in Rand, with lead times. No surprises later." } },
+        { "type": "step", "settings": { "title": "Build & cycle",  "body": "We assemble in-studio, plant or scape, and cycle the tank for 3–4 weeks before livestock goes in." } },
+        { "type": "step", "settings": { "title": "Install & care", "body": "White-glove install at your home or office. Optional monthly maintenance plan from R650." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
