@@ -36,6 +36,26 @@
       },
       "block_order": ["s1", "s2", "s3", "s4"]
     },
+    "aquascapes-gallery": {
+      "type": "aquascapes-gallery",
+      "settings": {
+        "eyebrow": "/ aquascapes gallery",
+        "heading_line_1": "Tanks we've",
+        "heading_line_2_accent": "actually built.",
+        "description": "Every photo here is from a real Aqua Cube install — freshwater, planted, reef, or paludarium — running in homes, offices and showrooms across South Africa.",
+        "cta_label": "See all builds"
+      },
+      "blocks": {
+        "g1": { "type": "tank", "settings": { "name": "300L Paludarium · Constantia home",  "tag_text": "PALUDARIUM", "tag_color": "#7fe7e0" } },
+        "g2": { "type": "tank", "settings": { "name": "120L Iwagumi · Sea Point",           "tag_text": "PLANTED",    "tag_color": "#8fcf6a" } },
+        "g3": { "type": "tank", "settings": { "name": "600L Mixed Reef · Stellenbosch",     "tag_text": "REEF",       "tag_color": "#ff8a5b" } },
+        "g4": { "type": "tank", "settings": { "name": "200L Community Tank · Durbanville",  "tag_text": "FRESHWATER", "tag_color": "#5db8e3" } },
+        "g5": { "type": "tank", "settings": { "name": "60L Cube · Office build",            "tag_text": "NANO",       "tag_color": "#ffffff" } },
+        "g6": { "type": "tank", "settings": { "name": "150L Dutch · Newlands",              "tag_text": "PLANTED",    "tag_color": "#8fcf6a" } },
+        "g7": { "type": "tank", "settings": { "name": "400L Discus Showcase · Bellville",   "tag_text": "FRESHWATER", "tag_color": "#5db8e3" } }
+      },
+      "block_order": ["g1", "g2", "g3", "g4", "g5", "g6", "g7"]
+    },
     "featured-collections": {
       "type": "featured-collections",
       "settings": {
@@ -129,5 +149,5 @@
       "type": "contact"
     }
   },
-  "order": ["hero", "shop-by-style", "featured-collections", "best-sellers", "our-promise", "trust-bar", "featured", "categories", "about", "newsletter", "contact"]
+  "order": ["hero", "shop-by-style", "aquascapes-gallery", "featured-collections", "best-sellers", "our-promise", "trust-bar", "featured", "categories", "about", "newsletter", "contact"]
 }

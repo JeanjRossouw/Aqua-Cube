@@ -1,0 +1,131 @@
+<section class="ac-section" aria-labelledby="gal-heading-{{ section.id }}">
+  <div class="ac-page">
+    <div class="ac-section-head">
+      <div class="ac-section-head__left">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="ac-mono">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        <h2 id="gal-heading-{{ section.id }}">
+          {%- if section.settings.heading_line_1 != blank -%}
+            {{ section.settings.heading_line_1 }}
+          {%- endif -%}
+          {%- if section.settings.heading_line_1 != blank and section.settings.heading_line_2_accent != blank -%}
+            <br>
+          {%- endif -%}
+          {%- if section.settings.heading_line_2_accent != blank -%}
+            <em>{{ section.settings.heading_line_2_accent }}</em>
+          {%- endif -%}
+        </h2>
+      </div>
+      {%- if section.settings.description != blank -%}
+        <p class="ac-section-head__right">{{ section.settings.description }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="gal-grid">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'tank' -%}
+            {%- liquid
+              assign item_url = block.settings.link | default: '#'
+              assign item_image = block.settings.image
+              assign tag_color = block.settings.tag_color | default: '#7fe7e0'
+              assign aria_name = block.settings.name | default: 'Aquascape'
+            -%}
+            <a href="{{ item_url }}" class="gal-item" aria-label="{{ aria_name | escape }}" {{ block.shopify_attributes }}>
+              {%- if item_image != blank -%}
+                <img class="gal-item__img"
+                     src="{{ item_image | image_url: width: 1200 }}"
+                     srcset="{{ item_image | image_url: width: 400 }} 400w, {{ item_image | image_url: width: 800 }} 800w, {{ item_image | image_url: width: 1200 }} 1200w"
+                     sizes="(max-width: 560px) 100vw, (max-width: 920px) 50vw, 50vw"
+                     alt="{{ item_image.alt | default: aria_name | escape }}"
+                     loading="lazy">
+              {%- else -%}
+                <div class="gal-item__placeholder" aria-hidden="true"></div>
+              {%- endif -%}
+              <div class="gal-item__scrim" aria-hidden="true"></div>
+              {%- if block.settings.tag_text != blank -%}
+                <span class="gal-item__tag" style="--tag-color: {{ tag_color }};">{{ block.settings.tag_text }}</span>
+              {%- endif -%}
+              <div class="gal-item__caption">
+                {%- if block.settings.name != blank -%}
+                  <h3 class="gal-item__name">{{ block.settings.name }}</h3>
+                {%- endif -%}
+                {%- if block.settings.link_label != blank and block.settings.link != blank -%}
+                  <span class="gal-item__link">{{ block.settings.link_label }} →</span>
+                {%- endif -%}
+              </div>
+            </a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.cta_label != blank -%}
+      <div class="gal-cta-row">
+        <a class="ac-btn ac-btn--ghost" href="{{ section.settings.cta_link | default: '#' }}">
+          {{ section.settings.cta_label }}
+          {% render 'icon-arrow-right' %}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Aquascapes Gallery",
+  "settings": [
+    { "type": "text",     "id": "eyebrow",               "label": "Eyebrow",                          "default": "/ aquascapes gallery" },
+    { "type": "text",     "id": "heading_line_1",        "label": "Heading — line 1 (white)",         "default": "Tanks we've" },
+    { "type": "text",     "id": "heading_line_2_accent", "label": "Heading — line 2 (italic aqua)",   "default": "actually built." },
+    { "type": "textarea", "id": "description",           "label": "Description (right column)",       "default": "Every photo here is from a real Aqua Cube install — freshwater, planted, reef, or paludarium — running in homes, offices and showrooms across South Africa." },
+
+    { "type": "header", "content": "Bottom CTA" },
+    { "type": "text", "id": "cta_label", "label": "CTA label",
+      "info": "Renders as an outlined button below the grid. Arrow → appended automatically.",
+      "default": "See all builds" },
+    { "type": "url",  "id": "cta_link",  "label": "CTA URL" }
+  ],
+  "blocks": [
+    {
+      "type": "tank",
+      "name": "Aquascape",
+      "limit": 12,
+      "settings": [
+        { "type": "text",         "id": "name",       "label": "Project name", "default": "180L Iwagumi · Cape Town" },
+        { "type": "image_picker", "id": "image",      "label": "Image",
+          "info": "Falls back to a gradient placeholder if blank. First block renders as a 2x2 feature on desktop — use a strong landscape photo there." },
+
+        { "type": "header", "content": "Build type tag" },
+        { "type": "text",  "id": "tag_text",  "label": "Tag text",
+          "info": "E.g. PALUDARIUM, REEF, PLANTED, FRESHWATER, NANO. Leave blank to hide." },
+        { "type": "color", "id": "tag_color", "label": "Tag color (border + text)",
+          "info": "FRESHWATER blue #5db8e3 · PLANTED green #8fcf6a · REEF coral #ff8a5b · PALUDARIUM aqua #7fe7e0 · NANO white #ffffff.",
+          "default": "#8fcf6a" },
+
+        { "type": "header", "content": "Link" },
+        { "type": "url",  "id": "link",       "label": "Project link",
+          "info": "Whole card becomes clickable when set." },
+        { "type": "text", "id": "link_label", "label": "Link label", "default": "View build",
+          "info": "Shown as small mono caption inside the card when both label and link are set." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Aquascapes Gallery",
+      "category": "Aqua Cube",
+      "blocks": [
+        { "type": "tank", "settings": { "name": "300L Paludarium · Constantia home",  "tag_text": "PALUDARIUM", "tag_color": "#7fe7e0" } },
+        { "type": "tank", "settings": { "name": "120L Iwagumi · Sea Point",           "tag_text": "PLANTED",    "tag_color": "#8fcf6a" } },
+        { "type": "tank", "settings": { "name": "600L Mixed Reef · Stellenbosch",     "tag_text": "REEF",       "tag_color": "#ff8a5b" } },
+        { "type": "tank", "settings": { "name": "200L Community Tank · Durbanville",  "tag_text": "FRESHWATER", "tag_color": "#5db8e3" } },
+        { "type": "tank", "settings": { "name": "60L Cube · Office build",            "tag_text": "NANO",       "tag_color": "#ffffff" } },
+        { "type": "tank", "settings": { "name": "150L Dutch · Newlands",              "tag_text": "PLANTED",    "tag_color": "#8fcf6a" } },
+        { "type": "tank", "settings": { "name": "400L Discus Showcase · Bellville",   "tag_text": "FRESHWATER", "tag_color": "#5db8e3" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
