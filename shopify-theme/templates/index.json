@@ -107,6 +107,22 @@
       },
       "block_order": ["p1", "p2", "p3", "p4"]
     },
+    "why-aqua-cube": {
+      "type": "why-aqua-cube",
+      "settings": {
+        "eyebrow": "/ why aqua cube",
+        "heading_line_1": "Aquarium gear",
+        "heading_line_2_accent": "you can actually trust.",
+        "lede": "South African aquarists deserve better than overpriced imports and out-of-stock listings. We hold real stock, ship fast, and back every product with local support."
+      },
+      "blocks": {
+        "v1": { "type": "value", "settings": { "icon": "truck",  "title": "Real stock, fast delivery", "description": "Every product on the site is in our SA warehouse. Most orders ship same day. Nationwide courier." } },
+        "v2": { "type": "value", "settings": { "icon": "shield", "title": "2-year warranty",           "description": "Every Aqua Cube branded product carries a full 2-year warranty. Local repairs, local replacements." } },
+        "v3": { "type": "value", "settings": { "icon": "chat",   "title": "Local support",             "description": "WhatsApp, email, phone — answered by aquarists in Cape Town, not a call centre." } },
+        "v4": { "type": "value", "settings": { "icon": "rand",   "title": "Fair SA pricing",           "description": "No inflated import margins. Direct supplier relationships keep prices honest." } }
+      },
+      "block_order": ["v1", "v2", "v3", "v4"]
+    },
     "trust-bar": {
       "type": "trust-bar",
       "blocks": {
@@ -157,5 +173,5 @@
       "type": "contact"
     }
   },
-  "order": ["hero", "pre-built-tanks", "shop-by-style", "aquascapes-gallery", "featured-collections", "best-sellers", "trust-bar", "featured", "categories", "about", "newsletter", "contact"]
+  "order": ["hero", "pre-built-tanks", "shop-by-style", "aquascapes-gallery", "featured-collections", "best-sellers", "why-aqua-cube", "trust-bar", "featured", "categories", "about", "newsletter", "contact"]
 }
