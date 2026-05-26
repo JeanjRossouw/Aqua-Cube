@@ -1876,3 +1876,59 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 560px) {
   .bs-grid { grid-template-columns: 1fr; }
 }
+
+/* ---------- jumbo editorial (Our Promise) ---------- */
+.ac-jumbo {
+  padding: 140px 0;
+  border-top: 1px solid var(--rule);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.ac-jumbo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(60% 50% at 50% 50%, rgba(43, 182, 199, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.ac-jumbo__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+.ac-jumbo .ac-mono { display: inline-block; color: var(--aqua-1); }
+.ac-jumbo__heading {
+  margin: 24px 0 28px;
+  font-family: var(--font-sans);
+  font-size: clamp(48px, 7vw, 96px);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.0;
+  color: #fff;
+}
+.ac-jumbo__heading em {
+  color: var(--aqua-1);
+  font-style: italic;
+  font-weight: 700;
+}
+.ac-jumbo__body {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 640px;
+  margin: 0 auto 32px;
+}
+.ac-jumbo__body p { margin: 0 0 12px; }
+.ac-jumbo__body p:last-child { margin-bottom: 0; }
+.ac-jumbo__body a { color: var(--aqua-1); text-decoration: underline; }
+
+@media (max-width: 720px) {
+  .ac-jumbo { padding: 96px 0; }
+  .ac-jumbo__heading { font-size: clamp(36px, 9vw, 64px); }
+}
+@media (max-width: 560px) {
+  .ac-jumbo { padding: 64px 0; }
+}
