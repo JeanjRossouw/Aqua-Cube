@@ -1,0 +1,127 @@
+<section class="ac-section" aria-labelledby="fc-heading-{{ section.id }}">
+  <div class="ac-page">
+    <div class="ac-section-head">
+      <div class="ac-section-head__left">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="ac-mono">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        <h2 id="fc-heading-{{ section.id }}">
+          {%- if section.settings.heading_line_1 != blank -%}
+            {{ section.settings.heading_line_1 }}
+          {%- endif -%}
+          {%- if section.settings.heading_line_1 != blank and section.settings.heading_line_2 != blank -%}
+            <br>
+          {%- endif -%}
+          {%- if section.settings.heading_line_2 != blank -%}
+            <em>{{ section.settings.heading_line_2 }}</em>
+          {%- endif -%}
+        </h2>
+      </div>
+      {%- if section.settings.description != blank -%}
+        <p class="ac-section-head__right">{{ section.settings.description }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="fc-grid">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'card' -%}
+            {%- liquid
+              if block.settings.collection != blank
+                assign card_url = block.settings.collection.url
+              elsif block.settings.custom_url != blank
+                assign card_url = block.settings.custom_url
+              else
+                assign card_url = '#'
+              endif
+
+              assign card_image = block.settings.image
+              if card_image == blank and block.settings.collection != blank and block.settings.collection.image != blank
+                assign card_image = block.settings.collection.image
+              endif
+
+              assign card_alt = block.settings.title | default: 'Collection'
+              if card_image != blank and card_image.alt != blank
+                assign card_alt = card_image.alt
+              endif
+            -%}
+            <a href="{{ card_url }}" class="fc-card" aria-label="{{ block.settings.title | escape }}" {{ block.shopify_attributes }}>
+              {%- if card_image != blank -%}
+                <img class="fc-card__img"
+                     src="{{ card_image | image_url: width: 800 }}"
+                     srcset="{{ card_image | image_url: width: 400 }} 400w, {{ card_image | image_url: width: 800 }} 800w, {{ card_image | image_url: width: 1200 }} 1200w"
+                     sizes="(max-width: 720px) 100vw, 50vw"
+                     alt="{{ card_alt | escape }}"
+                     loading="lazy">
+              {%- else -%}
+                <div class="fc-card__placeholder" aria-hidden="true"></div>
+              {%- endif -%}
+              <div class="fc-card__scrim" aria-hidden="true"></div>
+              <div class="fc-card__body">
+                <div class="fc-card__top">
+                  {%- if block.settings.tag != blank -%}
+                    <span class="fc-card__tag">{{ block.settings.tag }}</span>
+                  {%- else -%}
+                    <span></span>
+                  {%- endif -%}
+                  {%- if block.settings.count != blank -%}
+                    <span class="fc-card__count">{{ block.settings.count }}</span>
+                  {%- endif -%}
+                </div>
+                <div class="fc-card__bottom">
+                  <h3 class="fc-card__title">{{ block.settings.title }}</h3>
+                  {%- if block.settings.cta_label != blank -%}
+                    <span class="fc-card__go">{{ block.settings.cta_label }} →</span>
+                  {%- endif -%}
+                </div>
+              </div>
+            </a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Collections",
+  "settings": [
+    { "type": "text",     "id": "eyebrow",        "label": "Eyebrow",                           "default": "/ featured collections" },
+    { "type": "text",     "id": "heading_line_1", "label": "Heading — line 1",                  "default": "Every part of" },
+    { "type": "text",     "id": "heading_line_2", "label": "Heading — line 2 (italic accent)",  "default": "a healthier tank." },
+    { "type": "textarea", "id": "description",    "label": "Description (right column)",        "default": "Lighting, flow and CO₂ from the brands we actually trust — paired with the substrate, scape and livestock to finish the picture." }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Collection card",
+      "limit": 8,
+      "settings": [
+        { "type": "text",         "id": "tag",        "label": "Tag (top-left)",       "default": "FEATURED · LIGHTING" },
+        { "type": "text",         "id": "count",      "label": "Count (top-right)",    "default": "38 PRODUCTS" },
+        { "type": "text",         "id": "title",      "label": "Title",                "default": "Pumps & Flow" },
+        { "type": "text",         "id": "cta_label",  "label": "CTA label",            "default": "Browse",
+          "info": "The arrow → is appended automatically." },
+        { "type": "image_picker", "id": "image",      "label": "Image",
+          "info": "Optional. Falls back to the linked collection's image, then to a gradient placeholder." },
+        { "type": "collection",   "id": "collection", "label": "Collection" },
+        { "type": "url",          "id": "custom_url", "label": "Custom URL",
+          "info": "Used when no collection is picked." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Collections",
+      "category": "Aqua Cube",
+      "blocks": [
+        { "type": "card", "settings": { "tag": "FEATURED · LIGHTING", "count": "38 PRODUCTS", "title": "Pumps & Flow",      "cta_label": "Browse" } },
+        { "type": "card", "settings": { "tag": "AQUARIUMS",           "count": "18",          "title": "Cube Aquariums",    "cta_label": "Browse" } },
+        { "type": "card", "settings": { "tag": "FILTRATION",          "count": "22",          "title": "Filters & Media",   "cta_label": "Browse" } },
+        { "type": "card", "settings": { "tag": "LIVE",                "count": "40+",         "title": "Coral & Livestock", "cta_label": "Browse" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
