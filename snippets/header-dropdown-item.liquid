@@ -1,0 +1,34 @@
+{%- comment -%}
+  Renders one item inside a header dropdown.
+  Param:
+    block - a header section block of type "category"
+{%- endcomment -%}
+{%- liquid
+  case block.settings.link_type
+    when 'collection'
+      assign item_url = block.settings.collection.url | default: '#'
+    else
+      assign item_url = block.settings.custom_url | default: '#'
+  endcase
+-%}
+<a href="{{ item_url }}" class="ac-nav__item" role="menuitem" {{ block.shopify_attributes }}>
+  <span class="ac-nav__item-ico">
+    {%- case block.settings.icon -%}
+      {%- when 'lighting'   -%}{% render 'icon-cat-lighting' %}
+      {%- when 'pumps'      -%}{% render 'icon-cat-pumps' %}
+      {%- when 'aquariums'  -%}{% render 'icon-cat-aquariums' %}
+      {%- when 'filtration' -%}{% render 'icon-cat-filtration' %}
+      {%- when 'livestock'  -%}{% render 'icon-cat-livestock' %}
+      {%- when 'hardscape'  -%}{% render 'icon-cat-hardscape' %}
+      {%- when 'cleanup'    -%}{% render 'icon-cat-cleanup' %}
+      {%- when 'plant'      -%}{% render 'icon-cat-plant' %}
+      {%- else              -%}{% render 'icon-cat-lighting' %}
+    {%- endcase -%}
+  </span>
+  <span class="ac-nav__item-txt">
+    <span class="ac-nav__item-title">{{ block.settings.title | escape }}</span>
+    {%- if block.settings.description != blank -%}
+      <span class="ac-nav__item-desc">{{ block.settings.description | escape }}</span>
+    {%- endif -%}
+  </span>
+</a>

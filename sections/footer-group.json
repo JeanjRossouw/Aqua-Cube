@@ -23,13 +23,16 @@
         "domain_url": "https://www.aquacubesa.co.za"
       },
       "blocks": {
-        "shop1":    { "type": "link", "settings": { "column": "shop",    "label": "Pre-Built Tanks",         "url": "/collections/pre-built-tanks" } },
+        "shop1":    { "type": "link", "settings": { "column": "shop",    "label": "Aquariums",               "url": "/collections/aquariums" } },
         "shop2":    { "type": "link", "settings": { "column": "shop",    "label": "Paludariums",             "url": "/collections/paludariums" } },
-        "shop3":    { "type": "link", "settings": { "column": "shop",    "label": "Lighting & CO₂",          "url": "/collections/lighting-co2" } },
-        "shop4":    { "type": "link", "settings": { "column": "shop",    "label": "Pumps & Flow",            "url": "/collections/pumps-flow" } },
-        "shop5":    { "type": "link", "settings": { "column": "shop",    "label": "Filtration",              "url": "/collections/filtration" } },
-        "shop6":    { "type": "link", "settings": { "column": "shop",    "label": "Hardscape & Substrate",   "url": "/collections/hardscape" } },
-        "shop7":    { "type": "link", "settings": { "column": "shop",    "label": "Livestock & Plants",      "url": "/collections/livestock" } },
+        "shop3":    { "type": "link", "settings": { "column": "shop",    "label": "Isopods",                 "url": "/collections/isopods" } },
+        "shop4":    { "type": "link", "settings": { "column": "shop",    "label": "Springtails",             "url": "/collections/springtails" } },
+        "shop5":    { "type": "link", "settings": { "column": "shop",    "label": "Moss",                    "url": "/collections/moss" } },
+        "shop6":    { "type": "link", "settings": { "column": "shop",    "label": "Paludarium Plants",       "url": "/collections/paludarium-plants" } },
+        "shop7":    { "type": "link", "settings": { "column": "shop",    "label": "Lighting & CO₂",          "url": "/collections/lighting-co" } },
+        "shop8":    { "type": "link", "settings": { "column": "shop",    "label": "Pumps & Flow",            "url": "/collections/pumps-flow" } },
+        "shop9":    { "type": "link", "settings": { "column": "shop",    "label": "Filtration",              "url": "/collections/filtration" } },
+        "shop10":   { "type": "link", "settings": { "column": "shop",    "label": "Hardscape & Substrate",   "url": "/collections/hardscape-substrate" } },
 
         "learn1":   { "type": "link", "settings": { "column": "learn",   "label": "Setup Guides",            "url": "/blogs/guides" } },
         "learn2":   { "type": "link", "settings": { "column": "learn",   "label": "Care Sheets",             "url": "/blogs/care-sheets" } },
@@ -45,7 +48,7 @@
         "support5": { "type": "link", "settings": { "column": "support", "label": "WhatsApp Support",        "url": "https://wa.me/27825550142" } }
       },
       "block_order": [
-        "shop1", "shop2", "shop3", "shop4", "shop5", "shop6", "shop7",
+        "shop1", "shop2", "shop3", "shop4", "shop5", "shop6", "shop7", "shop8", "shop9", "shop10",
         "learn1", "learn2", "learn3", "learn4", "learn5", "learn6",
         "support1", "support2", "support3", "support4", "support5"
       ]

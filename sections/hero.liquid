@@ -16,6 +16,11 @@
     else
       assign secondary_url = section.settings.secondary_link
   endcase
+
+  assign has_secondary_image = false
+  if section.settings.image_secondary != blank or section.settings.image_secondary_placeholder_url != blank
+    assign has_secondary_image = true
+  endif
 -%}
 
 <section class="ac-hero" aria-labelledby="hero-heading-{{ section.id }}">
@@ -35,11 +40,13 @@
         {%- if section.settings.heading_line_1 != blank -%}
           {{ section.settings.heading_line_1 }}
         {%- endif -%}
-        {%- if section.settings.heading_line_1 != blank and section.settings.heading_line_2 != blank -%}
-          <br>
-        {%- endif -%}
         {%- if section.settings.heading_line_2 != blank -%}
+          {%- if section.settings.heading_line_1 != blank %}<br>{% endif -%}
           <em>{{ section.settings.heading_line_2 }}</em>
+        {%- endif -%}
+        {%- if section.settings.heading_line_3 != blank -%}
+          {%- if section.settings.heading_line_1 != blank or section.settings.heading_line_2 != blank %}<br>{% endif -%}
+          {{ section.settings.heading_line_3 }}
         {%- endif -%}
       </h1>
 
@@ -79,22 +86,44 @@
   </div>
 
   {%- comment -%}
-    Photo is placed AFTER .ac-hero__inner so that on mobile (where it
-    becomes position: relative) it stacks below the text. On desktop the
-    photo is position: absolute, so source order doesn't affect layout.
+    Photo container placed AFTER .ac-hero__inner so that on mobile (where it
+    flips to position: relative) it stacks below the text. On desktop the
+    photo is position: absolute so source order doesn't affect layout.
+    When a secondary image is supplied it renders as a smaller foreground
+    tile overlapping the back image on the right.
   {%- endcomment -%}
-  <div class="ac-hero__photo" aria-hidden="true">
+  <div class="ac-hero__photo{% if has_secondary_image %} ac-hero__photo--dual{% endif %}" aria-hidden="true">
     {%- if section.settings.image != blank -%}
-      <img src="{{ section.settings.image | image_url: width: 1600 }}"
+      <img class="ac-hero__photo-back"
+           src="{{ section.settings.image | image_url: width: 1600 }}"
            srcset="{{ section.settings.image | image_url: width: 800 }} 800w, {{ section.settings.image | image_url: width: 1200 }} 1200w, {{ section.settings.image | image_url: width: 1600 }} 1600w"
            sizes="(max-width: 560px) 100vw, 58vw"
            alt="{{ section.settings.image.alt | escape }}"
-           width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}"
+           loading="eager" fetchpriority="high">
+    {%- elsif section.settings.image_placeholder_url != blank -%}
+      <img class="ac-hero__photo-back"
+           src="{{ section.settings.image_placeholder_url }}"
+           alt="Aquarium"
            loading="eager" fetchpriority="high">
     {%- else -%}
-      <img src="{{ 'hero-tank.png' | asset_url }}"
+      <img class="ac-hero__photo-back"
+           src="{{ 'hero-tank.png' | asset_url }}"
            alt="Lit reef aquarium"
            loading="eager" fetchpriority="high">
+    {%- endif -%}
+
+    {%- if has_secondary_image -%}
+      {%- if section.settings.image_secondary != blank -%}
+        <img class="ac-hero__photo-front"
+             src="{{ section.settings.image_secondary | image_url: width: 800 }}"
+             alt="{{ section.settings.image_secondary.alt | escape }}"
+             loading="eager">
+      {%- else -%}
+        <img class="ac-hero__photo-front"
+             src="{{ section.settings.image_secondary_placeholder_url }}"
+             alt="Paludarium"
+             loading="eager">
+      {%- endif -%}
     {%- endif -%}
   </div>
 </section>
@@ -103,18 +132,19 @@
 {
   "name": "Hero",
   "settings": [
-    { "type": "text",     "id": "eyebrow",        "label": "Eyebrow text",     "default": "Aquariums & Reef · South Africa" },
-    { "type": "text",     "id": "heading_line_1", "label": "Heading — line 1", "default": "Lighting" },
-    { "type": "text",     "id": "heading_line_2", "label": "Heading — line 2 (italic aqua accent)", "default": "redefined." },
-    { "type": "textarea", "id": "lede",           "label": "Lede paragraph",   "default": "Our lighting systems blend precision and innovation for unparalleled aquatic plant and coral vitality." },
+    { "type": "text",     "id": "eyebrow",        "label": "Eyebrow text",                          "default": "Aquariums & Paludariums · South Africa" },
+    { "type": "text",     "id": "heading_line_1", "label": "Heading — line 1 (white)",              "default": "Aquariums," },
+    { "type": "text",     "id": "heading_line_2", "label": "Heading — line 2 (italic aqua accent)", "default": "paludariums," },
+    { "type": "text",     "id": "heading_line_3", "label": "Heading — line 3 (white)",              "default": "everything in between." },
+    { "type": "textarea", "id": "lede",           "label": "Lede paragraph",                        "default": "South Africa's destination for premium aquariums, complete paludarium setups, isopods, springtails, moss, plants, and every piece of equipment to bring them to life." },
 
     { "type": "header", "content": "Primary button" },
-    { "type": "text", "id": "primary_label", "label": "Label", "default": "Shop now" },
+    { "type": "text", "id": "primary_label", "label": "Label", "default": "Shop aquariums" },
     {
       "type": "select",
       "id": "primary_link_type",
       "label": "Destination",
-      "default": "all_products",
+      "default": "custom",
       "options": [
         { "value": "all_products",     "label": "All products" },
         { "value": "collections_list", "label": "All collections" },
@@ -124,7 +154,7 @@
     { "type": "url", "id": "primary_link", "label": "Custom URL" },
 
     { "type": "header", "content": "Secondary button" },
-    { "type": "text", "id": "secondary_label", "label": "Label", "default": "Why Aqua Cube" },
+    { "type": "text", "id": "secondary_label", "label": "Label", "default": "Shop paludariums" },
     {
       "type": "select",
       "id": "secondary_link_type",
@@ -138,8 +168,16 @@
     },
     { "type": "url", "id": "secondary_link", "label": "Custom URL" },
 
-    { "type": "header", "content": "Background photograph" },
-    { "type": "image_picker", "id": "image", "label": "Hero image", "info": "Sits on the right side, fades into the navy via gradient." }
+    { "type": "header", "content": "Hero photos" },
+    { "type": "image_picker", "id": "image",                     "label": "Primary image (back) — aquarium",
+      "info": "Uploaded image wins. Falls back to the placeholder URL below, then to bundled assets/hero-tank.png." },
+    { "type": "text",         "id": "image_placeholder_url",     "label": "Primary placeholder URL",
+      "info": "Demo default is a free Unsplash photo." },
+    { "type": "image_picker", "id": "image_secondary",           "label": "Secondary image (front) — paludarium",
+      "info": "Optional. Renders as a smaller framed tile overlapping the primary image on the right." },
+    { "type": "text",         "id": "image_secondary_placeholder_url", "label": "Secondary placeholder URL",
+      "info": "Demo default is a free Unsplash terrarium/paludarium photo.",
+      "default": "https://images.unsplash.com/photo-1578313097818-dfe8d38aa758?w=1200&q=80" }
   ],
   "blocks": [
     {
@@ -147,9 +185,9 @@
       "name": "Stat",
       "limit": 6,
       "settings": [
-        { "type": "text", "id": "label", "label": "Label",        "default": "PAR · at 30cm" },
-        { "type": "text", "id": "value", "label": "Value",        "default": "420" },
-        { "type": "text", "id": "unit",  "label": "Unit (small)", "default": "μmol" }
+        { "type": "text", "id": "label", "label": "Label",        "default": "Varieties" },
+        { "type": "text", "id": "value", "label": "Value",        "default": "1,600+" },
+        { "type": "text", "id": "unit",  "label": "Unit (small)", "default": "products" }
       ]
     }
   ],
@@ -158,10 +196,10 @@
       "name": "Hero",
       "category": "Aqua Cube",
       "blocks": [
-        { "type": "stat", "settings": { "label": "PAR · at 30cm", "value": "420",            "unit": "μmol" } },
-        { "type": "stat", "settings": { "label": "Spectrum",      "value": "Full · 410–680", "unit": "nm" } },
-        { "type": "stat", "settings": { "label": "Pump flow",     "value": "12,000",         "unit": "L/h" } },
-        { "type": "stat", "settings": { "label": "Warranty",      "value": "2",              "unit": "years · SA-wide" } }
+        { "type": "stat", "settings": { "label": "Varieties", "value": "1,600+",                "unit": "products" } },
+        { "type": "stat", "settings": { "label": "Builds",    "value": "Aquariums + Paludariums" } },
+        { "type": "stat", "settings": { "label": "Cultures",  "value": "Isopods + Springtails" } },
+        { "type": "stat", "settings": { "label": "Shipping",  "value": "Across SA" } }
       ]
     }
   ]
