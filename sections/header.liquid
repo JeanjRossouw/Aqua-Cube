@@ -117,6 +117,14 @@
         </li>
       {%- endif -%}
 
+      {%- if section.settings.fish_food_label != blank -%}
+        <li role="none">
+          <a href="{{ section.settings.fish_food_url | default: '/collections/fish-food' }}" class="ac-nav__link" role="menuitem">
+            {{ section.settings.fish_food_label }}
+          </a>
+        </li>
+      {%- endif -%}
+
       {%- if section.settings.about_label != blank -%}
         <li role="none">
           <a href="{{ section.settings.about_url | default: '#' }}" class="ac-nav__link" role="menuitem">
@@ -166,6 +174,8 @@
     { "type": "text", "id": "cleanup_label",      "label": "Cleanup Crew dropdown label",   "default": "Cleanup Crew" },
     { "type": "text", "id": "plants_label",       "label": "Plants & Moss dropdown label",  "default": "Plants & Moss" },
     { "type": "text", "id": "equipment_label",    "label": "Equipment dropdown label",      "default": "Equipment" },
+    { "type": "text", "id": "fish_food_label",    "label": "Fish Food label (flat link)",   "default": "Fish Food" },
+    { "type": "url",  "id": "fish_food_url",      "label": "Fish Food URL" },
     { "type": "text", "id": "about_label",        "label": "About label (flat link)",       "default": "About" },
     { "type": "url",  "id": "about_url",          "label": "About URL" },
 
@@ -182,7 +192,7 @@
     {
       "type": "category",
       "name": "Dropdown item",
-      "limit": 12,
+      "limit": 20,
       "settings": [
         {
           "type": "select",
@@ -234,10 +244,15 @@
       { "type": "category", "settings": { "parent": "cleanup",   "title": "Springtails",        "icon": "cleanup",    "link_type": "custom", "custom_url": "/collections/springtails" } },
       { "type": "category", "settings": { "parent": "plants",    "title": "Moss",               "icon": "plant",      "link_type": "custom", "custom_url": "/collections/moss" } },
       { "type": "category", "settings": { "parent": "plants",    "title": "Paludarium Plants",  "icon": "plant",      "link_type": "custom", "custom_url": "/collections/paludarium-plants" } },
-      { "type": "category", "settings": { "parent": "equipment", "title": "Lighting & CO₂",     "icon": "lighting",   "link_type": "custom", "custom_url": "/collections/lighting-co" } },
-      { "type": "category", "settings": { "parent": "equipment", "title": "Pumps & Flow",       "icon": "pumps",      "link_type": "custom", "custom_url": "/collections/pumps-flow" } },
-      { "type": "category", "settings": { "parent": "equipment", "title": "Filtration",         "icon": "filtration", "link_type": "custom", "custom_url": "/collections/filtration" } },
-      { "type": "category", "settings": { "parent": "equipment", "title": "Hardscape & Substrate", "icon": "hardscape", "link_type": "custom", "custom_url": "/collections/hardscape-substrate" } }
+      { "type": "category", "settings": { "parent": "equipment", "title": "Lighting & CO₂",        "icon": "lighting",   "link_type": "custom", "custom_url": "/collections/lighting-co" } },
+      { "type": "category", "settings": { "parent": "equipment", "title": "Pumps & Flow",          "icon": "pumps",      "link_type": "custom", "custom_url": "/collections/pumps-flow" } },
+      { "type": "category", "settings": { "parent": "equipment", "title": "Air Pumps & Airstones", "icon": "pumps",      "link_type": "custom", "custom_url": "/collections/air-pumps-airstones" } },
+      { "type": "category", "settings": { "parent": "equipment", "title": "Filtration",            "icon": "filtration", "link_type": "custom", "custom_url": "/collections/filtration" } },
+      { "type": "category", "settings": { "parent": "equipment", "title": "Heaters",               "icon": "lighting",   "link_type": "custom", "custom_url": "/collections/heaters" } },
+      { "type": "category", "settings": { "parent": "equipment", "title": "Hardscape & Substrate", "icon": "hardscape",  "link_type": "custom", "custom_url": "/collections/hardscape-substrate" } },
+      { "type": "category", "settings": { "parent": "equipment", "title": "Water Treatment",       "icon": "filtration", "link_type": "custom", "custom_url": "/collections/water-treatment" } },
+      { "type": "category", "settings": { "parent": "equipment", "title": "Stands & Cabinets",     "icon": "hardscape",  "link_type": "custom", "custom_url": "/collections/stands-cabinets" } },
+      { "type": "category", "settings": { "parent": "equipment", "title": "Decor",                 "icon": "hardscape",  "link_type": "custom", "custom_url": "/collections/decor" } }
     ]
   }
 }
