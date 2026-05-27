@@ -14,6 +14,8 @@
         "cleanup_label": "Cleanup Crew",
         "plants_label": "Plants & Moss",
         "equipment_label": "Equipment",
+        "fish_food_label": "Fish Food",
+        "fish_food_url": "/collections/fish-food",
         "about_label": "About",
         "about_url": "/pages/about",
         "dropdown_footer_text": "FREE DELIVERY OVER R1,500",
@@ -29,13 +31,19 @@
         "plants-paludarium":   { "type": "category", "settings": { "parent": "plants",    "title": "Paludarium Plants",     "icon": "plant",      "link_type": "custom", "custom_url": "/collections/paludarium-plants" } },
         "equip-lighting":      { "type": "category", "settings": { "parent": "equipment", "title": "Lighting & CO₂",        "icon": "lighting",   "link_type": "custom", "custom_url": "/collections/lighting-co" } },
         "equip-pumps":         { "type": "category", "settings": { "parent": "equipment", "title": "Pumps & Flow",          "icon": "pumps",      "link_type": "custom", "custom_url": "/collections/pumps-flow" } },
+        "equip-airpumps":      { "type": "category", "settings": { "parent": "equipment", "title": "Air Pumps & Airstones", "icon": "pumps",      "link_type": "custom", "custom_url": "/collections/air-pumps-airstones" } },
         "equip-filtration":    { "type": "category", "settings": { "parent": "equipment", "title": "Filtration",            "icon": "filtration", "link_type": "custom", "custom_url": "/collections/filtration" } },
-        "equip-hardscape":     { "type": "category", "settings": { "parent": "equipment", "title": "Hardscape & Substrate", "icon": "hardscape",  "link_type": "custom", "custom_url": "/collections/hardscape-substrate" } }
+        "equip-heaters":       { "type": "category", "settings": { "parent": "equipment", "title": "Heaters",               "icon": "lighting",   "link_type": "custom", "custom_url": "/collections/heaters" } },
+        "equip-hardscape":     { "type": "category", "settings": { "parent": "equipment", "title": "Hardscape & Substrate", "icon": "hardscape",  "link_type": "custom", "custom_url": "/collections/hardscape-substrate" } },
+        "equip-water":         { "type": "category", "settings": { "parent": "equipment", "title": "Water Treatment",       "icon": "filtration", "link_type": "custom", "custom_url": "/collections/water-treatment" } },
+        "equip-stands":        { "type": "category", "settings": { "parent": "equipment", "title": "Stands & Cabinets",     "icon": "hardscape",  "link_type": "custom", "custom_url": "/collections/stands-cabinets" } },
+        "equip-decor":         { "type": "category", "settings": { "parent": "equipment", "title": "Decor",                 "icon": "hardscape",  "link_type": "custom", "custom_url": "/collections/decor" } }
       },
       "block_order": [
         "cleanup-isopods", "cleanup-springtails",
         "plants-moss", "plants-paludarium",
-        "equip-lighting", "equip-pumps", "equip-filtration", "equip-hardscape"
+        "equip-lighting", "equip-pumps", "equip-airpumps", "equip-filtration", "equip-heaters",
+        "equip-hardscape", "equip-water", "equip-stands", "equip-decor"
       ]
     }
   },

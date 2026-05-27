@@ -39,12 +39,26 @@
         </div>
       </div>
 
-      {%- comment -%} SHOP column {%- endcomment -%}
+      {%- comment -%} TANKS & LIFE column (formerly SHOP) {%- endcomment -%}
       <div class="ftr__col">
-        <h3 class="ftr__col-heading">{{ section.settings.shop_heading | default: 'Shop' }}</h3>
+        <h3 class="ftr__col-heading">{{ section.settings.shop_heading | default: 'Tanks & Life' }}</h3>
         <ul class="ftr__col-list">
           {%- for block in section.blocks -%}
             {%- if block.type == 'link' and block.settings.column == 'shop' -%}
+              <li {{ block.shopify_attributes }}>
+                <a href="{{ block.settings.url | default: '#' }}">{{ block.settings.label }}</a>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      {%- comment -%} EQUIPMENT column {%- endcomment -%}
+      <div class="ftr__col">
+        <h3 class="ftr__col-heading">{{ section.settings.equipment_heading | default: 'Equipment' }}</h3>
+        <ul class="ftr__col-list">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'link' and block.settings.column == 'equipment' -%}
               <li {{ block.shopify_attributes }}>
                 <a href="{{ block.settings.url | default: '#' }}">{{ block.settings.label }}</a>
               </li>
@@ -142,10 +156,11 @@
       "info": "Use a https://wa.me/27... link." },
 
     { "type": "header", "content": "Column headings" },
-    { "type": "text", "id": "shop_heading",    "label": "Column 2 heading", "default": "SHOP" },
-    { "type": "text", "id": "learn_heading",   "label": "Column 3 heading", "default": "LEARN" },
-    { "type": "text", "id": "support_heading", "label": "Column 4 heading", "default": "SUPPORT" },
-    { "type": "text", "id": "contact_heading", "label": "Column 5 heading", "default": "CONTACT" },
+    { "type": "text", "id": "shop_heading",      "label": "Column 2 heading (Tanks & Life)", "default": "TANKS & LIFE" },
+    { "type": "text", "id": "equipment_heading", "label": "Column 3 heading (Equipment)",    "default": "EQUIPMENT" },
+    { "type": "text", "id": "learn_heading",     "label": "Column 4 heading", "default": "LEARN" },
+    { "type": "text", "id": "support_heading",   "label": "Column 5 heading", "default": "SUPPORT" },
+    { "type": "text", "id": "contact_heading",   "label": "Column 6 heading", "default": "CONTACT" },
 
     { "type": "header", "content": "Contact column" },
     { "type": "text", "id": "contact_email",             "label": "Email",                "default": "hello@aquacubesa.co.za" },
@@ -166,7 +181,7 @@
     {
       "type": "link",
       "name": "Footer link",
-      "limit": 30,
+      "limit": 50,
       "settings": [
         {
           "type": "select",
@@ -174,9 +189,10 @@
           "label": "Column",
           "default": "shop",
           "options": [
-            { "value": "shop",    "label": "Shop" },
-            { "value": "learn",   "label": "Learn" },
-            { "value": "support", "label": "Support" }
+            { "value": "shop",      "label": "Tanks & Life" },
+            { "value": "equipment", "label": "Equipment" },
+            { "value": "learn",     "label": "Learn" },
+            { "value": "support",   "label": "Support" }
           ]
         },
         { "type": "text", "id": "label", "label": "Label", "default": "Link label" },
@@ -186,16 +202,23 @@
   ],
   "default": {
     "blocks": [
-      { "type": "link", "settings": { "column": "shop", "label": "Aquariums",               "url": "/collections/aquariums" } },
-      { "type": "link", "settings": { "column": "shop", "label": "Paludariums",             "url": "/collections/paludariums" } },
-      { "type": "link", "settings": { "column": "shop", "label": "Isopods",                 "url": "/collections/isopods" } },
-      { "type": "link", "settings": { "column": "shop", "label": "Springtails",             "url": "/collections/springtails" } },
-      { "type": "link", "settings": { "column": "shop", "label": "Moss",                    "url": "/collections/moss" } },
-      { "type": "link", "settings": { "column": "shop", "label": "Paludarium Plants",       "url": "/collections/paludarium-plants" } },
-      { "type": "link", "settings": { "column": "shop", "label": "Lighting & CO₂",          "url": "/collections/lighting-co" } },
-      { "type": "link", "settings": { "column": "shop", "label": "Pumps & Flow",            "url": "/collections/pumps-flow" } },
-      { "type": "link", "settings": { "column": "shop", "label": "Filtration",              "url": "/collections/filtration" } },
-      { "type": "link", "settings": { "column": "shop", "label": "Hardscape & Substrate",   "url": "/collections/hardscape-substrate" } },
+      { "type": "link", "settings": { "column": "shop",      "label": "Aquariums",               "url": "/collections/aquariums" } },
+      { "type": "link", "settings": { "column": "shop",      "label": "Paludariums",             "url": "/collections/paludariums" } },
+      { "type": "link", "settings": { "column": "shop",      "label": "Isopods",                 "url": "/collections/isopods" } },
+      { "type": "link", "settings": { "column": "shop",      "label": "Springtails",             "url": "/collections/springtails" } },
+      { "type": "link", "settings": { "column": "shop",      "label": "Moss",                    "url": "/collections/moss" } },
+      { "type": "link", "settings": { "column": "shop",      "label": "Paludarium Plants",       "url": "/collections/paludarium-plants" } },
+      { "type": "link", "settings": { "column": "shop",      "label": "Fish Food",               "url": "/collections/fish-food" } },
+
+      { "type": "link", "settings": { "column": "equipment", "label": "Lighting & CO₂",          "url": "/collections/lighting-co" } },
+      { "type": "link", "settings": { "column": "equipment", "label": "Pumps & Flow",            "url": "/collections/pumps-flow" } },
+      { "type": "link", "settings": { "column": "equipment", "label": "Air Pumps & Airstones",   "url": "/collections/air-pumps-airstones" } },
+      { "type": "link", "settings": { "column": "equipment", "label": "Filtration",              "url": "/collections/filtration" } },
+      { "type": "link", "settings": { "column": "equipment", "label": "Heaters",                 "url": "/collections/heaters" } },
+      { "type": "link", "settings": { "column": "equipment", "label": "Hardscape & Substrate",   "url": "/collections/hardscape-substrate" } },
+      { "type": "link", "settings": { "column": "equipment", "label": "Water Treatment",         "url": "/collections/water-treatment" } },
+      { "type": "link", "settings": { "column": "equipment", "label": "Stands & Cabinets",       "url": "/collections/stands-cabinets" } },
+      { "type": "link", "settings": { "column": "equipment", "label": "Decor",                   "url": "/collections/decor" } },
 
       { "type": "link", "settings": { "column": "learn", "label": "Setup Guides",           "url": "/blogs/guides" } },
       { "type": "link", "settings": { "column": "learn", "label": "Care Sheets",            "url": "/blogs/care-sheets" } },
