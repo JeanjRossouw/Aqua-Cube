@@ -27,13 +27,12 @@
         {%- for block in section.blocks -%}
           {%- if block.type == 'style' -%}
             {%- liquid
-              if block.settings.collection != blank
-                assign card_url = block.settings.collection.url
-              elsif block.settings.custom_url != blank
-                assign card_url = block.settings.custom_url
-              else
-                assign card_url = '#'
-              endif
+              case block.settings.link_type
+                when 'collection'
+                  assign card_url = block.settings.collection.url | default: block.settings.custom_url | default: '#'
+                else
+                  assign card_url = block.settings.custom_url | default: block.settings.collection.url | default: '#'
+              endcase
 
               assign card_image = block.settings.image
               if card_image == blank and block.settings.collection != blank and block.settings.collection.image != blank
@@ -112,9 +111,19 @@
           "info": "Optional. Picked image wins over the placeholder URL below." },
         { "type": "text",         "id": "placeholder_url", "label": "Placeholder image URL",
           "info": "External URL used when no image is uploaded. Demo defaults are free Unsplash photos — replace with your own product/build photo for production." },
+        {
+          "type": "select",
+          "id": "link_type",
+          "label": "Link type",
+          "default": "collection",
+          "options": [
+            { "value": "collection", "label": "Shopify collection (below)" },
+            { "value": "custom",     "label": "Custom URL (below)" }
+          ]
+        },
         { "type": "collection",   "id": "collection",  "label": "Link to collection" },
         { "type": "url",          "id": "custom_url",  "label": "Custom URL",
-          "info": "Used when no collection is picked." }
+          "info": "Used when 'Custom URL' link type is selected, or when no collection is picked." }
       ]
     }
   ],
