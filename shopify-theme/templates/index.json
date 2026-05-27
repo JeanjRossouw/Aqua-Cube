@@ -3,41 +3,56 @@
     "hero": {
       "type": "hero",
       "settings": {
-        "eyebrow": "Aquariums & Reef · South Africa",
-        "heading_line_1": "Lighting",
-        "heading_line_2": "redefined.",
-        "lede": "Our lighting systems blend precision and innovation for unparalleled aquatic plant and coral vitality.",
-        "primary_label": "Shop now",
-        "primary_link_type": "all_products",
-        "secondary_label": "Why Aqua Cube",
-        "secondary_link_type": "custom"
+        "eyebrow": "Aquariums & Paludariums · South Africa",
+        "heading_line_1": "Aquariums,",
+        "heading_line_2": "paludariums,",
+        "heading_line_3": "everything in between.",
+        "lede": "South Africa's destination for premium aquariums, complete paludarium setups, isopods, springtails, moss, plants, and every piece of equipment to bring them to life.",
+        "primary_label": "Shop aquariums",
+        "primary_link_type": "custom",
+        "primary_link": "/collections/aquariums",
+        "secondary_label": "Shop paludariums",
+        "secondary_link_type": "custom",
+        "secondary_link": "/collections/paludariums",
+        "image_secondary_placeholder_url": "https://images.unsplash.com/photo-1578313097818-dfe8d38aa758?w=1200&q=80"
       },
       "blocks": {
-        "s1": { "type": "stat", "settings": { "label": "PAR · at 30cm", "value": "420",            "unit": "μmol" } },
-        "s2": { "type": "stat", "settings": { "label": "Spectrum",      "value": "Full · 410–680", "unit": "nm" } },
-        "s3": { "type": "stat", "settings": { "label": "Pump flow",     "value": "12,000",         "unit": "L/h" } },
-        "s4": { "type": "stat", "settings": { "label": "Warranty",      "value": "2",              "unit": "years · SA-wide" } }
+        "s1": {
+          "type": "stat",
+          "settings": {
+            "label": "Varieties",
+            "value": "1,600+",
+            "unit": "products"
+          }
+        },
+        "s2": {
+          "type": "stat",
+          "settings": {
+            "label": "Builds",
+            "value": "Aquariums + Paludariums"
+          }
+        },
+        "s3": {
+          "type": "stat",
+          "settings": {
+            "label": "Cultures",
+            "value": "Isopods + Springtails"
+          }
+        },
+        "s4": {
+          "type": "stat",
+          "settings": {
+            "label": "Shipping",
+            "value": "Across SA"
+          }
+        }
       },
-      "block_order": ["s1", "s2", "s3", "s4"]
-    },
-    "pre-built-tanks": {
-      "type": "pre-built-tanks",
-      "settings": {
-        "eyebrow": "/ pre-built tanks",
-        "heading_line_1": "Ready to ship,",
-        "heading_line_2_accent": "ready to thrive.",
-        "description": "Complete tank setups — aquariums and paludariums — packed, tested and ready to deliver. Pick the size, plug it in, add water.",
-        "cta_label": "Browse all pre-built tanks"
-      },
-      "blocks": {
-        "t1": { "type": "tank", "settings": { "type_tag": "PLANTED TANK", "size": "30L",  "manual_title": "Aqua Cube Nano 30",        "includes": "Glass cube + LED + filter + heater",                "manual_price": "From R 3,499",  "placeholder_url": "https://images.unsplash.com/photo-1730530355839-80f863edd421?w=1200&q=80" } },
-        "t2": { "type": "tank", "settings": { "type_tag": "PLANTED TANK", "size": "60L",  "manual_title": "Aqua Cube Planted 60",     "includes": "Rimless glass + LED + canister filter + CO₂ ready", "manual_price": "From R 6,999",  "placeholder_url": "https://images.unsplash.com/photo-1691387747539-f681c5fa73d9?w=1200&q=80" } },
-        "t3": { "type": "tank", "settings": { "type_tag": "PALUDARIUM",   "size": "80L",  "manual_title": "Aqua Cube Paludarium 80",  "includes": "Glass tank + waterfall pump + mist system + LED",   "manual_price": "From R 8,499",  "flagship": true, "flagship_label": "FLAGSHIP", "placeholder_url": "https://images.unsplash.com/photo-1578313097818-dfe8d38aa758?w=1200&q=80" } },
-        "t4": { "type": "tank", "settings": { "type_tag": "FRESHWATER",   "size": "120L", "manual_title": "Aqua Cube Community 120",  "includes": "Tank + cabinet + filter + heater + LED",            "manual_price": "From R 9,999",  "placeholder_url": "https://images.unsplash.com/photo-1758854486633-95d4be711750?w=1200&q=80" } },
-        "t5": { "type": "tank", "settings": { "type_tag": "REEF READY",   "size": "200L", "manual_title": "Aqua Cube Reef 200",       "includes": "Tank + sump + return pump + skimmer ready",         "manual_price": "From R 18,999", "placeholder_url": "https://images.unsplash.com/photo-1583949184685-33fda190a216?w=1200&q=80" } },
-        "t6": { "type": "tank", "settings": { "type_tag": "PALUDARIUM",   "size": "150L", "manual_title": "Aqua Cube Paludarium 150", "includes": "Premium glass + integrated waterfall + RGB LED",    "manual_price": "From R 16,499", "placeholder_url": "https://images.unsplash.com/photo-1779436853049-c19542e3c81c?w=1200&q=80" } }
-      },
-      "block_order": ["t1", "t2", "t3", "t4", "t5", "t6"]
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ]
     },
     "shop-by-style": {
       "type": "shop-by-style",
@@ -45,35 +60,158 @@
         "eyebrow": "/ shop by style",
         "heading_line_1": "Find your",
         "heading_line_2_accent": "perfect build.",
-        "description": "Whether you're chasing a calm planted layout, a vibrant reef, or a lush land-and-water paludarium — start with the build that fits your space and goals. We'll handle the rest."
+        "description": "Whether you're chasing a calm planted layout, a vibrant reef, or a lush land-and-water paludarium — start with the build that fits your space and goals."
       },
       "blocks": {
-        "s1": { "type": "style", "settings": { "title": "Planted Aquariums", "description": "Nature, Iwagumi, Dutch — calm green layouts",   "cta_label": "Explore",                                                "placeholder_url": "https://images.unsplash.com/photo-1691387896833-dba10ea7d614?w=1200&q=80" } },
-        "s2": { "type": "style", "settings": { "title": "Reef & Saltwater",  "description": "Coral, livestock, marine equipment",            "cta_label": "Explore",                                                "placeholder_url": "https://images.unsplash.com/photo-1748423392373-e2fd0ef41529?w=1200&q=80" } },
-        "s3": { "type": "style", "settings": { "title": "Paludariums",       "description": "Land meets water — our flagship build",         "cta_label": "Explore", "badge_text": "FLAGSHIP", "flagship": true, "placeholder_url": "https://images.unsplash.com/photo-1578313097818-dfe8d38aa758?w=1200&q=80" } },
-        "s4": { "type": "style", "settings": { "title": "Cube & Nano",       "description": "Small footprint, big impact",                   "cta_label": "Explore",                                                "placeholder_url": "https://images.unsplash.com/photo-1730530355839-80f863edd421?w=1200&q=80" } }
+        "s1": {
+          "type": "style",
+          "settings": {
+            "title": "Aquariums",
+            "description": "Glass tanks for freshwater, planted and reef setups",
+            "cta_label": "Explore",
+            "link_type": "custom",
+            "custom_url": "/collections/aquariums",
+            "placeholder_url": "https://images.unsplash.com/photo-1691387896833-dba10ea7d614?w=1200&q=80"
+          }
+        },
+        "s2": {
+          "type": "style",
+          "settings": {
+            "title": "Paludariums",
+            "description": "Land meets water — complete bioactive setups",
+            "cta_label": "Explore",
+            "badge_text": "FLAGSHIP",
+            "flagship": true,
+            "link_type": "custom",
+            "custom_url": "/collections/paludariums",
+            "placeholder_url": "https://images.unsplash.com/photo-1578313097818-dfe8d38aa758?w=1200&q=80"
+          }
+        },
+        "s3": {
+          "type": "style",
+          "settings": {
+            "title": "Cleanup Crew",
+            "description": "Isopods and springtails for bioactive builds",
+            "cta_label": "Explore",
+            "link_type": "custom",
+            "custom_url": "/collections/cleanup-crew-1",
+            "placeholder_url": "https://images.unsplash.com/photo-1730530355813-fdfb30480141?w=1200&q=80"
+          }
+        },
+        "s4": {
+          "type": "style",
+          "settings": {
+            "title": "Plants & Moss",
+            "description": "Live plants and moss varieties",
+            "cta_label": "Explore",
+            "link_type": "custom",
+            "custom_url": "/collections/plants-1",
+            "placeholder_url": "https://images.unsplash.com/photo-1691387824643-227cc84127cf?w=1200&q=80"
+          }
+        },
+        "s5": {
+          "type": "style",
+          "settings": {
+            "title": "Equipment",
+            "description": "Lighting, pumps, filters, CO₂, hardscape, substrate",
+            "cta_label": "Explore",
+            "link_type": "custom",
+            "custom_url": "/collections/equipment",
+            "placeholder_url": "https://images.unsplash.com/photo-1644810734090-ca39bfafe516?w=1200&q=80"
+          }
+        }
       },
-      "block_order": ["s1", "s2", "s3", "s4"]
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5"
+      ]
     },
     "aquascapes-gallery": {
       "type": "aquascapes-gallery",
       "settings": {
-        "eyebrow": "/ inspiration gallery",
+        "eyebrow": "/ inspiration",
         "heading_line_1": "Inspiration",
-        "heading_line_2_accent": "gallery.",
-        "description": "Real customer setups and aquascape inspiration to spark your next build.",
+        "heading_line_2_accent": "",
+        "description": "Real customer setups and aquascape ideas for your next build.",
         "cta_label": "See more inspiration"
       },
       "blocks": {
-        "g1": { "type": "tank", "settings": { "name": "300L Paludarium · Constantia home",  "tag_text": "PALUDARIUM", "tag_color": "#7fe7e0", "placeholder_url": "https://images.unsplash.com/photo-1779436853049-c19542e3c81c?w=1200&q=80" } },
-        "g2": { "type": "tank", "settings": { "name": "120L Iwagumi · Sea Point",           "tag_text": "PLANTED",    "tag_color": "#8fcf6a", "placeholder_url": "https://images.unsplash.com/photo-1691387747539-f681c5fa73d9?w=1200&q=80" } },
-        "g3": { "type": "tank", "settings": { "name": "600L Mixed Reef · Stellenbosch",     "tag_text": "REEF",       "tag_color": "#ff8a5b", "placeholder_url": "https://images.unsplash.com/photo-1568605447135-30c22eac61cb?w=1200&q=80" } },
-        "g4": { "type": "tank", "settings": { "name": "200L Community Tank · Durbanville",  "tag_text": "FRESHWATER", "tag_color": "#5db8e3", "placeholder_url": "https://images.unsplash.com/photo-1758854486633-95d4be711750?w=1200&q=80" } },
-        "g5": { "type": "tank", "settings": { "name": "60L Cube · Office build",            "tag_text": "NANO",       "tag_color": "#ffffff", "placeholder_url": "https://images.unsplash.com/photo-1730530355813-fdfb30480141?w=1200&q=80" } },
-        "g6": { "type": "tank", "settings": { "name": "150L Dutch · Newlands",              "tag_text": "PLANTED",    "tag_color": "#8fcf6a", "placeholder_url": "https://images.unsplash.com/photo-1691387824643-227cc84127cf?w=1200&q=80" } },
-        "g7": { "type": "tank", "settings": { "name": "400L Discus Showcase · Bellville",   "tag_text": "FRESHWATER", "tag_color": "#5db8e3", "placeholder_url": "https://images.unsplash.com/photo-1735476600186-23d3506052a1?w=1200&q=80" } }
+        "g1": {
+          "type": "tank",
+          "settings": {
+            "name": "300L Paludarium · Constantia home",
+            "tag_text": "PALUDARIUM",
+            "tag_color": "#7fe7e0",
+            "placeholder_url": "https://images.unsplash.com/photo-1779436853049-c19542e3c81c?w=1200&q=80"
+          }
+        },
+        "g2": {
+          "type": "tank",
+          "settings": {
+            "name": "120L Iwagumi · Sea Point",
+            "tag_text": "PLANTED",
+            "tag_color": "#8fcf6a",
+            "placeholder_url": "https://images.unsplash.com/photo-1691387747539-f681c5fa73d9?w=1200&q=80"
+          }
+        },
+        "g3": {
+          "type": "tank",
+          "settings": {
+            "name": "600L Mixed Reef · Stellenbosch",
+            "tag_text": "REEF",
+            "tag_color": "#ff8a5b",
+            "placeholder_url": "https://images.unsplash.com/photo-1568605447135-30c22eac61cb?w=1200&q=80"
+          }
+        },
+        "g4": {
+          "type": "tank",
+          "settings": {
+            "name": "200L Community Tank · Durbanville",
+            "tag_text": "FRESHWATER",
+            "tag_color": "#5db8e3",
+            "placeholder_url": "https://images.unsplash.com/photo-1758854486633-95d4be711750?w=1200&q=80"
+          }
+        },
+        "g5": {
+          "type": "tank",
+          "settings": {
+            "name": "60L Cube · Office build",
+            "tag_text": "NANO",
+            "tag_color": "#ffffff",
+            "placeholder_url": "https://images.unsplash.com/photo-1730530355813-fdfb30480141?w=1200&q=80"
+          }
+        },
+        "g6": {
+          "type": "tank",
+          "settings": {
+            "name": "150L Dutch · Newlands",
+            "tag_text": "PLANTED",
+            "tag_color": "#8fcf6a",
+            "placeholder_url": "https://images.unsplash.com/photo-1691387824643-227cc84127cf?w=1200&q=80"
+          }
+        },
+        "g7": {
+          "type": "tank",
+          "settings": {
+            "name": "400L Discus Showcase · Bellville",
+            "tag_text": "FRESHWATER",
+            "tag_color": "#5db8e3",
+            "placeholder_url": "https://images.unsplash.com/photo-1735476600186-23d3506052a1?w=1200&q=80"
+          }
+        }
       },
-      "block_order": ["g1", "g2", "g3", "g4", "g5", "g6", "g7"]
+      "block_order": [
+        "g1",
+        "g2",
+        "g3",
+        "g4",
+        "g5",
+        "g6",
+        "g7"
+      ]
     },
     "featured-collections": {
       "type": "featured-collections",
@@ -84,12 +222,62 @@
         "description": "Lighting, flow and CO₂ from the brands we actually trust — paired with the substrate, scape and livestock to finish the picture."
       },
       "blocks": {
-        "c1": { "type": "card", "settings": { "tag": "FEATURED · LIGHTING", "count": "38 PRODUCTS", "title": "Pumps & Flow",      "cta_label": "Browse", "placeholder_url": "https://images.unsplash.com/photo-1644810734090-ca39bfafe516?w=1200&q=80" } },
-        "c2": { "type": "card", "settings": { "tag": "AQUARIUMS",           "count": "18",          "title": "Cube Aquariums",    "cta_label": "Browse", "placeholder_url": "https://images.unsplash.com/photo-1583949184685-33fda190a216?w=1200&q=80" } },
-        "c3": { "type": "card", "settings": { "tag": "FILTRATION",          "count": "22",          "title": "Filters & Media",   "cta_label": "Browse", "placeholder_url": "https://images.unsplash.com/photo-1742294740087-116b5421341e?w=1200&q=80" } },
-        "c4": { "type": "card", "settings": { "tag": "LIVE",                "count": "40+",         "title": "Coral & Livestock", "cta_label": "Browse", "placeholder_url": "https://images.unsplash.com/photo-1682045324088-ddaf4da1df35?w=1200&q=80" } }
+        "c1": {
+          "type": "card",
+          "settings": {
+            "tag": "FEATURED · TANKS",
+            "count": "TANKS",
+            "title": "Aquariums",
+            "cta_label": "Browse",
+            "link_type": "custom",
+            "custom_url": "/collections/aquariums",
+            "placeholder_url": "https://images.unsplash.com/photo-1779436853049-c19542e3c81c?w=1200&q=80"
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "tag": "FLAGSHIP · BIOACTIVE",
+            "count": "BIOACTIVE",
+            "title": "Paludariums",
+            "cta_label": "Browse",
+            "flagship": true,
+            "link_type": "custom",
+            "custom_url": "/collections/paludariums",
+            "placeholder_url": "https://images.unsplash.com/photo-1578313097818-dfe8d38aa758?w=1200&q=80"
+          }
+        },
+        "c3": {
+          "type": "card",
+          "settings": {
+            "tag": "LIVE · CLEANUP CREW",
+            "count": "ISOPODS",
+            "title": "Isopods",
+            "cta_label": "Browse",
+            "link_type": "custom",
+            "custom_url": "/collections/isopods",
+            "placeholder_url": "https://images.unsplash.com/photo-1730530355813-fdfb30480141?w=1200&q=80"
+          }
+        },
+        "c4": {
+          "type": "card",
+          "settings": {
+            "tag": "LIVE · BOTANICAL",
+            "count": "BOTANICAL",
+            "title": "Moss & Plants",
+            "cta_label": "Browse",
+            "link_type": "custom",
+            "custom_url": "/collections/plants-1",
+            "placeholder_url": "https://images.unsplash.com/photo-1691387824643-227cc84127cf?w=1200&q=80"
+          }
+        }
       },
-      "block_order": ["c1", "c2", "c3", "c4"]
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ]
     },
     "best-sellers": {
       "type": "best-sellers",
@@ -100,12 +288,42 @@
         "description": "The four fixtures that move the most this season. Shipped countrywide, 2-year warranty, local support out of Cape Town."
       },
       "blocks": {
-        "p1": { "type": "product", "settings": { "badge_text": "NEW", "manual_title": "LED fixture · top-down",      "placeholder_url": "https://images.unsplash.com/photo-1758854486625-2ef3d73853fc?w=1200&q=80" } },
-        "p2": { "type": "product", "settings": {                       "manual_title": "DC wave pump",                "placeholder_url": "https://images.unsplash.com/photo-1644810734090-ca39bfafe516?w=1200&q=80" } },
-        "p3": { "type": "product", "settings": {                       "manual_title": "CO₂ Pro · Dual-Stage Regulator", "placeholder_url": "https://images.unsplash.com/photo-1595306394931-b35768661692?w=1200&q=80" } },
-        "p4": { "type": "product", "settings": {                       "manual_title": "Pure 600 · Canister Filter", "placeholder_url": "https://images.unsplash.com/photo-1742294740087-116b5421341e?w=1200&q=80" } }
+        "p1": {
+          "type": "product",
+          "settings": {
+            "badge_text": "NEW",
+            "manual_title": "LED fixture · top-down",
+            "placeholder_url": "https://images.unsplash.com/photo-1758854486625-2ef3d73853fc?w=1200&q=80"
+          }
+        },
+        "p2": {
+          "type": "product",
+          "settings": {
+            "manual_title": "DC wave pump",
+            "placeholder_url": "https://images.unsplash.com/photo-1644810734090-ca39bfafe516?w=1200&q=80"
+          }
+        },
+        "p3": {
+          "type": "product",
+          "settings": {
+            "manual_title": "CO₂ Pro · Dual-Stage Regulator",
+            "placeholder_url": "https://images.unsplash.com/photo-1595306394931-b35768661692?w=1200&q=80"
+          }
+        },
+        "p4": {
+          "type": "product",
+          "settings": {
+            "manual_title": "Pure 600 · Canister Filter",
+            "placeholder_url": "https://images.unsplash.com/photo-1742294740087-116b5421341e?w=1200&q=80"
+          }
+        }
       },
-      "block_order": ["p1", "p2", "p3", "p4"]
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4"
+      ]
     },
     "why-aqua-cube": {
       "type": "why-aqua-cube",
@@ -116,12 +334,45 @@
         "lede": "South African aquarists deserve better than overpriced imports and out-of-stock listings. We hold real stock, ship fast, and back every product with local support."
       },
       "blocks": {
-        "v1": { "type": "value", "settings": { "icon": "truck",  "title": "Real stock, fast delivery", "description": "Every product on the site is in our SA warehouse. Most orders ship same day. Nationwide courier." } },
-        "v2": { "type": "value", "settings": { "icon": "shield", "title": "2-year warranty",           "description": "Every Aqua Cube branded product carries a full 2-year warranty. Local repairs, local replacements." } },
-        "v3": { "type": "value", "settings": { "icon": "chat",   "title": "Local support",             "description": "WhatsApp, email, phone — answered by aquarists in Cape Town, not a call centre." } },
-        "v4": { "type": "value", "settings": { "icon": "rand",   "title": "Fair SA pricing",           "description": "No inflated import margins. Direct supplier relationships keep prices honest." } }
+        "v1": {
+          "type": "value",
+          "settings": {
+            "icon": "truck",
+            "title": "Real stock, fast delivery",
+            "description": "Every product on the site is in our SA warehouse. Most orders ship same day. Nationwide courier."
+          }
+        },
+        "v2": {
+          "type": "value",
+          "settings": {
+            "icon": "shield",
+            "title": "2-year warranty",
+            "description": "Every Aqua Cube branded product carries a full 2-year warranty. Local repairs, local replacements."
+          }
+        },
+        "v3": {
+          "type": "value",
+          "settings": {
+            "icon": "chat",
+            "title": "Local support",
+            "description": "WhatsApp, email, phone — answered by aquarists in Cape Town, not a call centre."
+          }
+        },
+        "v4": {
+          "type": "value",
+          "settings": {
+            "icon": "rand",
+            "title": "Fair SA pricing",
+            "description": "No inflated import margins. Direct supplier relationships keep prices honest."
+          }
+        }
       },
-      "block_order": ["v1", "v2", "v3", "v4"]
+      "block_order": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ]
     },
     "newsletter-signup": {
       "type": "newsletter-signup",
@@ -141,12 +392,41 @@
     "trust-bar": {
       "type": "trust-bar",
       "blocks": {
-        "shipping":  { "type": "item", "settings": { "icon": "truck",      "label": "Free SA delivery over R1500" } },
-        "secure":    { "type": "item", "settings": { "icon": "lock",       "label": "Secure PayFast checkout" } },
-        "expertise": { "type": "item", "settings": { "icon": "fish",       "label": "10+ years of aquarium expertise" } },
-        "returns":   { "type": "item", "settings": { "icon": "rotate",     "label": "30-day returns" } }
+        "shipping": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "label": "Free SA delivery over R1500"
+          }
+        },
+        "secure": {
+          "type": "item",
+          "settings": {
+            "icon": "lock",
+            "label": "Secure PayFast checkout"
+          }
+        },
+        "expertise": {
+          "type": "item",
+          "settings": {
+            "icon": "fish",
+            "label": "10+ years of aquarium expertise"
+          }
+        },
+        "returns": {
+          "type": "item",
+          "settings": {
+            "icon": "rotate",
+            "label": "30-day returns"
+          }
+        }
       },
-      "block_order": ["shipping", "secure", "expertise", "returns"]
+      "block_order": [
+        "shipping",
+        "secure",
+        "expertise",
+        "returns"
+      ]
     },
     "featured": {
       "type": "featured-collection",
@@ -160,12 +440,45 @@
     "categories": {
       "type": "categories",
       "blocks": {
-        "tanks":       { "type": "category", "settings": { "label": "Aquariums",   "collection": "tanks",       "icon": "aquariums" } },
-        "filters":     { "type": "category", "settings": { "label": "Filters",     "collection": "filtration",  "icon": "filters" } },
-        "lighting":    { "type": "category", "settings": { "label": "Lighting",    "collection": "lighting",    "icon": "lighting" } },
-        "decorations": { "type": "category", "settings": { "label": "Decorations", "collection": "decorations", "icon": "decorations" } }
+        "tanks": {
+          "type": "category",
+          "settings": {
+            "label": "Aquariums",
+            "collection": "tanks",
+            "icon": "aquariums"
+          }
+        },
+        "filters": {
+          "type": "category",
+          "settings": {
+            "label": "Filters",
+            "collection": "filtration",
+            "icon": "filters"
+          }
+        },
+        "lighting": {
+          "type": "category",
+          "settings": {
+            "label": "Lighting",
+            "collection": "lighting",
+            "icon": "lighting"
+          }
+        },
+        "decorations": {
+          "type": "category",
+          "settings": {
+            "label": "Decorations",
+            "collection": "decorations",
+            "icon": "decorations"
+          }
+        }
       },
-      "block_order": ["tanks", "filters", "lighting", "decorations"],
+      "block_order": [
+        "tanks",
+        "filters",
+        "lighting",
+        "decorations"
+      ],
       "settings": {
         "heading": "Shop by Category",
         "subheading": "Everything you need, organised for easy browsing"
@@ -174,12 +487,41 @@
     "about": {
       "type": "about",
       "blocks": {
-        "s1": { "type": "stat", "settings": { "value": "500+",  "label": "Products Available" } },
-        "s2": { "type": "stat", "settings": { "value": "10K+",  "label": "Happy Customers" } },
-        "s3": { "type": "stat", "settings": { "value": "10+",   "label": "Years Experience" } },
-        "s4": { "type": "stat", "settings": { "value": "4.9★", "label": "Average Rating" } }
+        "s1": {
+          "type": "stat",
+          "settings": {
+            "value": "500+",
+            "label": "Products Available"
+          }
+        },
+        "s2": {
+          "type": "stat",
+          "settings": {
+            "value": "10K+",
+            "label": "Happy Customers"
+          }
+        },
+        "s3": {
+          "type": "stat",
+          "settings": {
+            "value": "10+",
+            "label": "Years Experience"
+          }
+        },
+        "s4": {
+          "type": "stat",
+          "settings": {
+            "value": "4.9★",
+            "label": "Average Rating"
+          }
+        }
       },
-      "block_order": ["s1", "s2", "s3", "s4"]
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ]
     },
     "newsletter": {
       "type": "newsletter"
@@ -188,5 +530,19 @@
       "type": "contact"
     }
   },
-  "order": ["hero", "pre-built-tanks", "shop-by-style", "aquascapes-gallery", "featured-collections", "best-sellers", "why-aqua-cube", "newsletter-signup", "trust-bar", "featured", "categories", "about", "newsletter", "contact"]
+  "order": [
+    "hero",
+    "shop-by-style",
+    "aquascapes-gallery",
+    "featured-collections",
+    "best-sellers",
+    "why-aqua-cube",
+    "newsletter-signup",
+    "trust-bar",
+    "featured",
+    "categories",
+    "about",
+    "newsletter",
+    "contact"
+  ]
 }

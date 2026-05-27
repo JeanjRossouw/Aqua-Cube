@@ -6,23 +6,37 @@
       "type": "header",
       "settings": {
         "home_label": "Home",
-        "products_label": "Products",
-        "about_label": "Aquacube",
-        "contact_label": "Contact",
+        "home_url": "",
+        "aquariums_label": "Aquariums",
+        "aquariums_url": "/collections/aquariums",
+        "paludariums_label": "Paludariums",
+        "paludariums_url": "/collections/paludariums",
+        "cleanup_label": "Cleanup Crew",
+        "plants_label": "Plants & Moss",
+        "equipment_label": "Equipment",
+        "about_label": "About",
+        "about_url": "/pages/about",
         "dropdown_footer_text": "FREE DELIVERY OVER R1,500",
-        "dropdown_cta_label": "Shop all products",
+        "dropdown_cta_label": "Shop all equipment",
+        "dropdown_cta_link": "/collections/equipment",
         "show_search": true,
         "show_account": true
       },
       "blocks": {
-        "lighting":   { "type": "category", "settings": { "title": "Lighting & CO₂",        "description": "Reef & planted LEDs, regulators, diffusers", "icon": "lighting",   "link_type": "custom", "custom_url": "/collections/lighting" } },
-        "pumps":      { "type": "category", "settings": { "title": "Pumps & Flow",          "description": "DC wave-makers, return pumps, controllers",  "icon": "pumps",      "link_type": "custom", "custom_url": "/collections/pumps-flow" } },
-        "aquariums":  { "type": "category", "settings": { "title": "Aquariums",             "description": "Starfire cubes, rimless & paludariums",      "icon": "aquariums",  "link_type": "custom", "custom_url": "/collections/aquariums" } },
-        "filtration": { "type": "category", "settings": { "title": "Filtration",            "description": "Canisters, sumps, media & spares",           "icon": "filtration", "link_type": "custom", "custom_url": "/collections/filtration" } },
-        "livestock":  { "type": "category", "settings": { "title": "Coral & Livestock",     "description": "Frags, nano fish, shrimp — quarantined",     "icon": "livestock",  "link_type": "custom", "custom_url": "/collections/livestock" } },
-        "hardscape":  { "type": "category", "settings": { "title": "Hardscape & Substrate", "description": "Seiryu, dragon stone, wood, ADA soil",       "icon": "hardscape",  "link_type": "custom", "custom_url": "/collections/hardscape" } }
+        "cleanup-isopods":     { "type": "category", "settings": { "parent": "cleanup",   "title": "Isopods",               "icon": "cleanup",    "link_type": "custom", "custom_url": "/collections/isopods" } },
+        "cleanup-springtails": { "type": "category", "settings": { "parent": "cleanup",   "title": "Springtails",           "icon": "cleanup",    "link_type": "custom", "custom_url": "/collections/springtails" } },
+        "plants-moss":         { "type": "category", "settings": { "parent": "plants",    "title": "Moss",                  "icon": "plant",      "link_type": "custom", "custom_url": "/collections/moss" } },
+        "plants-paludarium":   { "type": "category", "settings": { "parent": "plants",    "title": "Paludarium Plants",     "icon": "plant",      "link_type": "custom", "custom_url": "/collections/paludarium-plants" } },
+        "equip-lighting":      { "type": "category", "settings": { "parent": "equipment", "title": "Lighting & CO₂",        "icon": "lighting",   "link_type": "custom", "custom_url": "/collections/lighting-co" } },
+        "equip-pumps":         { "type": "category", "settings": { "parent": "equipment", "title": "Pumps & Flow",          "icon": "pumps",      "link_type": "custom", "custom_url": "/collections/pumps-flow" } },
+        "equip-filtration":    { "type": "category", "settings": { "parent": "equipment", "title": "Filtration",            "icon": "filtration", "link_type": "custom", "custom_url": "/collections/filtration" } },
+        "equip-hardscape":     { "type": "category", "settings": { "parent": "equipment", "title": "Hardscape & Substrate", "icon": "hardscape",  "link_type": "custom", "custom_url": "/collections/hardscape-substrate" } }
       },
-      "block_order": ["lighting", "pumps", "aquariums", "filtration", "livestock", "hardscape"]
+      "block_order": [
+        "cleanup-isopods", "cleanup-springtails",
+        "plants-moss", "plants-paludarium",
+        "equip-lighting", "equip-pumps", "equip-filtration", "equip-hardscape"
+      ]
     }
   },
   "order": ["header"]

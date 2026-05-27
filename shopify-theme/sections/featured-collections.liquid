@@ -44,8 +44,13 @@
               if card_image != blank and card_image.alt != blank
                 assign card_alt = card_image.alt
               endif
+
+              assign card_classes = 'fc-card'
+              if block.settings.flagship
+                assign card_classes = 'fc-card fc-card--flagship'
+              endif
             -%}
-            <a href="{{ card_url }}" class="fc-card" aria-label="{{ block.settings.title | escape }}" {{ block.shopify_attributes }}>
+            <a href="{{ card_url }}" class="{{ card_classes }}" aria-label="{{ block.settings.title | escape }}" {{ block.shopify_attributes }}>
               {%- if card_image != blank -%}
                 <img class="fc-card__img"
                      src="{{ card_image | image_url: width: 800 }}"
@@ -108,6 +113,9 @@
         { "type": "text",         "id": "title",      "label": "Title",                "default": "Pumps & Flow" },
         { "type": "text",         "id": "cta_label",  "label": "CTA label",            "default": "Browse",
           "info": "The arrow → is appended automatically." },
+        { "type": "checkbox",     "id": "flagship",   "label": "Flagship treatment",
+          "info": "Adds a subtle aqua glow and stronger border.",
+          "default": false },
         { "type": "image_picker", "id": "image",      "label": "Image (uploaded)",
           "info": "Picked image wins over the placeholder URL below. Falls back to the linked collection's image, then to the placeholder URL, then to a gradient." },
         { "type": "text",         "id": "placeholder_url", "label": "Placeholder image URL",
@@ -123,10 +131,10 @@
       "name": "Featured Collections",
       "category": "Aqua Cube",
       "blocks": [
-        { "type": "card", "settings": { "tag": "FEATURED · LIGHTING", "count": "38 PRODUCTS", "title": "Pumps & Flow",      "cta_label": "Browse", "placeholder_url": "https://images.unsplash.com/photo-1644810734090-ca39bfafe516?w=1200&q=80" } },
-        { "type": "card", "settings": { "tag": "AQUARIUMS",           "count": "18",          "title": "Cube Aquariums",    "cta_label": "Browse", "placeholder_url": "https://images.unsplash.com/photo-1583949184685-33fda190a216?w=1200&q=80" } },
-        { "type": "card", "settings": { "tag": "FILTRATION",          "count": "22",          "title": "Filters & Media",   "cta_label": "Browse", "placeholder_url": "https://images.unsplash.com/photo-1742294740087-116b5421341e?w=1200&q=80" } },
-        { "type": "card", "settings": { "tag": "LIVE",                "count": "40+",         "title": "Coral & Livestock", "cta_label": "Browse", "placeholder_url": "https://images.unsplash.com/photo-1682045324088-ddaf4da1df35?w=1200&q=80" } }
+        { "type": "card", "settings": { "tag": "FEATURED · TANKS",     "count": "TANKS",         "title": "Aquariums",     "cta_label": "Browse",                     "custom_url": "/collections/aquariums",   "link_type": "custom", "placeholder_url": "https://images.unsplash.com/photo-1779436853049-c19542e3c81c?w=1200&q=80" } },
+        { "type": "card", "settings": { "tag": "FLAGSHIP · BIOACTIVE", "count": "BIOACTIVE",     "title": "Paludariums",   "cta_label": "Browse", "flagship": true,   "custom_url": "/collections/paludariums", "link_type": "custom", "placeholder_url": "https://images.unsplash.com/photo-1578313097818-dfe8d38aa758?w=1200&q=80" } },
+        { "type": "card", "settings": { "tag": "LIVE · CLEANUP CREW",  "count": "ISOPODS",       "title": "Isopods",       "cta_label": "Browse",                     "custom_url": "/collections/isopods",     "link_type": "custom", "placeholder_url": "https://images.unsplash.com/photo-1730530355813-fdfb30480141?w=1200&q=80" } },
+        { "type": "card", "settings": { "tag": "LIVE · BOTANICAL",     "count": "BOTANICAL",     "title": "Moss & Plants", "cta_label": "Browse",                     "custom_url": "/collections/plants-1",    "link_type": "custom", "placeholder_url": "https://images.unsplash.com/photo-1691387824643-227cc84127cf?w=1200&q=80" } }
       ]
     }
   ]
