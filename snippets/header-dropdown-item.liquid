@@ -2,6 +2,11 @@
   Renders one item inside a header dropdown.
   Param:
     block - a header section block of type "category"
+
+  Image resolution:
+    block.settings.thumb_image (uploaded)  -- wins
+    block.settings.thumb_placeholder_url (text URL) -- fallback
+    aqua-outlined icon (block.settings.icon) -- when both blank
 {%- endcomment -%}
 {%- liquid
   case block.settings.link_type
@@ -10,21 +15,44 @@
     else
       assign item_url = block.settings.custom_url | default: '#'
   endcase
+
+  assign has_thumb = false
+  if block.settings.thumb_image != blank or block.settings.thumb_placeholder_url != blank
+    assign has_thumb = true
+  endif
 -%}
 <a href="{{ item_url }}" class="ac-nav__item" role="menuitem" {{ block.shopify_attributes }}>
-  <span class="ac-nav__item-ico">
-    {%- case block.settings.icon -%}
-      {%- when 'lighting'   -%}{% render 'icon-cat-lighting' %}
-      {%- when 'pumps'      -%}{% render 'icon-cat-pumps' %}
-      {%- when 'aquariums'  -%}{% render 'icon-cat-aquariums' %}
-      {%- when 'filtration' -%}{% render 'icon-cat-filtration' %}
-      {%- when 'livestock'  -%}{% render 'icon-cat-livestock' %}
-      {%- when 'hardscape'  -%}{% render 'icon-cat-hardscape' %}
-      {%- when 'cleanup'    -%}{% render 'icon-cat-cleanup' %}
-      {%- when 'plant'      -%}{% render 'icon-cat-plant' %}
-      {%- else              -%}{% render 'icon-cat-lighting' %}
-    {%- endcase -%}
-  </span>
+  {%- if has_thumb -%}
+    <span class="ac-nav__item-ico ac-nav__item-ico--img">
+      {%- if block.settings.thumb_image != blank -%}
+        <img src="{{ block.settings.thumb_image | image_url: width: 80 }}"
+             srcset="{{ block.settings.thumb_image | image_url: width: 40 }} 40w, {{ block.settings.thumb_image | image_url: width: 80 }} 80w, {{ block.settings.thumb_image | image_url: width: 120 }} 120w"
+             sizes="40px"
+             alt="{{ block.settings.thumb_image.alt | default: block.settings.title | escape }}"
+             loading="lazy"
+             width="40" height="40">
+      {%- else -%}
+        <img src="{{ block.settings.thumb_placeholder_url }}"
+             alt="{{ block.settings.title | escape }}"
+             loading="lazy"
+             width="40" height="40">
+      {%- endif -%}
+    </span>
+  {%- else -%}
+    <span class="ac-nav__item-ico">
+      {%- case block.settings.icon -%}
+        {%- when 'lighting'   -%}{% render 'icon-cat-lighting' %}
+        {%- when 'pumps'      -%}{% render 'icon-cat-pumps' %}
+        {%- when 'aquariums'  -%}{% render 'icon-cat-aquariums' %}
+        {%- when 'filtration' -%}{% render 'icon-cat-filtration' %}
+        {%- when 'livestock'  -%}{% render 'icon-cat-livestock' %}
+        {%- when 'hardscape'  -%}{% render 'icon-cat-hardscape' %}
+        {%- when 'cleanup'    -%}{% render 'icon-cat-cleanup' %}
+        {%- when 'plant'      -%}{% render 'icon-cat-plant' %}
+        {%- else              -%}{% render 'icon-cat-lighting' %}
+      {%- endcase -%}
+    </span>
+  {%- endif -%}
   <span class="ac-nav__item-txt">
     <span class="ac-nav__item-title">{{ block.settings.title | escape }}</span>
     {%- if block.settings.description != blank -%}
