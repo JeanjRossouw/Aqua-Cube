@@ -1281,6 +1281,20 @@ a { color: inherit; text-decoration: none; }
   flex-shrink: 0;
   color: var(--aqua-1);
 }
+.ac-nav__item-ico--img {
+  width: 40px;
+  height: 40px;
+  border-color: var(--rule);
+  background: var(--aqua-deep);
+  overflow: hidden;
+  padding: 0;
+}
+.ac-nav__item-ico--img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 .ac-nav__item-txt { display: flex; flex-direction: column; gap: 2px; }
 .ac-nav__item-title {
   font-size: 14px;

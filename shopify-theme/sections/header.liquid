@@ -234,7 +234,13 @@
           ]
         },
         { "type": "collection", "id": "collection", "label": "Collection" },
-        { "type": "url",        "id": "custom_url", "label": "Custom URL" }
+        { "type": "url",        "id": "custom_url", "label": "Custom URL" },
+
+        { "type": "header", "content": "Thumbnail image (optional)" },
+        { "type": "image_picker", "id": "thumb_image", "label": "Thumbnail (uploaded)",
+          "info": "Replaces the icon with a small 40×40 product photo. Upload via Shopify Files. Falls back to the placeholder URL below, then to the icon above." },
+        { "type": "text",         "id": "thumb_placeholder_url", "label": "Thumbnail placeholder URL",
+          "info": "External URL fallback. Used when no image is uploaded." }
       ]
     }
   ],
