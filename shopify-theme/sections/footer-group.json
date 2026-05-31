@@ -32,7 +32,7 @@
         "shop6":    { "type": "link", "settings": { "column": "shop",      "label": "Paludarium Plants",       "url": "/collections/paludarium-plants" } },
         "shop7":    { "type": "link", "settings": { "column": "shop",      "label": "Fish Food",               "url": "/collections/fish-food" } },
 
-        "equip1":   { "type": "link", "settings": { "column": "equipment", "label": "Lighting & CO₂",          "url": "/collections/lighting-co" } },
+        "equip1":   { "type": "link", "settings": { "column": "equipment", "label": "Lighting & CO₂",          "url": "/collections/lighting" } },
         "equip2":   { "type": "link", "settings": { "column": "equipment", "label": "Pumps & Flow",            "url": "/collections/pumps-flow" } },
         "equip3":   { "type": "link", "settings": { "column": "equipment", "label": "Air Pumps & Airstones",   "url": "/collections/air-pumps-airstones" } },
         "equip4":   { "type": "link", "settings": { "column": "equipment", "label": "Filtration",              "url": "/collections/filtration" } },
