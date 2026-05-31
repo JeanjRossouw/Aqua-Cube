@@ -94,7 +94,7 @@
             "description": "Isopods and springtails for bioactive builds",
             "cta_label": "Explore",
             "link_type": "custom",
-            "custom_url": "/collections/cleanup-crew-1",
+            "custom_url": "/collections/cleanup-crew",
             "placeholder_url": "https://images.unsplash.com/photo-1730530355813-fdfb30480141?w=1200&q=80"
           }
         },
@@ -105,7 +105,7 @@
             "description": "Live plants and moss varieties",
             "cta_label": "Explore",
             "link_type": "custom",
-            "custom_url": "/collections/plants-1",
+            "custom_url": "/collections/plants-moss",
             "placeholder_url": "https://images.unsplash.com/photo-1691387824643-227cc84127cf?w=1200&q=80"
           }
         },
@@ -267,7 +267,7 @@
             "title": "Moss & Plants",
             "cta_label": "Browse",
             "link_type": "custom",
-            "custom_url": "/collections/plants-1",
+            "custom_url": "/collections/plants-moss",
             "placeholder_url": "https://images.unsplash.com/photo-1691387824643-227cc84127cf?w=1200&q=80"
           }
         }
