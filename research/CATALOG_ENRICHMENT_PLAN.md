@@ -397,3 +397,26 @@ the Shopify `main-menu` via `menuUpdate` has NO visible effect. Navigation is dr
 - 🟢 **DEPLOY BLOCKER RESOLVED:** "Aqua Cube 2026" (188936552521) is now **role MAIN (published)**.
   So Phase-1 category→supplier nav is LIVE, and **merging PR #6 will go live** (kept draft for review).
   Possible polish: right-align the 640px mega-menu on narrower desktops (capped at 92vw for now).
+- Also (separate request): added **Isopods** + **Springtails** as top-level nav flat links (kept the
+  Cleanup Crew dropdown too). Same PR #6. Robust render (no blank-guard + `| default:`).
+
+### Phase 4 — Missing product images (114 branded) — IN PROGRESS, BLOCKED ON ENV + AWAITING USER
+- ⚠️ **Environment can't fetch or view images.** Outbound network is fully blocked (every curl =
+  21-byte proxy 403, incl. example.com). WebSearch works (text links only); **WebFetch is 403'd by
+  akwa.co.za**; can't download → can't Read/view → **can't verify exact-model/watermark**. Also
+  **staged-upload byte push is blocked**, so images can only be attached **by URL** via
+  `productCreateMedia(originalSource: <url>, mediaContentType: IMAGE)` (Shopify fetches server-side).
+- **Agreed plan = "split the work":** I do Shopify side (identify, match by SKU, flag dups, bulk-attach
+  by URL); USER supplies verified public image URLs (they can see images; I can't).
+- **Akwa done (their priority):** sheet at `research/akwa_image_sourcing.csv`. `title:Akwa*` →
+  67 products, **45 no-image = exactly the CSV's "Akwa (45)"**: 37 SKU'd NEEDS_IMAGE + **8 no-SKU
+  dups** (Fullgain + Ocean Max T4 200…1000, all `sku:null`) flagged FLAG_DUPLICATE (merge, don't image).
+  Candidate akwa.co.za URLs per line w/ confidence (T4-200, Fullgain-14W, XRB-600, JT-203S air pump,
+  both Zeolite, Dophin Mini Tank 12L, Akwaria drops = confirmed High; others pattern-inferred Med/Low).
+- **Findings to surface:** Akwa products are **mis-vendored as "Aqua Cube"** (brand only in title) — same
+  pattern as Phase 3, could re-vendor to "Akwa". Gravel Cleaners `GRC0001/2` have a **wrong image**
+  (Ista-Glass-Diffuser photo). **SKU `AFM0103`** duplicated on 2 Activated-Carbon products.
+- **NEXT:** user returns filled `image_url` column → I bulk-attach by SKU (gid = `gid://shopify/Product/<id>`),
+  skip the 8 dups, log failures. **Remaining ~69 of 114** pending: user to paste/commit
+  `AquaCube_Branded_NoImage_List.csv` (never reached container) OR name the brands for me to scan.
+- Store confirmed: primary domain **aquacube-6.myshopify.com** (internal `r6cvc5-bk`, name "Aquacube").
