@@ -195,9 +195,19 @@ Missing: **per-supplier** light collections (Chihiros, Zetlight, Dophin, …) �
       placeholder (was → bare `/collections`) with **Lights** → `/collections/lighting`,
       13 nested sub-items (8 suppliers + Freshwater/Plant/Marine/Terrarium/Accessories).
       Parent menu item id `780547588169`.
-- [ ] Roll out remaining category dropdowns (Filtration, Pumps, CO2, Plants, Food, …)
-- [ ] Clean up remaining mislabeled legacy menu items ("Voonline & Crash", "DR Tank
-      & Fertilizers", "Decorations & Ornaments", etc. — all still → bare `/collections`)
+- [x] Roll out remaining category dropdowns (2026-06-01) — **full menu rebuilt** into 9
+      grouped dropdowns + Brands, all wired to existing collections:
+      Home · Aquariums ▾ · Lights ▾ · Filtration ▾ · Pumps & Air ▾ · CO₂ & Plants ▾ ·
+      Heating & Water Care ▾ · Fish Food ▾ · Hardscape & Decor ▾ · Accessories ▾ ·
+      Brands ▾ · Contact
+- [x] Clean up mislabeled legacy menu items (2026-06-01) — removed the 4 dead-link items
+      (Voonline & Crash, DR Tank & Fertilizers, Hardscape Decorations, Decorations &
+      Ornaments, Akwa Products); all sub-links now point at real populated collections.
+- [x] Created 6 full-range Brand collections (2026-06-01): Chihiros (26), Zetlight (9),
+      Dophin (88), Tropica (58), Dennerle (24), ADA (9) — joins existing Dymax (143)
+      to power the Brands ▾ menu.
+- [ ] **Phase 0 follow-up:** Tropica/Dennerle/ADA plant titles contain HTML-entity
+      artifacts (`&#8211;` → "–", `&#8216;`/`&#8217;` → quotes). Decode in a title sweep.
 
 **Lights dropdown is the proven pattern** — replicate for other categories:
 1. confirm/create per-supplier smart collections (rule: TAG = "Collection: ‹Cat›" AND
