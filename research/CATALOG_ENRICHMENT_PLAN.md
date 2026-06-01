@@ -282,15 +282,23 @@ the Shopify `main-menu` via `menuUpdate` has NO visible effect. Navigation is dr
 **theme section settings + `category` blocks** in `sections/header-group.json`.
 - Dropdowns are keyed by each block's `parent` setting.
 - **Shopify caps a section at 30 blocks** (hard limit; schema `limit` can't exceed it).
-- Live (MAIN) theme is write-protected by the MCP; must edit a duplicate then publish.
+- **The live theme is GitHub-connected**: it auto-syncs from the **`shopify-live` branch**
+  of this repo (`jeanjrossouw/aqua-cube`). The real theme lives there (sections/, layout/,
+  config/, snippets/…) — NOT on `main`/`claude/*` (those hold a separate static-HTML site).
+  ⇒ Ship nav/theme changes by committing to `shopify-live` (PR → merge auto-deploys).
+  Do NOT publish a duplicate theme — that disconnects the GitHub↔theme sync.
 
-### Phase 1 nav — DONE on DRAFT theme (awaiting user preview + publish)
-- Duplicated MAIN → **"Aqua Cube 2026 — Nav Update (draft)"** (id **188950413385**).
-- Edited on the draft: `sections/header.liquid` (added **Lights ▾** + **Brands ▾** dropdown
-  slots; extended block `parent` options to lights/brands) and `sections/header-group.json`
-  (30 blocks: Lights 8, Plants & Moss 9, Brands 7, Equipment 6; Cleanup hidden via empty
-  label; Plants kept as dropdown; Aquariums/Paludariums/Fish Food/About flat links).
-- **NEXT: user previews the draft theme, then Publishes it** (Online Store → Themes →
-  the draft → Preview; Publish when happy). Nothing is live until published.
-- Tradeoff chosen by user: "Lights brands + keep Plants". If more room needed later,
-  consider a mega-menu/linklist-based header rebuild to escape the 30-block cap.
+### Phase 1 nav — DONE, in review as PR #3 (correct GitHub-native path)
+- **PR #3** → base `shopify-live`, head `claude/nav-lights-brands-dropdowns` (DRAFT).
+  Surgically edits `sections/header.liquid` (adds **Lights ▾** after Aquariums + **Brands ▾**
+  after Equipment, mirroring the existing dropdown pattern; adds `lights_label`/`brands_label`
+  + `lights`/`brands` parent options; removes the `dymax_*` flat-link settings) and replaces
+  `sections/header-group.json` with the 30-block layout (Lights 8, Plants 9, Brands 7,
+  Equipment 6; Cleanup Crew → 0 blocks, self-hidden). Validated: schema JSON parses, Liquid
+  tags balance, all referenced snippets exist on `shopify-live`.
+- **NEXT: user reviews PR #3 and merges into `shopify-live`** → Shopify auto-deploys to live.
+  Nothing is live until merged. No GitHub Actions/CI on this repo (deploy = Shopify sync).
+- Tradeoff chosen by user: "Lights brands + keep Plants" (Equipment 13→6, Cleanup removed to
+  fit the 30-block cap). For more room later, a mega-menu/linklist-based header rebuild.
+- ⚠️ Superseded: the earlier Shopify draft theme "Aqua Cube 2026 — Nav Update (draft)"
+  (id 188950413385) is now redundant — delete it after PR #3 merges (do NOT publish it).
