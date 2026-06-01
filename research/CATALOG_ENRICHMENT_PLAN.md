@@ -369,3 +369,31 @@ the Shopify `main-menu` via `menuUpdate` has NO visible effect. Navigation is dr
   and the generic "Aqua Cube" vendor (2587, unbranded house catalogue).
 - These are storefront `/collections/<handle>` pages (SEO / shop-by-brand). NOT in the nav (nav is
   category→supplier). A "Brands" menu would be a separate header change.
+
+### Phase 3 — Mis-vendored brand re-tag + 8 more collections + Brands menu — DONE (data) / DRAFT PR (theme)
+- **Discovery:** 8 brands the user expected were NOT missing — they were mis-vendored under the house
+  vendor **"Aqua Cube"**, with the real brand only in the product TITLE. Found via wildcard title
+  search (`vendor:'Aqua Cube' AND title:*Brand*`); token search `title:Brand` returns 0 (names are
+  embedded in larger strings — must use `*...*`).
+- **Re-tagged 126 products** (`productUpdate`, vendor field) → corrected counts: Superfish 38,
+  DR Tank 29, Jebao 10, Jecod 15 (Jebao+Jecod 25), XY 17, Langa 5, Crash 5, Venys 4, MossUP 3.
+  **Aqua Cube vendor 2587 → 2461 (−126).**
+  - ⚠️ 2 false positives EXCLUDED: "7pcs **Dr**agon Layer Ornament … **Tank**" (matched DR+Tank),
+    and "**Vasee** MossUP Planting Cloth" (leads with a different brand → possible 9th brand "Vasee",
+    left as Aqua Cube for user to decide).
+  - Naming = literal-to-title: **XY** (not XinYou), **Venys** (not Veny's), **DR Tank**. Easy to rename.
+- **Created 8 SMART brand collections** (rule `VENDOR = X`, published), counts verified:
+  superfish 38, dr-tank 29, **jebao-jecod 25** (one collection, disjunctive `VENDOR=Jebao OR Jecod`),
+  xy 17, langa 5, crash 5, venys 4, mossup 3. All ≥3 (the user's floor). **→ 32 brand pages total**
+  (7 original + 17 Phase-2 + 8 Phase-3).
+- **Brands menu (user said yes):**
+  - Created store nav menu **`brands` linklist** (`Menu/313582878793`, 32 items, alphabetical,
+    each → `/collections/<handle>`). Manage in Online Store → Navigation → Brands.
+  - **`sections/header.liquid`**: added a **Brands ▾ mega-menu** that renders `linklists.brands`
+    as a responsive grid (4/3/2 cols). Linklist-driven on purpose → dodges the 30-block `category`
+    cap AND survives GitHub sync (label off `| default: 'Brands'`). Auto-hides if menu empty.
+  - **PR #6 (DRAFT)** → base `shopify-live`, head `claude/nav-brands-menu`. Schema JSON validated,
+    all Liquid tags balanced.
+- 🟢 **DEPLOY BLOCKER RESOLVED:** "Aqua Cube 2026" (188936552521) is now **role MAIN (published)**.
+  So Phase-1 category→supplier nav is LIVE, and **merging PR #6 will go live** (kept draft for review).
+  Possible polish: right-align the 640px mega-menu on narrower desktops (capped at 92vw for now).
