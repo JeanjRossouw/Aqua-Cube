@@ -38,6 +38,18 @@
         </li>
       {%- endif -%}
 
+      {%- comment -%} Isopods & Springtails: promoted to top-level flat links (they also stay in the Cleanup Crew dropdown below). No blank-guard + default fallbacks so theme sync can't blank them. {%- endcomment -%}
+      <li role="none">
+        <a href="{{ section.settings.isopods_url | default: '/collections/isopods' }}" class="ac-nav__link" role="menuitem">
+          {{ section.settings.isopods_label | default: 'Isopods' }}
+        </a>
+      </li>
+      <li role="none">
+        <a href="{{ section.settings.springtails_url | default: '/collections/springtails' }}" class="ac-nav__link" role="menuitem">
+          {{ section.settings.springtails_label | default: 'Springtails' }}
+        </a>
+      </li>
+
       {%- comment -%} ---- Cleanup Crew dropdown ---- {%- endcomment -%}
       {%- assign cleanup_count = 0 -%}
       {%- for block in section.blocks -%}
@@ -127,6 +139,28 @@
         </li>
       {%- endif -%}
 
+      {%- comment -%} ---- Brands mega-menu (items come from the 'Brands' menu in Online Store → Navigation) ---- {%- endcomment -%}
+      {%- assign brands_menu = linklists.brands -%}
+      {%- if brands_menu.links.size > 0 -%}
+        <li class="ac-nav__drop" role="none">
+          <button class="ac-nav__trigger" type="button" aria-haspopup="true" aria-expanded="false" role="menuitem">
+            {{ section.settings.brands_label | default: 'Brands' }}
+            {% render 'icon-caret-down' %}
+          </button>
+          <div class="ac-nav__menu ac-nav__menu--mega" role="menu" aria-label="{{ section.settings.brands_label | default: 'Brands' }}">
+            <div class="ac-nav__brand-grid">
+              {%- for link in brands_menu.links -%}
+                <a href="{{ link.url }}" class="ac-nav__item ac-nav__item--brand" role="menuitem">
+                  <span class="ac-nav__item-txt">
+                    <span class="ac-nav__item-title">{{ link.title | escape }}</span>
+                  </span>
+                </a>
+              {%- endfor -%}
+            </div>
+          </div>
+        </li>
+      {%- endif -%}
+
       {%- if section.settings.fish_food_label != blank -%}
         <li role="none">
           <a href="{{ section.settings.fish_food_url | default: '/collections/fish-food' }}" class="ac-nav__link" role="menuitem">
@@ -170,6 +204,20 @@
   </div>
 </nav>
 
+{% stylesheet %}
+.ac-nav__menu.ac-nav__menu--mega{ width: 640px; max-width: 92vw; }
+.ac-nav__menu--mega .ac-nav__brand-grid{ display: grid; grid-template-columns: repeat(4, 1fr); }
+.ac-nav__item--brand .ac-nav__item-title{ white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 990px){
+  .ac-nav__menu.ac-nav__menu--mega{ width: 470px; }
+  .ac-nav__menu--mega .ac-nav__brand-grid{ grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 749px){
+  .ac-nav__menu.ac-nav__menu--mega{ width: auto; max-width: none; }
+  .ac-nav__menu--mega .ac-nav__brand-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+{% endstylesheet %}
+
 {% schema %}
 {
   "name": "Header",
@@ -181,6 +229,10 @@
     { "type": "url",  "id": "aquariums_url",      "label": "Aquariums URL" },
     { "type": "text", "id": "paludariums_label",  "label": "Paludariums label (flat link)", "default": "Paludariums" },
     { "type": "url",  "id": "paludariums_url",    "label": "Paludariums URL" },
+    { "type": "text", "id": "isopods_label",      "label": "Isopods label (flat link)",     "default": "Isopods" },
+    { "type": "url",  "id": "isopods_url",        "label": "Isopods URL" },
+    { "type": "text", "id": "springtails_label",  "label": "Springtails label (flat link)", "default": "Springtails" },
+    { "type": "url",  "id": "springtails_url",    "label": "Springtails URL" },
     { "type": "text", "id": "cleanup_label",      "label": "Cleanup Crew dropdown label",   "default": "Cleanup Crew" },
     { "type": "text", "id": "plants_label",       "label": "Plants & Moss dropdown label",  "default": "Plants & Moss" },
     { "type": "text", "id": "equipment_label",    "label": "Equipment dropdown label",      "default": "Equipment" },
@@ -188,6 +240,8 @@
     { "type": "url",  "id": "lights_url",         "label": "Equipment ▸ Lights row link" },
     { "type": "text", "id": "filtration_label",   "label": "Equipment ▸ Filtration row label", "default": "Filtration" },
     { "type": "url",  "id": "filtration_url",     "label": "Equipment ▸ Filtration row link" },
+    { "type": "text", "id": "brands_label",       "label": "Brands dropdown label",         "default": "Brands",
+      "info": "The brand list comes from the 'Brands' menu in Online Store → Navigation. Leave default; hides automatically if that menu is empty." },
     { "type": "text", "id": "fish_food_label",    "label": "Fish Food label (flat link)",   "default": "Fish Food" },
     { "type": "url",  "id": "fish_food_url",      "label": "Fish Food URL" },
     { "type": "text", "id": "about_label",        "label": "About label (flat link)",       "default": "About" },
