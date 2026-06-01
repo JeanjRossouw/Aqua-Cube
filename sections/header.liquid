@@ -38,6 +38,18 @@
         </li>
       {%- endif -%}
 
+      {%- comment -%} Isopods & Springtails: promoted to top-level flat links (they also stay in the Cleanup Crew dropdown below). No blank-guard + default fallbacks so theme sync can't blank them. {%- endcomment -%}
+      <li role="none">
+        <a href="{{ section.settings.isopods_url | default: '/collections/isopods' }}" class="ac-nav__link" role="menuitem">
+          {{ section.settings.isopods_label | default: 'Isopods' }}
+        </a>
+      </li>
+      <li role="none">
+        <a href="{{ section.settings.springtails_url | default: '/collections/springtails' }}" class="ac-nav__link" role="menuitem">
+          {{ section.settings.springtails_label | default: 'Springtails' }}
+        </a>
+      </li>
+
       {%- comment -%} ---- Cleanup Crew dropdown ---- {%- endcomment -%}
       {%- assign cleanup_count = 0 -%}
       {%- for block in section.blocks -%}
@@ -217,6 +229,10 @@
     { "type": "url",  "id": "aquariums_url",      "label": "Aquariums URL" },
     { "type": "text", "id": "paludariums_label",  "label": "Paludariums label (flat link)", "default": "Paludariums" },
     { "type": "url",  "id": "paludariums_url",    "label": "Paludariums URL" },
+    { "type": "text", "id": "isopods_label",      "label": "Isopods label (flat link)",     "default": "Isopods" },
+    { "type": "url",  "id": "isopods_url",        "label": "Isopods URL" },
+    { "type": "text", "id": "springtails_label",  "label": "Springtails label (flat link)", "default": "Springtails" },
+    { "type": "url",  "id": "springtails_url",    "label": "Springtails URL" },
     { "type": "text", "id": "cleanup_label",      "label": "Cleanup Crew dropdown label",   "default": "Cleanup Crew" },
     { "type": "text", "id": "plants_label",       "label": "Plants & Moss dropdown label",  "default": "Plants & Moss" },
     { "type": "text", "id": "equipment_label",    "label": "Equipment dropdown label",      "default": "Equipment" },
