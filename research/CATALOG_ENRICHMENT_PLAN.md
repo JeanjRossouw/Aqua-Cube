@@ -88,21 +88,32 @@ The core mechanism (copy real descriptions + extra photos from Akwa / Zetlight /
 - any other external host → **"Host not in allowlist"** (network policy blocks outbound web)
 
 ### Resolution (user chose: "Open network access")
-Recreate the Claude-on-web environment with a network policy that allows at minimum:
-- `akwa.co.za` (supplier — our own supplier, permission given)
+Recreate the Claude-on-web environment with a network policy that **allowlists the supplier
+domains**. Confirmed with user (2026-06-01): supplier sites are **public retail sites — no
+login required**, so once the domains are reachable, data can be pulled directly.
+
+**Primary target — `akwa.co.za`:** Akwa is Aqua Cube's **distributor** and carries all the
+resold brands (Chihiros, Zetlight, Dophin, Dymax, etc.) in ONE Shopify catalog. So
+`akwa.co.za/products.json?limit=250&page=N` is the single highest-value source — full
+descriptions + every image URL for most of our catalog in one feed. **Allowlist this first.**
+
+**Secondary (richer specs on premium lines):**
 - `chihiros.com` / `chihirosaquaticstudio.com` (Chihiros = "Shaquero")
 - `zetlight.com` (Zetlight = "Z Lite")
-- manufacturer sites as needed: `dymax.com`, `dophin*.com`, `tropica.com`,
-  `dennerle.com`, `hikariusa.com`, `nt-labs.co.uk`, `bubblemagus.com`, `maxspect.com`
+- `tropica.com`, `dennerle.com`, `hikariusa.com`, `nt-labs.co.uk`,
+  `bubblemagus.com`, `maxspect.com`, `dymax.com`
 
-**Why this unlocks scale:** most of these are Shopify or structured sites. For any Shopify
-store, `‹domain›/products.json?limit=250&page=N` returns **full descriptions + every image
-URL** as JSON — so enrichment becomes a deterministic map, not manual copy-paste.
-(Confirmed akwa.co.za is Shopify-based; `/products.json` is the target once allowlisted.)
+**Why this unlocks scale:** Shopify stores expose `/products.json?limit=250&page=N` returning
+**full descriptions + every image URL** as JSON — enrichment becomes a deterministic
+SKU/title map, not manual copy-paste. (akwa.co.za confirmed Shopify-based.)
+
+**First action in next session:** verify with `https://akwa.co.za/products.json?limit=1`.
+If it returns JSON (not 403), network is open — proceed to Phase 2.
 
 ### Terminology confirmed with user
-- **"Z Lite" = Zetlight** ✓ (vendor in catalog)
-- **"Shaquero" = Chihiros** ✓ (vendor in catalog)
+- **"Z Lite" = Zetlight** ✓ (vendor in catalog) — public site
+- **"Shaquero" = Chihiros** ✓ (vendor in catalog) — public site
+- All supplier sites are **public** (no dealer login needed)
 
 ---
 
@@ -164,17 +175,35 @@ Missing: **per-supplier** light collections (Chihiros, Zetlight, Dophin, …) �
 
 ## 6. Execution phases
 
-### Phase 0 — Internal fixes (no network needed) ✅ can start anytime
-- [ ] Fix mis-typed Hikari foods (Aquatic Plant → Fish Food) + strip false "live plant" text
+### Phase 0 — Internal fixes (no network needed)
+- [x] **Fix mis-typed Hikari foods (Aquatic Plant → Fish Food)** — 14 products retyped
+      2026-06-01 (Carnivor, Shrimp Cuisine, Algae Wafers, Food Sticks, Carnisticks, etc.)
+- [ ] Strip false "live aquatic plant" sentence from those 14 (full food copy = Phase 2)
 - [ ] Audit other vendor/type mismatches via ShopifyQL/GraphQL
+      (15 total non-plant vendors were Plant-typed; 14 were Hikari, now fixed)
+- [ ] Clean junk titles (e.g. "…- 1Kg R1,937.24 Retail Price Incl.: R1,937.25",
+      trailing barcodes like "04205521102") — affects several Hikari + others
 - [ ] Normalize obviously-wrong boilerplate where vendor/type contradicts it
 
-### Phase 1 — Navigation (no network needed) ✅ can start anytime
-- [ ] Create per-supplier **Lights** sub-collections (tags already exist)
-- [ ] Build **LIGHTS ▾** dropdown (pilot)
+### Phase 1 — Navigation (no network needed)
+- [x] **Create per-supplier Lights sub-collections** (2026-06-01) — 8 smart collections:
+      Chihiros (20) `chihiros-lights`, Dophin (17) `dophin-lights`,
+      Zetlight (10) `zetlight-lights`, Bioloark (10) `bioloark-lights`,
+      Ocean Max (7) `ocean-max-lights`, Aim (2) `aim-lights`,
+      Fullgain (2) `fullgain-lights`, Akwa (2) `akwa-lights`
+- [x] **Build LIGHTS ▾ dropdown** (2026-06-01) — replaced broken "Lighting & CO2"
+      placeholder (was → bare `/collections`) with **Lights** → `/collections/lighting`,
+      13 nested sub-items (8 suppliers + Freshwater/Plant/Marine/Terrarium/Accessories).
+      Parent menu item id `780547588169`.
 - [ ] Roll out remaining category dropdowns (Filtration, Pumps, CO2, Plants, Food, …)
-- [ ] Clean up mislabeled legacy menu items ("Voonline & Crash", "DR Tank", bare
-      `/collections` links)
+- [ ] Clean up remaining mislabeled legacy menu items ("Voonline & Crash", "DR Tank
+      & Fertilizers", "Decorations & Ornaments", etc. — all still → bare `/collections`)
+
+**Lights dropdown is the proven pattern** — replicate for other categories:
+1. confirm/create per-supplier smart collections (rule: TAG = "Collection: ‹Cat›" AND
+   VENDOR = "‹Supplier›", or reuse existing supplier tags)
+2. `menuUpdate` with nested `items` under the category parent (always pass back ALL
+   existing top-level items with their ids to avoid wiping the menu)
 
 ### Phase 2 — Enrichment (REQUIRES network access) ⏸ blocked until env recreated
 - [ ] Allowlist supplier domains; pull `/products.json` feeds
