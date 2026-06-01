@@ -270,7 +270,7 @@ Steps once reachable:
 - [ ] Resume at Phase 2 (enrichment) — Phases 0 & 1-Lights already done (below).
 
 ### Done so far (live on Aquacube)
-- Dymax smart collection `/collections/dymax` (119) + Dymax in Brands menu.
+- Dymax smart collection `/collections/dymax` (119).
 - Phase 0: 14 mis-typed Hikari foods → Fish Food; 39 plant titles HTML-entity-decoded.
 - Collections: 6 full-range brand collections (chihiros/zetlight/dophin/tropica/
   dennerle/ada) + 8 per-supplier Lights collections — all live.
@@ -288,17 +288,28 @@ the Shopify `main-menu` via `menuUpdate` has NO visible effect. Navigation is dr
   ⇒ Ship nav/theme changes by committing to `shopify-live` (PR → merge auto-deploys).
   Do NOT publish a duplicate theme — that disconnects the GitHub↔theme sync.
 
-### Phase 1 nav — DONE, in review as PR #3 (correct GitHub-native path)
+### Phase 1 nav — DONE, in review as PR #3 (category → suppliers model)
 - **PR #3** → base `shopify-live`, head `claude/nav-lights-brands-dropdowns` (DRAFT).
-  Surgically edits `sections/header.liquid` (adds **Lights ▾** after Aquariums + **Brands ▾**
-  after Equipment, mirroring the existing dropdown pattern; adds `lights_label`/`brands_label`
-  + `lights`/`brands` parent options; removes the `dymax_*` flat-link settings) and replaces
-  `sections/header-group.json` with the 30-block layout (Lights 8, Plants 9, Brands 7,
-  Equipment 6; Cleanup Crew → 0 blocks, self-hidden). Validated: schema JSON parses, Liquid
-  tags balance, all referenced snippets exist on `shopify-live`.
-- **NEXT: user reviews PR #3 and merges into `shopify-live`** → Shopify auto-deploys to live.
-  Nothing is live until merged. No GitHub Actions/CI on this repo (deploy = Shopify sync).
-- Tradeoff chosen by user: "Lights brands + keep Plants" (Equipment 13→6, Cleanup removed to
-  fit the 30-block cap). For more room later, a mega-menu/linklist-based header rebuild.
-- ⚠️ Superseded: the earlier Shopify draft theme "Aqua Cube 2026 — Nav Update (draft)"
-  (id 188950413385) is now redundant — delete it after PR #3 merges (do NOT publish it).
+  Surgical edits to `sections/header.liquid` + `sections/header-group.json`. Final nav:
+  Home · Aquariums · **Lights ▾** · **Filtration ▾** · Paludariums · Plants & Moss ▾ ·
+  Equipment ▾ · Fish Food · About.
+- **Model = category → suppliers** (each block's `parent` groups it under a dropdown):
+  - Lights ▾ = 8 lighting suppliers (chihiros/dophin/zetlight/bioloark/ocean-max/aim/
+    fullgain/akwa `-lights` collections).
+  - Filtration ▾ = All Filtration + Sobo/Dophin/Bubble-Magus/Dymax (only filtration vendors
+    with depth: 35/29/21/16; long tail ≤6 — Qanvee/Antopie/Sun Sun/Maxspect/NT Labs/Hygger —
+    stays inside All Filtration).
+  - **Brands dropdown DROPPED** + Dymax flat link removed (every brand now lives under its
+    category, so a global Brands menu was redundant). All 9 Plants kept. Equipment 5
+    (Filtration item moved out). 27/30 blocks.
+- **New smart collections (published to Online Store)**, scoped `TAG "Collection: Filtration"`
+  AND vendor: `sobo-filtration` (35), `dophin-filtration` (29), `bubble-magus-filtration` (21),
+  `dymax-filtration` (16). Collection IDs 669351641161 / 673929 / 706697 / 739465.
+- Validated: schema JSON parses, Liquid balances (if 26/26, for 10/10), snippets exist.
+- **NEXT: user reviews PR #3 and merges into `shopify-live`** → Shopify auto-deploys. No CI.
+- ⚠️ Redundant: Shopify draft theme "Aqua Cube 2026 — Nav Update (draft)" (188950413385) —
+  delete after merge (do NOT publish it).
+- **Reusable pattern** for another category→suppliers dropdown (Pumps, CO₂, …): create
+  per-vendor smart collections (rule `TAG "Collection: <Cat>"` AND `VENDOR = X`, publish to
+  Online Store), add a `parent` dropdown block in header.liquid + blocks in header-group.json,
+  mind the 30-block cap (a mega-menu rebuild lifts it).
