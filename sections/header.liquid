@@ -29,51 +29,6 @@
         </li>
       {%- endif -%}
 
-      {%- comment -%} ---- Lights dropdown ---- {%- endcomment -%}
-      {%- assign lights_count = 0 -%}
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'category' and block.settings.parent == 'lights' -%}
-          {%- assign lights_count = lights_count | plus: 1 -%}
-        {%- endif -%}
-      {%- endfor -%}
-      {%- if lights_count > 0 -%}
-        <li class="ac-nav__drop" role="none">
-          <button class="ac-nav__trigger" type="button" aria-haspopup="true" aria-expanded="false" role="menuitem">
-            {{ section.settings.lights_label | default: 'Lights' }}
-            {% render 'icon-caret-down' %}
-          </button>
-          <div class="ac-nav__menu" role="menu">
-            {%- for block in section.blocks -%}
-              {%- if block.type == 'category' and block.settings.parent == 'lights' -%}
-                {%- render 'header-dropdown-item', block: block -%}
-              {%- endif -%}
-            {%- endfor -%}
-          </div>
-        </li>
-      {%- endif -%}
-
-      {%- comment -%} ---- Filtration dropdown ---- {%- endcomment -%}
-      {%- assign filtration_count = 0 -%}
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'category' and block.settings.parent == 'filtration' -%}
-          {%- assign filtration_count = filtration_count | plus: 1 -%}
-        {%- endif -%}
-      {%- endfor -%}
-      {%- if filtration_count > 0 -%}
-        <li class="ac-nav__drop" role="none">
-          <button class="ac-nav__trigger" type="button" aria-haspopup="true" aria-expanded="false" role="menuitem">
-            {{ section.settings.filtration_label | default: 'Filtration' }}
-            {% render 'icon-caret-down' %}
-          </button>
-          <div class="ac-nav__menu ac-nav__menu--narrow" role="menu">
-            {%- for block in section.blocks -%}
-              {%- if block.type == 'category' and block.settings.parent == 'filtration' -%}
-                {%- render 'header-dropdown-item', block: block -%}
-              {%- endif -%}
-            {%- endfor -%}
-          </div>
-        </li>
-      {%- endif -%}
 
       {%- if section.settings.paludariums_label != blank -%}
         <li role="none">
@@ -142,10 +97,32 @@
             {{ section.settings.equipment_label | default: 'Equipment' }}
             {% render 'icon-caret-down' %}
           </button>
-          <div class="ac-nav__menu" role="menu">
+          <div class="ac-nav__menu ac-nav__menu--narrow" role="menu">
             {%- for block in section.blocks -%}
               {%- if block.type == 'category' and block.settings.parent == 'equipment' -%}
-                {%- render 'header-dropdown-item', block: block -%}
+                {%- assign sub = block.settings.submenu -%}
+                {%- if sub != blank and sub != 'none' -%}
+                  {%- comment -%} expandable category: opens a supplier flyout {%- endcomment -%}
+                  <div class="ac-nav__sub-wrap" role="none">
+                    <a href="{{ block.settings.custom_url | default: '#' }}" class="ac-nav__item ac-nav__item--has-sub" role="menuitem" aria-haspopup="true">
+                      <span class="ac-nav__item-ico">{% render 'icon-cat', icon: block.settings.icon %}</span>
+                      <span class="ac-nav__item-txt">
+                        <span class="ac-nav__item-title">{{ block.settings.title | escape }}</span>
+                        {%- if block.settings.description != blank -%}<span class="ac-nav__item-desc">{{ block.settings.description | escape }}</span>{%- endif -%}
+                      </span>
+                      <span class="ac-nav__sub-caret" aria-hidden="true">{% render 'icon-caret-down' %}</span>
+                    </a>
+                    <div class="ac-nav__sub" role="menu" aria-label="{{ block.settings.title | escape }}">
+                      {%- for child in section.blocks -%}
+                        {%- if child.type == 'category' and child.settings.parent == sub -%}
+                          {%- render 'header-dropdown-item', block: child -%}
+                        {%- endif -%}
+                      {%- endfor -%}
+                    </div>
+                  </div>
+                {%- else -%}
+                  {%- render 'header-dropdown-item', block: block -%}
+                {%- endif -%}
               {%- endif -%}
             {%- endfor -%}
 
@@ -215,8 +192,6 @@
     { "type": "url",  "id": "home_url",           "label": "Home URL" },
     { "type": "text", "id": "aquariums_label",    "label": "Aquariums label (flat link)",   "default": "Aquariums" },
     { "type": "url",  "id": "aquariums_url",      "label": "Aquariums URL" },
-    { "type": "text", "id": "lights_label",       "label": "Lights dropdown label",         "default": "Lights" },
-    { "type": "text", "id": "filtration_label",   "label": "Filtration dropdown label",     "default": "Filtration" },
     { "type": "text", "id": "paludariums_label",  "label": "Paludariums label (flat link)", "default": "Paludariums" },
     { "type": "url",  "id": "paludariums_url",    "label": "Paludariums URL" },
     { "type": "text", "id": "cleanup_label",      "label": "Cleanup Crew dropdown label",   "default": "Cleanup Crew" },
@@ -253,6 +228,18 @@
             { "value": "cleanup",    "label": "Cleanup Crew" },
             { "value": "plants",     "label": "Plants & Moss" },
             { "value": "equipment",  "label": "Equipment" }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "submenu",
+          "label": "Opens supplier sub-menu",
+          "info": "For Equipment items only. Turns this row into an expandable flyout of that group's suppliers; the row's own link still works.",
+          "default": "none",
+          "options": [
+            { "value": "none",       "label": "None — normal link" },
+            { "value": "lights",     "label": "Lights suppliers" },
+            { "value": "filtration", "label": "Filtration suppliers" }
           ]
         },
         { "type": "text", "id": "title",       "label": "Title",       "default": "Lighting & CO₂" },

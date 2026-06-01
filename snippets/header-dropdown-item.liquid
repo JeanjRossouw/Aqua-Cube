@@ -39,19 +39,7 @@
       {%- endif -%}
     </span>
   {%- else -%}
-    <span class="ac-nav__item-ico">
-      {%- case block.settings.icon -%}
-        {%- when 'lighting'   -%}{% render 'icon-cat-lighting' %}
-        {%- when 'pumps'      -%}{% render 'icon-cat-pumps' %}
-        {%- when 'aquariums'  -%}{% render 'icon-cat-aquariums' %}
-        {%- when 'filtration' -%}{% render 'icon-cat-filtration' %}
-        {%- when 'livestock'  -%}{% render 'icon-cat-livestock' %}
-        {%- when 'hardscape'  -%}{% render 'icon-cat-hardscape' %}
-        {%- when 'cleanup'    -%}{% render 'icon-cat-cleanup' %}
-        {%- when 'plant'      -%}{% render 'icon-cat-plant' %}
-        {%- else              -%}{% render 'icon-cat-lighting' %}
-      {%- endcase -%}
-    </span>
+    <span class="ac-nav__item-ico">{% render 'icon-cat', icon: block.settings.icon %}</span>
   {%- endif -%}
   <span class="ac-nav__item-txt">
     <span class="ac-nav__item-title">{{ block.settings.title | escape }}</span>

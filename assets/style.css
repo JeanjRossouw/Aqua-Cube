@@ -1337,6 +1337,56 @@ a { color: inherit; text-decoration: none; }
 }
 .ac-nav__foot a:hover { color: #a8f0eb; }
 
+/* nested supplier flyout (Equipment -> Lights / Filtration) */
+.ac-nav__sub-wrap { position: relative; }
+.ac-nav__item--has-sub { align-items: center; }
+.ac-nav__sub-caret {
+  margin-left: auto;
+  display: inline-flex;
+  opacity: 0.5;
+  color: var(--muted);
+  transform: rotate(-90deg);
+  transition: opacity 0.15s ease, color 0.15s ease;
+}
+.ac-nav__sub-wrap:hover .ac-nav__sub-caret,
+.ac-nav__sub-wrap:focus-within .ac-nav__sub-caret { opacity: 1; color: var(--aqua-1); }
+.ac-nav__sub {
+  position: absolute;
+  top: -10px;
+  left: calc(100% + 12px);
+  min-width: 230px;
+  background: rgba(3, 25, 42, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  padding: 12px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-6px);
+  transition: opacity 0.16s ease, transform 0.16s ease;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.6);
+  z-index: 70;
+}
+.ac-nav__sub-wrap:hover > .ac-nav__sub,
+.ac-nav__sub-wrap:focus-within > .ac-nav__sub {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+/* invisible bridge so moving the cursor into the flyout doesn't drop it */
+.ac-nav__sub::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 0;
+  bottom: 0;
+  width: 12px;
+}
+
 /* right-hand icons */
 .ac-nav__icons {
   display: flex;
@@ -1433,6 +1483,23 @@ a { color: inherit; text-decoration: none; }
   .ac-nav__menu::before { display: none; }
   .ac-nav__burger { display: inline-flex; flex-direction: column; }
   .ac-nav__icons { gap: 14px; }
+
+  /* nested flyout collapses to an inline, indented sub-list on mobile */
+  .ac-nav__sub {
+    position: static;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+    min-width: 0;
+    width: 100%;
+    padding: 0 0 4px 30px;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    display: grid;
+  }
+  .ac-nav__sub::before { display: none; }
+  .ac-nav__sub-caret { transform: rotate(0deg); }
 }
 
 /* ---------- buttons (AquaCube) ---------- */
