@@ -206,8 +206,31 @@ Missing: **per-supplier** light collections (Chihiros, Zetlight, Dophin, …) �
    existing top-level items with their ids to avoid wiping the menu)
 
 ### Phase 2 — Enrichment (REQUIRES network access) ⏸ blocked until env recreated
-- [ ] Allowlist supplier domains; pull `/products.json` feeds
-- [ ] Match supplier products → our products by SKU / title / barcode
+
+**ACTION (user chose 2026-06-01): recreate Claude-on-web env with allowlist.**
+Add these to the environment's network allowlist (exact hosts; include `www.`):
+```
+www.akwa.co.za   akwa.co.za          ← PRIMARY (distributor, all brands, Shopify)
+cdn.shopify.com                       ← image hosts (so image URLs are fetchable)
+chihiros.com  chihirosaquaticstudio.com
+zetlight.com
+tropica.com  dennerle.com  hikariusa.com  nt-labs.co.uk
+bubblemagus.com  maxspect.com  dymax.com
+```
+
+**⚠️ KNOWN GOTCHA (verified 2026-06-01):** akwa.co.za returns **HTTP 403 to bots** on the
+normal product pages even from a browser UA. Allowlisting fixes the env wall, but the site's
+own anti-bot may still 403. Mitigations to try, in order:
+1. `/products.json?limit=250&page=N` — different code path, often NOT bot-blocked.
+2. per-collection JSON: `/collections/‹handle›/products.json`
+3. If both 403: fall back to **"Give me the data file"** — user exports akwa catalog CSV
+   from Shopify admin, or saves products.json from their logged-in browser, into the repo.
+
+Steps once reachable:
+- [ ] Verify: fetch `https://www.akwa.co.za/products.json?limit=1` → expect JSON, not 403
+- [ ] Page through `/products.json?limit=250&page=N` → build supplier catalog (title, vendor,
+      type, body_html, images[], variants[].sku/barcode)
+- [ ] Match supplier products → our products by SKU / barcode / title
 - [ ] Bulk-update `descriptionHtml` with real specs (copyright OK — our suppliers)
 - [ ] Append additional images → enable carousels (`productCreateMedia`)
 - [ ] Prioritize branded lines first (Hikari, Dophin, Dymax, Chihiros, Zetlight,
@@ -232,6 +255,14 @@ Missing: **per-supplier** light collections (Chihiros, Zetlight, Dophin, …) �
 - [ ] Confirm connected store is **Aquacube** (`get-shop-info`) before ANY write —
       a prior session accidentally acted on a different store ("My Store 3").
 - [ ] **Never** call `switch-shop` unless explicitly switching — it revokes the token.
-- [ ] Verify network access by fetching `https://akwa.co.za/products.json?limit=1`.
-- [ ] Dymax collection (`/collections/dymax`, smart, 119 products) + nav link already done.
-- [ ] Resume at Phase 0/1 (no-network work) regardless, then Phase 2 once allowlisted.
+- [ ] Verify network access by fetching `https://www.akwa.co.za/products.json?limit=1`
+      → JSON = ready for Phase 2; 403/"Host not in allowlist" = still blocked (see §6 gotcha).
+- [ ] Resume at Phase 2 (enrichment) — Phases 0 & 1-Lights already done (below).
+
+### Done so far (live on Aquacube)
+- Dymax smart collection `/collections/dymax` (119) + "Dymax" main-menu link.
+- Phase 0: 14 mis-typed Hikari foods → Fish Food.
+- Phase 1: 8 per-supplier Lights collections + **Lights ▾** dropdown
+  (parent menu item `780547588169`, 13 sub-items).
+- Remaining no-network work: category dropdowns for Filtration/Pumps/Plants/Food/CO2,
+  and clean up dead menu links ("Voonline & Crash", "DR Tank & Fertilizers", etc.).
