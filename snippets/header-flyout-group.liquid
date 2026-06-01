@@ -1,0 +1,37 @@
+{%- comment -%}
+  Renders one expandable category row inside the Equipment menu, plus its
+  supplier flyout. The row appears only when at least one block has
+  settings.parent == `group`, so the nesting is driven purely by the
+  supplier blocks (no fragile per-item setting that Shopify may strip).
+
+  Params:
+    blocks - section.blocks
+    group  - parent key of the suppliers (e.g. 'lights' | 'filtration')
+    label  - row label (e.g. 'Lights')
+    url    - where the row links (e.g. '/collections/lighting')
+    icon   - category icon key for the row
+{%- endcomment -%}
+{%- assign group_count = 0 -%}
+{%- for b in blocks -%}
+  {%- if b.type == 'category' and b.settings.parent == group -%}
+    {%- assign group_count = group_count | plus: 1 -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- if group_count > 0 -%}
+  <div class="ac-nav__sub-wrap" role="none">
+    <a href="{{ url | default: '#' }}" class="ac-nav__item ac-nav__item--has-sub" role="menuitem" aria-haspopup="true">
+      <span class="ac-nav__item-ico">{% render 'icon-cat', icon: icon %}</span>
+      <span class="ac-nav__item-txt">
+        <span class="ac-nav__item-title">{{ label | escape }}</span>
+      </span>
+      <span class="ac-nav__sub-caret" aria-hidden="true">{% render 'icon-caret-down' %}</span>
+    </a>
+    <div class="ac-nav__sub" role="menu" aria-label="{{ label | escape }}">
+      {%- for b in blocks -%}
+        {%- if b.type == 'category' and b.settings.parent == group -%}
+          {%- render 'header-dropdown-item', block: b -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+{%- endif -%}
