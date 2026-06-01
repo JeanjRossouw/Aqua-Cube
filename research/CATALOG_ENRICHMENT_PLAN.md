@@ -316,6 +316,21 @@ the Shopify `main-menu` via `menuUpdate` has NO visible effect. Navigation is dr
   Publish "Aqua Cube 2026" (188936552521).** Restores GitHub auto-deploy + makes final nav live.
 - ⚠️ `themePublish` is BLOCKED via API/MCP (safety guard) — publishing MUST be done by a human
   in admin. After publishing, delete the "(draft)" + "Aqua Cube 2026 old" themes to stop recurrence.
+- **Phase 1b — nested redesign (PR #4, DRAFT)** → head `claude/nav-nested-equipment` → base
+  `shopify-live`. User correction: Lights/Filtration must NOT be top-level — they nest INSIDE
+  Equipment as expandable rows, each opening a supplier flyout. New top bar: Home · Aquariums ·
+  **Equipment ▾** · Paludariums · Plants & Moss ▾ · Fish Food · About. Equipment ▾ (single col):
+  Lights ▸ (8 suppliers; row → /collections/lighting) · Filtration ▸ (Sobo/Dophin/Bubble-Magus/
+  Dymax; row → /collections/filtration) · Pumps & Flow · Air Pumps · CO₂ · Heaters · Water Treatment.
+  - Mechanics: new per-item **`submenu`** block setting (none/lights/filtration) flags an Equipment
+    row as expandable; its flyout lists the `parent==lights|filtration` blocks. New shared
+    `snippets/icon-cat.liquid` (icon lookup). Flyout CSS in `assets/style.css` — desktop opens
+    right on hover/`focus-within`; ≤720px collapses to an inline indented sub-list (no JS).
+    28 blocks (Equip 7, Lights 8, Filtration 4, Plants 9). Reuses #3's supplier collections.
+    Validated (schema parses; if 23/23, for 7/7). No CI; no review comments.
+  - TODO: user named a reference site ("MC for Nueva" — garbled in voice transcript, awaiting the
+    link) to match the flyout interaction (hover vs click; right vs left vs 2-pane mega-panel).
+  - Same deploy blocker applies — needs the manual theme Publish above to appear live.
 - **Reusable pattern** for another category→suppliers dropdown (Pumps, CO₂, …): create
   per-vendor smart collections (rule `TAG "Collection: <Cat>"` AND `VENDOR = X`, publish to
   Online Store), add a `parent` dropdown block in header.liquid + blocks in header-group.json,
