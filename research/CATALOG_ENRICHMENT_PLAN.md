@@ -270,9 +270,27 @@ Steps once reachable:
 - [ ] Resume at Phase 2 (enrichment) — Phases 0 & 1-Lights already done (below).
 
 ### Done so far (live on Aquacube)
-- Dymax smart collection `/collections/dymax` (119) + "Dymax" main-menu link.
-- Phase 0: 14 mis-typed Hikari foods → Fish Food.
-- Phase 1: 8 per-supplier Lights collections + **Lights ▾** dropdown
-  (parent menu item `780547588169`, 13 sub-items).
-- Remaining no-network work: category dropdowns for Filtration/Pumps/Plants/Food/CO2,
-  and clean up dead menu links ("Voonline & Crash", "DR Tank & Fertilizers", etc.).
+- Dymax smart collection `/collections/dymax` (119) + Dymax in Brands menu.
+- Phase 0: 14 mis-typed Hikari foods → Fish Food; 39 plant titles HTML-entity-decoded.
+- Collections: 6 full-range brand collections (chihiros/zetlight/dophin/tropica/
+  dennerle/ada) + 8 per-supplier Lights collections — all live.
+
+### ⚠️ CRITICAL THEME FINDING (why "menu didn't update")
+The live theme **"Aqua Cube 2026"** (MAIN, id 188936552521) uses a **custom-coded header**
+(`sections/header.liquid`) that does **NOT** read Shopify nav menus (`linklists`). Editing
+the Shopify `main-menu` via `menuUpdate` has NO visible effect. Navigation is driven by
+**theme section settings + `category` blocks** in `sections/header-group.json`.
+- Dropdowns are keyed by each block's `parent` setting.
+- **Shopify caps a section at 30 blocks** (hard limit; schema `limit` can't exceed it).
+- Live (MAIN) theme is write-protected by the MCP; must edit a duplicate then publish.
+
+### Phase 1 nav — DONE on DRAFT theme (awaiting user preview + publish)
+- Duplicated MAIN → **"Aqua Cube 2026 — Nav Update (draft)"** (id **188950413385**).
+- Edited on the draft: `sections/header.liquid` (added **Lights ▾** + **Brands ▾** dropdown
+  slots; extended block `parent` options to lights/brands) and `sections/header-group.json`
+  (30 blocks: Lights 8, Plants & Moss 9, Brands 7, Equipment 6; Cleanup hidden via empty
+  label; Plants kept as dropdown; Aquariums/Paludariums/Fish Food/About flat links).
+- **NEXT: user previews the draft theme, then Publishes it** (Online Store → Themes →
+  the draft → Preview; Publish when happy). Nothing is live until published.
+- Tradeoff chosen by user: "Lights brands + keep Plants". If more room needed later,
+  consider a mega-menu/linklist-based header rebuild to escape the 30-block cap.
