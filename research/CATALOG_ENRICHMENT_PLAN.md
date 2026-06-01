@@ -288,7 +288,7 @@ the Shopify `main-menu` via `menuUpdate` has NO visible effect. Navigation is dr
   ⇒ Ship nav/theme changes by committing to `shopify-live` (PR → merge auto-deploys).
   Do NOT publish a duplicate theme — that disconnects the GitHub↔theme sync.
 
-### Phase 1 nav — DONE, in review as PR #3 (category → suppliers model)
+### Phase 1 nav — MERGED to shopify-live; BLOCKED on manual theme publish (category → suppliers)
 - **PR #3** → base `shopify-live`, head `claude/nav-lights-brands-dropdowns` (DRAFT).
   Surgical edits to `sections/header.liquid` + `sections/header-group.json`. Final nav:
   Home · Aquariums · **Lights ▾** · **Filtration ▾** · Paludariums · Plants & Moss ▾ ·
@@ -306,9 +306,16 @@ the Shopify `main-menu` via `menuUpdate` has NO visible effect. Navigation is dr
   AND vendor: `sobo-filtration` (35), `dophin-filtration` (29), `bubble-magus-filtration` (21),
   `dymax-filtration` (16). Collection IDs 669351641161 / 673929 / 706697 / 739465.
 - Validated: schema JSON parses, Liquid balances (if 26/26, for 10/10), snippets exist.
-- **NEXT: user reviews PR #3 and merges into `shopify-live`** → Shopify auto-deploys. No CI.
-- ⚠️ Redundant: Shopify draft theme "Aqua Cube 2026 — Nav Update (draft)" (188950413385) —
-  delete after merge (do NOT publish it).
+- **DONE: PR #3 squash-merged to `shopify-live`** (commit 7608c54). Verified: the GitHub-
+  connected theme **"Aqua Cube 2026" (188936552521)** now has the final nav (27 blocks,
+  Filtration in, Brands out). No CI on this repo.
+- 🚨 **DEPLOY BLOCKER — wrong theme is live.** The manual snapshot **"Aqua Cube 2026 — Nav
+  Update (draft)" (188950413385)** got published, demoting the GitHub theme to UNPUBLISHED.
+  The draft is NOT GitHub-connected (stale Lights+Brands nav, Filtration still under Equipment)
+  so merges never reach it. ⇒ **FIX (manual only): Shopify admin → Online Store → Themes →
+  Publish "Aqua Cube 2026" (188936552521).** Restores GitHub auto-deploy + makes final nav live.
+- ⚠️ `themePublish` is BLOCKED via API/MCP (safety guard) — publishing MUST be done by a human
+  in admin. After publishing, delete the "(draft)" + "Aqua Cube 2026 old" themes to stop recurrence.
 - **Reusable pattern** for another category→suppliers dropdown (Pumps, CO₂, …): create
   per-vendor smart collections (rule `TAG "Collection: <Cat>"` AND `VENDOR = X`, publish to
   Online Store), add a `parent` dropdown block in header.liquid + blocks in header-group.json,
