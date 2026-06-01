@@ -98,31 +98,18 @@
             {% render 'icon-caret-down' %}
           </button>
           <div class="ac-nav__menu ac-nav__menu--narrow" role="menu">
+            {%- comment -%} Lights & Filtration: expandable rows whose suppliers fly out to the side {%- endcomment -%}
+            {%- assign lights_label = section.settings.lights_label | default: 'Lights' -%}
+            {%- assign lights_url = section.settings.lights_url | default: '/collections/lighting' -%}
+            {%- render 'header-flyout-group', blocks: section.blocks, group: 'lights', label: lights_label, url: lights_url, icon: 'lighting' -%}
+            {%- assign filtration_label = section.settings.filtration_label | default: 'Filtration' -%}
+            {%- assign filtration_url = section.settings.filtration_url | default: '/collections/filtration' -%}
+            {%- render 'header-flyout-group', blocks: section.blocks, group: 'filtration', label: filtration_label, url: filtration_url, icon: 'filtration' -%}
+
+            {%- comment -%} remaining equipment items: plain links {%- endcomment -%}
             {%- for block in section.blocks -%}
               {%- if block.type == 'category' and block.settings.parent == 'equipment' -%}
-                {%- assign sub = block.settings.submenu -%}
-                {%- if sub != blank and sub != 'none' -%}
-                  {%- comment -%} expandable category: opens a supplier flyout {%- endcomment -%}
-                  <div class="ac-nav__sub-wrap" role="none">
-                    <a href="{{ block.settings.custom_url | default: '#' }}" class="ac-nav__item ac-nav__item--has-sub" role="menuitem" aria-haspopup="true">
-                      <span class="ac-nav__item-ico">{% render 'icon-cat', icon: block.settings.icon %}</span>
-                      <span class="ac-nav__item-txt">
-                        <span class="ac-nav__item-title">{{ block.settings.title | escape }}</span>
-                        {%- if block.settings.description != blank -%}<span class="ac-nav__item-desc">{{ block.settings.description | escape }}</span>{%- endif -%}
-                      </span>
-                      <span class="ac-nav__sub-caret" aria-hidden="true">{% render 'icon-caret-down' %}</span>
-                    </a>
-                    <div class="ac-nav__sub" role="menu" aria-label="{{ block.settings.title | escape }}">
-                      {%- for child in section.blocks -%}
-                        {%- if child.type == 'category' and child.settings.parent == sub -%}
-                          {%- render 'header-dropdown-item', block: child -%}
-                        {%- endif -%}
-                      {%- endfor -%}
-                    </div>
-                  </div>
-                {%- else -%}
-                  {%- render 'header-dropdown-item', block: block -%}
-                {%- endif -%}
+                {%- render 'header-dropdown-item', block: block -%}
               {%- endif -%}
             {%- endfor -%}
 
@@ -197,6 +184,10 @@
     { "type": "text", "id": "cleanup_label",      "label": "Cleanup Crew dropdown label",   "default": "Cleanup Crew" },
     { "type": "text", "id": "plants_label",       "label": "Plants & Moss dropdown label",  "default": "Plants & Moss" },
     { "type": "text", "id": "equipment_label",    "label": "Equipment dropdown label",      "default": "Equipment" },
+    { "type": "text", "id": "lights_label",       "label": "Equipment ▸ Lights row label",     "default": "Lights" },
+    { "type": "url",  "id": "lights_url",         "label": "Equipment ▸ Lights row link" },
+    { "type": "text", "id": "filtration_label",   "label": "Equipment ▸ Filtration row label", "default": "Filtration" },
+    { "type": "url",  "id": "filtration_url",     "label": "Equipment ▸ Filtration row link" },
     { "type": "text", "id": "fish_food_label",    "label": "Fish Food label (flat link)",   "default": "Fish Food" },
     { "type": "url",  "id": "fish_food_url",      "label": "Fish Food URL" },
     { "type": "text", "id": "about_label",        "label": "About label (flat link)",       "default": "About" },
@@ -228,18 +219,6 @@
             { "value": "cleanup",    "label": "Cleanup Crew" },
             { "value": "plants",     "label": "Plants & Moss" },
             { "value": "equipment",  "label": "Equipment" }
-          ]
-        },
-        {
-          "type": "select",
-          "id": "submenu",
-          "label": "Opens supplier sub-menu",
-          "info": "For Equipment items only. Turns this row into an expandable flyout of that group's suppliers; the row's own link still works.",
-          "default": "none",
-          "options": [
-            { "value": "none",       "label": "None — normal link" },
-            { "value": "lights",     "label": "Lights suppliers" },
-            { "value": "filtration", "label": "Filtration suppliers" }
           ]
         },
         { "type": "text", "id": "title",       "label": "Title",       "default": "Lighting & CO₂" },
