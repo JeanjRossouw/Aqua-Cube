@@ -1,7 +1,7 @@
 {%- assign cart_count = cart.item_count -%}
 
 {%- comment -%}
-  Render-helper macros for the three dropdowns. Filter blocks by the
+  Render-helper macros for the nav dropdowns. Filter blocks by the
   per-block `parent` select to know which dropdown they belong to.
 {%- endcomment -%}
 
@@ -26,6 +26,29 @@
           <a href="{{ section.settings.aquariums_url | default: '/collections/aquariums' }}" class="ac-nav__link" role="menuitem">
             {{ section.settings.aquariums_label }}
           </a>
+        </li>
+      {%- endif -%}
+
+      {%- comment -%} ---- Lights dropdown ---- {%- endcomment -%}
+      {%- assign lights_count = 0 -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'category' and block.settings.parent == 'lights' -%}
+          {%- assign lights_count = lights_count | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if lights_count > 0 -%}
+        <li class="ac-nav__drop" role="none">
+          <button class="ac-nav__trigger" type="button" aria-haspopup="true" aria-expanded="false" role="menuitem">
+            {{ section.settings.lights_label | default: 'Lights' }}
+            {% render 'icon-caret-down' %}
+          </button>
+          <div class="ac-nav__menu" role="menu">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'category' and block.settings.parent == 'lights' -%}
+                {%- render 'header-dropdown-item', block: block -%}
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
         </li>
       {%- endif -%}
 
@@ -117,18 +140,33 @@
         </li>
       {%- endif -%}
 
+      {%- comment -%} ---- Brands dropdown ---- {%- endcomment -%}
+      {%- assign brands_count = 0 -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'category' and block.settings.parent == 'brands' -%}
+          {%- assign brands_count = brands_count | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if brands_count > 0 -%}
+        <li class="ac-nav__drop" role="none">
+          <button class="ac-nav__trigger" type="button" aria-haspopup="true" aria-expanded="false" role="menuitem">
+            {{ section.settings.brands_label | default: 'Brands' }}
+            {% render 'icon-caret-down' %}
+          </button>
+          <div class="ac-nav__menu ac-nav__menu--narrow" role="menu">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'category' and block.settings.parent == 'brands' -%}
+                {%- render 'header-dropdown-item', block: block -%}
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </li>
+      {%- endif -%}
+
       {%- if section.settings.fish_food_label != blank -%}
         <li role="none">
           <a href="{{ section.settings.fish_food_url | default: '/collections/fish-food' }}" class="ac-nav__link" role="menuitem">
             {{ section.settings.fish_food_label }}
-          </a>
-        </li>
-      {%- endif -%}
-
-      {%- if section.settings.dymax_label != blank -%}
-        <li role="none">
-          <a href="{{ section.settings.dymax_url | default: '/collections/dymax' }}" class="ac-nav__link" role="menuitem">
-            {{ section.settings.dymax_label }}
           </a>
         </li>
       {%- endif -%}
@@ -177,15 +215,15 @@
     { "type": "url",  "id": "home_url",           "label": "Home URL" },
     { "type": "text", "id": "aquariums_label",    "label": "Aquariums label (flat link)",   "default": "Aquariums" },
     { "type": "url",  "id": "aquariums_url",      "label": "Aquariums URL" },
+    { "type": "text", "id": "lights_label",       "label": "Lights dropdown label",         "default": "Lights" },
     { "type": "text", "id": "paludariums_label",  "label": "Paludariums label (flat link)", "default": "Paludariums" },
     { "type": "url",  "id": "paludariums_url",    "label": "Paludariums URL" },
     { "type": "text", "id": "cleanup_label",      "label": "Cleanup Crew dropdown label",   "default": "Cleanup Crew" },
     { "type": "text", "id": "plants_label",       "label": "Plants & Moss dropdown label",  "default": "Plants & Moss" },
     { "type": "text", "id": "equipment_label",    "label": "Equipment dropdown label",      "default": "Equipment" },
+    { "type": "text", "id": "brands_label",       "label": "Brands dropdown label",         "default": "Brands" },
     { "type": "text", "id": "fish_food_label",    "label": "Fish Food label (flat link)",   "default": "Fish Food" },
     { "type": "url",  "id": "fish_food_url",      "label": "Fish Food URL" },
-    { "type": "text", "id": "dymax_label",        "label": "Dymax label (flat link)",       "default": "Dymax" },
-    { "type": "url",  "id": "dymax_url",          "label": "Dymax URL" },
     { "type": "text", "id": "about_label",        "label": "About label (flat link)",       "default": "About" },
     { "type": "url",  "id": "about_url",          "label": "About URL" },
 
@@ -210,9 +248,11 @@
           "label": "Belongs to dropdown",
           "default": "equipment",
           "options": [
+            { "value": "lights",    "label": "Lights" },
             { "value": "cleanup",   "label": "Cleanup Crew" },
             { "value": "plants",    "label": "Plants & Moss" },
-            { "value": "equipment", "label": "Equipment" }
+            { "value": "equipment", "label": "Equipment" },
+            { "value": "brands",    "label": "Brands" }
           ]
         },
         { "type": "text", "id": "title",       "label": "Title",       "default": "Lighting & CO₂" },
