@@ -125,6 +125,14 @@
         </li>
       {%- endif -%}
 
+      {%- if section.settings.dymax_label != blank -%}
+        <li role="none">
+          <a href="{{ section.settings.dymax_url | default: '/collections/dymax' }}" class="ac-nav__link" role="menuitem">
+            {{ section.settings.dymax_label }}
+          </a>
+        </li>
+      {%- endif -%}
+
       {%- if section.settings.about_label != blank -%}
         <li role="none">
           <a href="{{ section.settings.about_url | default: '#' }}" class="ac-nav__link" role="menuitem">
@@ -176,6 +184,8 @@
     { "type": "text", "id": "equipment_label",    "label": "Equipment dropdown label",      "default": "Equipment" },
     { "type": "text", "id": "fish_food_label",    "label": "Fish Food label (flat link)",   "default": "Fish Food" },
     { "type": "url",  "id": "fish_food_url",      "label": "Fish Food URL" },
+    { "type": "text", "id": "dymax_label",        "label": "Dymax label (flat link)",       "default": "Dymax" },
+    { "type": "url",  "id": "dymax_url",          "label": "Dymax URL" },
     { "type": "text", "id": "about_label",        "label": "About label (flat link)",       "default": "About" },
     { "type": "url",  "id": "about_url",          "label": "About URL" },
 
