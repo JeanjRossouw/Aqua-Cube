@@ -347,3 +347,25 @@ the Shopify `main-menu` via `menuUpdate` has NO visible effect. Navigation is dr
   per-vendor smart collections (rule `TAG "Collection: <Cat>"` AND `VENDOR = X`, publish to
   Online Store), add a `parent` dropdown block in header.liquid + blocks in header-group.json,
   mind the 30-block cap (a mega-menu rebuild lifts it).
+
+### Phase 2 — Brand (Vendor) collections — DONE (live on Aquacube)
+- Context: user pasted a "Brand Collections add-on" expecting 18 brands from
+  `AquaCube_Shopify_Import.csv` (Sobo 205, Bubble-Magus 82, …). ⚠️ That CSV's roster/counts DON'T
+  match the live store — 8 of its 18 brands have **0 products** here (Superfish, DR Tank,
+  Jebao/Jecod, XY/XinYou, Langa, Crash, Veny's, MossUP) and every count differs ⇒ that import was
+  never applied to aquacube-6. User chose **"build from the LIVE catalog"** instead.
+- **Full live vendor list (27)** via `productVendors`: Aqua Cube 2587 (generic/house — NO brand
+  page), Hikari 93, Dophin 88, Dymax 86, Sobo 58, Tropica 58, NT Labs 34, Bubble-Magus 27,
+  Chihiros 26, Dennerle 24, Sun Sun 20, Kaiser Aquatics 17, Waterlife 16, Grech 12, Bioloark 11,
+  Maxspect 11, ADA 9, Aquapro 9, Zetlight 9, Voonline 8, Hygger 8, Qanvee 7, Antopie 6, Resun 6,
+  Deebow 5, JBL 2, Aim 1.
+- Already had VENDOR-rule brand pages (skipped to avoid dupes): chihiros, zetlight, dophin, tropica,
+  dennerle, ada, dymax. NB: `sobo`/`dophin`/`bubble-magus`/`dymax` `-filtration` are filtration
+  SUBSETS, not full brand pages.
+- **Created 17 new SMART brand collections** (rule `VENDOR = X`, published to Online Store), counts
+  verified = live vendor counts: hikari 93, sobo 58, nt-labs 34, bubble-magus 27, sun-sun 20,
+  kaiser-aquatics 17, waterlife 16, grech 12, bioloark 11, maxspect 11, aquapro 9, hygger 8,
+  voonline 8, qanvee 7, antopie 6, resun 6, deebow 5. Threshold ≥5; skipped JBL/Aim (too small)
+  and the generic "Aqua Cube" vendor (2587, unbranded house catalogue).
+- These are storefront `/collections/<handle>` pages (SEO / shop-by-brand). NOT in the nav (nav is
+  category→supplier). A "Brands" menu would be a separate header change.
