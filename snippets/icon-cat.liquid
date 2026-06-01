@@ -1,0 +1,16 @@
+{%- comment -%}
+  Renders an aqua-outlined category icon by key.
+  Param: icon - one of lighting|pumps|aquariums|filtration|livestock|hardscape|cleanup|plant
+  Falls back to the lighting icon for unknown/blank keys.
+{%- endcomment -%}
+{%- case icon -%}
+  {%- when 'lighting'   -%}{% render 'icon-cat-lighting' %}
+  {%- when 'pumps'      -%}{% render 'icon-cat-pumps' %}
+  {%- when 'aquariums'  -%}{% render 'icon-cat-aquariums' %}
+  {%- when 'filtration' -%}{% render 'icon-cat-filtration' %}
+  {%- when 'livestock'  -%}{% render 'icon-cat-livestock' %}
+  {%- when 'hardscape'  -%}{% render 'icon-cat-hardscape' %}
+  {%- when 'cleanup'    -%}{% render 'icon-cat-cleanup' %}
+  {%- when 'plant'      -%}{% render 'icon-cat-plant' %}
+  {%- else              -%}{% render 'icon-cat-lighting' %}
+{%- endcase -%}
