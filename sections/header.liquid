@@ -52,6 +52,29 @@
         </li>
       {%- endif -%}
 
+      {%- comment -%} ---- Filtration dropdown ---- {%- endcomment -%}
+      {%- assign filtration_count = 0 -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'category' and block.settings.parent == 'filtration' -%}
+          {%- assign filtration_count = filtration_count | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if filtration_count > 0 -%}
+        <li class="ac-nav__drop" role="none">
+          <button class="ac-nav__trigger" type="button" aria-haspopup="true" aria-expanded="false" role="menuitem">
+            {{ section.settings.filtration_label | default: 'Filtration' }}
+            {% render 'icon-caret-down' %}
+          </button>
+          <div class="ac-nav__menu ac-nav__menu--narrow" role="menu">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'category' and block.settings.parent == 'filtration' -%}
+                {%- render 'header-dropdown-item', block: block -%}
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </li>
+      {%- endif -%}
+
       {%- if section.settings.paludariums_label != blank -%}
         <li role="none">
           <a href="{{ section.settings.paludariums_url | default: '/collections/paludariums' }}" class="ac-nav__link" role="menuitem">
@@ -140,29 +163,6 @@
         </li>
       {%- endif -%}
 
-      {%- comment -%} ---- Brands dropdown ---- {%- endcomment -%}
-      {%- assign brands_count = 0 -%}
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'category' and block.settings.parent == 'brands' -%}
-          {%- assign brands_count = brands_count | plus: 1 -%}
-        {%- endif -%}
-      {%- endfor -%}
-      {%- if brands_count > 0 -%}
-        <li class="ac-nav__drop" role="none">
-          <button class="ac-nav__trigger" type="button" aria-haspopup="true" aria-expanded="false" role="menuitem">
-            {{ section.settings.brands_label | default: 'Brands' }}
-            {% render 'icon-caret-down' %}
-          </button>
-          <div class="ac-nav__menu ac-nav__menu--narrow" role="menu">
-            {%- for block in section.blocks -%}
-              {%- if block.type == 'category' and block.settings.parent == 'brands' -%}
-                {%- render 'header-dropdown-item', block: block -%}
-              {%- endif -%}
-            {%- endfor -%}
-          </div>
-        </li>
-      {%- endif -%}
-
       {%- if section.settings.fish_food_label != blank -%}
         <li role="none">
           <a href="{{ section.settings.fish_food_url | default: '/collections/fish-food' }}" class="ac-nav__link" role="menuitem">
@@ -216,12 +216,12 @@
     { "type": "text", "id": "aquariums_label",    "label": "Aquariums label (flat link)",   "default": "Aquariums" },
     { "type": "url",  "id": "aquariums_url",      "label": "Aquariums URL" },
     { "type": "text", "id": "lights_label",       "label": "Lights dropdown label",         "default": "Lights" },
+    { "type": "text", "id": "filtration_label",   "label": "Filtration dropdown label",     "default": "Filtration" },
     { "type": "text", "id": "paludariums_label",  "label": "Paludariums label (flat link)", "default": "Paludariums" },
     { "type": "url",  "id": "paludariums_url",    "label": "Paludariums URL" },
     { "type": "text", "id": "cleanup_label",      "label": "Cleanup Crew dropdown label",   "default": "Cleanup Crew" },
     { "type": "text", "id": "plants_label",       "label": "Plants & Moss dropdown label",  "default": "Plants & Moss" },
     { "type": "text", "id": "equipment_label",    "label": "Equipment dropdown label",      "default": "Equipment" },
-    { "type": "text", "id": "brands_label",       "label": "Brands dropdown label",         "default": "Brands" },
     { "type": "text", "id": "fish_food_label",    "label": "Fish Food label (flat link)",   "default": "Fish Food" },
     { "type": "url",  "id": "fish_food_url",      "label": "Fish Food URL" },
     { "type": "text", "id": "about_label",        "label": "About label (flat link)",       "default": "About" },
@@ -248,11 +248,11 @@
           "label": "Belongs to dropdown",
           "default": "equipment",
           "options": [
-            { "value": "lights",    "label": "Lights" },
-            { "value": "cleanup",   "label": "Cleanup Crew" },
-            { "value": "plants",    "label": "Plants & Moss" },
-            { "value": "equipment", "label": "Equipment" },
-            { "value": "brands",    "label": "Brands" }
+            { "value": "lights",     "label": "Lights" },
+            { "value": "filtration", "label": "Filtration" },
+            { "value": "cleanup",    "label": "Cleanup Crew" },
+            { "value": "plants",     "label": "Plants & Moss" },
+            { "value": "equipment",  "label": "Equipment" }
           ]
         },
         { "type": "text", "id": "title",       "label": "Title",       "default": "Lighting & CO₂" },
