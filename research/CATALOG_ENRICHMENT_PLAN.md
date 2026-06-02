@@ -532,5 +532,12 @@ the Shopify `main-menu` via `menuUpdate` has NO visible effect. Navigation is dr
   dismisses menu on link tap). Previously dropdowns only opened via flaky `:focus-within`, no tap-close.
 - PENDING: CSS mobile polish (dropdown consistency, hero/headline sizing, tap targets, spacing) — needs mobile
   screenshots to target accurately. Then publish draft.
+- style.css mobile fixes WRITTEN + staged at `research/theme/style.css` (base + appended "MOBILE UX FIXES" block:
+  hero h1 clamp, 16px gutters, nav tap targets, 2-up `.products-grid`, no h-scroll). Apply via:
+  `themeFilesUpsert(theme 188950413385, assets/style.css, body URL = raw .../research/theme/style.css)`.
+- BLOCKER (2026-06-02): the Shopify MCP connection drifted to the owner's OTHER store **REPTICUBE**
+  (f571f1.myshopify.com); style.css upsert hit NOT_FOUND there (no harm). Ran `switch-shop` to go back to
+  Aqua Cube — connection now needs the USER to re-authorize/select `aquacube-6.myshopify.com`. global.js fix +
+  Cleanup Crew nav + CTA are already on the Aqua Cube draft; only the style.css upsert remains.
 - Also done this session: Cleanup Crew added to top-bar nav (+Isopods/Springtails submenu), 2 last livestock
   drafts activated, Oreo Crumble + 7 flake/shrimp foods moved out of Equipment into Fish Food.
