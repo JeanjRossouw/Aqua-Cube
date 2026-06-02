@@ -501,5 +501,11 @@ the Shopify `main-menu` via `menuUpdate` has NO visible effect. Navigation is dr
   - **Tidy:** stripped `Collection: Equipment` from all 94 non-aquarium products (now orphaned + hidden, store
     stays aquarium-only). Equipment now holds only **128 med/low-confidence aquarium (await review) + 4 review**
     (~132, reindexing). Left `/collections/equipment` URL published for now — deferred until the 128 are re-homed.
+  - **FINISHED:** applied all **128 med/low-confidence** + routed the **4 review** items (Algae Brushers →
+    Algae Treatments; Crystal Cultivating Pot + U-708B → Maintenance & Scaping Tools). **All 293 products are now
+    out of "Equipment"** (collection reindexing to 0; verified sample tags). Equipment catch-all fully resolved.
+  - URL retire via API is **blocked** (`publishableUnpublish` disabled for safety) → unpublish/delete the now-empty
+    "Equipment" collection **manually** in admin (Products → Collections → Equipment → remove Online Store sales
+    channel, or Delete collection — it's a smart collection, deleting it doesn't touch products).
 - Also done this session: Cleanup Crew added to top-bar nav (+Isopods/Springtails submenu), 2 last livestock
   drafts activated, Oreo Crumble + 7 flake/shrimp foods moved out of Equipment into Fish Food.
