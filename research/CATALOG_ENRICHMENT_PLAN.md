@@ -498,5 +498,8 @@ the Shopify `main-menu` via `menuUpdate` has NO visible effect. Navigation is dr
     exclude them from the storefront — store stays aquarium-only. (They keep the Equipment tag; harmless, not in nav.)
   - Result: Equipment 300 → ~226. **Remaining in Equipment: 128 med/low-confidence aquarium (await review) +
     94 non-aquarium (now hidden) + 4 review.** Verified tags + collection counts.
+  - **Tidy:** stripped `Collection: Equipment` from all 94 non-aquarium products (now orphaned + hidden, store
+    stays aquarium-only). Equipment now holds only **128 med/low-confidence aquarium (await review) + 4 review**
+    (~132, reindexing). Left `/collections/equipment` URL published for now — deferred until the 128 are re-homed.
 - Also done this session: Cleanup Crew added to top-bar nav (+Isopods/Springtails submenu), 2 last livestock
   drafts activated, Oreo Crumble + 7 flake/shrimp foods moved out of Equipment into Fish Food.
