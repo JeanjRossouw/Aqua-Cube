@@ -491,6 +491,12 @@ the Shopify `main-menu` via `menuUpdate` has NO visible effect. Navigation is dr
   or exclusion: Bird&Cage 27, Puzzles 18, Reptile&Terrarium 14, Bird/Small-animal food 13, Pet/Dog 6,
   Small Animal 5, Signage 4, Pond 3, Animal Health 2, Pet ID 2), **4 review**.
 - Artifacts: `research/akwa_equipment_recategorisation_plan.csv` (per-item) + `.md` (mobile-friendly review).
-- Execution (NOT yet run) = per row, remove `Collection: Equipment` + add proposed tag, in bulk, on approval.
+- **EXECUTED** (approved: high-confidence only + exclude non-aquarium):
+  - Re-tagged **67 high-confidence aquarium** products out of Equipment into existing collections
+    (Fish Food 14, Maintenance & Scaping 23, Medications 10, UV Filters 14, Nets→Maintenance 5, Dechlorinator 1).
+  - Set the **20 active non-aquarium** products to **Draft** (other 74 non-aq were already draft/archived) to
+    exclude them from the storefront — store stays aquarium-only. (They keep the Equipment tag; harmless, not in nav.)
+  - Result: Equipment 300 → ~226. **Remaining in Equipment: 128 med/low-confidence aquarium (await review) +
+    94 non-aquarium (now hidden) + 4 review.** Verified tags + collection counts.
 - Also done this session: Cleanup Crew added to top-bar nav (+Isopods/Springtails submenu), 2 last livestock
   drafts activated, Oreo Crumble + 7 flake/shrimp foods moved out of Equipment into Fish Food.
