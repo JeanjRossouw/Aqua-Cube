@@ -420,3 +420,22 @@ the Shopify `main-menu` via `menuUpdate` has NO visible effect. Navigation is dr
   skip the 8 dups, log failures. **Remaining ~69 of 114** pending: user to paste/commit
   `AquaCube_Branded_NoImage_List.csv` (never reached container) OR name the brands for me to scan.
 - Store confirmed: primary domain **aquacube-6.myshopify.com** (internal `r6cvc5-bk`, name "Aquacube").
+
+### Phase 5 — Akwa images ATTACHED via PDF + public-repo bridge — 20/37 DONE
+- **Env breakthroughs:** `apt` (archive.ubuntu.com) + `npm` ARE allowlisted → installed poppler-utils
+  (`pdfimages`/`pdftoppm`) + puppeteer/chromium. Still NO egress to akwa.co.za. **Read tool can't render
+  PDFs** (its sandbox lacks poppler) → render pages via Bash `pdftoppm` then Read the PNGs.
+- **Upload path SOLVED (repo is PUBLIC):** `upload-image` MCP tool NOT available + byte-push blocked, BUT
+  commit image to repo → `https://raw.githubusercontent.com/JeanjRossouw/Aqua-Cube/product-images/media/<f>`
+  → `update-product images:[{url}]` → **Shopify fetches server-side** → media READY on its own CDN. PROVEN.
+- **Source:** 2nd upload `eb85e12a-AquariumProducts.pdf` = Akwa catalogue (95 text pages, photos + product
+  URLs embedded). Images are LOW-RES catalogue graphics (200-1169px). User chose "use PDF images, flagged".
+- **DONE 20/37** (see `research/akwa_image_status.csv`): T4 range ×14 (one boxed-range banner
+  `media/akwa-ocean-max-t4.png`) + Dophin LED ×6 (`dophin-led-1088/1089/1090.png`, ~625-702px). All
+  verified `status:READY` on Shopify CDN. These products are ARCHIVED/DRAFT (not customer-facing).
+- **PENDING 17:** Clamp-LED, Mini-Tank, Fullgain ×4 (FG0302 18W = NO catalogue image; catalogue Fullgain
+  SKUs FG0450/0750/0900 ≠ Shopify FG0301/0303/0304, match by wattage), XRB heaters ×2, air pumps ×3,
+  zeolite ×2, ceramic noodles ×2, oxygen drops. Skipped because pumps/heaters = 15+ near-identical photos
+  (can't match exact model w/o guessing → violates user rule) and media/bottle/clamp images are tiny
+  (120-180px). Verified akwa.co.za URLs are in the CSV → best sourced high-res where akwa is reachable.
+- Hosting branch **`product-images`** holds the bridge images (Shopify already copied them to its CDN).

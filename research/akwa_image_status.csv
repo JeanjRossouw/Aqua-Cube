@@ -1,0 +1,38 @@
+sku,title,product_id,status,image_source,akwa_url,catalogue_page,notes
+LED4200W,Akwa Ocean Max LED T4-200 White 4W,15538248908873,IMAGED,media/akwa-ocean-max-t4.png,https://www.akwa.co.za/product/led-t4-200/,6,Shared T4 range banner (boxed lamps ~1169px)
+LED4200BW,Akwa Ocean Max LED T4-200 Blue White 4W,15538248941641,IMAGED,media/akwa-ocean-max-t4.png,https://www.akwa.co.za/product/led-t4-200/,6,Shared T4 range banner
+LED4300W,Akwa Ocean Max LED T4-300 White 6W,15538248974409,IMAGED,media/akwa-ocean-max-t4.png,,6,Shared T4 range banner
+LED4300BW,Akwa Ocean Max LED T4-300 Blue White 6W,15538249007177,IMAGED,media/akwa-ocean-max-t4.png,,6,Shared T4 range banner
+LED4400W,Akwa Ocean Max LED T4-400 White 7.5W,15538249039945,IMAGED,media/akwa-ocean-max-t4.png,,6,Shared T4 range banner
+LED4400BW,Akwa Ocean Max LED T4-400 Blue White 7.5W,15538249072713,IMAGED,media/akwa-ocean-max-t4.png,,6,Shared T4 range banner
+LED4500W,Akwa Ocean Max LED T4-500 White 8W,15538249105481,IMAGED,media/akwa-ocean-max-t4.png,,6,Shared T4 range banner
+LED4500BW,Akwa Ocean Max LED T4-500 Blue White 8W,15538249138249,IMAGED,media/akwa-ocean-max-t4.png,,6,Shared T4 range banner
+LED4600W,Akwa Ocean Max LED T4-600 White 10W,15538249171017,IMAGED,media/akwa-ocean-max-t4.png,,6,Shared T4 range banner
+LED4600BW,Akwa Ocean Max LED T4-600 Blue White 10W,15538249203785,IMAGED,media/akwa-ocean-max-t4.png,,6,Shared T4 range banner
+LED4800W,Akwa Ocean Max LED T4-800 White 13.6W,15538249236553,IMAGED,media/akwa-ocean-max-t4.png,,6,Shared T4 range banner
+LED4800BW,Akwa Ocean Max LED T4-800 Blue White 13.6W,15538249269321,IMAGED,media/akwa-ocean-max-t4.png,,6,Shared T4 range banner
+LED41000W,Akwa Ocean Max LED T4-1000 White 16.5W,15538249302089,IMAGED,media/akwa-ocean-max-t4.png,,6,Shared T4 range banner
+LED41000BW,Akwa Ocean Max LED T4-1000 Blue White 16.5W,15538249334857,IMAGED,media/akwa-ocean-max-t4.png,,6,Shared T4 range banner
+LED1088R,Akwa Dophin LED-1088 RGB 35cm 12W,15538248548425,IMAGED,media/dophin-led-1088.png,https://www.akwa.co.za/product/dophin-led-1088-red-35cm-12w/,4,Boxed product photo ~625px; catalogue text says RGB
+LED1089B,Akwa Dophin LED-1089 BioLux 45cm 17W,15538248581193,IMAGED,media/dophin-led-1089.png,https://www.akwa.co.za/product/dophin-led-1089-bio-lux-45cm-17w/,5,Boxed product photo ~646px (shared across 1089 variants)
+LED1089M,Akwa Dophin LED-1089 Marine 45cm 17W,15538248613961,IMAGED,media/dophin-led-1089.png,https://www.akwa.co.za/product/dophin-led-1089-marine-45cm-17w/,5,Boxed product photo (shared)
+LED1089R,Akwa Dophin LED-1089 RGB 45cm 17W,15538248646729,IMAGED,media/dophin-led-1089.png,https://www.akwa.co.za/product/dophin-led-1089-rgb-45cm-17w/,5,Boxed product photo (shared)
+LED1090M,Akwa Dophin LED-1090 Marine 60cm 20W,15538248679497,IMAGED,media/dophin-led-1090.png,https://www.akwa.co.za/product/dophin-led-1090-marine-60cm-20w/,5,Boxed product photo ~702px (shared across 1090 variants)
+LED1090R,Akwa Dophin LED-1090 RGB 60cm 20W,15538248712265,IMAGED,media/dophin-led-1090.png,https://www.akwa.co.za/product/dophin-led-1090-rgb-60cm-20w/,5,Boxed product photo (shared)
+LED0105,Akwa Dophin Clamp LED Mini Tank,15538248515657,PENDING,,https://www.akwa.co.za/product/dophin-clamp-led-105-gt8003-mini-tank/,4,Distinct small clamp photo in catalogue; recommend high-res from akwa
+AQD8003,Akwa Dophin Mini Tank GT-8003 12L,15538250154057,PENDING,,https://www.akwa.co.za/product/dophin-mini-tank-12l/,13,Distinct tank photo; recommend high-res from akwa
+FG0300,Akwa Fullgain Flat LED 10W 30cm,15538248745033,PENDING,,https://www.akwa.co.za/product/fullgain-flat-led-10w-30cm/,5,Small panel thumbnail; catalogue SKU FG0300
+FG0301,Akwa Fullgain Flat LED 14W 45cm,15538248777801,PENDING,,https://www.akwa.co.za/product/fullgain-flat-led-14w-45cm/,5,Catalogue SKU is FG0450 (matched by 14W/45cm)
+FG0302,Akwa Fullgain Flat LED 18W 60cm,15538248810569,NO_IMAGE,,,,18W/60cm NOT in catalogue - no image available; verify product exists
+FG0303,Akwa Fullgain Flat LED 22W 75cm,15538248843337,PENDING,,https://www.akwa.co.za/product/fullgain-flat-led-22w-75cm/,5,Catalogue SKU is FG0750 (matched by 22W/75cm)
+FG0304,Akwa Fullgain Flat LED 26W 90cm,15538248876105,PENDING,,https://www.akwa.co.za/product/fullgain-flat-led-26w-90cm/,5,Catalogue SKU is FG0900 (matched by 26W/90cm)
+HTR0600,Akwa SunSun XRB-600W Heater,15538249597001,PENDING,,https://www.akwa.co.za/product/sun-sun-heater-xrb-600-600w/,19,Black disc (Frisbee) heater; 2 near-identical XRB photos on page - disambiguate 600 vs 1000
+HTR1000,Akwa SunSun XRB-1000W Heater,15538249629769,PENDING,,https://www.akwa.co.za/product/sun-sun-heater-xrb-1000-1000w/,19,2 near-identical XRB photos - disambiguate vs HTR0600
+APS0505,Akwa AC/DC Air Pump APQ-505 510L/H,15538249662537,PENDING,,https://www.akwa.co.za/product/ad-dc-air-pump-apq-505-510-l-h/,17,15+ similar pump photos on page - cannot match exact model without guessing
+APS0510,Akwa AC/DC Air Pump APQ-510 1020L/H,15538249695305,PENDING,,https://www.akwa.co.za/product/ac-dc-air-pump-apq510-1020-l-h/,17,Ambiguous among many pumps
+APS0203,Akwa AC/DC Air Pump JT-203S 240L/H,15538249728073,PENDING,,https://www.akwa.co.za/product/ac-dc-air-pump-jt-203s-240l-h/,17,Ambiguous among many pumps
+AFM0105,Akwa Ceramic Noodles 500ml,15538250022985,PENDING,,https://www.akwa.co.za/product/ceramic-noodles-500ml-bottle/,21,Small bottle image
+AFM0106,Akwa Ceramic Noodles 1L,15538250055753,PENDING,,https://www.akwa.co.za/product/ceramic-noodles-1lt-bottle/,21,Small bottle image
+AFM0110,Akwa Zeolite Ammonia Remover 500ml,15538250088521,PENDING,,https://www.akwa.co.za/product/zeolite-ammonia-remover-500ml-bottle/,21,Small bottle image
+AFM0111,Akwa Zeolite Ammonia Remover 1L,15538250121289,PENDING,,https://www.akwa.co.za/product/zeolite-ammonia-remover-1lt-bottle/,22,Small bottle image
+AKW0060,Akwaria Oxygen Drops 50Ml,15544892915785,PENDING,,https://www.akwa.co.za/product/akwaria-oxygen-drops-50ml/,21,Small bottle image
