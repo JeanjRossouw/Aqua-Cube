@@ -483,3 +483,14 @@ the Shopify `main-menu` via `menuUpdate` has NO visible effect. Navigation is dr
 - **3 URL redirects** added for the active dups -> keepers: akwa-activated-carbon -> activated-carbon-1l-bottle;
   led-light-5w-white-blue -> akwa-led-5w-white-blue-light; led-light-5w-multi-colour -> akwa-led-5w-multi-colour-light.
 - Remaining: 127 already-archived dups still exist (archived) — optional later delete to fully declutter.
+
+### Phase 9 — "Equipment" catch-all re-categorisation PLAN (awaiting approval)
+- `Collection: Equipment` is a 300-item smart-collection **catch-all**, NOT in the top-bar nav. Exported
+  the 293 live members via `bulkOperationRunQuery` (clean JSONL, no copy-paste) and keyword/SKU-classified.
+- Split: **195 Aquarium** (map into existing nav collections), **94 Non-Aquarium** (need new collections+nav
+  or exclusion: Bird&Cage 27, Puzzles 18, Reptile&Terrarium 14, Bird/Small-animal food 13, Pet/Dog 6,
+  Small Animal 5, Signage 4, Pond 3, Animal Health 2, Pet ID 2), **4 review**.
+- Artifacts: `research/akwa_equipment_recategorisation_plan.csv` (per-item) + `.md` (mobile-friendly review).
+- Execution (NOT yet run) = per row, remove `Collection: Equipment` + add proposed tag, in bulk, on approval.
+- Also done this session: Cleanup Crew added to top-bar nav (+Isopods/Springtails submenu), 2 last livestock
+  drafts activated, Oreo Crumble + 7 flake/shrimp foods moved out of Equipment into Fish Food.
