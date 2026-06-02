@@ -519,5 +519,18 @@ the Shopify `main-menu` via `menuUpdate` has NO visible effect. Navigation is dr
 - TO GO LIVE: user must **Publish** that draft (publish blocked via API). It's a separate copy of the
   "Nav Update" experiment, so preview the whole site first, or duplicate live for guaranteed parity.
 - Equipment dropdown CTA ("Shop all equipment") repointed from emptied `/collections/equipment` -> `/collections` on the draft theme.
+
+### Phase 11 — Mobile / UX fixes (IN PROGRESS, draft theme 188950413385)
+- Context: ~95% of traffic is mobile; user reports site not mobile-friendly + dropdowns "not equal / don't look nice".
+- All theme CSS is in `assets/style.css` (64KB, 2996 lines). Viewport meta IS present (not the zoomed-out problem).
+  Breakpoints are inconsistent (480/560/600/720/768/900/920/1100). Mobile nav = hamburger drawer at <=720px.
+- **RELIABLE theme-write method** (IMPORTANT — base64 `themeFilesUpsert` corrupts via homoglyph substitution):
+  commit the file to repo under `research/theme/`, push, then `themeFilesUpsert` with body
+  `{type: URL, value: https://raw.githubusercontent.com/jeanjrossouw/aqua-cube/<branch>/research/theme/<file>}`.
+  Repo is public, raw fetch works, Shopify pulls it server-side. Verified. Use this for ALL theme writes incl. style.css.
+- DONE: `assets/global.js` — added mobile dropdown accordion (tap category to expand/collapse, closes siblings,
+  dismisses menu on link tap). Previously dropdowns only opened via flaky `:focus-within`, no tap-close.
+- PENDING: CSS mobile polish (dropdown consistency, hero/headline sizing, tap targets, spacing) — needs mobile
+  screenshots to target accurately. Then publish draft.
 - Also done this session: Cleanup Crew added to top-bar nav (+Isopods/Springtails submenu), 2 last livestock
   drafts activated, Oreo Crumble + 7 flake/shrimp foods moved out of Equipment into Fish Food.
