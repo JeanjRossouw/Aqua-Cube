@@ -471,3 +471,15 @@ the Shopify `main-menu` via `menuUpdate` has NO visible effect. Navigation is dr
 - **DUP FINDING:** 139 SKUs exist on >1 product (~154 redundant records), incl. the imaged LEDs
   (LED0105/1088R/1089x/1090x = "Akwa" + "Aqua Cube" twins). Merge plan = Phase 8 (in progress).
 - Artifacts: `research/akwa_bulk_image_matches.csv` (the 164), `research/akwa_catalogue_export.csv` (map).
+
+### Phase 8 — Duplicate cleanup EXECUTED
+- Merge plan: `research/akwa_duplicate_merge_plan.{csv,md}` — 139 dup SKUs / 154 redundant, ALL vendor
+  "Aqua Cube". 127 already archived; 27 live (24 draft + 3 active); 0 stranded inventory. Keeper rule:
+  status (Active>Draft>Archived) > has-image > inventory > oldest.
+- Verified all 27 keepers already carry an image -> archiving strips nothing from the live catalogue.
+- **ARCHIVED the 27 live duplicates** (`bulk-update-product-status`, 27/27 ok). NOTE: this archived several
+  Phase-5/6 imaged twins (Dophin LED-1088/1089/1090, AC/DC pumps, XRB-1000, Mini Tank, Ceramic/Zeolite,
+  Clamp) because the ACTIVE brand-vendor product is the keeper (already imaged) — net catalogue unaffected.
+- **3 URL redirects** added for the active dups -> keepers: akwa-activated-carbon -> activated-carbon-1l-bottle;
+  led-light-5w-white-blue -> akwa-led-5w-white-blue-light; led-light-5w-multi-colour -> akwa-led-5w-multi-colour-light.
+- Remaining: 127 already-archived dups still exist (archived) — optional later delete to fully declutter.
