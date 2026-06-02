@@ -518,6 +518,6 @@ the Shopify `main-menu` via `menuUpdate` has NO visible effect. Navigation is dr
   Isopods → /collections/isopods, Springtails → /collections/springtails) + `cleanup_label`. Verified via read-back.
 - TO GO LIVE: user must **Publish** that draft (publish blocked via API). It's a separate copy of the
   "Nav Update" experiment, so preview the whole site first, or duplicate live for guaranteed parity.
-- Open: Equipment dropdown CTA still points at the emptied `/collections/equipment` (repoint pending).
+- Equipment dropdown CTA ("Shop all equipment") repointed from emptied `/collections/equipment` -> `/collections` on the draft theme.
 - Also done this session: Cleanup Crew added to top-bar nav (+Isopods/Springtails submenu), 2 last livestock
   drafts activated, Oreo Crumble + 7 flake/shrimp foods moved out of Equipment into Fish Food.
