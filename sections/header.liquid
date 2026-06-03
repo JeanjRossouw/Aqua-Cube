@@ -37,6 +37,14 @@
         </li>
       {%- endif -%}
 
+      {%- if section.settings.marine_label != blank -%}
+        <li role="none">
+          <a href="{{ section.settings.marine_url | default: '/collections/marine' }}" class="ac-nav__link" role="menuitem">
+            {{ section.settings.marine_label }}
+          </a>
+        </li>
+      {%- endif -%}
+
       {%- comment -%} ---- Cleanup Crew dropdown ---- {%- endcomment -%}
       {%- assign cleanup_count = 0 -%}
       {%- for block in section.blocks -%}
@@ -179,6 +187,8 @@
     { "type": "url",  "id": "aquariums_url",      "label": "Aquariums URL" },
     { "type": "text", "id": "paludariums_label",  "label": "Paludariums label (flat link)", "default": "Paludariums" },
     { "type": "url",  "id": "paludariums_url",    "label": "Paludariums URL" },
+    { "type": "text", "id": "marine_label",       "label": "Marine label (flat link)",      "default": "Marine" },
+    { "type": "url",  "id": "marine_url",         "label": "Marine URL" },
     { "type": "text", "id": "cleanup_label",      "label": "Cleanup Crew dropdown label",   "default": "Cleanup Crew" },
     { "type": "text", "id": "plants_label",       "label": "Plants & Moss dropdown label",  "default": "Plants & Moss" },
     { "type": "text", "id": "equipment_label",    "label": "Equipment dropdown label",      "default": "Equipment" },

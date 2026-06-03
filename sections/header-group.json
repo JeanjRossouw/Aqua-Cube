@@ -11,6 +11,8 @@
         "aquariums_url": "/collections/aquariums",
         "paludariums_label": "Paludariums",
         "paludariums_url": "/collections/paludariums",
+        "marine_label": "Marine",
+        "marine_url": "/collections/marine",
         "cleanup_label": "Cleanup Crew",
         "plants_label": "Plants & Moss",
         "equipment_label": "Equipment",
