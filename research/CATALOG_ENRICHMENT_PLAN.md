@@ -541,3 +541,15 @@ the Shopify `main-menu` via `menuUpdate` has NO visible effect. Navigation is dr
   Cleanup Crew nav + CTA are already on the Aqua Cube draft; only the style.css upsert remains.
 - Also done this session: Cleanup Crew added to top-bar nav (+Isopods/Springtails submenu), 2 last livestock
   drafts activated, Oreo Crumble + 7 flake/shrimp foods moved out of Equipment into Fish Food.
+
+### Phase 11 UPDATE (2026-06-03)
+- Connection restored to Aqua Cube (aquacube-6). User had PUBLISHED "Aqua Cube 2026 — Nav Update"
+  (188950413385) → it is now MAIN/live. So Cleanup Crew nav + Equipment CTA + global.js mobile-dropdown
+  accordion + `.is-open`/drawer CSS are all LIVE and verified correct (header.liquid IDs #NavMenu/#Hamburger,
+  global.js accordion, style.css `.ac-nav__drop.is-open .ac-nav__menu{display:grid}` + `.ac-nav__links.active`).
+- Direct writes to the live theme are BLOCKED by policy ("duplicate, edit draft, merchant publishes").
+- Solution: `themeDuplicate` live → new draft **"Aqua Cube — Mobile Polish (draft)" = 188994289737**.
+  Applied polished style.css (66147 B, base + MOBILE UX FIXES block) to it. Verified present.
+- Preview: https://aquacube-6.myshopify.com/?preview_theme_id=188994289737  (test on phone, then publish).
+- If live mobile still looks broken to user → browser cache; hard-refresh / private tab.
+- NEXT: user previews 188994289737 on phone → publishes it to go live with the polish.
