@@ -553,3 +553,13 @@ the Shopify `main-menu` via `menuUpdate` has NO visible effect. Navigation is dr
 - Preview: https://aquacube-6.myshopify.com/?preview_theme_id=188994289737  (test on phone, then publish).
 - If live mobile still looks broken to user → browser cache; hard-refresh / private tab.
 - NEXT: user previews 188994289737 on phone → publishes it to go live with the polish.
+
+### Phase 11 FIX (2026-06-03): mobile dropdown panel invisible
+- Symptom (user on phone): hamburger menu opens, but tapping a dropdown (e.g. Lights) shows nothing.
+- Root cause: desktop `.ac-nav__drop:focus-within .ac-nav__menu { transform: translateX(-50%) }` (spec 0,2,0)
+  out-specifies the mobile `.ac-nav__menu { transform: none }` (0,1,0). On tap the trigger gains focus →
+  :focus-within re-applies the centering transform to the now-`position:static`, full-width panel → it slides
+  ~50% of its width off the left edge (clipped by drawer overflow-x:hidden). Panel opens but is off-screen.
+- Fix: appended "MOBILE NAV DROPDOWN FIX" block to style.css — `@media (max-width:720px)` forces the open
+  panel (`.is-open`/`:focus-within > .ac-nav__menu`) to static, transform:none, left/right/top:auto, width:100%,
+  opacity:1 with !important. Applied to draft 188994289737 (style.css now 66997 B). User to re-preview + publish.
