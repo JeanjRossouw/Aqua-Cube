@@ -3038,3 +3038,26 @@ a { color: inherit; text-decoration: none; }
   .product-card .btn { width: 100%; justify-content: center; }
   .categories-grid { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
 }
+
+/* =====================================================================
+   MOBILE NAV DROPDOWN FIX
+   The open dropdown panel was inheriting the desktop centering transform
+   (translateX(-50%)) via :focus-within on tap, shoving it off-screen left.
+   Force the open accordion panel fully in-flow and visible on phones.
+   ===================================================================== */
+@media (max-width: 720px) {
+  .ac-nav__drop.is-open > .ac-nav__menu,
+  .ac-nav__drop:focus-within > .ac-nav__menu {
+    display: grid !important;
+    position: static !important;
+    transform: none !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    box-shadow: none !important;
+  }
+}
