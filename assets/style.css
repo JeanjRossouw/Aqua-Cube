@@ -2926,3 +2926,54 @@ a { color: inherit; text-decoration: none; }
   }
   .gal-cta-row { margin-top: 32px; }
 }
+
+/* =====================================================================
+   LINKLIST MEGAMENU  (grouped category panels + Shop by Brand)
+   Added with the deep-megamenu nav. Reuses .ac-nav__drop/__trigger/__menu/__item.
+   ===================================================================== */
+/* grouped panel = side-by-side columns (Filtration & Pumps, Lighting & CO₂, …) */
+.ac-nav__menu--mega { display: flex; gap: 30px; min-width: auto; }
+.ac-nav__col { display: flex; flex-direction: column; gap: 1px; min-width: 168px; }
+.ac-nav__col-title {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--aqua-1);
+  padding: 8px 12px 6px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid var(--rule);
+}
+.ac-nav__col-title:hover { color: #a8f0eb; }
+/* linklist items have no icon — tighten padding */
+.ac-nav__menu--mega .ac-nav__item,
+.ac-nav__menu--narrow .ac-nav__item,
+.ac-nav__menu--brands .ac-nav__item { padding: 8px 12px; gap: 0; }
+
+/* Shop by Brand = wide multi-column grid, right-anchored so it can't spill off-screen */
+.ac-nav__menu--brands { grid-template-columns: repeat(4, minmax(118px, 1fr)); min-width: 560px; }
+.ac-nav__drop--brands .ac-nav__menu { left: auto; right: 0; transform: translateY(-6px); }
+.ac-nav__drop--brands:hover .ac-nav__menu,
+.ac-nav__drop--brands:focus-within .ac-nav__menu { transform: translateY(0); }
+
+@media (max-width: 720px) {
+  /* MOBILE NAV DROPDOWN FIX — open panel must sit in-flow & visible (desktop centring
+     transform was leaking in via :focus-within and shoving panels off-screen). */
+  .ac-nav__drop.is-open > .ac-nav__menu,
+  .ac-nav__drop:focus-within > .ac-nav__menu {
+    display: grid !important; position: static !important; transform: none !important;
+    top: auto !important; left: auto !important; right: auto !important;
+    min-width: 0 !important; width: 100% !important;
+    opacity: 1 !important; pointer-events: auto !important; box-shadow: none !important;
+  }
+  /* grouped panels stack as one column on phones */
+  .ac-nav__menu--mega { display: none; }
+  .ac-nav__drop.is-open > .ac-nav__menu--mega,
+  .ac-nav__drop:focus-within > .ac-nav__menu--mega { display: block !important; }
+  .ac-nav__col { min-width: 0; width: 100%; }
+  .ac-nav__col-title { padding-left: 0; padding-right: 0; }
+  .ac-nav__menu--brands { grid-template-columns: 1fr 1fr !important; min-width: 0 !important; }
+  .ac-nav__links > a,
+  .ac-nav__drop > .ac-nav__trigger { min-height: 48px; }
+}
