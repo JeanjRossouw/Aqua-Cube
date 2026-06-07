@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "hero": { "type": "hero", "settings": {} },
+    "meta_strip": {
+      "type": "meta-strip",
+      "blocks": {
+        "b1": { "type": "item", "settings": { "text": "Hand-sewn" } },
+        "b2": { "type": "item", "settings": { "text": "One of one" } },
+        "b3": { "type": "item", "settings": { "text": "Made to keep" } },
+        "b4": { "type": "item", "settings": { "text": "Cape Town" } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"]
+    },
+    "atelier": { "type": "atelier-intro", "settings": {} },
+    "collection": { "type": "collection-grid", "settings": {} },
+    "statement": { "type": "statement-band", "settings": {} },
+    "ethos": {
+      "type": "ethos-band",
+      "blocks": {
+        "e1": { "type": "item", "settings": { "heading": "Hand-sewn", "text": "Cut, stitched and finished entirely by hand." } },
+        "e2": { "type": "item", "settings": { "heading": "One of one", "text": "A single edition of each piece — never repeated." } },
+        "e3": { "type": "item", "settings": { "heading": "Made to keep", "text": "Heirloom construction, made to be handed down." } }
+      },
+      "block_order": ["e1", "e2", "e3"]
+    }
+  },
+  "order": ["hero", "meta_strip", "atelier", "collection", "statement", "ethos"]
+}

@@ -1,0 +1,54 @@
+{%- liquid
+  assign collection = section.settings.collection
+  assign limit = section.settings.products_to_show
+-%}
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      {%- if section.settings.heading != blank -%}<h2>{{ section.settings.heading }}</h2>{%- endif -%}
+      {%- if section.settings.subheading != blank -%}<p>{{ section.settings.subheading }}</p>{%- endif -%}
+    </div>
+
+    <div class="grid">
+      {%- if collection != blank and collection.products.size > 0 -%}
+        {%- for product in collection.products limit: limit -%}
+          {% render 'product-card', product: product %}
+        {%- endfor -%}
+      {%- else -%}
+        {%- comment -%} Placeholder cards in the editor before a collection is chosen {%- endcomment -%}
+        {%- for i in (1..4) -%}
+          <div class="card">
+            <div class="card__media"><div class="card__placeholder" aria-hidden="true">M</div><span class="card__tag">1 of 1</span></div>
+            <div class="card__body">
+              <h3 class="card__name">The Piece</h3>
+              <p class="card__style">Style line</p>
+              <div class="card__foot"><span class="card__price">{{ 1500 | times: 100 | money }}</span><span class="btn">Details</span></div>
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.button_label != blank and collection != blank -%}
+      <div class="center" style="margin-top:2.5rem;">
+        <a class="btn" href="{{ collection.url }}">{{ section.settings.button_label }}</a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection grid",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Collection" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Six pieces, each its own" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Hand-finished couture. When a piece reads Sold, its single edition has been claimed." },
+    { "type": "collection", "id": "collection", "label": "Collection" },
+    { "type": "range", "id": "products_to_show", "min": 2, "max": 12, "step": 1, "label": "Pieces to show", "default": 6 },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "View the full collection" }
+  ],
+  "presets": [{ "name": "Collection grid" }]
+}
+{% endschema %}

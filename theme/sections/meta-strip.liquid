@@ -1,0 +1,34 @@
+<section class="meta-strip">
+  <div class="meta-strip__inner">
+    {%- for block in section.blocks -%}
+      <div class="meta-strip__item" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Meta strip",
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "Hand-sewn" }
+      ]
+    }
+  ],
+  "max_blocks": 5,
+  "presets": [
+    {
+      "name": "Meta strip",
+      "blocks": [
+        { "type": "item", "settings": { "text": "Hand-sewn" } },
+        { "type": "item", "settings": { "text": "One of one" } },
+        { "type": "item", "settings": { "text": "Made to keep" } },
+        { "type": "item", "settings": { "text": "Cape Town" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,23 @@
+<section class="section statement-band">
+  <div class="wrap">
+    <div class="prose">
+      {%- if section.settings.quote != blank -%}
+        <p class="statement-band__quote">{{ section.settings.quote }}</p>
+      {%- endif -%}
+      {%- if section.settings.attribution != blank -%}
+        <p class="eyebrow" style="margin-top:1.5rem;">{{ section.settings.attribution }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Statement band",
+  "settings": [
+    { "type": "textarea", "id": "quote", "label": "Quote", "default": "A single piece, sewn once — so the child who wears it owns the only one in the world." },
+    { "type": "text", "id": "attribution", "label": "Attribution", "default": "The Maison Miette promise" }
+  ],
+  "presets": [{ "name": "Statement band" }]
+}
+{% endschema %}

@@ -1,0 +1,61 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Maison Miette",
+    "theme_version": "0.1.0",
+    "theme_author": "Maison Miette",
+    "theme_documentation_url": "https://shopify.dev",
+    "theme_support_url": "https://shopify.dev"
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      {
+        "type": "text",
+        "id": "wordmark",
+        "label": "Wordmark",
+        "info": "The brand name shown in the header and footer. Swappable in one place — the name isn't final.",
+        "default": "MIETTE"
+      },
+      {
+        "type": "text",
+        "id": "wordmark_tagline",
+        "label": "Wordmark tagline",
+        "default": "Maison Miette"
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon"
+      }
+    ]
+  },
+  {
+    "name": "Colours",
+    "settings": [
+      { "type": "color", "id": "color_bg", "label": "Page background", "default": "#FAF6F1" },
+      { "type": "color", "id": "color_card", "label": "Card / surface", "default": "#FFFFFF" },
+      { "type": "color", "id": "color_text", "label": "Ink (text)", "default": "#2B2622" },
+      { "type": "color", "id": "color_text_soft", "label": "Soft ink", "default": "#5C544C" },
+      { "type": "color", "id": "color_blush", "label": "Blush", "default": "#E9D2CF" },
+      { "type": "color", "id": "color_blush_deep", "label": "Blush (deep)", "default": "#D8A7A0" },
+      { "type": "color", "id": "color_accent", "label": "Accent (gold)", "default": "#B58A54" },
+      { "type": "color", "id": "color_hairline", "label": "Hairline border", "default": "#E4DACE" }
+    ]
+  },
+  {
+    "name": "Layout",
+    "settings": [
+      {
+        "type": "range",
+        "id": "page_width",
+        "min": 1000,
+        "max": 1600,
+        "step": 20,
+        "unit": "px",
+        "label": "Maximum page width",
+        "default": 1180
+      }
+    ]
+  }
+]

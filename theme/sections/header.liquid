@@ -1,0 +1,38 @@
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="wordmark" href="{{ routes.root_url }}">
+      <span class="wordmark__name">{{ settings.wordmark }}</span>
+      {%- if settings.wordmark_tagline != blank -%}
+        <span class="wordmark__tag">{{ settings.wordmark_tagline }}</span>
+      {%- endif -%}
+    </a>
+
+    <nav aria-label="Primary">
+      <ul class="site-nav" data-site-nav>
+        {%- for link in section.settings.menu.links -%}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      {%- if section.settings.show_search -%}
+        <a href="{{ routes.search_url }}"><span class="nav-text">{{ 'general.accessibility.menu' | t | default: 'Search' }}</span></a>
+      {%- endif -%}
+      <a href="{{ routes.cart_url }}"><span class="nav-text">Cart</span>&nbsp;({{ cart.item_count }})</a>
+      <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="{{ 'general.accessibility.menu' | t }}">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" },
+    { "type": "checkbox", "id": "show_search", "label": "Show search link", "default": true }
+  ]
+}
+{% endschema %}

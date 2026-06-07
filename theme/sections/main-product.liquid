@@ -1,0 +1,148 @@
+{%- liquid
+  assign style_text = product.metafields.custom.style
+  if style_text == blank and product.tags.size > 0
+    assign style_text = product.tags.first
+  endif
+-%}
+<section class="section">
+  <div class="wrap">
+    <div class="product">
+
+      {%- comment -%} ---- Gallery (left) ---- {%- endcomment -%}
+      <div class="product-gallery" data-gallery>
+        <div class="product-gallery__main">
+          {%- if product.featured_image -%}
+            <img data-gallery-main
+                 src="{{ product.featured_image | image_url: width: 1000 }}"
+                 alt="{{ product.featured_image.alt | default: product.title | escape }}"
+                 width="1000" height="1250">
+          {%- else -%}
+            <div class="product-gallery__placeholder" aria-hidden="true">{{ product.title | slice: 0, 1 }}</div>
+          {%- endif -%}
+        </div>
+        {%- if product.images.size > 1 -%}
+          <div class="product-gallery__thumbs">
+            {%- for image in product.images -%}
+              <button type="button" data-gallery-thumb
+                      class="{% if forloop.first %}is-active{% endif %}"
+                      data-src="{{ image | image_url: width: 1000 }}"
+                      data-alt="{{ image.alt | default: product.title | escape }}"
+                      aria-label="View image {{ forloop.index }}">
+                <img src="{{ image | image_url: width: 160 }}" alt="" loading="lazy">
+              </button>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} ---- Info (right) — reorderable blocks ---- {%- endcomment -%}
+      <div class="product-info">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+
+            {%- when 'vendor' -%}
+              <p class="product-info__vendor" {{ block.shopify_attributes }}>{{ block.settings.text | default: product.vendor }}</p>
+
+            {%- when 'title' -%}
+              <h1 class="product-info__title" {{ block.shopify_attributes }}>{{ product.title }}</h1>
+
+            {%- when 'style' -%}
+              {%- if style_text != blank -%}
+                <p class="product-info__style" {{ block.shopify_attributes }}>{{ style_text }}</p>
+              {%- endif -%}
+
+            {%- when 'price' -%}
+              <div class="product-info__price-row" {{ block.shopify_attributes }}>
+                <span class="product-info__price">{{ product.price | money }}</span>
+                {%- if product.available -%}
+                  <span class="availability">{{ 'products.product.one_available' | t }}</span>
+                {%- else -%}
+                  <span class="availability is-sold">{{ 'products.product.sold' | t }}</span>
+                {%- endif -%}
+              </div>
+
+            {%- when 'description' -%}
+              <div class="product-info__desc rte" {{ block.shopify_attributes }}>{{ product.description }}</div>
+
+            {%- when 'buy_button' -%}
+              <div class="product-form" {{ block.shopify_attributes }}>
+                {%- form 'product', product, id: 'product-form' -%}
+                  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                  <input type="hidden" name="quantity" value="1">
+                  <button type="submit" class="btn btn--solid btn--block" {% unless product.available %}disabled{% endunless %}>
+                    {%- if product.available -%}{{ block.settings.label | default: 'Acquire this piece' }}{%- else -%}{{ 'products.product.sold_out' | t }}{%- endif -%}
+                  </button>
+                {%- endform -%}
+              </div>
+
+            {%- when 'spec_list' -%}
+              <div class="spec-list" {{ block.shopify_attributes }}>
+                {%- for i in (1..5) -%}
+                  {%- assign lkey = 'label_' | append: i -%}
+                  {%- assign vkey = 'value_' | append: i -%}
+                  {%- assign lab = block.settings[lkey] -%}
+                  {%- assign val = block.settings[vkey] -%}
+                  {%- if lab != blank and val != blank -%}
+                    <div class="spec-list__row">
+                      <span class="spec-list__label">{{ lab }}</span>
+                      <span class="spec-list__value">{{ val }}</span>
+                    </div>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+
+            {%- when 'text' -%}
+              <div class="rte" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product",
+  "blocks": [
+    { "type": "vendor", "name": "Atelier / vendor", "limit": 1, "settings": [ { "type": "text", "id": "text", "label": "Override text", "info": "Leave blank to use the product vendor." } ] },
+    { "type": "title", "name": "Title", "limit": 1, "settings": [] },
+    { "type": "style", "name": "Style line", "limit": 1, "settings": [] },
+    { "type": "price", "name": "Price + availability", "limit": 1, "settings": [] },
+    { "type": "buy_button", "name": "Buy button", "limit": 1, "settings": [ { "type": "text", "id": "label", "label": "Label", "default": "Acquire this piece" } ] },
+    { "type": "description", "name": "Description", "limit": 1, "settings": [] },
+    {
+      "type": "spec_list", "name": "Spec list", "limit": 1,
+      "settings": [
+        { "type": "text", "id": "label_1", "label": "Label 1", "default": "Edition" },
+        { "type": "text", "id": "value_1", "label": "Value 1", "default": "One of one" },
+        { "type": "text", "id": "label_2", "label": "Label 2", "default": "Construction" },
+        { "type": "text", "id": "value_2", "label": "Value 2", "default": "Hand-sewn" },
+        { "type": "text", "id": "label_3", "label": "Label 3", "default": "Care" },
+        { "type": "text", "id": "value_3", "label": "Value 3", "default": "Hand wash, lay flat" },
+        { "type": "text", "id": "label_4", "label": "Label 4" },
+        { "type": "text", "id": "value_4", "label": "Value 4" },
+        { "type": "text", "id": "label_5", "label": "Label 5" },
+        { "type": "text", "id": "value_5", "label": "Value 5" }
+      ]
+    },
+    { "type": "text", "name": "Custom text", "settings": [ { "type": "richtext", "id": "text", "label": "Text" } ] }
+  ],
+  "enabled_on": { "templates": ["product"] },
+  "presets": [
+    {
+      "name": "Product",
+      "blocks": [
+        { "type": "vendor" },
+        { "type": "title" },
+        { "type": "style" },
+        { "type": "price" },
+        { "type": "buy_button" },
+        { "type": "description" },
+        { "type": "spec_list" }
+      ]
+    }
+  ]
+}
+{% endschema %}
