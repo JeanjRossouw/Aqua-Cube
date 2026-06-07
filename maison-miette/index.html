@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maison Miette — Handmade Couture for Fashion Dolls</title>
+    <meta name="description" content="Maison Miette: one-of-one handmade couture for 11½ inch fashion dolls. Each piece a single unit, never repeated.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#top" class="brand">
+                <span class="brand-mark">MM</span>
+                <span class="brand-name">Maison&nbsp;Miette</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#collection" class="nav-link">The Collection</a></li>
+                <li><a href="#atelier" class="nav-link">Atelier</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero" id="top">
+        <div class="hero-inner">
+            <p class="hero-eyebrow">Couture for 11½″ fashion dolls</p>
+            <h1 class="hero-title">One thread, one gown,<br>never repeated.</h1>
+            <p class="hero-sub">Each Maison Miette piece is hand-sewn as a single unit — a true one-of-one. Once it finds a home, it is gone for good.</p>
+            <a href="#collection" class="btn btn-primary">View the Collection</a>
+        </div>
+        <div class="hero-glow" aria-hidden="true"></div>
+    </header>
+
+    <!-- The Collection -->
+    <section class="collection" id="collection">
+        <div class="section-head">
+            <p class="eyebrow">The Collection</p>
+            <h2>Six pieces, each its own</h2>
+            <p class="section-lead">Hand-finished couture, priced in South African Rand. When a piece reads <em>Sold out</em>, its single edition has been claimed.</p>
+        </div>
+        <div class="pieces-grid" id="pieces-grid">
+            <!-- Rendered by js/app.js -->
+        </div>
+    </section>
+
+    <!-- Atelier / About -->
+    <section class="atelier" id="atelier">
+        <div class="atelier-inner">
+            <p class="eyebrow">The Atelier</p>
+            <h2>Made by hand, made but once</h2>
+            <p>Maison Miette is a small couture house dressing 11½″ fashion dolls in garments cut, sewn and finished entirely by hand. We do not run editions or restocks — every gown, set and dress is conceived as a single piece. The satin sash, the tiered tulle, the lace peplum: each is its own story, sewn once and never again.</p>
+            <div class="atelier-stats">
+                <div class="stat"><span class="stat-num">6</span><span class="stat-label">One-of-one pieces</span></div>
+                <div class="stat"><span class="stat-num">1</span><span class="stat-label">Of each, ever made</span></div>
+                <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Hand-sewn</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="section-head">
+            <p class="eyebrow">Contact</p>
+            <h2>Enquiries &amp; commissions</h2>
+            <p class="section-lead">For a bespoke commission or a question about a piece, send a note.</p>
+        </div>
+        <form class="contact-form" id="contact-form" novalidate>
+            <div class="field"><input type="text" name="name" placeholder="Your name" required></div>
+            <div class="field"><input type="email" name="email" placeholder="Your email" required></div>
+            <div class="field full"><textarea name="message" rows="4" placeholder="Your message" required></textarea></div>
+            <button type="submit" class="btn btn-primary">Send enquiry</button>
+            <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="brand-mark">MM</span>
+                <span class="brand-name">Maison Miette</span>
+                <p>Handmade couture for fashion dolls. Cape Town, South Africa.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#collection">The Collection</a>
+                <a href="#atelier">Atelier</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+        <p class="footer-bottom">© <span id="year"></span> Maison Miette. Each piece, one of one.</p>
+    </footer>
+
+    <script src="js/products-data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
