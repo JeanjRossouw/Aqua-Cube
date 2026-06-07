@@ -1,0 +1,50 @@
+{
+  "general": {
+    "accessibility": {
+      "skip_to_content": "Skip to content",
+      "menu": "Menu",
+      "close": "Close"
+    },
+    "404": {
+      "title": "Page not found",
+      "subtext": "The piece you're looking for may have found a home.",
+      "link": "Return to the atelier"
+    }
+  },
+  "products": {
+    "product": {
+      "one_available": "One available",
+      "one_of_one": "1 of 1",
+      "sold": "Sold",
+      "sold_out": "Sold out",
+      "add_to_cart": "Add to cart",
+      "acquire": "Acquire this piece",
+      "price_from": "From",
+      "details": "Details",
+      "vendor": "Atelier"
+    }
+  },
+  "collections": {
+    "general": {
+      "all": "All",
+      "no_matches": "No pieces match this category yet.",
+      "view_all": "View the full collection"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Your selection",
+      "empty": "Your selection is empty.",
+      "subtotal": "Subtotal",
+      "checkout": "Proceed to checkout",
+      "remove": "Remove",
+      "continue": "Continue browsing",
+      "note": "These are one-of-one pieces — once acquired, each is gone for good."
+    }
+  },
+  "footer": {
+    "newsletter": "Stay in the atelier's confidence",
+    "email": "Email address",
+    "subscribe": "Subscribe"
+  }
+}

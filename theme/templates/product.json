@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": { "type": "vendor", "settings": {} },
+        "title": { "type": "title", "settings": {} },
+        "style": { "type": "style", "settings": {} },
+        "price": { "type": "price", "settings": {} },
+        "buy": { "type": "buy_button", "settings": { "label": "Acquire this piece" } },
+        "desc": { "type": "description", "settings": {} },
+        "spec": { "type": "spec_list", "settings": {} }
+      },
+      "block_order": ["vendor", "title", "style", "price", "buy", "desc", "spec"]
+    },
+    "ethos": {
+      "type": "ethos-band",
+      "blocks": {
+        "e1": { "type": "item", "settings": { "heading": "Hand-sewn", "text": "Cut, stitched and finished entirely by hand." } },
+        "e2": { "type": "item", "settings": { "heading": "One of one", "text": "A single edition — never repeated." } },
+        "e3": { "type": "item", "settings": { "heading": "Made to keep", "text": "Heirloom construction, made to be handed down." } }
+      },
+      "block_order": ["e1", "e2", "e3"]
+    },
+    "more": { "type": "more-from-atelier", "settings": {} }
+  },
+  "order": ["main", "ethos", "more"]
+}

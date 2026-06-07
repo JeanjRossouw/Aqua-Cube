@@ -1,0 +1,39 @@
+<section class="section">
+  <div class="wrap" style="max-width:840px;">
+    <div class="section-head"><h2>{{ 'cart.general.title' | t }}</h2></div>
+
+    {%- if cart.item_count == 0 -%}
+      <p class="collection-empty">{{ 'cart.general.empty' | t }}</p>
+      <div class="center"><a class="btn" href="{{ routes.all_products_collection_url }}">{{ 'cart.general.continue' | t }}</a></div>
+    {%- else -%}
+      <form action="{{ routes.cart_url }}" method="post" novalidate>
+        {%- for item in cart.items -%}
+          <div class="cart-line">
+            <a class="cart-line__media" href="{{ item.url }}">
+              {%- if item.image -%}<img src="{{ item.image | image_url: width: 180 }}" alt="{{ item.title | escape }}">{%- endif -%}
+            </a>
+            <div>
+              <a href="{{ item.url }}" style="font-family:var(--font-display);font-size:1.25rem;">{{ item.product.title }}</a>
+              {%- unless item.variant.title contains 'Default' -%}<div class="card__style">{{ item.variant.title }}</div>{%- endunless -%}
+              <div style="margin-top:0.4rem;"><a href="{{ item.url_to_remove }}" class="spec-list__label">{{ 'cart.general.remove' | t }}</a></div>
+            </div>
+            <div style="font-family:var(--font-display);font-size:1.2rem;">{{ item.final_line_price | money }}</div>
+          </div>
+        {%- endfor -%}
+
+        <div class="cart-foot">
+          <p class="cart-note">{{ 'cart.general.note' | t }}</p>
+          <div style="text-align:right;">
+            <div class="spec-list__label">{{ 'cart.general.subtotal' | t }}</div>
+            <div style="font-family:var(--font-display);font-size:1.8rem;margin:0.2rem 0 1rem;">{{ cart.total_price | money }}</div>
+            <button type="submit" name="checkout" class="btn btn--solid">{{ 'cart.general.checkout' | t }}</button>
+          </div>
+        </div>
+      </form>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Cart", "settings": [] }
+{% endschema %}

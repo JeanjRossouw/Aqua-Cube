@@ -1,0 +1,51 @@
+{%- liquid
+  assign types = collection.products | map: 'type' | uniq
+-%}
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h2>{{ collection.title }}</h2>
+      {%- if collection.description != blank -%}<p>{{ collection.description | strip_html | truncatewords: 32 }}</p>{%- endif -%}
+    </div>
+
+    {%- if section.settings.show_filters and types.size > 1 -%}
+      <div class="filter-chips" data-filter-chips>
+        <button type="button" class="chip is-active" data-filter="*">{{ 'collections.general.all' | t }}</button>
+        {%- for t in types -%}
+          {%- if t != blank -%}
+            <button type="button" class="chip" data-filter="{{ t | handle }}">{{ t }}</button>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- paginate collection.products by 24 -%}
+      <div class="grid" data-filter-grid>
+        {%- for product in collection.products -%}
+          {% render 'product-card', product: product %}
+        {%- else -%}
+          <p class="collection-empty">{{ 'collections.general.no_matches' | t }}</p>
+        {%- endfor -%}
+      </div>
+      <p class="collection-empty" data-filter-empty hidden>{{ 'collections.general.no_matches' | t }}</p>
+
+      {%- if paginate.pages > 1 -%}
+        <div class="center" style="margin-top:2.5rem;">
+          {%- if paginate.previous -%}<a class="btn" href="{{ paginate.previous.url }}">&larr;</a>{%- endif -%}
+          {%- if paginate.next -%}<a class="btn" href="{{ paginate.next.url }}">&rarr;</a>{%- endif -%}
+        </div>
+      {%- endif -%}
+    {%- endpaginate -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Collection" },
+    { "type": "checkbox", "id": "show_filters", "label": "Show category filter chips", "default": true }
+  ]
+}
+{% endschema %}

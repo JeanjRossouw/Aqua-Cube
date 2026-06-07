@@ -1,0 +1,15 @@
+{
+  "current": {
+    "wordmark": "MIETTE",
+    "wordmark_tagline": "Maison Miette",
+    "color_bg": "#FAF6F1",
+    "color_card": "#FFFFFF",
+    "color_text": "#2B2622",
+    "color_text_soft": "#5C544C",
+    "color_blush": "#E9D2CF",
+    "color_blush_deep": "#D8A7A0",
+    "color_accent": "#B58A54",
+    "color_hairline": "#E4DACE",
+    "page_width": 1180
+  }
+}

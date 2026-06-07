@@ -1,0 +1,43 @@
+{%- comment -%}
+  Renders a Maison Miette "1 of 1" product card.
+  Accepts: product (required)
+  Style line: product.metafields.custom.style, falling back to the first tag.
+{%- endcomment -%}
+{%- liquid
+  assign style_text = product.metafields.custom.style
+  if style_text == blank and product.tags.size > 0
+    assign style_text = product.tags.first
+  endif
+  assign sold = false
+  unless product.available
+    assign sold = true
+  endunless
+  assign cats = product.type | handle
+  for t in product.tags
+    assign cats = cats | append: ',' | append: t | handle
+  endfor
+-%}
+<a class="card{% if sold %} is-sold{% endif %}" href="{{ product.url }}" data-categories="{{ cats }}">
+  <div class="card__media">
+    {%- if product.featured_image -%}
+      <img src="{{ product.featured_image | image_url: width: 600 }}"
+           alt="{{ product.featured_image.alt | default: product.title | escape }}"
+           loading="lazy" width="600" height="750">
+    {%- else -%}
+      <div class="card__placeholder" aria-hidden="true">{{ product.title | slice: 0, 1 }}</div>
+    {%- endif -%}
+    {%- if sold -%}
+      <div class="card__sold"><span>{{ 'products.product.sold' | t }}</span></div>
+    {%- else -%}
+      <span class="card__tag">{{ 'products.product.one_of_one' | t }}</span>
+    {%- endif -%}
+  </div>
+  <div class="card__body">
+    <h3 class="card__name">{{ product.title }}</h3>
+    {%- if style_text != blank -%}<p class="card__style">{{ style_text }}</p>{%- endif -%}
+    <div class="card__foot">
+      <span class="card__price">{{ product.price | money }}</span>
+      <span class="btn">{% if sold %}{{ 'products.product.sold' | t }}{% else %}{{ 'products.product.details' | t }}{% endif %}</span>
+    </div>
+  </div>
+</a>
