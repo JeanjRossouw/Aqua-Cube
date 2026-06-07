@@ -81,5 +81,60 @@ const PRODUCTS = [
         image: 'images/products/heartbeat.jpg',
         url: SHOP_BASE + '/products/the-heartbeat-set',
         soldOut: false
+    },
+    {
+        id: 'josephine',
+        name: 'The Joséphine Gown',
+        style: 'Rose halter · navy floral, floor-length',
+        description: 'A blush satin halter bodice over a floor-sweeping navy floral skirt, finished with a pearl-set bow. Hand-sewn.',
+        price: 1950,
+        monogram: 'J',
+        image: 'images/products/josephine.jpg',
+        url: SHOP_BASE + '/collections/the-collection',
+        soldOut: false
+    },
+    {
+        id: 'eloise',
+        name: 'The Éloise Gown',
+        style: 'Taupe crêpe · crochet blooms',
+        description: 'A long-sleeved wrap gown in soft taupe crêpe, hand-belted and trimmed with crocheted blooms. The quietest piece in the maison.',
+        price: 1600,
+        monogram: 'É',
+        image: 'images/products/eloise.webp',
+        url: SHOP_BASE + '/collections/the-collection',
+        soldOut: false
+    },
+    {
+        id: 'margaux',
+        name: 'The Margaux Set',
+        style: 'Copper shimmer · denim, two-piece',
+        description: 'A glittering copper halter-neck over a topstitched denim mini — a two-piece cut for the city.',
+        price: 1100,
+        monogram: 'M',
+        image: 'images/products/margaux.webp',
+        url: SHOP_BASE + '/collections/the-collection',
+        soldOut: false
+    },
+    {
+        id: 'colette',
+        name: 'The Colette Set',
+        style: 'Terracotta knit · rose tulle',
+        description: 'A terracotta knit tee with a rose-tulle tutu and a single satin bow — playful, and hand-finished.',
+        price: 1000,
+        monogram: 'C',
+        image: 'images/products/colette.webp',
+        url: SHOP_BASE + '/collections/the-collection',
+        soldOut: false
+    },
+    {
+        id: 'violette',
+        name: 'The Violette Gown',
+        style: 'Purple velvet · glitter tulle',
+        description: 'Crushed-violet velvet with puff sleeves and a shimmering rose-gold tulle skirt over a velvet hem. Hand-sewn.',
+        price: 2100,
+        monogram: 'V',
+        image: 'images/products/violette.webp',
+        url: SHOP_BASE + '/collections/the-collection',
+        soldOut: false
     }
 ];
