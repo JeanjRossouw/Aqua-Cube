@@ -12,7 +12,7 @@
  *   soldOut  — set to true once the single edition has been sold. The card then
  *              greys out and the button reads "Sold out".
  */
-const SHOP_BASE = 'https://yixwg3-3d.myshopify.com';
+const SHOP_BASE = 'https://maisonmiette.co.za';
 
 const PRODUCTS = [
     {
@@ -90,7 +90,7 @@ const PRODUCTS = [
         price: 1950,
         monogram: 'J',
         image: 'images/products/josephine.jpg',
-        url: SHOP_BASE + '/collections/the-collection',
+        url: SHOP_BASE + '/products/the-josephine-gown',
         soldOut: false
     },
     {
@@ -101,7 +101,7 @@ const PRODUCTS = [
         price: 1600,
         monogram: 'É',
         image: 'images/products/eloise.webp',
-        url: SHOP_BASE + '/collections/the-collection',
+        url: SHOP_BASE + '/products/the-eloise-gown',
         soldOut: false
     },
     {
@@ -112,7 +112,7 @@ const PRODUCTS = [
         price: 1100,
         monogram: 'M',
         image: 'images/products/margaux.webp',
-        url: SHOP_BASE + '/collections/the-collection',
+        url: SHOP_BASE + '/products/the-margaux-set',
         soldOut: false
     },
     {
@@ -123,7 +123,7 @@ const PRODUCTS = [
         price: 1000,
         monogram: 'C',
         image: 'images/products/colette.webp',
-        url: SHOP_BASE + '/collections/the-collection',
+        url: SHOP_BASE + '/products/the-colette-set',
         soldOut: false
     },
     {
@@ -134,7 +134,7 @@ const PRODUCTS = [
         price: 2100,
         monogram: 'V',
         image: 'images/products/violette.webp',
-        url: SHOP_BASE + '/collections/the-collection',
+        url: SHOP_BASE + '/products/the-violette-gown',
         soldOut: false
     }
 ];
