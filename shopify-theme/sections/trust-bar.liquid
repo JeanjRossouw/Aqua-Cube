@@ -1,0 +1,65 @@
+<section class="trust-bar">
+  <div class="container">
+    <ul class="trust-bar__items">
+      {%- for block in section.blocks -%}
+        <li class="trust-bar__item" {{ block.shopify_attributes }}>
+          <span class="trust-bar__icon" aria-hidden="true">
+            {%- case block.settings.icon -%}
+              {%- when 'truck' -%}<i class="fas fa-truck"></i>
+              {%- when 'lock' -%}<i class="fas fa-lock"></i>
+              {%- when 'fish' -%}<i class="fas fa-fish"></i>
+              {%- when 'rotate' -%}<i class="fas fa-rotate-left"></i>
+              {%- when 'star' -%}<i class="fas fa-star"></i>
+              {%- when 'leaf' -%}<i class="fas fa-leaf"></i>
+              {%- when 'phone' -%}<i class="fas fa-phone"></i>
+            {%- endcase -%}
+          </span>
+          <span class="trust-bar__label">{{ block.settings.label }}</span>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Trust bar",
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Trust item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "truck",
+          "options": [
+            { "value": "truck",  "label": "Truck (shipping)" },
+            { "value": "lock",   "label": "Lock (secure)" },
+            { "value": "fish",   "label": "Fish (expertise)" },
+            { "value": "rotate", "label": "Returns" },
+            { "value": "star",   "label": "Star (rating)" },
+            { "value": "leaf",   "label": "Leaf (natural)" },
+            { "value": "phone",  "label": "Phone (support)" }
+          ]
+        },
+        { "type": "text", "id": "label", "label": "Label", "default": "Free delivery" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Trust bar",
+      "category": "Aqua Cube",
+      "blocks": [
+        { "type": "item", "settings": { "icon": "truck",  "label": "Free SA delivery over R1500" } },
+        { "type": "item", "settings": { "icon": "lock",   "label": "Secure PayFast checkout" } },
+        { "type": "item", "settings": { "icon": "fish",   "label": "10+ years of aquarium expertise" } },
+        { "type": "item", "settings": { "icon": "rotate", "label": "30-day returns" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

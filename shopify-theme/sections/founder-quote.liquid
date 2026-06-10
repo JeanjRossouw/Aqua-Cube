@@ -1,0 +1,79 @@
+{%- liquid
+  assign portrait_image = section.settings.portrait_image
+  assign portrait_alt = section.settings.author_name | default: 'Founder portrait'
+-%}
+
+<section class="fq-section" aria-labelledby="fq-heading-{{ section.id }}">
+  <div class="ac-page">
+    <div class="fq-grid">
+      <div class="fq-portrait">
+        {%- if portrait_image != blank -%}
+          <img class="fq-portrait__img"
+               src="{{ portrait_image | image_url: width: 800 }}"
+               srcset="{{ portrait_image | image_url: width: 400 }} 400w, {{ portrait_image | image_url: width: 800 }} 800w, {{ portrait_image | image_url: width: 1200 }} 1200w"
+               sizes="(max-width: 720px) 100vw, 45vw"
+               alt="{{ portrait_image.alt | default: portrait_alt | escape }}"
+               loading="lazy">
+        {%- elsif section.settings.portrait_placeholder_url != blank -%}
+          <img class="fq-portrait__img"
+               src="{{ section.settings.portrait_placeholder_url }}"
+               alt="{{ portrait_alt | escape }}"
+               loading="lazy">
+        {%- else -%}
+          <div class="fq-portrait__placeholder" aria-hidden="true"></div>
+        {%- endif -%}
+      </div>
+
+      <div class="fq-quote">
+        <div class="fq-quote__open" aria-hidden="true">&ldquo;</div>
+        <blockquote class="fq-quote__body" id="fq-heading-{{ section.id }}">
+          {%- if section.settings.quote_text != blank -%}
+            {{ section.settings.quote_text }}
+          {%- endif -%}
+          {%- if section.settings.quote_text != blank and section.settings.quote_accent != blank %} {% endif -%}
+          {%- if section.settings.quote_accent != blank -%}
+            <em class="fq-quote__accent">{{ section.settings.quote_accent }}</em>
+          {%- endif -%}
+        </blockquote>
+        {%- if section.settings.author_name != blank or section.settings.author_title != blank -%}
+          <div class="fq-quote__cite">
+            {%- if section.settings.author_name != blank -%}
+              <strong class="fq-quote__cite-name">{{ section.settings.author_name }}</strong>
+            {%- endif -%}
+            {%- if section.settings.author_title != blank -%}
+              <span>· {{ section.settings.author_title }}</span>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Founder Quote",
+  "settings": [
+    { "type": "header", "content": "Portrait" },
+    { "type": "image_picker", "id": "portrait_image", "label": "Portrait photo (uploaded)",
+      "info": "Picked image wins over the placeholder URL below. Renders as a 4:5 portrait on the left." },
+    { "type": "text", "id": "portrait_placeholder_url", "label": "Placeholder image URL",
+      "info": "External URL used when no image is uploaded. Demo default is a free Unsplash portrait — replace with the real founder photo for production.",
+      "default": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=1200&q=80" },
+
+    { "type": "header", "content": "Quote" },
+    { "type": "textarea", "id": "quote_text", "label": "Quote — main text (white)",
+      "default": "We started Aqua Cube because nobody in SA was building tanks that actually thrived long-term." },
+    { "type": "text", "id": "quote_accent", "label": "Quote — italic accent (aqua)",
+      "info": "Appended after the main quote and rendered in italic aqua.",
+      "default": "So we built them ourselves." },
+
+    { "type": "header", "content": "Attribution" },
+    { "type": "text", "id": "author_name",  "label": "Name",  "default": "Jean" },
+    { "type": "text", "id": "author_title", "label": "Title", "default": "FOUNDER, AQUA CUBE" }
+  ],
+  "presets": [
+    { "name": "Founder Quote", "category": "Aqua Cube" }
+  ]
+}
+{% endschema %}

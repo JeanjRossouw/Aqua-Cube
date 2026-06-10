@@ -1,0 +1,886 @@
+
+==============================================================================
+FILE: AquaCube_01_Lighting_CO2_SHOPIFY_COLLECTIONS.csv
+==============================================================================
+  [OK] All required columns present
+  Rows: 36
+  [WARN] Row 2 (ZETLN1050): price 441.03 doesn't match cost×1.15×1.30=507.18
+  [WARN] Row 2: unusual Continue selling value 'DENY'
+  [WARN] Row 3 (ZETE324WPLANT): price 1233.38 doesn't match cost×1.15×1.30=1418.38
+  [WARN] Row 3: unusual Continue selling value 'DENY'
+  [WARN] Row 4 (ZETE324WMARINE): price 1233.38 doesn't match cost×1.15×1.30=1418.38
+  [WARN] Row 4: unusual Continue selling value 'DENY'
+  [WARN] Row 5 (ZETZA1201AI): price 1719.25 doesn't match cost×1.15×1.30=1977.14
+  [WARN] Row 5: unusual Continue selling value 'DENY'
+  [WARN] Row 6 (ZETO2FRESHWATER): price 3214.25 doesn't match cost×1.15×1.30=3696.39
+  [WARN] Row 6: unusual Continue selling value 'DENY'
+  [WARN] Row 7 (ZETUFO8PRO): price 4014.08 doesn't match cost×1.15×1.30=4616.19
+  [WARN] Row 7: unusual Continue selling value 'DENY'
+  [WARN] Row 8 (ZETX966WMARINE): price 3064.75 doesn't match cost×1.15×1.30=3524.46
+  [WARN] Row 8: unusual Continue selling value 'DENY'
+  [WARN] Row 9 (ZETX9PRO96W): price 4260.75 doesn't match cost×1.15×1.30=4899.86
+  [WARN] Row 9: unusual Continue selling value 'DENY'
+  [WARN] Row 10 (ZETQMAVEN90): price 8596.25 doesn't match cost×1.15×1.30=9885.69
+  [WARN] Row 10: unusual Continue selling value 'DENY'
+  [WARN] Row 11 (ZETQMAVEN120): price 11287.25 doesn't match cost×1.15×1.30=12980.34
+  [WARN] Row 11: unusual Continue selling value 'DENY'
+  [WARN] Row 12 (CHIAII301): price 770.53 doesn't match cost×1.15×1.30=885.41
+  [WARN] Row 12: unusual Continue selling value 'DENY'
+  [WARN] Row 13 (CHIAII361): price 889.53 doesn't match cost×1.15×1.30=1022.95
+  [WARN] Row 13: unusual Continue selling value 'DENY'
+  [WARN] Row 14 (CHIAII451): price 964.28 doesn't match cost×1.15×1.30=1108.92
+  [WARN] Row 14: unusual Continue selling value 'DENY'
+  [WARN] Row 15 (CHIAII601): price 1143.68 doesn't match cost×1.15×1.30=1315.23
+  [WARN] Row 15: unusual Continue selling value 'DENY'
+  [WARN] Row 16 (CHIAII801): price 1308.13 doesn't match cost×1.15×1.30=1504.34
+  [WARN] Row 16: unusual Continue selling value 'DENY'
+  [WARN] Row 17 (CHIAII901): price 1420.25 doesn't match cost×1.15×1.30=1633.29
+  [WARN] Row 17: unusual Continue selling value 'DENY'
+  [WARN] Row 18 (CHIAII1201): price 1973.4 doesn't match cost×1.15×1.30=2269.41
+  [WARN] Row 18: unusual Continue selling value 'DENY'
+  [WARN] Row 19 (CHIWRGB2S30): price 1233.38 doesn't match cost×1.15×1.30=1418.38
+  [WARN] Row 19: unusual Continue selling value 'DENY'
+  [WARN] Row 20 (CHIWRGB2S45): price 1486.23 doesn't match cost×1.15×1.30=1709.16
+  [WARN] Row 20: unusual Continue selling value 'DENY'
+  [WARN] Row 21 (CHIWRGB2S60): price 2317.25 doesn't match cost×1.15×1.30=2664.84
+  [WARN] Row 21: unusual Continue selling value 'DENY'
+  [WARN] Row 22 (CHIWRGB2S90): price 2765.75 doesn't match cost×1.15×1.30=3180.61
+  [WARN] Row 22: unusual Continue selling value 'DENY'
+  [WARN] Row 23 (CHIWRGB2S120): price 3662.75 doesn't match cost×1.15×1.30=4212.16
+  [WARN] Row 23: unusual Continue selling value 'DENY'
+  [WARN] Row 24 (CHICII): price 1868.75 doesn't match cost×1.15×1.30=2149.06
+  [WARN] Row 24: unusual Continue selling value 'DENY'
+  [WARN] Row 25 (CHIZLIGHT): price 654.81 doesn't match cost×1.15×1.30=753.03
+  [WARN] Row 25: unusual Continue selling value 'DENY'
+  [WARN] Row 26 (CHIRGBVIVID): price 4111.25 doesn't match cost×1.15×1.30=4727.94
+  [WARN] Row 26: unusual Continue selling value 'DENY'
+  [WARN] Row 27 (CHIRGBVIVID2): price 6802.25 doesn't match cost×1.15×1.30=7822.59
+  [WARN] Row 27: unusual Continue selling value 'DENY'
+  [WARN] Row 28 (CHIWRGBVIVID3): price 8147.75 doesn't match cost×1.15×1.30=9369.91
+  [WARN] Row 28: unusual Continue selling value 'DENY'
+  [WARN] Row 29 (CHIWRGB2P60): price 4410.25 doesn't match cost×1.15×1.30=5071.79
+  [WARN] Row 29: unusual Continue selling value 'DENY'
+  [WARN] Row 30 (CHIWRGB2P90): price 5905.25 doesn't match cost×1.15×1.30=6791.04
+  [WARN] Row 30: unusual Continue selling value 'DENY'
+  [WARN] Row 31 (CHIWRGB2P120): price 7400.25 doesn't match cost×1.15×1.30=8510.29
+  [WARN] Row 31: unusual Continue selling value 'DENY'
+  [WARN] Row 32 (AQUAPRON2REG): price 1038.93 doesn't match cost×1.15×1.30=1194.88
+  [WARN] Row 32: unusual Continue selling value 'DENY'
+  [WARN] Row 33 (CHITINYCO2): price 156.98 doesn't match cost×1.15×1.30=180.52
+  [WARN] Row 33: unusual Continue selling value 'DENY'
+  [WARN] Row 34 (CHICO2REG): price 1270.75 doesn't match cost×1.15×1.30=1461.36
+  [WARN] Row 34: unusual Continue selling value 'DENY'
+  [WARN] Row 35 (CHICO2REGPRO): price 2429.38 doesn't match cost×1.15×1.30=2793.78
+  [WARN] Row 35: unusual Continue selling value 'DENY'
+  [WARN] Row 36 (CHIMANIFOLDB): price 366.28 doesn't match cost×1.15×1.30=421.22
+  [WARN] Row 36: unusual Continue selling value 'DENY'
+  [WARN] Row 37 (CHICO2GENKIT): price 3064.75 doesn't match cost×1.15×1.30=3524.46
+  [WARN] Row 37: unusual Continue selling value 'DENY'
+  Summary: 0 errors, 72 warnings
+
+==============================================================================
+FILE: AquaCube_02_Pumps_Flow_SHOPIFY_COLLECTIONS.csv
+==============================================================================
+  [OK] All required columns present
+  Rows: 55
+  [WARN] Row 2 (SOBOPD1): price 82.23 doesn't match cost×1.15×1.30=94.56
+  [WARN] Row 2: unusual Continue selling value 'DENY'
+  [WARN] Row 3 (SOBOWP3200): price 74.75 doesn't match cost×1.15×1.30=85.96
+  [WARN] Row 3: unusual Continue selling value 'DENY'
+  [WARN] Row 4 (SOBOWP3300): price 112.13 doesn't match cost×1.15×1.30=128.94
+  [WARN] Row 4: unusual Continue selling value 'DENY'
+  [WARN] Row 5 (SOBOWP3400): price 142.03 doesn't match cost×1.15×1.30=163.33
+  [WARN] Row 5: unusual Continue selling value 'DENY'
+  [WARN] Row 6 (SOBOWP3500): price 186.88 doesn't match cost×1.15×1.30=214.91
+  [WARN] Row 6: unusual Continue selling value 'DENY'
+  [WARN] Row 7 (SOBOWP4000): price 287.04 doesn't match cost×1.15×1.30=330.10
+  [WARN] Row 7: unusual Continue selling value 'DENY'
+  [WARN] Row 8 (SOBOWP5000): price 366.28 doesn't match cost×1.15×1.30=421.22
+  [WARN] Row 8: unusual Continue selling value 'DENY'
+  [WARN] Row 9 (SOBOWP6000): price 590.53 doesn't match cost×1.15×1.30=679.10
+  [WARN] Row 9: unusual Continue selling value 'DENY'
+  [WARN] Row 10 (SOBOWP7000): price 657.8 doesn't match cost×1.15×1.30=756.47
+  [WARN] Row 10: unusual Continue selling value 'DENY'
+  [WARN] Row 11 (SOBOWP8000): price 807.3 doesn't match cost×1.15×1.30=928.39
+  [WARN] Row 11: unusual Continue selling value 'DENY'
+  [WARN] Row 12 (SOBOBO9000A): price 1013.61 doesn't match cost×1.15×1.30=1165.65
+  [WARN] Row 12: unusual Continue selling value 'DENY'
+  [WARN] Row 13 (SOBOBO12000A): price 1279.72 doesn't match cost×1.15×1.30=1471.68
+  [WARN] Row 13: unusual Continue selling value 'DENY'
+  [WARN] Row 14 (SOBOBO14000A): price 1367.93 doesn't match cost×1.15×1.30=1573.11
+  [WARN] Row 14: unusual Continue selling value 'DENY'
+  [WARN] Row 15 (SOBOBO16000A): price 1442.68 doesn't match cost×1.15×1.30=1659.08
+  [WARN] Row 15: unusual Continue selling value 'DENY'
+  [WARN] Row 16 (SOBOWP2200): price 246.68 doesn't match cost×1.15×1.30=283.68
+  [WARN] Row 16: unusual Continue selling value 'DENY'
+  [WARN] Row 17 (SOBOWP4200): price 276.58 doesn't match cost×1.15×1.30=318.06
+  [WARN] Row 17: unusual Continue selling value 'DENY'
+  [WARN] Row 18 (SOBOWP5200): price 430.56 doesn't match cost×1.15×1.30=495.14
+  [WARN] Row 18: unusual Continue selling value 'DENY'
+  [WARN] Row 19 (SOBOWP7200): price 619.33 doesn't match cost×1.15×1.30=711.77
+  [WARN] Row 19: unusual Continue selling value 'DENY'
+  [WARN] Row 20 (SOBOWP9200): price 523.25 doesn't match cost×1.15×1.30=601.74
+  [WARN] Row 20: unusual Continue selling value 'DENY'
+  [WARN] Row 21 (SOBOWP9600): price 897.0 doesn't match cost×1.15×1.30=1031.55
+  [WARN] Row 21: unusual Continue selling value 'DENY'
+  [WARN] Row 22 (SOBOWP9900): price 1270.75 doesn't match cost×1.15×1.30=1461.36
+  [WARN] Row 22: unusual Continue selling value 'DENY'
+  [WARN] Row 23 (SOBOWP10800): price 1569.75 doesn't match cost×1.15×1.30=1805.21
+  [WARN] Row 23: unusual Continue selling value 'DENY'
+  [WARN] Row 24 (SOBOSF1500DC): price 575.58 doesn't match cost×1.15×1.30=661.91
+  [WARN] Row 24: unusual Continue selling value 'DENY'
+  [WARN] Row 25 (SOBOSF2000DC): price 821.25 doesn't match cost×1.15×1.30=945.59
+  [WARN] Row 25: unusual Continue selling value 'DENY'
+  [WARN] Row 26 (SOBOSF3000DC): price 1038.93 doesn't match cost×1.15×1.30=1194.88
+  [WARN] Row 26: unusual Continue selling value 'DENY'
+  [WARN] Row 27 (SOBOSF4000DC): price 1097.85 doesn't match cost×1.15×1.30=1262.53
+  [WARN] Row 27: unusual Continue selling value 'DENY'
+  [WARN] Row 28 (SOBOSF5000DC): price 1255.02 doesn't match cost×1.15×1.30=1443.27
+  [WARN] Row 28: unusual Continue selling value 'DENY'
+  [WARN] Row 29 (SOBOSF6000DC): price 1367.93 doesn't match cost×1.15×1.30=1573.11
+  [WARN] Row 29: unusual Continue selling value 'DENY'
+  [WARN] Row 30 (SOBOSF8000DC): price 1644.5 doesn't match cost×1.15×1.30=1891.17
+  [WARN] Row 30: unusual Continue selling value 'DENY'
+  [WARN] Row 31 (SOBOSF10000DC): price 1719.25 doesn't match cost×1.15×1.30=1977.14
+  [WARN] Row 31: unusual Continue selling value 'DENY'
+  [WARN] Row 32 (SOBOSF12000DC): price 1913.6 doesn't match cost×1.15×1.30=2200.64
+  [WARN] Row 32: unusual Continue selling value 'DENY'
+  [WARN] Row 33 (SOBOWP50M): price 127.08 doesn't match cost×1.15×1.30=146.14
+  [WARN] Row 33: unusual Continue selling value 'DENY'
+  [WARN] Row 34 (SOBOWP100M): price 149.5 doesn't match cost×1.15×1.30=171.93
+  [WARN] Row 34: unusual Continue selling value 'DENY'
+  [WARN] Row 35 (SOBOWP200M): price 171.93 doesn't match cost×1.15×1.30=197.71
+  [WARN] Row 35: unusual Continue selling value 'DENY'
+  [WARN] Row 36 (SOBOWP300M): price 186.88 doesn't match cost×1.15×1.30=214.91
+  [WARN] Row 36: unusual Continue selling value 'DENY'
+  [WARN] Row 37 (SOBOWP400M): price 216.78 doesn't match cost×1.15×1.30=249.29
+  [WARN] Row 37: unusual Continue selling value 'DENY'
+  [WARN] Row 38 (SOBOWP800M): price 336.38 doesn't match cost×1.15×1.30=386.83
+  [WARN] Row 38: unusual Continue selling value 'DENY'
+  [WARN] Row 39 (BMROCKWP600): price 278.2 doesn't match cost×1.15×1.30=319.93
+  [WARN] Row 39: unusual Continue selling value 'DENY'
+  [WARN] Row 40 (BMROCKWP1000): price 367.77 doesn't match cost×1.15×1.30=422.94
+  [WARN] Row 40: unusual Continue selling value 'DENY'
+  [WARN] Row 41 (BMROCKWP2000): price 529.23 doesn't match cost×1.15×1.30=608.61
+  [WARN] Row 41: unusual Continue selling value 'DENY'
+  [WARN] Row 42 (BMROCKWP4000): price 1005.16 doesn't match cost×1.15×1.30=1155.93
+  [WARN] Row 42: unusual Continue selling value 'DENY'
+  [WARN] Row 43 (BMSP600): price 376.74 doesn't match cost×1.15×1.30=433.25
+  [WARN] Row 43: unusual Continue selling value 'DENY'
+  [WARN] Row 44 (BMSP1000): price 511.29 doesn't match cost×1.15×1.30=587.98
+  [WARN] Row 44: unusual Continue selling value 'DENY'
+  [WARN] Row 45 (BMSP1500): price 627.9 doesn't match cost×1.15×1.30=722.08
+  [WARN] Row 45: unusual Continue selling value 'DENY'
+  [WARN] Row 46 (BMSP2000): price 794.35 doesn't match cost×1.15×1.30=912.92
+  [WARN] Row 46: unusual Continue selling value 'DENY'
+  [WARN] Row 47 (BMSP4000): price 1345.5 doesn't match cost×1.15×1.30=1547.33
+  [WARN] Row 47: unusual Continue selling value 'DENY'
+  [WARN] Row 48 (BMDSP4000): price 1569.75 doesn't match cost×1.15×1.30=1805.21
+  [WARN] Row 48: unusual Continue selling value 'DENY'
+  [WARN] Row 49 (BMSP6000): price 3318.9 doesn't match cost×1.15×1.30=3816.73
+  [WARN] Row 49: unusual Continue selling value 'DENY'
+  [WARN] Row 50 (BMSP8000): price 3856.1 doesn't match cost×1.15×1.30=4435.66
+  [WARN] Row 50: unusual Continue selling value 'DENY'
+  [WARN] Row 51 (BMSP10000): price 4036.5 doesn't match cost×1.15×1.30=4641.97
+  [WARN] Row 51: unusual Continue selling value 'DENY'
+  [WARN] Row 52 (JEBMOW3): price 1472.58 doesn't match cost×1.15×1.30=1693.46
+  [WARN] Row 52: unusual Continue selling value 'DENY'
+  [WARN] Row 53 (JEBMOW5): price 1764.1 doesn't match cost×1.15×1.30=2028.71
+  [WARN] Row 53: unusual Continue selling value 'DENY'
+  [WARN] Row 54 (JEBMOW9): price 2085.53 doesn't match cost×1.15×1.30=2398.35
+  [WARN] Row 54: unusual Continue selling value 'DENY'
+  [WARN] Row 55 (JEBMOW16): price 2466.75 doesn't match cost×1.15×1.30=2836.76
+  [WARN] Row 55: unusual Continue selling value 'DENY'
+  [WARN] Row 56 (JEBMOW22): price 3281.53 doesn't match cost×1.15×1.30=3773.75
+  [WARN] Row 56: unusual Continue selling value 'DENY'
+  Summary: 0 errors, 110 warnings
+
+==============================================================================
+FILE: AquaCube_03_Filtration_Accessories_SHOPIFY_COLLECTIONS.csv
+==============================================================================
+  [OK] All required columns present
+  Rows: 66
+  [WARN] Row 2 (XYBIOCHEM168): price 22.43 doesn't match cost×1.15×1.30=25.79
+  [WARN] Row 2: unusual Continue selling value 'DENY'
+  [WARN] Row 3 (XYBIOSPONG2820): price 32.89 doesn't match cost×1.15×1.30=37.82
+  [WARN] Row 3: unusual Continue selling value 'DENY'
+  [WARN] Row 4 (XYBIOSPONG2830): price 37.38 doesn't match cost×1.15×1.30=42.98
+  [WARN] Row 4: unusual Continue selling value 'DENY'
+  [WARN] Row 5 (XYBIOSPONG2831): price 52.33 doesn't match cost×1.15×1.30=60.17
+  [WARN] Row 5: unusual Continue selling value 'DENY'
+  [WARN] Row 6 (XYBIOSPONG2822): price 82.23 doesn't match cost×1.15×1.30=94.56
+  [WARN] Row 6: unusual Continue selling value 'DENY'
+  [WARN] Row 7 (XYBIOFOAM2011): price 52.33 doesn't match cost×1.15×1.30=60.17
+  [WARN] Row 7: unusual Continue selling value 'DENY'
+  [WARN] Row 8 (XYBIOFOAM2008): price 67.28 doesn't match cost×1.15×1.30=77.37
+  [WARN] Row 8: unusual Continue selling value 'DENY'
+  [WARN] Row 9 (XYBIOFOAM2010): price 97.18 doesn't match cost×1.15×1.30=111.75
+  [WARN] Row 9: unusual Continue selling value 'DENY'
+  [WARN] Row 10 (XYNITRITE0121): price 41.86 doesn't match cost×1.15×1.30=48.14
+  [WARN] Row 10: unusual Continue selling value 'DENY'
+  [WARN] Row 11 (XYPHOSPHATE0122): price 41.86 doesn't match cost×1.15×1.30=48.14
+  [WARN] Row 11: unusual Continue selling value 'DENY'
+  [WARN] Row 12 (XYAMMONIA0123): price 41.86 doesn't match cost×1.15×1.30=48.14
+  [WARN] Row 12: unusual Continue selling value 'DENY'
+  [WARN] Row 13 (XYCARBON0124): price 41.86 doesn't match cost×1.15×1.30=48.14
+  [WARN] Row 13: unusual Continue selling value 'DENY'
+  [WARN] Row 14 (XYNITRITE0125): price 77.74 doesn't match cost×1.15×1.30=89.40
+  [WARN] Row 14: unusual Continue selling value 'DENY'
+  [WARN] Row 15 (XYPHOSPHATE0126): price 77.74 doesn't match cost×1.15×1.30=89.40
+  [WARN] Row 15: unusual Continue selling value 'DENY'
+  [WARN] Row 16 (XYNITRITE0127): price 77.74 doesn't match cost×1.15×1.30=89.40
+  [WARN] Row 16: unusual Continue selling value 'DENY'
+  [WARN] Row 17 (XYPHOSPHATE0128): price 77.74 doesn't match cost×1.15×1.30=89.40
+  [WARN] Row 17: unusual Continue selling value 'DENY'
+  [WARN] Row 18 (XYBREEDERBOX): price 164.45 doesn't match cost×1.15×1.30=189.12
+  [WARN] Row 18: unusual Continue selling value 'DENY'
+  [WARN] Row 19 (XYBREEDBXL): price 246.68 doesn't match cost×1.15×1.30=283.68
+  [WARN] Row 19: unusual Continue selling value 'DENY'
+  [WARN] Row 20 (ANBREEDER2): price 171.93 doesn't match cost×1.15×1.30=197.71
+  [WARN] Row 20: unusual Continue selling value 'DENY'
+  [WARN] Row 21 (BBTBETTA2S): price 52.33 doesn't match cost×1.15×1.30=60.17
+  [WARN] Row 21: unusual Continue selling value 'DENY'
+  [WARN] Row 22 (BBTBETTA3S): price 97.18 doesn't match cost×1.15×1.30=111.75
+  [WARN] Row 22: unusual Continue selling value 'DENY'
+  [WARN] Row 23 (BBTBETTA4S): price 186.88 doesn't match cost×1.15×1.30=214.91
+  [WARN] Row 23: unusual Continue selling value 'DENY'
+  [WARN] Row 24 (BUBBLEWALL7): price 34.39 doesn't match cost×1.15×1.30=39.54
+  [WARN] Row 24: unusual Continue selling value 'DENY'
+  [WARN] Row 25 (BUBBLEWALL10): price 41.86 doesn't match cost×1.15×1.30=48.14
+  [WARN] Row 25: unusual Continue selling value 'DENY'
+  [WARN] Row 26 (BUBBLEWALL14): price 52.33 doesn't match cost×1.15×1.30=60.17
+  [WARN] Row 26: unusual Continue selling value 'DENY'
+  [WARN] Row 27 (BUBBLEWALL18): price 56.81 doesn't match cost×1.15×1.30=65.33
+  [WARN] Row 27: unusual Continue selling value 'DENY'
+  [WARN] Row 28 (BUBBLEWALL23): price 59.8 doesn't match cost×1.15×1.30=68.77
+  [WARN] Row 28: unusual Continue selling value 'DENY'
+  [WARN] Row 29 (VENYUGF20): price 127.08 doesn't match cost×1.15×1.30=146.14
+  [WARN] Row 29: unusual Continue selling value 'DENY'
+  [WARN] Row 30 (VENYUGF29): price 142.03 doesn't match cost×1.15×1.30=163.33
+  [WARN] Row 30: unusual Continue selling value 'DENY'
+  [WARN] Row 31 (VENYUGF30): price 179.4 doesn't match cost×1.15×1.30=206.31
+  [WARN] Row 31: unusual Continue selling value 'DENY'
+  [WARN] Row 32 (VENYUGF55): price 231.73 doesn't match cost×1.15×1.30=266.48
+  [WARN] Row 32: unusual Continue selling value 'DENY'
+  [WARN] Row 33 (FILTERMEDIA15): price 10.47 doesn't match cost×1.15×1.30=12.03
+  [WARN] Row 33: unusual Continue selling value 'DENY'
+  [WARN] Row 34 (FILTERMEDIA28): price 14.95 doesn't match cost×1.15×1.30=17.19
+  [WARN] Row 34: unusual Continue selling value 'DENY'
+  [WARN] Row 35 (CERAMTUBE): price 17.94 doesn't match cost×1.15×1.30=20.63
+  [WARN] Row 35: unusual Continue selling value 'DENY'
+  [WARN] Row 36 (CERAMTUBEBOX): price 1420.25 doesn't match cost×1.15×1.30=1633.29
+  [WARN] Row 36: unusual Continue selling value 'DENY'
+  [WARN] Row 37 (ABSCLIP6MM): price 44.85 doesn't match cost×1.15×1.30=51.58
+  [WARN] Row 37: unusual Continue selling value 'DENY'
+  [WARN] Row 38 (ABSCLIP8MM): price 44.85 doesn't match cost×1.15×1.30=51.58
+  [WARN] Row 38: unusual Continue selling value 'DENY'
+  [WARN] Row 39 (BRIESHRIMP): price 170.43 doesn't match cost×1.15×1.30=195.99
+  [WARN] Row 39: unusual Continue selling value 'DENY'
+  [WARN] Row 40 (LONDA10L): price 1345.5 doesn't match cost×1.15×1.30=1547.33
+  [WARN] Row 40: unusual Continue selling value 'DENY'
+  [WARN] Row 41 (SOLARFEEDER): price 44.85 doesn't match cost×1.15×1.30=51.58
+  [WARN] Row 41: unusual Continue selling value 'DENY'
+  [WARN] Row 42 (TELESCOPICCL): price 80.73 doesn't match cost×1.15×1.30=92.84
+  [WARN] Row 42: unusual Continue selling value 'DENY'
+  [WARN] Row 43 (BATTERYVACU): price 171.93 doesn't match cost×1.15×1.30=197.71
+  [WARN] Row 43: unusual Continue selling value 'DENY'
+  [WARN] Row 44 (DIGITHERM): price 59.8 doesn't match cost×1.15×1.30=68.77
+  [WARN] Row 44: unusual Continue selling value 'DENY'
+  [WARN] Row 45 (LEDTHERM): price 62.79 doesn't match cost×1.15×1.30=72.21
+  [WARN] Row 45: unusual Continue selling value 'DENY'
+  [WARN] Row 46 (ANTIFLBAG1): price 23.92 doesn't match cost×1.15×1.30=27.51
+  [WARN] Row 46: unusual Continue selling value 'DENY'
+  [WARN] Row 47 (ANTIFLBAG2): price 23.92 doesn't match cost×1.15×1.30=27.51
+  [WARN] Row 47: unusual Continue selling value 'DENY'
+  [WARN] Row 48 (CARBONSPONGE): price 149.5 doesn't match cost×1.15×1.30=171.93
+  [WARN] Row 48: unusual Continue selling value 'DENY'
+  [WARN] Row 49 (LIVEPLANT001): price 156.98 doesn't match cost×1.15×1.30=180.52
+  [WARN] Row 49: unusual Continue selling value 'DENY'
+  [WARN] Row 50 (LIVEPLANT002): price 142.03 doesn't match cost×1.15×1.30=163.33
+  [WARN] Row 50: unusual Continue selling value 'DENY'
+  [WARN] Row 51 (LIVEPLANT003): price 104.65 doesn't match cost×1.15×1.30=120.35
+  [WARN] Row 51: unusual Continue selling value 'DENY'
+  [WARN] Row 52 (LIVEPLANT004): price 104.65 doesn't match cost×1.15×1.30=120.35
+  [WARN] Row 52: unusual Continue selling value 'DENY'
+  [WARN] Row 53 (LIVEPLANT005): price 104.65 doesn't match cost×1.15×1.30=120.35
+  [WARN] Row 53: unusual Continue selling value 'DENY'
+  [WARN] Row 54 (LIVEPLANT006): price 104.65 doesn't match cost×1.15×1.30=120.35
+  [WARN] Row 54: unusual Continue selling value 'DENY'
+  [WARN] Row 55 (LANGAS8L): price 523.25 doesn't match cost×1.15×1.30=601.74
+  [WARN] Row 55: unusual Continue selling value 'DENY'
+  [WARN] Row 56 (LANGAS8LX3): price 1480.05 doesn't match cost×1.15×1.30=1702.06
+  [WARN] Row 56: unusual Continue selling value 'DENY'
+  [WARN] Row 57 (LANGAS4L): price 269.1 doesn't match cost×1.15×1.30=309.46
+  [WARN] Row 57: unusual Continue selling value 'DENY'
+  [WARN] Row 58 (LANGAS4LX6): price 1480.05 doesn't match cost×1.15×1.30=1702.06
+  [WARN] Row 58: unusual Continue selling value 'DENY'
+  [WARN] Row 59 (LANGASUP): price 74.75 doesn't match cost×1.15×1.30=85.96
+  [WARN] Row 59: unusual Continue selling value 'DENY'
+  [WARN] Row 60 (GLASS150X150X250): price 306.48 doesn't match cost×1.15×1.30=352.45
+  [WARN] Row 60: unusual Continue selling value 'DENY'
+  [WARN] Row 61 (GLASS150X150X300): price 366.28 doesn't match cost×1.15×1.30=421.22
+  [WARN] Row 61: unusual Continue selling value 'DENY'
+  [WARN] Row 62 (GLASS200X200X200): price 373.75 doesn't match cost×1.15×1.30=429.81
+  [WARN] Row 62: unusual Continue selling value 'DENY'
+  [WARN] Row 63 (GLASS200X200X300): price 411.13 doesn't match cost×1.15×1.30=472.79
+  [WARN] Row 63: unusual Continue selling value 'DENY'
+  [WARN] Row 64 (GLASS200X200X350): price 485.88 doesn't match cost×1.15×1.30=558.76
+  [WARN] Row 64: unusual Continue selling value 'DENY'
+  [WARN] Row 65 (GLASS300X180X120): price 441.03 doesn't match cost×1.15×1.30=507.18
+  [WARN] Row 65: unusual Continue selling value 'DENY'
+  [WARN] Row 66 (GLASS300X300X450): price 1023.08 doesn't match cost×1.15×1.30=1177.69
+  [WARN] Row 66: unusual Continue selling value 'DENY'
+  [WARN] Row 67 (GLASS900X450X450): price 4111.25 doesn't match cost×1.15×1.30=4727.94
+  [WARN] Row 67: unusual Continue selling value 'DENY'
+  Summary: 0 errors, 132 warnings
+
+==============================================================================
+FILE: AquaCube_04_Decorations_Ornaments_SHOPIFY_COLLECTIONS.csv
+==============================================================================
+  [OK] All required columns present
+  Rows: 38
+  [WARN] Row 2 (BETTABED001): price 37.38 doesn't match cost×1.15×1.30=42.98
+  [WARN] Row 2: unusual Continue selling value 'DENY'
+  [WARN] Row 3 (BETTABED002): price 37.38 doesn't match cost×1.15×1.30=42.98
+  [WARN] Row 3: unusual Continue selling value 'DENY'
+  [WARN] Row 4 (BETTABED003): price 37.38 doesn't match cost×1.15×1.30=42.98
+  [WARN] Row 4: unusual Continue selling value 'DENY'
+  [WARN] Row 5 (BETTABED004): price 59.8 doesn't match cost×1.15×1.30=68.77
+  [WARN] Row 5: unusual Continue selling value 'DENY'
+  [WARN] Row 6 (ORNAMENT004): price 53.82 doesn't match cost×1.15×1.30=61.89
+  [WARN] Row 6: unusual Continue selling value 'DENY'
+  [WARN] Row 7 (ORNAMENT005): price 134.55 doesn't match cost×1.15×1.30=154.73
+  [WARN] Row 7: unusual Continue selling value 'DENY'
+  [WARN] Row 8 (ORNAMENT006): price 82.23 doesn't match cost×1.15×1.30=94.56
+  [WARN] Row 8: unusual Continue selling value 'DENY'
+  [WARN] Row 9 (ORNAMENT007): price 82.23 doesn't match cost×1.15×1.30=94.56
+  [WARN] Row 9: unusual Continue selling value 'DENY'
+  [WARN] Row 10 (ORNAMENT008): price 104.65 doesn't match cost×1.15×1.30=120.35
+  [WARN] Row 10: unusual Continue selling value 'DENY'
+  [WARN] Row 11 (ORNAMENT009): price 127.08 doesn't match cost×1.15×1.30=146.14
+  [WARN] Row 11: unusual Continue selling value 'DENY'
+  [WARN] Row 12 (ORNAMENT010): price 149.5 doesn't match cost×1.15×1.30=171.93
+  [WARN] Row 12: unusual Continue selling value 'DENY'
+  [WARN] Row 13 (ORNAMENT011): price 112.13 doesn't match cost×1.15×1.30=128.94
+  [WARN] Row 13: unusual Continue selling value 'DENY'
+  [WARN] Row 14 (ORNAMENT012): price 119.6 doesn't match cost×1.15×1.30=137.54
+  [WARN] Row 14: unusual Continue selling value 'DENY'
+  [WARN] Row 15 (ORNAMENT013): price 134.55 doesn't match cost×1.15×1.30=154.73
+  [WARN] Row 15: unusual Continue selling value 'DENY'
+  [WARN] Row 16 (ORNAMENT014): price 276.58 doesn't match cost×1.15×1.30=318.06
+  [WARN] Row 16: unusual Continue selling value 'DENY'
+  [WARN] Row 17 (ORNAMENT015): price 186.88 doesn't match cost×1.15×1.30=214.91
+  [WARN] Row 17: unusual Continue selling value 'DENY'
+  [WARN] Row 18 (ORNAMENT016): price 171.93 doesn't match cost×1.15×1.30=197.71
+  [WARN] Row 18: unusual Continue selling value 'DENY'
+  [WARN] Row 19 (ORNAMENT017): price 216.78 doesn't match cost×1.15×1.30=249.29
+  [WARN] Row 19: unusual Continue selling value 'DENY'
+  [WARN] Row 20 (ORNAMENT018): price 149.5 doesn't match cost×1.15×1.30=171.93
+  [WARN] Row 20: unusual Continue selling value 'DENY'
+  [WARN] Row 21 (ORNAMENT019): price 171.93 doesn't match cost×1.15×1.30=197.71
+  [WARN] Row 21: unusual Continue selling value 'DENY'
+  [WARN] Row 22 (ORNAMENT020): price 171.93 doesn't match cost×1.15×1.30=197.71
+  [WARN] Row 22: unusual Continue selling value 'DENY'
+  [WARN] Row 23 (ORNAMENT021): price 191.36 doesn't match cost×1.15×1.30=220.06
+  [WARN] Row 23: unusual Continue selling value 'DENY'
+  [WARN] Row 24 (ORNAMENT022): price 137.54 doesn't match cost×1.15×1.30=158.17
+  [WARN] Row 24: unusual Continue selling value 'DENY'
+  [WARN] Row 25 (ORNAMENT023): price 179.4 doesn't match cost×1.15×1.30=206.31
+  [WARN] Row 25: unusual Continue selling value 'DENY'
+  [WARN] Row 26 (ORNAMENT024): price 194.35 doesn't match cost×1.15×1.30=223.50
+  [WARN] Row 26: unusual Continue selling value 'DENY'
+  [WARN] Row 27 (ORNAMENT025): price 52.33 doesn't match cost×1.15×1.30=60.17
+  [WARN] Row 27: unusual Continue selling value 'DENY'
+  [WARN] Row 28 (ORNAMENT026): price 82.23 doesn't match cost×1.15×1.30=94.56
+  [WARN] Row 28: unusual Continue selling value 'DENY'
+  [WARN] Row 29 (ORNAMENT027): price 67.28 doesn't match cost×1.15×1.30=77.37
+  [WARN] Row 29: unusual Continue selling value 'DENY'
+  [WARN] Row 30 (ORNAMENT028): price 67.28 doesn't match cost×1.15×1.30=77.37
+  [WARN] Row 30: unusual Continue selling value 'DENY'
+  [WARN] Row 31 (ORNAMENT029): price 134.55 doesn't match cost×1.15×1.30=154.73
+  [WARN] Row 31: unusual Continue selling value 'DENY'
+  [WARN] Row 32 (ORNAMENT030): price 127.08 doesn't match cost×1.15×1.30=146.14
+  [WARN] Row 32: unusual Continue selling value 'DENY'
+  [WARN] Row 33 (ORNAMENT031): price 146.51 doesn't match cost×1.15×1.30=168.49
+  [WARN] Row 33: unusual Continue selling value 'DENY'
+  [WARN] Row 34 (ORNAMENT032): price 119.6 doesn't match cost×1.15×1.30=137.54
+  [WARN] Row 34: unusual Continue selling value 'DENY'
+  [WARN] Row 35 (ORNAMENT033): price 179.4 doesn't match cost×1.15×1.30=206.31
+  [WARN] Row 35: unusual Continue selling value 'DENY'
+  [WARN] Row 36 (ORNAMENT034): price 179.4 doesn't match cost×1.15×1.30=206.31
+  [WARN] Row 36: unusual Continue selling value 'DENY'
+  [WARN] Row 37 (ORNAMENT035): price 127.08 doesn't match cost×1.15×1.30=146.14
+  [WARN] Row 37: unusual Continue selling value 'DENY'
+  [WARN] Row 38 (ORNAMENT036): price 216.78 doesn't match cost×1.15×1.30=249.29
+  [WARN] Row 38: unusual Continue selling value 'DENY'
+  [WARN] Row 39 (ORNAMENT037): price 276.58 doesn't match cost×1.15×1.30=318.06
+  [WARN] Row 39: unusual Continue selling value 'DENY'
+  Summary: 0 errors, 76 warnings
+
+==============================================================================
+FILE: AquaCube_05_Hardscape_Decorations_SHOPIFY_COLLECTIONS.csv
+==============================================================================
+  [OK] All required columns present
+  Rows: 78
+  [WARN] Row 2 (ORNAMENT001): price 11.96 doesn't match cost×1.15×1.30=13.75
+  [WARN] Row 2: unusual Continue selling value 'DENY'
+  [WARN] Row 3 (ORNAMENT002): price 56.81 doesn't match cost×1.15×1.30=65.33
+  [WARN] Row 3: unusual Continue selling value 'DENY'
+  [WARN] Row 4 (ORNAMENT003): price 14.95 doesn't match cost×1.15×1.30=17.19
+  [WARN] Row 4: unusual Continue selling value 'DENY'
+  [WARN] Row 5 (ROCKDRAG25): price 897.0 doesn't match cost×1.15×1.30=1031.55
+  [WARN] Row 5: unusual Continue selling value 'DENY'
+  [WARN] Row 6 (ROCKSCEN20): price 747.5 doesn't match cost×1.15×1.30=859.62
+  [WARN] Row 6: unusual Continue selling value 'DENY'
+  [WARN] Row 7 (ROCKVBLACK20): price 635.38 doesn't match cost×1.15×1.30=730.68
+  [WARN] Row 7: unusual Continue selling value 'DENY'
+  [WARN] Row 8 (ROCKVRED20): price 635.38 doesn't match cost×1.15×1.30=730.68
+  [WARN] Row 8: unusual Continue selling value 'DENY'
+  [WARN] Row 9 (ROCKREEF12): price 949.33 doesn't match cost×1.15×1.30=1091.72
+  [WARN] Row 9: unusual Continue selling value 'DENY'
+  [WARN] Row 10 (DRAGONBOT): price 44.85 doesn't match cost×1.15×1.30=51.58
+  [WARN] Row 10: unusual Continue selling value 'DENY'
+  [WARN] Row 11 (SCENERYBOT): price 44.85 doesn't match cost×1.15×1.30=51.58
+  [WARN] Row 11: unusual Continue selling value 'DENY'
+  [WARN] Row 12 (MINILAVA35): price 73.26 doesn't match cost×1.15×1.30=84.24
+  [WARN] Row 12: unusual Continue selling value 'DENY'
+  [WARN] Row 13 (MINILAVA68): price 73.26 doesn't match cost×1.15×1.30=84.24
+  [WARN] Row 13: unusual Continue selling value 'DENY'
+  [WARN] Row 14 (MINILAVA1215): price 73.26 doesn't match cost×1.15×1.30=84.24
+  [WARN] Row 14: unusual Continue selling value 'DENY'
+  [WARN] Row 15 (AKADAMA14L): price 485.88 doesn't match cost×1.15×1.30=558.76
+  [WARN] Row 15: unusual Continue selling value 'DENY'
+  [WARN] Row 16 (DRIFTWD001): price 545.68 doesn't match cost×1.15×1.30=627.53
+  [WARN] Row 16: unusual Continue selling value 'DENY'
+  [WARN] Row 17 (DRIFTWD002): price 545.68 doesn't match cost×1.15×1.30=627.53
+  [WARN] Row 17: unusual Continue selling value 'DENY'
+  [WARN] Row 18 (DRIFTWD003): price 889.53 doesn't match cost×1.15×1.30=1022.95
+  [WARN] Row 18: unusual Continue selling value 'DENY'
+  [WARN] Row 19 (DRIFTWD004): price 1338.03 doesn't match cost×1.15×1.30=1538.73
+  [WARN] Row 19: unusual Continue selling value 'DENY'
+  [WARN] Row 20 (DRIFTWD005): price 426.08 doesn't match cost×1.15×1.30=489.99
+  [WARN] Row 20: unusual Continue selling value 'DENY'
+  [WARN] Row 21 (DRIFTWD006): price 500.83 doesn't match cost×1.15×1.30=575.95
+  [WARN] Row 21: unusual Continue selling value 'DENY'
+  [WARN] Row 22 (DRIFTWD007): price 276.58 doesn't match cost×1.15×1.30=318.06
+  [WARN] Row 22: unusual Continue selling value 'DENY'
+  [WARN] Row 23 (DRIFTWD008): price 366.28 doesn't match cost×1.15×1.30=421.22
+  [WARN] Row 23: unusual Continue selling value 'DENY'
+  [WARN] Row 24 (DRIFTWD009): price 545.68 doesn't match cost×1.15×1.30=627.53
+  [WARN] Row 24: unusual Continue selling value 'DENY'
+  [WARN] Row 25 (DRIFTWD010): price 800.83 doesn't match cost×1.15×1.30=919.80
+  [WARN] Row 25: unusual Continue selling value 'DENY'
+  [WARN] Row 26 (DRIFTWD011): price 1113.78 doesn't match cost×1.15×1.30=1280.84
+  [WARN] Row 26: unusual Continue selling value 'DENY'
+  [WARN] Row 27 (SPIDERWD20): price 4182.43 doesn't match cost×1.15×1.30=4809.79
+  [WARN] Row 27: unusual Continue selling value 'DENY'
+  [WARN] Row 28 (SPIDERWDBRANCH): price 59.8 doesn't match cost×1.15×1.30=68.77
+  [WARN] Row 28: unusual Continue selling value 'DENY'
+  [WARN] Row 29 (CORKBARK): price 2018.25 doesn't match cost×1.15×1.30=2320.99
+  [WARN] Row 29: unusual Continue selling value 'DENY'
+  [WARN] Row 30 (CORKTUBE): price 5232.5 doesn't match cost×1.15×1.30=6017.38
+  [WARN] Row 30: unusual Continue selling value 'DENY'
+  [WARN] Row 31 (GLOWDARK50): price 37.38 doesn't match cost×1.15×1.30=42.98
+  [WARN] Row 31: unusual Continue selling value 'DENY'
+  [WARN] Row 32 (BG30DOUBLESIDE9019): price 242.19 doesn't match cost×1.15×1.30=278.52
+  [WARN] Row 32: unusual Continue selling value 'DENY'
+  [WARN] Row 33 (BG40DOUBLESIDE9019): price 322.92 doesn't match cost×1.15×1.30=371.36
+  [WARN] Row 33: unusual Continue selling value 'DENY'
+  [WARN] Row 34 (BG50DOUBLESIDE9019): price 358.8 doesn't match cost×1.15×1.30=412.62
+  [WARN] Row 34: unusual Continue selling value 'DENY'
+  [WARN] Row 35 (BG60DOUBLESIDE9019): price 412.62 doesn't match cost×1.15×1.30=474.51
+  [WARN] Row 35: unusual Continue selling value 'DENY'
+  [WARN] Row 36 (BG70DOUBLESIDE9019): price 511.29 doesn't match cost×1.15×1.30=587.98
+  [WARN] Row 36: unusual Continue selling value 'DENY'
+  [WARN] Row 37 (BG80DOUBLESIDE9019): price 627.9 doesn't match cost×1.15×1.30=722.08
+  [WARN] Row 37: unusual Continue selling value 'DENY'
+  [WARN] Row 38 (BG30DOUBLESIDE9037): price 242.19 doesn't match cost×1.15×1.30=278.52
+  [WARN] Row 38: unusual Continue selling value 'DENY'
+  [WARN] Row 39 (BG40DOUBLESIDE9037): price 322.92 doesn't match cost×1.15×1.30=371.36
+  [WARN] Row 39: unusual Continue selling value 'DENY'
+  [WARN] Row 40 (BG50DOUBLESIDE9037): price 358.8 doesn't match cost×1.15×1.30=412.62
+  [WARN] Row 40: unusual Continue selling value 'DENY'
+  [WARN] Row 41 (BG60DOUBLESIDE9037): price 412.62 doesn't match cost×1.15×1.30=474.51
+  [WARN] Row 41: unusual Continue selling value 'DENY'
+  [WARN] Row 42 (BG70DOUBLESIDE9037): price 511.29 doesn't match cost×1.15×1.30=587.98
+  [WARN] Row 42: unusual Continue selling value 'DENY'
+  [WARN] Row 43 (BG80DOUBLESIDE9037): price 627.9 doesn't match cost×1.15×1.30=722.08
+  [WARN] Row 43: unusual Continue selling value 'DENY'
+  [WARN] Row 44 (BG30DOUBLESIDE9086): price 242.19 doesn't match cost×1.15×1.30=278.52
+  [WARN] Row 44: unusual Continue selling value 'DENY'
+  [WARN] Row 45 (BG40DOUBLESIDE9086): price 322.92 doesn't match cost×1.15×1.30=371.36
+  [WARN] Row 45: unusual Continue selling value 'DENY'
+  [WARN] Row 46 (BG50DOUBLESIDE9086): price 358.8 doesn't match cost×1.15×1.30=412.62
+  [WARN] Row 46: unusual Continue selling value 'DENY'
+  [WARN] Row 47 (BG60DOUBLESIDE9086): price 412.62 doesn't match cost×1.15×1.30=474.51
+  [WARN] Row 47: unusual Continue selling value 'DENY'
+  [WARN] Row 48 (BG70DOUBLESIDE9086): price 511.29 doesn't match cost×1.15×1.30=587.98
+  [WARN] Row 48: unusual Continue selling value 'DENY'
+  [WARN] Row 49 (BG80DOUBLESIDE9086): price 627.9 doesn't match cost×1.15×1.30=722.08
+  [WARN] Row 49: unusual Continue selling value 'DENY'
+  [WARN] Row 50 (BG30DOUBLESIDE9094): price 242.19 doesn't match cost×1.15×1.30=278.52
+  [WARN] Row 50: unusual Continue selling value 'DENY'
+  [WARN] Row 51 (BG40DOUBLESIDE9094): price 322.92 doesn't match cost×1.15×1.30=371.36
+  [WARN] Row 51: unusual Continue selling value 'DENY'
+  [WARN] Row 52 (BG50DOUBLESIDE9094): price 358.8 doesn't match cost×1.15×1.30=412.62
+  [WARN] Row 52: unusual Continue selling value 'DENY'
+  [WARN] Row 53 (BG60DOUBLESIDE9094): price 412.62 doesn't match cost×1.15×1.30=474.51
+  [WARN] Row 53: unusual Continue selling value 'DENY'
+  [WARN] Row 54 (BG70DOUBLESIDE9094): price 511.29 doesn't match cost×1.15×1.30=587.98
+  [WARN] Row 54: unusual Continue selling value 'DENY'
+  [WARN] Row 55 (BG80DOUBLESIDE9094): price 627.9 doesn't match cost×1.15×1.30=722.08
+  [WARN] Row 55: unusual Continue selling value 'DENY'
+  [WARN] Row 56 (BG30DOUBLESIDE9003): price 242.19 doesn't match cost×1.15×1.30=278.52
+  [WARN] Row 56: unusual Continue selling value 'DENY'
+  [WARN] Row 57 (BG40DOUBLESIDE9003): price 322.92 doesn't match cost×1.15×1.30=371.36
+  [WARN] Row 57: unusual Continue selling value 'DENY'
+  [WARN] Row 58 (BG50DOUBLESIDE9003): price 358.8 doesn't match cost×1.15×1.30=412.62
+  [WARN] Row 58: unusual Continue selling value 'DENY'
+  [WARN] Row 59 (BG60DOUBLESIDE9003): price 412.62 doesn't match cost×1.15×1.30=474.51
+  [WARN] Row 59: unusual Continue selling value 'DENY'
+  [WARN] Row 60 (BG70DOUBLESIDE9003): price 511.29 doesn't match cost×1.15×1.30=587.98
+  [WARN] Row 60: unusual Continue selling value 'DENY'
+  [WARN] Row 61 (BG80DOUBLESIDE9003): price 627.9 doesn't match cost×1.15×1.30=722.08
+  [WARN] Row 61: unusual Continue selling value 'DENY'
+  [WARN] Row 62 (BG30DOUBLESIDE9015): price 242.19 doesn't match cost×1.15×1.30=278.52
+  [WARN] Row 62: unusual Continue selling value 'DENY'
+  [WARN] Row 63 (BG40DOUBLESIDE9015): price 322.92 doesn't match cost×1.15×1.30=371.36
+  [WARN] Row 63: unusual Continue selling value 'DENY'
+  [WARN] Row 64 (BG50DOUBLESIDE9015): price 358.8 doesn't match cost×1.15×1.30=412.62
+  [WARN] Row 64: unusual Continue selling value 'DENY'
+  [WARN] Row 65 (BG60DOUBLESIDE9015): price 412.62 doesn't match cost×1.15×1.30=474.51
+  [WARN] Row 65: unusual Continue selling value 'DENY'
+  [WARN] Row 66 (BG70DOUBLESIDE9015): price 511.29 doesn't match cost×1.15×1.30=587.98
+  [WARN] Row 66: unusual Continue selling value 'DENY'
+  [WARN] Row 67 (BG80DOUBLESIDE9015): price 627.9 doesn't match cost×1.15×1.30=722.08
+  [WARN] Row 67: unusual Continue selling value 'DENY'
+  [WARN] Row 68 (BG30DOUBLESIDE8009): price 242.19 doesn't match cost×1.15×1.30=278.52
+  [WARN] Row 68: unusual Continue selling value 'DENY'
+  [WARN] Row 69 (BG40DOUBLESIDE8009): price 322.92 doesn't match cost×1.15×1.30=371.36
+  [WARN] Row 69: unusual Continue selling value 'DENY'
+  [WARN] Row 70 (BG50DOUBLESIDE8009): price 358.8 doesn't match cost×1.15×1.30=412.62
+  [WARN] Row 70: unusual Continue selling value 'DENY'
+  [WARN] Row 71 (BG60DOUBLESIDE8009): price 412.62 doesn't match cost×1.15×1.30=474.51
+  [WARN] Row 71: unusual Continue selling value 'DENY'
+  [WARN] Row 72 (BG70DOUBLESIDE8009): price 511.29 doesn't match cost×1.15×1.30=587.98
+  [WARN] Row 72: unusual Continue selling value 'DENY'
+  [WARN] Row 73 (BG80DOUBLESIDE8009): price 627.9 doesn't match cost×1.15×1.30=722.08
+  [WARN] Row 73: unusual Continue selling value 'DENY'
+  [WARN] Row 74 (BG30DOUBLESIDE8019): price 242.19 doesn't match cost×1.15×1.30=278.52
+  [WARN] Row 74: unusual Continue selling value 'DENY'
+  [WARN] Row 75 (BG40DOUBLESIDE8019): price 322.92 doesn't match cost×1.15×1.30=371.36
+  [WARN] Row 75: unusual Continue selling value 'DENY'
+  [WARN] Row 76 (BG50DOUBLESIDE8019): price 358.8 doesn't match cost×1.15×1.30=412.62
+  [WARN] Row 76: unusual Continue selling value 'DENY'
+  [WARN] Row 77 (BG60DOUBLESIDE8019): price 412.62 doesn't match cost×1.15×1.30=474.51
+  [WARN] Row 77: unusual Continue selling value 'DENY'
+  [WARN] Row 78 (BG70DOUBLESIDE8019): price 511.29 doesn't match cost×1.15×1.30=587.98
+  [WARN] Row 78: unusual Continue selling value 'DENY'
+  [WARN] Row 79 (BG80DOUBLESIDE8019): price 627.9 doesn't match cost×1.15×1.30=722.08
+  [WARN] Row 79: unusual Continue selling value 'DENY'
+  Summary: 0 errors, 156 warnings
+
+==============================================================================
+FILE: AquaCube_06_DR_Tank_Fertilizers_SHOPIFY_COLLECTIONS.csv
+==============================================================================
+  [OK] All required columns present
+  Rows: 29
+  [WARN] Row 2 (DRTANKALL250): price 127.08 doesn't match cost×1.15×1.30=146.14
+  [WARN] Row 2: unusual Continue selling value 'DENY'
+  [WARN] Row 3 (DRTANKCOMP250): price 127.08 doesn't match cost×1.15×1.30=146.14
+  [WARN] Row 3: unusual Continue selling value 'DENY'
+  [WARN] Row 4 (DRTANKE1): price 127.08 doesn't match cost×1.15×1.30=146.14
+  [WARN] Row 4: unusual Continue selling value 'DENY'
+  [WARN] Row 5 (DRTANKALGAE): price 156.98 doesn't match cost×1.15×1.30=180.52
+  [WARN] Row 5: unusual Continue selling value 'DENY'
+  [WARN] Row 6 (DRTANKPLAN): price 127.08 doesn't match cost×1.15×1.30=146.14
+  [WARN] Row 6: unusual Continue selling value 'DENY'
+  [WARN] Row 7 (DRTANKSNAIL): price 127.08 doesn't match cost×1.15×1.30=146.14
+  [WARN] Row 7: unusual Continue selling value 'DENY'
+  [WARN] Row 8 (DRTANKBBA): price 112.13 doesn't match cost×1.15×1.30=128.94
+  [WARN] Row 8: unusual Continue selling value 'DENY'
+  [WARN] Row 9 (DRTANKSTAGHORN): price 112.13 doesn't match cost×1.15×1.30=128.94
+  [WARN] Row 9: unusual Continue selling value 'DENY'
+  [WARN] Row 10 (DRTANKCLADOPHORA): price 112.13 doesn't match cost×1.15×1.30=128.94
+  [WARN] Row 10: unusual Continue selling value 'DENY'
+  [WARN] Row 11 (DRTANKBGA): price 112.13 doesn't match cost×1.15×1.30=128.94
+  [WARN] Row 11: unusual Continue selling value 'DENY'
+  [WARN] Row 12 (DRTANKT1): price 52.33 doesn't match cost×1.15×1.30=60.17
+  [WARN] Row 12: unusual Continue selling value 'DENY'
+  [WARN] Row 13 (DRTANKT2): price 52.33 doesn't match cost×1.15×1.30=60.17
+  [WARN] Row 13: unusual Continue selling value 'DENY'
+  [WARN] Row 14 (DRTANKT3): price 89.7 doesn't match cost×1.15×1.30=103.16
+  [WARN] Row 14: unusual Continue selling value 'DENY'
+  [WARN] Row 15 (DRTANKT4): price 89.7 doesn't match cost×1.15×1.30=103.16
+  [WARN] Row 15: unusual Continue selling value 'DENY'
+  [WARN] Row 16 (DRTANKT5): price 74.75 doesn't match cost×1.15×1.30=85.96
+  [WARN] Row 16: unusual Continue selling value 'DENY'
+  [WARN] Row 17 (DRTANKT6): price 89.7 doesn't match cost×1.15×1.30=103.16
+  [WARN] Row 17: unusual Continue selling value 'DENY'
+  [WARN] Row 18 (DRTANKT7): price 89.7 doesn't match cost×1.15×1.30=103.16
+  [WARN] Row 18: unusual Continue selling value 'DENY'
+  [WARN] Row 19 (DRTANKT8): price 89.7 doesn't match cost×1.15×1.30=103.16
+  [WARN] Row 19: unusual Continue selling value 'DENY'
+  [WARN] Row 20 (DRTANKT9): price 89.7 doesn't match cost×1.15×1.30=103.16
+  [WARN] Row 20: unusual Continue selling value 'DENY'
+  [WARN] Row 21 (DRTANKT12): price 97.18 doesn't match cost×1.15×1.30=111.75
+  [WARN] Row 21: unusual Continue selling value 'DENY'
+  [WARN] Row 22 (DRTANKT13): price 97.18 doesn't match cost×1.15×1.30=111.75
+  [WARN] Row 22: unusual Continue selling value 'DENY'
+  [WARN] Row 23 (DRTANKEXG50): price 97.18 doesn't match cost×1.15×1.30=111.75
+  [WARN] Row 23: unusual Continue selling value 'DENY'
+  [WARN] Row 24 (DRTANKEXV50): price 97.18 doesn't match cost×1.15×1.30=111.75
+  [WARN] Row 24: unusual Continue selling value 'DENY'
+  [WARN] Row 25 (DRTANKBIO): price 97.18 doesn't match cost×1.15×1.30=111.75
+  [WARN] Row 25: unusual Continue selling value 'DENY'
+  [WARN] Row 26 (DRTANKSPROUT): price 97.18 doesn't match cost×1.15×1.30=111.75
+  [WARN] Row 26: unusual Continue selling value 'DENY'
+  [WARN] Row 27 (DRTANKVIVID): price 97.18 doesn't match cost×1.15×1.30=111.75
+  [WARN] Row 27: unusual Continue selling value 'DENY'
+  [WARN] Row 28 (DRTANKIRON): price 97.18 doesn't match cost×1.15×1.30=111.75
+  [WARN] Row 28: unusual Continue selling value 'DENY'
+  [WARN] Row 29 (DRTANKTRACK): price 97.18 doesn't match cost×1.15×1.30=111.75
+  [WARN] Row 29: unusual Continue selling value 'DENY'
+  [WARN] Row 30 (DRTANKN): price 74.75 doesn't match cost×1.15×1.30=85.96
+  [WARN] Row 30: unusual Continue selling value 'DENY'
+  Summary: 0 errors, 58 warnings
+
+==============================================================================
+FILE: AquaCube_07_Voonline_Crash_Accessories_SHOPIFY_COLLECTIONS.csv
+==============================================================================
+  [OK] All required columns present
+  Rows: 34
+  [WARN] Row 2 (VOONLINE071): price 37.38 doesn't match cost×1.15×1.30=42.98
+  [WARN] Row 2: unusual Continue selling value 'DENY'
+  [WARN] Row 3 (VOONLINE050): price 56.81 doesn't match cost×1.15×1.30=65.33
+  [WARN] Row 3: unusual Continue selling value 'DENY'
+  [WARN] Row 4 (VOONLINE051): price 56.81 doesn't match cost×1.15×1.30=65.33
+  [WARN] Row 4: unusual Continue selling value 'DENY'
+  [WARN] Row 5 (VOONLINE052): price 56.81 doesn't match cost×1.15×1.30=65.33
+  [WARN] Row 5: unusual Continue selling value 'DENY'
+  [WARN] Row 6 (VOONLINE053): price 56.81 doesn't match cost×1.15×1.30=65.33
+  [WARN] Row 6: unusual Continue selling value 'DENY'
+  [WARN] Row 7 (VOONLINE054): price 56.81 doesn't match cost×1.15×1.30=65.33
+  [WARN] Row 7: unusual Continue selling value 'DENY'
+  [WARN] Row 8 (VOONLINE120): price 62.79 doesn't match cost×1.15×1.30=72.21
+  [WARN] Row 8: unusual Continue selling value 'DENY'
+  [WARN] Row 9 (VOONLINE248): price 82.23 doesn't match cost×1.15×1.30=94.56
+  [WARN] Row 9: unusual Continue selling value 'DENY'
+  [WARN] Row 10 (VOONLINE197): price 89.7 doesn't match cost×1.15×1.30=103.16
+  [WARN] Row 10: unusual Continue selling value 'DENY'
+  [WARN] Row 11 (VOONLINE198): price 89.7 doesn't match cost×1.15×1.30=103.16
+  [WARN] Row 11: unusual Continue selling value 'DENY'
+  [WARN] Row 12 (VOONLINE082): price 29.9 doesn't match cost×1.15×1.30=34.38
+  [WARN] Row 12: unusual Continue selling value 'DENY'
+  [WARN] Row 13 (VOONLINE6IN1): price 171.93 doesn't match cost×1.15×1.30=197.71
+  [WARN] Row 13: unusual Continue selling value 'DENY'
+  [WARN] Row 14 (VOONLINE030): price 37.38 doesn't match cost×1.15×1.30=42.98
+  [WARN] Row 14: unusual Continue selling value 'DENY'
+  [WARN] Row 15 (VOONLINE101): price 112.13 doesn't match cost×1.15×1.30=128.94
+  [WARN] Row 15: unusual Continue selling value 'DENY'
+  [WARN] Row 16 (VOONLINE102): price 112.13 doesn't match cost×1.15×1.30=128.94
+  [WARN] Row 16: unusual Continue selling value 'DENY'
+  [WARN] Row 17 (VOONLINE104): price 142.03 doesn't match cost×1.15×1.30=163.33
+  [WARN] Row 17: unusual Continue selling value 'DENY'
+  [WARN] Row 18 (VOONLINE109): price 186.88 doesn't match cost×1.15×1.30=214.91
+  [WARN] Row 18: unusual Continue selling value 'DENY'
+  [WARN] Row 19 (VOONLINE112): price 231.73 doesn't match cost×1.15×1.30=266.48
+  [WARN] Row 19: unusual Continue selling value 'DENY'
+  [WARN] Row 20 (VOONLINE190): price 179.4 doesn't match cost×1.15×1.30=206.31
+  [WARN] Row 20: unusual Continue selling value 'DENY'
+  [WARN] Row 21 (VOONLINE191): price 246.68 doesn't match cost×1.15×1.30=283.68
+  [WARN] Row 21: unusual Continue selling value 'DENY'
+  [WARN] Row 22 (VOONLINE192): price 366.28 doesn't match cost×1.15×1.30=421.22
+  [WARN] Row 22: unusual Continue selling value 'DENY'
+  [WARN] Row 23 (VOONLINE256): price 216.78 doesn't match cost×1.15×1.30=249.29
+  [WARN] Row 23: unusual Continue selling value 'DENY'
+  [WARN] Row 24 (VOONLINE258): price 291.53 doesn't match cost×1.15×1.30=335.25
+  [WARN] Row 24: unusual Continue selling value 'DENY'
+  [WARN] Row 25 (VOONLINE188): price 246.68 doesn't match cost×1.15×1.30=283.68
+  [WARN] Row 25: unusual Continue selling value 'DENY'
+  [WARN] Row 26 (VOONLINE3IN1A): price 112.13 doesn't match cost×1.15×1.30=128.94
+  [WARN] Row 26: unusual Continue selling value 'DENY'
+  [WARN] Row 27 (VOONLINE3IN1B): price 127.08 doesn't match cost×1.15×1.30=146.14
+  [WARN] Row 27: unusual Continue selling value 'DENY'
+  [WARN] Row 28 (CRASHSEED001): price 59.8 doesn't match cost×1.15×1.30=68.77
+  [WARN] Row 28: unusual Continue selling value 'DENY'
+  [WARN] Row 29 (CRASHSEED002): price 59.8 doesn't match cost×1.15×1.30=68.77
+  [WARN] Row 29: unusual Continue selling value 'DENY'
+  [WARN] Row 30 (CRASHSEED003): price 59.8 doesn't match cost×1.15×1.30=68.77
+  [WARN] Row 30: unusual Continue selling value 'DENY'
+  [WARN] Row 31 (CRASHSEED004): price 59.8 doesn't match cost×1.15×1.30=68.77
+  [WARN] Row 31: unusual Continue selling value 'DENY'
+  [WARN] Row 32 (CRASHSEED005): price 59.8 doesn't match cost×1.15×1.30=68.77
+  [WARN] Row 32: unusual Continue selling value 'DENY'
+  [WARN] Row 33 (FROZEDBRINE): price 104.65 doesn't match cost×1.15×1.30=120.35
+  [WARN] Row 33: unusual Continue selling value 'DENY'
+  [WARN] Row 34 (FROZEKRILL): price 186.88 doesn't match cost×1.15×1.30=214.91
+  [WARN] Row 34: unusual Continue selling value 'DENY'
+  [WARN] Row 35 (ARTEMIA425G): price 1248.33 doesn't match cost×1.15×1.30=1435.57
+  [WARN] Row 35: unusual Continue selling value 'DENY'
+  Summary: 0 errors, 68 warnings
+
+==============================================================================
+FILE: AquaCube_08_Akwa_Products_SHOPIFY_COLLECTIONS.csv
+==============================================================================
+  [OK] All required columns present
+  Rows: 53
+  [WARN] Row 2 (LED0010): price 212.59 doesn't match cost×1.15×1.30=244.48
+  [WARN] Row 2: unusual Continue selling value 'DENY'
+  [WARN] Row 3 (LED0011): price 212.59 doesn't match cost×1.15×1.30=244.48
+  [WARN] Row 3: unusual Continue selling value 'DENY'
+  [WARN] Row 4 (LED0105): price 420.02 doesn't match cost×1.15×1.30=483.02
+  [WARN] Row 4: unusual Continue selling value 'DENY'
+  [WARN] Row 5 (LED1088R): price 532.96 doesn't match cost×1.15×1.30=612.91
+  [WARN] Row 5: unusual Continue selling value 'DENY'
+  [WARN] Row 6 (LED1089B): price 641.88 doesn't match cost×1.15×1.30=738.16
+  [WARN] Row 6: unusual Continue selling value 'DENY'
+  [WARN] Row 7 (LED1089M): price 641.88 doesn't match cost×1.15×1.30=738.16
+  [WARN] Row 7: unusual Continue selling value 'DENY'
+  [WARN] Row 8 (LED1089R): price 641.88 doesn't match cost×1.15×1.30=738.16
+  [WARN] Row 8: unusual Continue selling value 'DENY'
+  [WARN] Row 9 (LED1090M): price 812.9 doesn't match cost×1.15×1.30=934.84
+  [WARN] Row 9: unusual Continue selling value 'DENY'
+  [WARN] Row 10 (LED1090R): price 812.9 doesn't match cost×1.15×1.30=934.84
+  [WARN] Row 10: unusual Continue selling value 'DENY'
+  [WARN] Row 11 (FG0300): price 447.01 doesn't match cost×1.15×1.30=514.06
+  [WARN] Row 11: unusual Continue selling value 'DENY'
+  [WARN] Row 12 (FG0301): price 581.99 doesn't match cost×1.15×1.30=669.31
+  [WARN] Row 12: unusual Continue selling value 'DENY'
+  [WARN] Row 13: Price=0.0 (zero or negative)
+  [WARN] Row 13: Cost=0.0
+  [WARN] Row 13: unusual Continue selling value 'DENY'
+  [WARN] Row 14 (FG0303): price 867.62 doesn't match cost×1.15×1.30=997.76
+  [WARN] Row 14: unusual Continue selling value 'DENY'
+  [WARN] Row 15 (FG0304): price 1047.4 doesn't match cost×1.15×1.30=1204.51
+  [WARN] Row 15: unusual Continue selling value 'DENY'
+  [WARN] Row 16 (LED4200W): price 129.17 doesn't match cost×1.15×1.30=148.54
+  [WARN] Row 16: unusual Continue selling value 'DENY'
+  [WARN] Row 17 (LED4200BW): price 129.17 doesn't match cost×1.15×1.30=148.54
+  [WARN] Row 17: unusual Continue selling value 'DENY'
+  [WARN] Row 18 (LED4300W): price 141.35 doesn't match cost×1.15×1.30=162.55
+  [WARN] Row 18: unusual Continue selling value 'DENY'
+  [WARN] Row 19 (LED4300BW): price 141.35 doesn't match cost×1.15×1.30=162.55
+  [WARN] Row 19: unusual Continue selling value 'DENY'
+  [WARN] Row 20 (LED4400W): price 149.28 doesn't match cost×1.15×1.30=171.67
+  [WARN] Row 20: unusual Continue selling value 'DENY'
+  [WARN] Row 21 (LED4400BW): price 149.28 doesn't match cost×1.15×1.30=171.67
+  [WARN] Row 21: unusual Continue selling value 'DENY'
+  [WARN] Row 22 (LED4500W): price 164.07 doesn't match cost×1.15×1.30=188.68
+  [WARN] Row 22: unusual Continue selling value 'DENY'
+  [WARN] Row 23 (LED4500BW): price 164.07 doesn't match cost×1.15×1.30=188.68
+  [WARN] Row 23: unusual Continue selling value 'DENY'
+  [WARN] Row 24 (LED4600W): price 213.78 doesn't match cost×1.15×1.30=245.85
+  [WARN] Row 24: unusual Continue selling value 'DENY'
+  [WARN] Row 25 (LED4600BW): price 176.27 doesn't match cost×1.15×1.30=202.71
+  [WARN] Row 25: unusual Continue selling value 'DENY'
+  [WARN] Row 26 (LED4800W): price 207.73 doesn't match cost×1.15×1.30=238.89
+  [WARN] Row 26: unusual Continue selling value 'DENY'
+  [WARN] Row 27 (LED4800BW): price 239.12 doesn't match cost×1.15×1.30=274.99
+  [WARN] Row 27: unusual Continue selling value 'DENY'
+  [WARN] Row 28 (LED41000W): price 270.52 doesn't match cost×1.15×1.30=311.09
+  [WARN] Row 28: unusual Continue selling value 'DENY'
+  [WARN] Row 29 (LED41000BW): price 239.12 doesn't match cost×1.15×1.30=274.99
+  [WARN] Row 29: unusual Continue selling value 'DENY'
+  [WARN] Row 30 (HTR0202): price 222.83 doesn't match cost×1.15×1.30=256.26
+  [WARN] Row 30: unusual Continue selling value 'DENY'
+  [WARN] Row 31 (HTR0205): price 222.83 doesn't match cost×1.15×1.30=256.26
+  [WARN] Row 31: unusual Continue selling value 'DENY'
+  [WARN] Row 32 (HTR0210): price 232.77 doesn't match cost×1.15×1.30=267.68
+  [WARN] Row 32: unusual Continue selling value 'DENY'
+  [WARN] Row 33 (HTR0215): price 232.77 doesn't match cost×1.15×1.30=267.68
+  [WARN] Row 33: unusual Continue selling value 'DENY'
+  [WARN] Row 34 (HTR0220): price 253.18 doesn't match cost×1.15×1.30=291.15
+  [WARN] Row 34: unusual Continue selling value 'DENY'
+  [WARN] Row 35 (HTR0230): price 253.18 doesn't match cost×1.15×1.30=291.15
+  [WARN] Row 35: unusual Continue selling value 'DENY'
+  [WARN] Row 36 (HTR0250): price 319.18 doesn't match cost×1.15×1.30=367.05
+  [WARN] Row 36: unusual Continue selling value 'DENY'
+  [WARN] Row 37 (HTR0600): price 736.81 doesn't match cost×1.15×1.30=847.34
+  [WARN] Row 37: unusual Continue selling value 'DENY'
+  [WARN] Row 38 (HTR1000): price 736.81 doesn't match cost×1.15×1.30=847.34
+  [WARN] Row 38: unusual Continue selling value 'DENY'
+  [WARN] Row 39 (APS0505): price 1631.57 doesn't match cost×1.15×1.30=1876.30
+  [WARN] Row 39: unusual Continue selling value 'DENY'
+  [WARN] Row 40 (APS0510): price 1631.57 doesn't match cost×1.15×1.30=1876.30
+  [WARN] Row 40: unusual Continue selling value 'DENY'
+  [WARN] Row 41 (APS0203): price 614.59 doesn't match cost×1.15×1.30=706.78
+  [WARN] Row 41: unusual Continue selling value 'DENY'
+  [WARN] Row 42 (GRC0001): price 112.94 doesn't match cost×1.15×1.30=129.89
+  [WARN] Row 42: unusual Continue selling value 'DENY'
+  [WARN] Row 43 (GRC0002): price 133.35 doesn't match cost×1.15×1.30=153.36
+  [WARN] Row 43: unusual Continue selling value 'DENY'
+  [WARN] Row 44 (MAG0001): price 128.87 doesn't match cost×1.15×1.30=148.20
+  [WARN] Row 44: unusual Continue selling value 'DENY'
+  [WARN] Row 45 (MAG0002): price 195.1 doesn't match cost×1.15×1.30=224.35
+  [WARN] Row 45: unusual Continue selling value 'DENY'
+  [WARN] Row 46 (MAG0003): price 233.37 doesn't match cost×1.15×1.30=268.37
+  [WARN] Row 46: unusual Continue selling value 'DENY'
+  [WARN] Row 47 (SCR0001): price 70.12 doesn't match cost×1.15×1.30=80.64
+  [WARN] Row 47: unusual Continue selling value 'DENY'
+  [WARN] Row 48 (AFM0102): price 74.07 doesn't match cost×1.15×1.30=85.19
+  [WARN] Row 48: unusual Continue selling value 'DENY'
+  [WARN] Row 49 (AFM0103): price 134.33 doesn't match cost×1.15×1.30=154.48
+  [WARN] Row 49: unusual Continue selling value 'DENY'
+  [WARN] Row 50 (AFM0105): price 134.33 doesn't match cost×1.15×1.30=154.48
+  [WARN] Row 50: unusual Continue selling value 'DENY'
+  [WARN] Row 51 (AFM0106): price 130.74 doesn't match cost×1.15×1.30=150.35
+  [WARN] Row 51: unusual Continue selling value 'DENY'
+  [WARN] Row 52 (AFM0110): price 130.74 doesn't match cost×1.15×1.30=150.35
+  [WARN] Row 52: unusual Continue selling value 'DENY'
+  [WARN] Row 53 (AFM0111): price 127.82 doesn't match cost×1.15×1.30=146.99
+  [WARN] Row 53: unusual Continue selling value 'DENY'
+  [WARN] Row 54 (AQD8003): price 4729.88 doesn't match cost×1.15×1.30=5439.36
+  [WARN] Row 54: unusual Continue selling value 'DENY'
+  Summary: 0 errors, 107 warnings
+
+==============================================================================
+CROSS-FILE CHECKS
+==============================================================================
+  [OK] No cross-file SKU duplicates
+  [OK] No cross-file handle duplicates
+
+==============================================================================
+CATALOG SUMMARY
+==============================================================================
+  Total products: 389
+  Distinct collections referenced: 19
+      58  Lighting
+      55  Pumps & Filters
+      48  Backgrounds
+      38  Decorations
+      34  Hardscape
+      33  Filtration
+      29  Water Treatment
+      16  Maintenance
+      12  Accessories
+      11  Plants
+      10  Substrate
+       9  Tanks
+       9  Heaters
+       8  Aeration
+       6  CO2 & Dosing
+       6  Breeding
+       4  Food
+       2  Feeding
+       1  Water Testing
+  Distinct vendors: 13
+     135  Aquatic
+      53  Akwa
+      47  SYAquarium
+      37  Sobo
+      29  DRTank
+      28  Voonline
+      25  Chihiros
+      13  BubbleMagus
+      10  Zetlight
+       5  Jebao
+       5  Crash
+       1  Aquapro
+       1  Aquamaster
+  Status distribution:
+     389  Active
+
+==============================================================================
+TOTAL: 0 errors, 779 warnings across 8 files / 389 products
+==============================================================================

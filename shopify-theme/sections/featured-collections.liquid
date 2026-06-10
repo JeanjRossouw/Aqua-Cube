@@ -1,0 +1,151 @@
+<section class="ac-section" aria-labelledby="fc-heading-{{ section.id }}">
+  <div class="ac-page">
+    <div class="ac-section-head">
+      <div class="ac-section-head__left">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="ac-mono">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        <h2 id="fc-heading-{{ section.id }}">
+          {%- if section.settings.heading_line_1 != blank -%}
+            {{ section.settings.heading_line_1 }}
+          {%- endif -%}
+          {%- if section.settings.heading_line_1 != blank and section.settings.heading_line_2 != blank -%}
+            <br>
+          {%- endif -%}
+          {%- if section.settings.heading_line_2 != blank -%}
+            <em>{{ section.settings.heading_line_2 }}</em>
+          {%- endif -%}
+        </h2>
+      </div>
+      {%- if section.settings.description != blank -%}
+        <p class="ac-section-head__right">{{ section.settings.description }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="fc-grid">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'card' -%}
+            {%- liquid
+              case block.settings.link_type
+                when 'collection'
+                  assign card_url = block.settings.collection.url | default: block.settings.custom_url | default: '#'
+                else
+                  assign card_url = block.settings.custom_url | default: block.settings.collection.url | default: '#'
+              endcase
+
+              assign card_image = block.settings.image
+              if card_image == blank and block.settings.collection != blank and block.settings.collection.image != blank
+                assign card_image = block.settings.collection.image
+              endif
+
+              assign card_alt = block.settings.title | default: 'Collection'
+              if card_image != blank and card_image.alt != blank
+                assign card_alt = card_image.alt
+              endif
+
+              assign card_classes = 'fc-card'
+              if block.settings.flagship
+                assign card_classes = 'fc-card fc-card--flagship'
+              endif
+            -%}
+            <a href="{{ card_url }}" class="{{ card_classes }}" aria-label="{{ block.settings.title | escape }}" {{ block.shopify_attributes }}>
+              {%- if card_image != blank -%}
+                <img class="fc-card__img"
+                     src="{{ card_image | image_url: width: 800 }}"
+                     srcset="{{ card_image | image_url: width: 400 }} 400w, {{ card_image | image_url: width: 800 }} 800w, {{ card_image | image_url: width: 1200 }} 1200w"
+                     sizes="(max-width: 720px) 100vw, 50vw"
+                     alt="{{ card_alt | escape }}"
+                     loading="lazy">
+              {%- elsif block.settings.placeholder_url != blank -%}
+                <img class="fc-card__img"
+                     src="{{ block.settings.placeholder_url }}"
+                     alt="{{ card_alt | escape }}"
+                     loading="lazy">
+              {%- else -%}
+                <div class="fc-card__placeholder" aria-hidden="true"></div>
+              {%- endif -%}
+              <div class="fc-card__scrim" aria-hidden="true"></div>
+              <div class="fc-card__body">
+                <div class="fc-card__top">
+                  {%- if block.settings.tag != blank -%}
+                    <span class="fc-card__tag">{{ block.settings.tag }}</span>
+                  {%- else -%}
+                    <span></span>
+                  {%- endif -%}
+                  {%- if block.settings.count != blank -%}
+                    <span class="fc-card__count">{{ block.settings.count }}</span>
+                  {%- endif -%}
+                </div>
+                <div class="fc-card__bottom">
+                  <h3 class="fc-card__title">{{ block.settings.title }}</h3>
+                  {%- if block.settings.cta_label != blank -%}
+                    <span class="fc-card__go">{{ block.settings.cta_label }} →</span>
+                  {%- endif -%}
+                </div>
+              </div>
+            </a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Collections",
+  "settings": [
+    { "type": "text",     "id": "eyebrow",        "label": "Eyebrow",                           "default": "/ featured collections" },
+    { "type": "text",     "id": "heading_line_1", "label": "Heading — line 1",                  "default": "Every part of" },
+    { "type": "text",     "id": "heading_line_2", "label": "Heading — line 2 (italic accent)",  "default": "a healthier tank." },
+    { "type": "textarea", "id": "description",    "label": "Description (right column)",        "default": "Lighting, flow and CO₂ from the brands we actually trust — paired with the substrate, scape and livestock to finish the picture." }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Collection card",
+      "limit": 8,
+      "settings": [
+        { "type": "text",         "id": "tag",        "label": "Tag (top-left)",       "default": "FEATURED · LIGHTING" },
+        { "type": "text",         "id": "count",      "label": "Count (top-right)",    "default": "38 PRODUCTS" },
+        { "type": "text",         "id": "title",      "label": "Title",                "default": "Pumps & Flow" },
+        { "type": "text",         "id": "cta_label",  "label": "CTA label",            "default": "Browse",
+          "info": "The arrow → is appended automatically." },
+        { "type": "checkbox",     "id": "flagship",   "label": "Flagship treatment",
+          "info": "Adds a subtle aqua glow and stronger border.",
+          "default": false },
+        { "type": "image_picker", "id": "image",      "label": "Image (uploaded)",
+          "info": "Picked image wins over the placeholder URL below. Falls back to the linked collection's image, then to the placeholder URL, then to a gradient." },
+        { "type": "text",         "id": "placeholder_url", "label": "Placeholder image URL",
+          "info": "External URL used when no image is uploaded. Demo defaults are free Unsplash photos." },
+        {
+          "type": "select",
+          "id": "link_type",
+          "label": "Link type",
+          "default": "collection",
+          "options": [
+            { "value": "collection", "label": "Shopify collection (below)" },
+            { "value": "custom",     "label": "Custom URL (below)" }
+          ]
+        },
+        { "type": "collection",   "id": "collection", "label": "Collection" },
+        { "type": "url",          "id": "custom_url", "label": "Custom URL",
+          "info": "Used when 'Custom URL' link type is selected, or when no collection is picked." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Collections",
+      "category": "Aqua Cube",
+      "blocks": [
+        { "type": "card", "settings": { "tag": "FEATURED · TANKS",     "count": "TANKS",         "title": "Aquariums",     "cta_label": "Browse",                     "custom_url": "/collections/aquariums",   "link_type": "custom", "placeholder_url": "https://images.unsplash.com/photo-1779436853049-c19542e3c81c?w=1200&q=80" } },
+        { "type": "card", "settings": { "tag": "FLAGSHIP · BIOACTIVE", "count": "BIOACTIVE",     "title": "Paludariums",   "cta_label": "Browse", "flagship": true,   "custom_url": "/collections/paludariums", "link_type": "custom", "placeholder_url": "https://images.unsplash.com/photo-1578313097818-dfe8d38aa758?w=1200&q=80" } },
+        { "type": "card", "settings": { "tag": "LIVE · CLEANUP CREW",  "count": "ISOPODS",       "title": "Isopods",       "cta_label": "Browse",                     "custom_url": "/collections/isopods",     "link_type": "custom", "placeholder_url": "https://images.unsplash.com/photo-1730530355813-fdfb30480141?w=1200&q=80" } },
+        { "type": "card", "settings": { "tag": "LIVE · BOTANICAL",     "count": "BOTANICAL",     "title": "Moss & Plants", "cta_label": "Browse",                     "custom_url": "/collections/plants-moss",    "link_type": "custom", "placeholder_url": "https://images.unsplash.com/photo-1691387824643-227cc84127cf?w=1200&q=80" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

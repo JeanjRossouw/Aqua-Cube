@@ -1,0 +1,96 @@
+<section class="ac-section" aria-labelledby="wac-heading-{{ section.id }}">
+  <div class="ac-page">
+    <div class="wac-head">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="ac-mono">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      <h2 id="wac-heading-{{ section.id }}">
+        {%- if section.settings.heading_line_1 != blank -%}
+          {{ section.settings.heading_line_1 }}
+        {%- endif -%}
+        {%- if section.settings.heading_line_1 != blank and section.settings.heading_line_2_accent != blank -%}
+          <br>
+        {%- endif -%}
+        {%- if section.settings.heading_line_2_accent != blank -%}
+          <em>{{ section.settings.heading_line_2_accent }}</em>
+        {%- endif -%}
+      </h2>
+      {%- if section.settings.lede != blank -%}
+        <p class="wac-head__lede">{{ section.settings.lede }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="wac-grid">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'value' -%}
+            <div class="wac-card" {{ block.shopify_attributes }}>
+              <span class="wac-card__icon" aria-hidden="true">
+                {%- case block.settings.icon -%}
+                  {%- when 'truck'  -%}{% render 'icon-truck' %}
+                  {%- when 'shield' -%}{% render 'icon-shield' %}
+                  {%- when 'chat'   -%}{% render 'icon-chat' %}
+                  {%- when 'rand'   -%}{% render 'icon-rand' %}
+                  {%- else          -%}{% render 'icon-shield' %}
+                {%- endcase -%}
+              </span>
+              {%- if block.settings.title != blank -%}
+                <h3 class="wac-card__title">{{ block.settings.title }}</h3>
+              {%- endif -%}
+              {%- if block.settings.description != blank -%}
+                <p class="wac-card__desc">{{ block.settings.description }}</p>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Why Aqua Cube",
+  "settings": [
+    { "type": "text",     "id": "eyebrow",               "label": "Eyebrow",                          "default": "/ why aqua cube" },
+    { "type": "text",     "id": "heading_line_1",        "label": "Heading — line 1 (white)",         "default": "Aquarium gear" },
+    { "type": "text",     "id": "heading_line_2_accent", "label": "Heading — line 2 (italic aqua)",   "default": "you can actually trust." },
+    { "type": "textarea", "id": "lede",                  "label": "Lede paragraph (centered)",        "default": "South African aquarists deserve better than overpriced imports and out-of-stock listings. We hold real stock, ship fast, and back every product with local support." }
+  ],
+  "blocks": [
+    {
+      "type": "value",
+      "name": "Value prop",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "truck",
+          "options": [
+            { "value": "truck",  "label": "Truck (delivery)" },
+            { "value": "shield", "label": "Shield (warranty)" },
+            { "value": "chat",   "label": "Chat (support)" },
+            { "value": "rand",   "label": "Rand R (pricing)" }
+          ]
+        },
+        { "type": "text",     "id": "title",       "label": "Title",       "default": "Real stock, fast delivery" },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "Every product on the site is in our SA warehouse. Most orders ship same day. Nationwide courier." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Aqua Cube",
+      "category": "Aqua Cube",
+      "blocks": [
+        { "type": "value", "settings": { "icon": "truck",  "title": "Real stock, fast delivery", "description": "Every product on the site is in our SA warehouse. Most orders ship same day. Nationwide courier." } },
+        { "type": "value", "settings": { "icon": "shield", "title": "2-year warranty",           "description": "Every Aqua Cube branded product carries a full 2-year warranty. Local repairs, local replacements." } },
+        { "type": "value", "settings": { "icon": "chat",   "title": "Local support",             "description": "WhatsApp, email, phone — answered by aquarists in Cape Town, not a call centre." } },
+        { "type": "value", "settings": { "icon": "rand",   "title": "Fair SA pricing",           "description": "No inflated import margins. Direct supplier relationships keep prices honest." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,32 @@
+{%- comment -%}
+  Render a product card.
+  Accepts: product (required), show_vendor (optional)
+{%- endcomment -%}
+<a href="{{ product.url }}" class="product-card">
+  {%- if product.featured_image -%}
+    <img src="{{ product.featured_image | image_url: width: 600 }}"
+         srcset="{{ product.featured_image | image_url: width: 400 }} 400w,
+                 {{ product.featured_image | image_url: width: 600 }} 600w,
+                 {{ product.featured_image | image_url: width: 800 }} 800w"
+         sizes="(max-width: 600px) 50vw, 280px"
+         alt="{{ product.featured_image.alt | default: product.title | escape }}"
+         width="600" height="600" loading="lazy">
+  {%- else -%}
+    {{ 'product-1' | placeholder_svg_tag: 'product-card__placeholder' }}
+  {%- endif -%}
+  <div class="product-card-body">
+    {%- if show_vendor and product.vendor != blank -%}
+      <small class="product-card__vendor">{{ product.vendor }}</small>
+    {%- endif -%}
+    <h3>{{ product.title }}</h3>
+    <div class="price">
+      {%- if product.compare_at_price > product.price -%}
+        <span class="price__current">{{ product.price | money }}</span>
+        <s class="price__compare">{{ product.compare_at_price | money }}</s>
+      {%- else -%}
+        {{ product.price | money }}
+      {%- endif -%}
+    </div>
+    <span class="btn btn-primary">View</span>
+  </div>
+</a>

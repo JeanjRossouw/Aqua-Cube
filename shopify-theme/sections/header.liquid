@@ -1,0 +1,274 @@
+{%- assign cart_count = cart.item_count -%}
+
+{%- comment -%}
+  Render-helper macros for the three dropdowns. Filter blocks by the
+  per-block `parent` select to know which dropdown they belong to.
+{%- endcomment -%}
+
+<nav class="ac-nav" aria-label="Main navigation">
+  <div class="ac-page ac-nav__row">
+
+    {% render 'logo-stamp', href: routes.root_url, label: shop.name %}
+
+    <ul class="ac-nav__links" id="NavMenu" role="menubar">
+      {%- if section.settings.home_label != blank -%}
+        <li role="none">
+          <a href="{{ section.settings.home_url | default: routes.root_url }}"
+             class="ac-nav__link{% if request.page_type == 'index' %} is-active{% endif %}"
+             role="menuitem">
+            {{ section.settings.home_label }}
+          </a>
+        </li>
+      {%- endif -%}
+
+      {%- if section.settings.aquariums_label != blank -%}
+        <li role="none">
+          <a href="{{ section.settings.aquariums_url | default: '/collections/aquariums' }}" class="ac-nav__link" role="menuitem">
+            {{ section.settings.aquariums_label }}
+          </a>
+        </li>
+      {%- endif -%}
+
+      {%- if section.settings.paludariums_label != blank -%}
+        <li role="none">
+          <a href="{{ section.settings.paludariums_url | default: '/collections/paludariums' }}" class="ac-nav__link" role="menuitem">
+            {{ section.settings.paludariums_label }}
+          </a>
+        </li>
+      {%- endif -%}
+
+      {%- comment -%} ---- Cleanup Crew dropdown ---- {%- endcomment -%}
+      {%- assign cleanup_count = 0 -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'category' and block.settings.parent == 'cleanup' -%}
+          {%- assign cleanup_count = cleanup_count | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if cleanup_count > 0 -%}
+        <li class="ac-nav__drop" role="none">
+          <button class="ac-nav__trigger" type="button" aria-haspopup="true" aria-expanded="false" role="menuitem">
+            {{ section.settings.cleanup_label | default: 'Cleanup Crew' }}
+            {% render 'icon-caret-down' %}
+          </button>
+          <div class="ac-nav__menu ac-nav__menu--narrow" role="menu">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'category' and block.settings.parent == 'cleanup' -%}
+                {%- render 'header-dropdown-item', block: block -%}
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </li>
+      {%- endif -%}
+
+      {%- comment -%} ---- Plants & Moss dropdown ---- {%- endcomment -%}
+      {%- assign plants_count = 0 -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'category' and block.settings.parent == 'plants' -%}
+          {%- assign plants_count = plants_count | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if plants_count > 0 -%}
+        <li class="ac-nav__drop" role="none">
+          <button class="ac-nav__trigger" type="button" aria-haspopup="true" aria-expanded="false" role="menuitem">
+            {{ section.settings.plants_label | default: 'Plants & Moss' }}
+            {% render 'icon-caret-down' %}
+          </button>
+          <div class="ac-nav__menu ac-nav__menu--narrow" role="menu">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'category' and block.settings.parent == 'plants' -%}
+                {%- render 'header-dropdown-item', block: block -%}
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </li>
+      {%- endif -%}
+
+      {%- comment -%} ---- Equipment dropdown ---- {%- endcomment -%}
+      {%- assign equipment_count = 0 -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'category' and block.settings.parent == 'equipment' -%}
+          {%- assign equipment_count = equipment_count | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if equipment_count > 0 -%}
+        <li class="ac-nav__drop" role="none">
+          <button class="ac-nav__trigger" type="button" aria-haspopup="true" aria-expanded="false" role="menuitem">
+            {{ section.settings.equipment_label | default: 'Equipment' }}
+            {% render 'icon-caret-down' %}
+          </button>
+          <div class="ac-nav__menu" role="menu">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'category' and block.settings.parent == 'equipment' -%}
+                {%- render 'header-dropdown-item', block: block -%}
+              {%- endif -%}
+            {%- endfor -%}
+
+            {%- if section.settings.dropdown_footer_text != blank or section.settings.dropdown_cta_label != blank -%}
+              <div class="ac-nav__foot">
+                <span>{{ section.settings.dropdown_footer_text }}</span>
+                {%- if section.settings.dropdown_cta_label != blank -%}
+                  <a href="{{ section.settings.dropdown_cta_link | default: '/collections/equipment' }}">
+                    {{ section.settings.dropdown_cta_label }} →
+                  </a>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          </div>
+        </li>
+      {%- endif -%}
+
+      {%- if section.settings.fish_food_label != blank -%}
+        <li role="none">
+          <a href="{{ section.settings.fish_food_url | default: '/collections/fish-food' }}" class="ac-nav__link" role="menuitem">
+            {{ section.settings.fish_food_label }}
+          </a>
+        </li>
+      {%- endif -%}
+
+      {%- if section.settings.about_label != blank -%}
+        <li role="none">
+          <a href="{{ section.settings.about_url | default: '#' }}" class="ac-nav__link" role="menuitem">
+            {{ section.settings.about_label }}
+          </a>
+        </li>
+      {%- endif -%}
+    </ul>
+
+    <div class="ac-nav__icons">
+      {%- if section.settings.show_search -%}
+        <a href="{{ routes.search_url }}" aria-label="Search">
+          {% render 'icon-search' %}
+        </a>
+      {%- endif -%}
+      {%- if section.settings.show_account -%}
+        <a href="{{ routes.account_url }}" aria-label="Account">
+          {% render 'icon-account' %}
+        </a>
+      {%- endif -%}
+      <a href="{{ routes.cart_url }}" class="ac-nav__bag" aria-label="Cart ({{ cart_count }})">
+        {% render 'icon-cart' %}
+        {%- if cart_count > 0 -%}
+          <span class="ac-nav__bag-dot" id="cart-count">{{ cart_count }}</span>
+        {%- endif -%}
+      </a>
+    </div>
+
+    <button class="ac-nav__burger" id="Hamburger" type="button"
+            aria-label="Toggle menu" aria-controls="NavMenu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    { "type": "header", "content": "Nav links" },
+    { "type": "text", "id": "home_label",         "label": "Home label",                    "default": "Home" },
+    { "type": "url",  "id": "home_url",           "label": "Home URL" },
+    { "type": "text", "id": "aquariums_label",    "label": "Aquariums label (flat link)",   "default": "Aquariums" },
+    { "type": "url",  "id": "aquariums_url",      "label": "Aquariums URL" },
+    { "type": "text", "id": "paludariums_label",  "label": "Paludariums label (flat link)", "default": "Paludariums" },
+    { "type": "url",  "id": "paludariums_url",    "label": "Paludariums URL" },
+    { "type": "text", "id": "cleanup_label",      "label": "Cleanup Crew dropdown label",   "default": "Cleanup Crew" },
+    { "type": "text", "id": "plants_label",       "label": "Plants & Moss dropdown label",  "default": "Plants & Moss" },
+    { "type": "text", "id": "equipment_label",    "label": "Equipment dropdown label",      "default": "Equipment" },
+    { "type": "text", "id": "fish_food_label",    "label": "Fish Food label (flat link)",   "default": "Fish Food" },
+    { "type": "url",  "id": "fish_food_url",      "label": "Fish Food URL" },
+    { "type": "text", "id": "about_label",        "label": "About label (flat link)",       "default": "About" },
+    { "type": "url",  "id": "about_url",          "label": "About URL" },
+
+    { "type": "header", "content": "Equipment dropdown footer" },
+    { "type": "text", "id": "dropdown_footer_text", "label": "Footer text (left)",        "default": "FREE DELIVERY OVER R1,500" },
+    { "type": "text", "id": "dropdown_cta_label",   "label": "Footer CTA label (right)",  "default": "Shop all equipment" },
+    { "type": "url",  "id": "dropdown_cta_link",    "label": "Footer CTA URL" },
+
+    { "type": "header", "content": "Right-hand icons" },
+    { "type": "checkbox", "id": "show_search",  "label": "Show search icon",  "default": true },
+    { "type": "checkbox", "id": "show_account", "label": "Show account icon", "default": true }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Dropdown item",
+      "limit": 30,
+      "settings": [
+        {
+          "type": "select",
+          "id": "parent",
+          "label": "Belongs to dropdown",
+          "default": "equipment",
+          "options": [
+            { "value": "cleanup",   "label": "Cleanup Crew" },
+            { "value": "plants",    "label": "Plants & Moss" },
+            { "value": "equipment", "label": "Equipment" }
+          ]
+        },
+        { "type": "text", "id": "title",       "label": "Title",       "default": "Lighting & CO₂" },
+        { "type": "text", "id": "description", "label": "Description (optional)" },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "lighting",
+          "options": [
+            { "value": "lighting",   "label": "Lighting (sun)" },
+            { "value": "pumps",      "label": "Pumps (clock)" },
+            { "value": "aquariums",  "label": "Aquariums (tank)" },
+            { "value": "filtration", "label": "Filtration (cartridge)" },
+            { "value": "hardscape",  "label": "Hardscape (rock)" },
+            { "value": "livestock",  "label": "Livestock (fish)" },
+            { "value": "cleanup",    "label": "Cleanup Crew (bug)" },
+            { "value": "plant",      "label": "Plant (leaf)" }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "link_type",
+          "label": "Link to",
+          "default": "custom",
+          "options": [
+            { "value": "collection", "label": "Collection (below)" },
+            { "value": "custom",     "label": "Custom URL (below)" }
+          ]
+        },
+        { "type": "collection", "id": "collection", "label": "Collection" },
+        { "type": "url",        "id": "custom_url", "label": "Custom URL" },
+
+        { "type": "header", "content": "Thumbnail image (optional)" },
+        { "type": "image_picker", "id": "thumb_image", "label": "Thumbnail (uploaded)",
+          "info": "Replaces the icon with a small 40×40 product photo. Upload via Shopify Files. Falls back to the placeholder URL below, then to the icon above." },
+        { "type": "text",         "id": "thumb_placeholder_url", "label": "Thumbnail placeholder URL",
+          "info": "External URL fallback. Used when no image is uploaded." }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      { "type": "category", "settings": { "parent": "cleanup",   "title": "Isopods",                "icon": "cleanup",    "link_type": "custom", "custom_url": "/collections/isopods" } },
+      { "type": "category", "settings": { "parent": "cleanup",   "title": "Springtails",            "icon": "cleanup",    "link_type": "custom", "custom_url": "/collections/springtails" } },
+      { "type": "category", "settings": { "parent": "plants",    "title": "ADA Plants",             "icon": "plant",      "link_type": "custom", "custom_url": "/collections/plants-ada" } },
+      { "type": "category", "settings": { "parent": "plants",    "title": "Tropica Plants",         "icon": "plant",      "link_type": "custom", "custom_url": "/collections/plants-tropica" } },
+      { "type": "category", "settings": { "parent": "plants",    "title": "Dennerle Plants",        "icon": "plant",      "link_type": "custom", "custom_url": "/collections/plants-dennerle" } },
+      { "type": "category", "settings": { "parent": "plants",    "title": "Low-Tech Plants",        "icon": "plant",      "link_type": "custom", "custom_url": "/collections/plants-low-tech" } },
+      { "type": "category", "settings": { "parent": "plants",    "title": "High-Tech Plants",       "icon": "plant",      "link_type": "custom", "custom_url": "/collections/plants-high-tech" } },
+      { "type": "category", "settings": { "parent": "plants",    "title": "Moss",                   "icon": "plant",      "link_type": "custom", "custom_url": "/collections/moss" } },
+      { "type": "category", "settings": { "parent": "plants",    "title": "Paludarium Plants",      "icon": "plant",      "link_type": "custom", "custom_url": "/collections/paludarium-plants" } },
+      { "type": "category", "settings": { "parent": "equipment", "title": "Lighting",               "icon": "lighting",   "link_type": "custom", "custom_url": "/collections/lighting" } },
+      { "type": "category", "settings": { "parent": "equipment", "title": "CO₂",                    "icon": "lighting",   "link_type": "custom", "custom_url": "/collections/co2" } },
+      { "type": "category", "settings": { "parent": "equipment", "title": "Filtration",             "icon": "filtration", "link_type": "custom", "custom_url": "/collections/filtration" } },
+      { "type": "category", "settings": { "parent": "equipment", "title": "Pumps & Flow",           "icon": "pumps",      "link_type": "custom", "custom_url": "/collections/pumps-flow" } },
+      { "type": "category", "settings": { "parent": "equipment", "title": "Air Pumps & Air Stones", "icon": "pumps",      "link_type": "custom", "custom_url": "/collections/air-pumps-airstones" } },
+      { "type": "category", "settings": { "parent": "equipment", "title": "Heaters & Thermometers", "icon": "lighting",   "link_type": "custom", "custom_url": "/collections/heaters" } },
+      { "type": "category", "settings": { "parent": "equipment", "title": "Hardscape & Substrate",  "icon": "hardscape",  "link_type": "custom", "custom_url": "/collections/hardscape-substrate" } },
+      { "type": "category", "settings": { "parent": "equipment", "title": "Water Treatment",        "icon": "filtration", "link_type": "custom", "custom_url": "/collections/water-treatment" } },
+      { "type": "category", "settings": { "parent": "equipment", "title": "Test Kits & Instruments","icon": "filtration", "link_type": "custom", "custom_url": "/collections/test-kits" } },
+      { "type": "category", "settings": { "parent": "equipment", "title": "Plant Food",             "icon": "plant",      "link_type": "custom", "custom_url": "/collections/plant-food" } },
+      { "type": "category", "settings": { "parent": "equipment", "title": "Aquarium Accessories",   "icon": "hardscape",  "link_type": "custom", "custom_url": "/collections/accessories" } },
+      { "type": "category", "settings": { "parent": "equipment", "title": "Stands & Cabinets",      "icon": "hardscape",  "link_type": "custom", "custom_url": "/collections/stands-cabinets" } },
+      { "type": "category", "settings": { "parent": "equipment", "title": "Decor",                  "icon": "hardscape",  "link_type": "custom", "custom_url": "/collections/decor" } }
+    ]
+  }
+}
+{% endschema %}

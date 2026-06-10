@@ -1,0 +1,191 @@
+<section class="ac-section" aria-labelledby="pbt-heading-{{ section.id }}">
+  <div class="ac-page">
+    <div class="ac-section-head">
+      <div class="ac-section-head__left">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="ac-mono">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        <h2 id="pbt-heading-{{ section.id }}">
+          {%- if section.settings.heading_line_1 != blank -%}
+            {{ section.settings.heading_line_1 }}
+          {%- endif -%}
+          {%- if section.settings.heading_line_1 != blank and section.settings.heading_line_2_accent != blank -%}
+            <br>
+          {%- endif -%}
+          {%- if section.settings.heading_line_2_accent != blank -%}
+            <em>{{ section.settings.heading_line_2_accent }}</em>
+          {%- endif -%}
+        </h2>
+      </div>
+      {%- if section.settings.description != blank -%}
+        <p class="ac-section-head__right">{{ section.settings.description }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="pbt-grid">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'tank' -%}
+            {%- liquid
+              assign p = block.settings.product
+
+              if p != blank
+                assign card_title  = p.title
+                assign card_url    = p.url
+                assign card_image  = p.featured_image
+                assign card_price  = p.price | money
+                assign first_variant = p.first_available_variant
+                assign card_available = first_variant.available
+                assign card_variant_id = first_variant.id
+              else
+                assign card_title  = block.settings.manual_title
+                assign card_url    = block.settings.manual_url | default: '#'
+                assign card_image  = block.settings.manual_image
+                assign card_price  = block.settings.manual_price
+                assign card_available = false
+                assign card_variant_id = nil
+              endif
+
+              assign card_classes = 'pbt-card'
+              if block.settings.flagship
+                assign card_classes = 'pbt-card pbt-card--flagship'
+              endif
+            -%}
+            <article class="{{ card_classes }}" {{ block.shopify_attributes }}>
+              {%- if block.settings.flagship -%}
+                <div class="pbt-card__flagship-ribbon">{{ block.settings.flagship_label | default: 'FLAGSHIP' }}</div>
+              {%- endif -%}
+
+              <div class="pbt-card__imgwrap">
+                {%- if card_image != blank -%}
+                  <img class="pbt-card__img"
+                       src="{{ card_image | image_url: width: 800 }}"
+                       srcset="{{ card_image | image_url: width: 400 }} 400w, {{ card_image | image_url: width: 800 }} 800w, {{ card_image | image_url: width: 1200 }} 1200w"
+                       sizes="(max-width: 560px) 100vw, (max-width: 920px) 50vw, 33vw"
+                       alt="{{ card_image.alt | default: card_title | escape }}"
+                       loading="lazy">
+                {%- elsif block.settings.placeholder_url != blank -%}
+                  <img class="pbt-card__img"
+                       src="{{ block.settings.placeholder_url }}"
+                       alt="{{ card_title | escape }}"
+                       loading="lazy">
+                {%- else -%}
+                  <div class="pbt-card__placeholder" aria-hidden="true"></div>
+                {%- endif -%}
+
+                {%- if block.settings.type_tag != blank -%}
+                  <span class="pbt-card__tag">{{ block.settings.type_tag }}</span>
+                {%- endif -%}
+                {%- if block.settings.size != blank -%}
+                  <span class="pbt-card__size">{{ block.settings.size }}</span>
+                {%- endif -%}
+              </div>
+
+              <div class="pbt-card__body">
+                {%- if card_title != blank -%}
+                  <h3 class="pbt-card__title">{{ card_title }}</h3>
+                {%- endif -%}
+                {%- if block.settings.includes != blank -%}
+                  <p class="pbt-card__includes">{{ block.settings.includes }}</p>
+                {%- endif -%}
+                {%- if card_price != blank -%}
+                  <div class="pbt-card__price">{{ card_price }}</div>
+                {%- endif -%}
+              </div>
+
+              <div class="pbt-card__actions">
+                {%- if p != blank and card_available -%}
+                  <form action="{{ routes.cart_add_url }}" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="{{ card_variant_id }}">
+                    <button type="submit" class="ac-btn ac-btn--primary">Add to cart</button>
+                  </form>
+                {%- elsif p != blank -%}
+                  <button type="button" class="ac-btn ac-btn--primary" disabled>Sold out</button>
+                {%- else -%}
+                  <a class="ac-btn ac-btn--primary" href="{{ card_url }}">Add to cart</a>
+                {%- endif -%}
+                <a class="ac-btn ac-btn--ghost" href="{{ card_url }}">View details</a>
+              </div>
+            </article>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.cta_label != blank -%}
+      <div class="pbt-cta-row">
+        <a class="ac-btn ac-btn--ghost" href="{{ section.settings.cta_link | default: '#' }}">
+          {{ section.settings.cta_label }}
+          {% render 'icon-arrow-right' %}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Pre-Built Tanks",
+  "settings": [
+    { "type": "text",     "id": "eyebrow",               "label": "Eyebrow",                          "default": "/ pre-built tanks" },
+    { "type": "text",     "id": "heading_line_1",        "label": "Heading — line 1 (white)",         "default": "Ready to ship," },
+    { "type": "text",     "id": "heading_line_2_accent", "label": "Heading — line 2 (italic aqua)",   "default": "ready to thrive." },
+    { "type": "textarea", "id": "description",           "label": "Description (right column)",       "default": "Complete tank setups — aquariums and paludariums — packed, tested and ready to deliver. Pick the size, plug it in, add water." },
+
+    { "type": "header", "content": "Bottom CTA" },
+    { "type": "text", "id": "cta_label", "label": "CTA label",
+      "info": "Renders as a centered outlined button below the grid. Arrow → appended automatically.",
+      "default": "Browse all pre-built tanks" },
+    { "type": "url",  "id": "cta_link",  "label": "CTA URL" }
+  ],
+  "blocks": [
+    {
+      "type": "tank",
+      "name": "Pre-built tank",
+      "limit": 12,
+      "settings": [
+        { "type": "product", "id": "product", "label": "Shopify product",
+          "info": "If picked, title / image / price / URL pull from the product. Add to cart posts the first available variant. Manual fields below are used only when no product is picked." },
+
+        { "type": "header", "content": "Card overlays" },
+        { "type": "text",     "id": "type_tag", "label": "Type tag (top-left)", "default": "PLANTED TANK",
+          "info": "E.g. PALUDARIUM, PLANTED TANK, REEF READY, FRESHWATER." },
+        { "type": "text",     "id": "size",     "label": "Size (top-right)",    "default": "60L" },
+        { "type": "checkbox", "id": "flagship", "label": "Flagship treatment",
+          "info": "Adds a top ribbon + subtle aqua glow + stronger border.",
+          "default": false },
+        { "type": "text",     "id": "flagship_label", "label": "Flagship ribbon text", "default": "FLAGSHIP" },
+
+        { "type": "header", "content": "Card body" },
+        { "type": "text", "id": "includes", "label": "Included items (single line)",
+          "info": "Renders below the title. Free-form text — e.g. \"Glass cube + LED + filter + heater\".",
+          "default": "Tank + LED + filter + heater" },
+
+        { "type": "header", "content": "Manual fallback (used when no product is picked)" },
+        { "type": "text",         "id": "manual_title", "label": "Title" },
+        { "type": "text",         "id": "manual_price", "label": "Price (display string)",
+          "info": "Plain text e.g. \"From R 6,999\". Leave blank to hide the price line." },
+        { "type": "image_picker", "id": "manual_image", "label": "Image (uploaded)" },
+        { "type": "text",         "id": "placeholder_url", "label": "Placeholder image URL",
+          "info": "External URL used when no image is uploaded. Demo defaults are free Unsplash photos." },
+        { "type": "url",          "id": "manual_url",   "label": "Link URL",
+          "info": "Used by both Add to cart and View details when no product is picked." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Pre-Built Tanks",
+      "category": "Aqua Cube",
+      "blocks": [
+        { "type": "tank", "settings": { "type_tag": "PLANTED TANK", "size": "30L",  "manual_title": "Aqua Cube Nano 30",        "includes": "Glass cube + LED + filter + heater",              "manual_price": "From R 3,499",  "placeholder_url": "https://images.unsplash.com/photo-1730530355839-80f863edd421?w=1200&q=80" } },
+        { "type": "tank", "settings": { "type_tag": "PLANTED TANK", "size": "60L",  "manual_title": "Aqua Cube Planted 60",     "includes": "Rimless glass + LED + canister filter + CO₂ ready", "manual_price": "From R 6,999",  "placeholder_url": "https://images.unsplash.com/photo-1691387747539-f681c5fa73d9?w=1200&q=80" } },
+        { "type": "tank", "settings": { "type_tag": "PALUDARIUM",   "size": "80L",  "manual_title": "Aqua Cube Paludarium 80",  "includes": "Glass tank + waterfall pump + mist system + LED", "manual_price": "From R 8,499",  "flagship": true, "flagship_label": "FLAGSHIP", "placeholder_url": "https://images.unsplash.com/photo-1578313097818-dfe8d38aa758?w=1200&q=80" } },
+        { "type": "tank", "settings": { "type_tag": "FRESHWATER",   "size": "120L", "manual_title": "Aqua Cube Community 120",  "includes": "Tank + cabinet + filter + heater + LED",          "manual_price": "From R 9,999",  "placeholder_url": "https://images.unsplash.com/photo-1758854486633-95d4be711750?w=1200&q=80" } },
+        { "type": "tank", "settings": { "type_tag": "REEF READY",   "size": "200L", "manual_title": "Aqua Cube Reef 200",       "includes": "Tank + sump + return pump + skimmer ready",       "manual_price": "From R 18,999", "placeholder_url": "https://images.unsplash.com/photo-1583949184685-33fda190a216?w=1200&q=80" } },
+        { "type": "tank", "settings": { "type_tag": "PALUDARIUM",   "size": "150L", "manual_title": "Aqua Cube Paludarium 150", "includes": "Premium glass + integrated waterfall + RGB LED",  "manual_price": "From R 16,499", "placeholder_url": "https://images.unsplash.com/photo-1779436853049-c19542e3c81c?w=1200&q=80" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,10 @@
+{%- comment -%}
+  Dispatch a built-in category icon.
+  Accepts: icon (string: aquariums | filters | lighting | decorations | heaters | plants | substrate | maintenance)
+{%- endcomment -%}
+{%- case icon -%}
+  {%- when 'aquariums' -%}{%- render 'icon-aquariums' -%}
+  {%- when 'filters' -%}{%- render 'icon-filters' -%}
+  {%- when 'lighting' -%}{%- render 'icon-lighting' -%}
+  {%- when 'decorations' -%}{%- render 'icon-decorations' -%}
+{%- endcase -%}

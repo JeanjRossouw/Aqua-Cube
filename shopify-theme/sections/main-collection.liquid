@@ -1,0 +1,59 @@
+<section class="collection-page featured-products">
+  <div class="container">
+    {%- render 'breadcrumbs' -%}
+    <div class="section-header">
+      <h2>{{ collection.title }}</h2>
+      {%- if collection.description != blank -%}
+        <p>{{ collection.description }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="collection-toolbar">
+      <form id="SortForm" method="get">
+        <label for="SortBy">{{ 'products.facets.sort_by_label' | t }}:</label>
+        <select id="SortBy" name="sort_by" onchange="this.form.submit()">
+          {%- for option in collection.sort_options -%}
+            <option value="{{ option.value }}" {% if collection.sort_by == option.value %}selected{% endif %}>{{ option.name }}</option>
+          {%- endfor -%}
+        </select>
+      </form>
+    </div>
+
+    {%- paginate collection.products by 24 -%}
+      {%- if collection.products.size > 0 -%}
+        <div class="products-grid">
+          {%- for product in collection.products -%}
+            {%- render 'product-card', product: product, show_vendor: true -%}
+          {%- endfor -%}
+        </div>
+
+        {%- if paginate.pages > 1 -%}
+          <nav class="pagination" role="navigation" aria-label="Pagination">
+            {%- if paginate.previous -%}
+              <a href="{{ paginate.previous.url }}">&laquo; {{ 'general.pagination.previous' | t }}</a>
+            {%- endif -%}
+            {%- for part in paginate.parts -%}
+              {%- if part.is_link -%}
+                <a href="{{ part.url }}">{{ part.title }}</a>
+              {%- else -%}
+                <span aria-current="page">{{ part.title }}</span>
+              {%- endif -%}
+            {%- endfor -%}
+            {%- if paginate.next -%}
+              <a href="{{ paginate.next.url }}">{{ 'general.pagination.next' | t }} &raquo;</a>
+            {%- endif -%}
+          </nav>
+        {%- endif -%}
+      {%- else -%}
+        <p class="empty-state">No products in this collection yet.</p>
+      {%- endif -%}
+    {%- endpaginate -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection product grid",
+  "settings": []
+}
+{% endschema %}
