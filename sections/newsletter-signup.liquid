@@ -46,7 +46,7 @@
       <p class="ns-section__lede">{{ section.settings.lede }}</p>
     {%- endif -%}
 
-    {%- form 'customer', class: 'ns-form', id: 'NewsletterForm-' | append: section.id -%}
+    {%- form section.id -%}
       <input type="hidden" name="contact[tags]" value="{{ section.settings.customer_tag | default: 'newsletter' }}">
       <label for="NewsletterEmail-{{ section.id }}" class="visually-hidden">
         {{ section.settings.placeholder | default: 'Email' }}
@@ -113,3 +113,14 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{%- form 'customer', class: 'ns-form', id: 'NewsletterForm-' | append: section.id
+    -%}"
+  to: "{%- form section.id -%}"
+  position: 1963..1986
+{% endcomment %}
