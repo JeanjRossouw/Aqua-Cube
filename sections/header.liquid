@@ -11,141 +11,61 @@
     {% render 'logo-stamp', href: routes.root_url, label: shop.name %}
 
     <ul class="ac-nav__links" id="NavMenu" role="menubar">
-      {%- if section.settings.home_label != blank -%}
-        <li role="none">
-          <a href="{{ section.settings.home_url | default: routes.root_url }}"
-             class="ac-nav__link{% if request.page_type == 'index' %} is-active{% endif %}"
-             role="menuitem">
-            {{ section.settings.home_label }}
-          </a>
-        </li>
-      {%- endif -%}
-
-      {%- if section.settings.aquariums_label != blank -%}
-        <li role="none">
-          <a href="{{ section.settings.aquariums_url | default: '/collections/aquariums' }}" class="ac-nav__link" role="menuitem">
-            {{ section.settings.aquariums_label }}
-          </a>
-        </li>
-      {%- endif -%}
-
-      {%- if section.settings.paludariums_label != blank -%}
-        <li role="none">
-          <a href="{{ section.settings.paludariums_url | default: '/collections/paludariums' }}" class="ac-nav__link" role="menuitem">
-            {{ section.settings.paludariums_label }}
-          </a>
-        </li>
-      {%- endif -%}
-
-      {%- if section.settings.marine_label != blank -%}
-        <li role="none">
-          <a href="{{ section.settings.marine_url | default: '/collections/marine' }}" class="ac-nav__link" role="menuitem">
-            {{ section.settings.marine_label }}
-          </a>
-        </li>
-      {%- endif -%}
-
-      {%- comment -%} ---- Cleanup Crew dropdown ---- {%- endcomment -%}
-      {%- assign cleanup_count = 0 -%}
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'category' and block.settings.parent == 'cleanup' -%}
-          {%- assign cleanup_count = cleanup_count | plus: 1 -%}
-        {%- endif -%}
-      {%- endfor -%}
-      {%- if cleanup_count > 0 -%}
-        <li class="ac-nav__drop" role="none">
-          <button class="ac-nav__trigger" type="button" aria-haspopup="true" aria-expanded="false" role="menuitem">
-            {{ section.settings.cleanup_label | default: 'Cleanup Crew' }}
-            {% render 'icon-caret-down' %}
-          </button>
-          <div class="ac-nav__menu ac-nav__menu--narrow" role="menu">
-            {%- for block in section.blocks -%}
-              {%- if block.type == 'category' and block.settings.parent == 'cleanup' -%}
-                {%- render 'header-dropdown-item', block: block -%}
-              {%- endif -%}
-            {%- endfor -%}
-          </div>
-        </li>
-      {%- endif -%}
-
-      {%- comment -%} ---- Plants & Moss dropdown ---- {%- endcomment -%}
-      {%- assign plants_count = 0 -%}
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'category' and block.settings.parent == 'plants' -%}
-          {%- assign plants_count = plants_count | plus: 1 -%}
-        {%- endif -%}
-      {%- endfor -%}
-      {%- if plants_count > 0 -%}
-        <li class="ac-nav__drop" role="none">
-          <button class="ac-nav__trigger" type="button" aria-haspopup="true" aria-expanded="false" role="menuitem">
-            {{ section.settings.plants_label | default: 'Plants & Moss' }}
-            {% render 'icon-caret-down' %}
-          </button>
-          <div class="ac-nav__menu ac-nav__menu--narrow" role="menu">
-            {%- for block in section.blocks -%}
-              {%- if block.type == 'category' and block.settings.parent == 'plants' -%}
-                {%- render 'header-dropdown-item', block: block -%}
-              {%- endif -%}
-            {%- endfor -%}
-          </div>
-        </li>
-      {%- endif -%}
-
-      {%- comment -%} ---- Equipment dropdown ---- {%- endcomment -%}
-      {%- assign equipment_count = 0 -%}
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'category' and block.settings.parent == 'equipment' -%}
-          {%- assign equipment_count = equipment_count | plus: 1 -%}
-        {%- endif -%}
-      {%- endfor -%}
-      {%- if equipment_count > 0 -%}
-        <li class="ac-nav__drop" role="none">
-          <button class="ac-nav__trigger" type="button" aria-haspopup="true" aria-expanded="false" role="menuitem">
-            {{ section.settings.equipment_label | default: 'Equipment' }}
-            {% render 'icon-caret-down' %}
-          </button>
-          <div class="ac-nav__menu" role="menu">
-            {%- for block in section.blocks -%}
-              {%- if block.type == 'category' and block.settings.parent == 'equipment' -%}
-                {%- render 'header-dropdown-item', block: block -%}
-              {%- endif -%}
-            {%- endfor -%}
-
-            {%- if section.settings.dropdown_footer_text != blank or section.settings.dropdown_cta_label != blank -%}
-              <div class="ac-nav__foot">
-                <span>{{ section.settings.dropdown_footer_text }}</span>
-                {%- if section.settings.dropdown_cta_label != blank -%}
-                  <a href="{{ section.settings.dropdown_cta_link | default: '/collections/equipment' }}">
-                    {{ section.settings.dropdown_cta_label }} →
-                  </a>
-                {%- endif -%}
+      {%- comment -%} Linklist-driven megamenu. Categories come from the `main-menu`
+        linklist; brands from the `brands` linklist. No 30-block cap; survives GitHub sync. {%- endcomment -%}
+      {%- for link in linklists['main-menu'].links -%}
+        {%- if link.links.size > 0 -%}
+          {%- assign is_mega = false -%}
+          {%- for child in link.links -%}
+            {%- if child.links.size > 0 -%}{%- assign is_mega = true -%}{%- endif -%}
+          {%- endfor -%}
+          <li class="ac-nav__drop" role="none">
+            <button class="ac-nav__trigger" type="button" aria-haspopup="true" aria-expanded="false" role="menuitem">
+              {{ link.title }}
+              {% render 'icon-caret-down' %}
+            </button>
+            {%- if is_mega -%}
+              <div class="ac-nav__menu ac-nav__menu--mega" role="menu">
+                {%- for child in link.links -%}
+                  <div class="ac-nav__col">
+                    {%- if child.links.size > 0 -%}
+                      <a class="ac-nav__col-title" href="{{ child.url }}" role="menuitem">{{ child.title }}</a>
+                      {%- for gc in child.links -%}
+                        <a class="ac-nav__item" href="{{ gc.url }}" role="menuitem"><span class="ac-nav__item-title">{{ gc.title }}</span></a>
+                      {%- endfor -%}
+                    {%- else -%}
+                      <a class="ac-nav__item ac-nav__item--lone" href="{{ child.url }}" role="menuitem"><span class="ac-nav__item-title">{{ child.title }}</span></a>
+                    {%- endif -%}
+                  </div>
+                {%- endfor -%}
+              </div>
+            {%- else -%}
+              <div class="ac-nav__menu ac-nav__menu--narrow" role="menu">
+                {%- for child in link.links -%}
+                  <a class="ac-nav__item" href="{{ child.url }}" role="menuitem"><span class="ac-nav__item-title">{{ child.title }}</span></a>
+                {%- endfor -%}
               </div>
             {%- endif -%}
+          </li>
+        {%- else -%}
+          <li role="none">
+            <a href="{{ link.url }}" class="ac-nav__link{% if link.current %} is-active{% endif %}" role="menuitem">{{ link.title }}</a>
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+
+      {%- comment -%} Shop by Brand — from the `brands` linklist {%- endcomment -%}
+      {%- if linklists['brands'].links.size > 0 -%}
+        <li class="ac-nav__drop ac-nav__drop--brands" role="none">
+          <button class="ac-nav__trigger" type="button" aria-haspopup="true" aria-expanded="false" role="menuitem">
+            Shop by Brand
+            {% render 'icon-caret-down' %}
+          </button>
+          <div class="ac-nav__menu ac-nav__menu--brands" role="menu">
+            {%- for brand in linklists['brands'].links -%}
+              <a class="ac-nav__item" href="{{ brand.url }}" role="menuitem"><span class="ac-nav__item-title">{{ brand.title }}</span></a>
+            {%- endfor -%}
           </div>
-        </li>
-      {%- endif -%}
-
-      {%- if section.settings.fish_food_label != blank -%}
-        <li role="none">
-          <a href="{{ section.settings.fish_food_url | default: '/collections/fish-food' }}" class="ac-nav__link" role="menuitem">
-            {{ section.settings.fish_food_label }}
-          </a>
-        </li>
-      {%- endif -%}
-
-      {%- if section.settings.dymax_label != blank -%}
-        <li role="none">
-          <a href="{{ section.settings.dymax_url | default: '/collections/dymax' }}" class="ac-nav__link" role="menuitem">
-            {{ section.settings.dymax_label }}
-          </a>
-        </li>
-      {%- endif -%}
-
-      {%- if section.settings.about_label != blank -%}
-        <li role="none">
-          <a href="{{ section.settings.about_url | default: '#' }}" class="ac-nav__link" role="menuitem">
-            {{ section.settings.about_label }}
-          </a>
         </li>
       {%- endif -%}
     </ul>
